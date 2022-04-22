@@ -23,7 +23,7 @@ The requirements are as follows:
 The virtual machines used in this lab provide the following services:
 
 - **INET1** (131.107.0.100). DNS server providing name resolution for Internet-based DNS names and Adatum.com.
-- **EU-RTR (**131.107.0.10, 172.16.0.1, 172.16.18.1) Router for Internet, NA_WAN, and PAC_WAN virtual switches.
+- **EU-RTR** (131.107.0.10, 172.16.0.1, 172.16.18.1) Router for Internet, NA_WAN, and PAC_WAN virtual switches.
 - **LON-DC1** (172.16.0.10). Domain controller and DNS server hosting the Contoso.com namespace.
 - **LON-SVR1** (172.16.0.11). DNS server hosting the Treyresearch.net namespace.
 - **SYD-SVR1** (172.16.19.20). The server that you will configure with DNS to provide name resolution for client computers in Sydney.
