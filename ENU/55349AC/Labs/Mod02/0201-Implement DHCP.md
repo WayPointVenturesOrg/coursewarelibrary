@@ -2,17 +2,17 @@
 
 ## Lab scenario
 
-Contoso, Ltd. is planning to open three new North American branch offices. The following table describes the planned computer distribution in the new branch offices.
+Contoso Corportion is planning to open three new North American branch offices. The following table describes the planned computer distribution in the new branch office:
 
 **Planned computer distribution**
 
 | **Location** | **Computer  and device requirements**                        |
 | ------------ | ------------------------------------------------------------ |
-| Houston      | 300 desktop computers; 100 laptops connecting to both the wireless and wired networks; 50 mobile devices connecting only to the wireless network |
-| Mexico City  | 100 desktop computers; 50 laptops connecting to both the wireless and wired networks; 20 mobile devices connecting only to the wireless network |
-| Portland     | 100 desktop computers; 75 laptops connecting to both the wireless and wired networks; 150 mobile devices connecting only to the wireless network |
+| Houston      | 300 desktop computers and 100 laptops connecting to both the wireless and wired networks; 50 mobile devices connecting only to the wireless network. |
+| Mexico City  | 100 desktop computers and 50 laptops connecting to both the wireless and wired networks; 20 mobile devices connecting only to the wireless network. |
+| Portland     | 100 desktop computers and 75 laptops connecting to both the wireless and wired networks; 150 mobile devices connecting only to the wireless network. |
 
-Contoso, Ltd. is using Microsoft Office 365 for all email and file access, with some shared folders located in the Toronto regional office. All new offices have fast and highly available network connections to the Toronto office, so Contoso won’t deploy any servers in branch offices. The Contoso network team has assigned the subnets 172.16.18.0/18 to the Toronto main office, which is using the network assignments that the following table lists.
+Contoso is using Microsoft Office 365 for all email and file access, with some shared folders in the Toronto regional office. All new offices have fast and highly available network connections to the Toronto office, so Contoso won’t deploy any servers in branch offices. The Contoso network team has assigned the subnets 172.16.18.0/18 to the Toronto main office, which is using the network assignments that the following table lists:
 
 **Toronto office network assignments**
 
@@ -23,13 +23,13 @@ Contoso, Ltd. is using Microsoft Office 365 for all email and file access, with 
 | 172.16.20.0/24 to 172.16.52.0/24 | Desktop computers                    |
 | 172.16.53.0/24 to 172.16.60.0/24 | Wireless devices                     |
 
-Using this information, you must plan and implement DHCP to support your design.
+Using this information, you must plan and implement Dynamic Host Configuration Protocol (DHCP) to support your design.
 
 ## Exercise 1: Plan a DHCP server implementation
 
 ### Scenario
 
-You must implement a network server infrastructure that enables the assignment of IP addresses to the Houston, Mexico City, and Portland offices. You’ll use TOR-SVR1 as the primary DHCP server. 
+You must implement a network-server infrastructure that enables assignment of IP addresses to the Houston, Mexico City, and Portland offices. You’ll use TOR-SVR1 as the primary DHCP server. 
 
 Your solution must meet the following requirements: 
 
@@ -51,7 +51,7 @@ Answer the following questions. Your answers will help you develop a plan for im
    >
    > Houston: Has 400 potential wired connections and 150 potential wireless connections. Houston will need two /24 subnets supernetted for the wired connections and one /24 subnet for the wireless connections. 
    >
-   > Houston will use 172.16.30.0/24 and 172.16.31.0/24 supernetted for wired connections, and 172.16.55.0/24 for wireless connections. 
+   > Houston will use 172.16.30.0/24 and 172.16.31.0/24 supernetted for wired connections and 172.16.55.0/24 for wireless connections. 
    >
    > Mexico City: Has 150 potential wired connections and 70 potential wireless connections. Mexico City will use 172.16.35.0/24 for wired connections and 172.16.56.0/24 for wireless connections. 
    >
@@ -60,21 +60,21 @@ Answer the following questions. Your answers will help you develop a plan for im
    > Wireless scopes will have a short duration of one day, and wired scopes will have a duration of eight days.
    >
 
-2. Where will the DNS service come from?
+2. Where will the Domain Name System (DNS) service come from?
 
    > **Answer:** LON-DC1 will be the DNS server for all scopes.
 
-3. How will you get DHCP messages from TOR-SVR1 to the clients in the Houston, Mexico City, and Portland locations?
+3. How will you get DHCP messages from TOR-SVR1 to clients in the Houston, Mexico City, and Portland locations?
 
    > **Answer:** You’ll configure DHCP relay agents in the branches.
 
 4. What configuration changes do you need to make to NA-RTR to enable the IP addressing scheme through the DHCP relay?
 
-   > **Answer:** You’ll need to assign IP addresses to the interfaces from their respective branch subnets and configure them as DHCP relay agents.
+   > **Answer:** You’ll need to assign IP addresses to the interfaces from their respective branch subnets, and then configure them as DHCP relay agents.
 
 5. How will you assign different IP ranges to the clients in each location? How will you assign different IP addresses for wired and wireless clients?
 
-   > **Answer:** You’ll create multiple scopes on the DHCP server, and you’ll need a separate scope for each wired and wireless network. To distinguish between wired and wireless requests, you’ll configure the router as a DHCP relay agent for the wired connections and then configure the wireless access points as relay agents for wireless requests. 
+   > **Answer:** You’ll create multiple scopes on the DHCP server, and you’ll need a separate scope for each wired and wireless network. To distinguish between wired and wireless requests, you’ll configure the router as a DHCP relay agent for the wired connections, and then configure the wireless access points as relay agents for wireless requests. 
 
 6. Which IP addresses will you assign to the network interfaces on NA-RTR that are connected to the Houston, Mexico City, and Portland networks?
 
@@ -84,7 +84,7 @@ Answer the following questions. Your answers will help you develop a plan for im
 
    > **Answer:** You’ll configure a failover relationship with LON-SVR1 as a hot standby DHCP server.
 
-**Results:** After answering all questions in this exercise, you have planned a DHCP implementation.
+**Results:** After answering all questions in this exercise, you will have planned a DHCP implementation.
 
 ## Exercise 2: Implement the DHCP configuration
 
@@ -98,7 +98,7 @@ Answer the following questions. Your answers will help you develop a plan for im
 
 3. In the **Administrator: Windows PowerShell** window, enter **`Get-Command *dhcp*`**, and then select Enter.
 
-   > **Note:** The Cmdlet does not return any output, which confirms that the DhcpServer PowerShell module is not installed.
+   > **Note:** The Cmdlet doesn't return any output, which confirms that the DhcpServer PowerShell module isn't installed.
 
 4. Select **Start**, and then select the **Server Manager**.
 
@@ -128,13 +128,13 @@ Answer the following questions. Your answers will help you develop a plan for im
 
 15. Wait until the installation finishes, and then select **Close**.
 
-16. In **Server Manager**, select **Tools**, and in the drop-down list verify that **DHCP** is now listed. 
+16. In **Server Manager**, select **Tools**, and then in the drop-down list, verify that **DHCP** is now listed. 
 
     > **Note:** DHCP is the management tool that was installed when you installed the DHCP server role.
 
 17. In the **Administrator: Windows PowerShell** window, enter **`Get-Command *dhcp*`** (or select the up arrow), and then select Enter.
 
-    > **Note:** The Cmdlet now returns many commands that include dhcp in their names, because the DhcpServer PowerShell module was installed when you installed the DHCP server role.
+    > **Note:** The cmdlet now returns many commands that include dhcp in their names, because the DhcpServer PowerShell module was installed when you installed the DHCP server role.
 
 #### Perform post-installation configuration for the DHCP server
 
@@ -214,7 +214,7 @@ Answer the following questions. Your answers will help you develop a plan for im
 
 #### Create a superscope for Houston wired scopes
 
-1. On **TOR-SVR1**, in **DHCP** console, in the navigation pane, right-click the **IPv4** node to open the context menu, and then select **New Superscope**. 
+1. On **TOR-SVR1**, in the **DHCP** console, in the navigation pane, right-click the **IPv4** node to open the context menu, and then select **New Superscope**. 
 
 2. In the **New Superscope Wizard**, select **Next**.
 
@@ -233,7 +233,7 @@ Answer the following questions. Your answers will help you develop a plan for im
 
 3. On the **Scope Name** page, in the **Name** text box, enter **MexicoCity-wired**, and then select **Next**. 
 
-4. On the **IP Address Range** page, in the **Start IP address** text box, enter **172.16.35.2**, in the **End IP address** text box, enter **172.16.35.254**, update the value in the **Subnet mask** text box to **255.255.255.0**, and then select **Next**
+4. On the **IP Address Range** page, in the **Start IP address** text box, enter **172.16.35.2**, and in the **End IP address** text box, enter **172.16.35.254**. Update the value in the **Subnet mask** text box to **255.255.255.0**, and then select **Next**
 
 5. On the **Add Exclusions and Delay** page, select **Next**. 
 
@@ -264,13 +264,13 @@ Answer the following questions. Your answers will help you develop a plan for im
 
 #### Create scopes for Portland
 
-1. On **TOR-SVR1**, in **DHCP** console, in the navigation pane, right-click the **IPv4** node to open the context menu, and then select **New Scope**.
+1. On **TOR-SVR1**, in the **DHCP** console, in the navigation pane, right-click the **IPv4** node to open the context menu, and then select **New Scope**.
 
 2. In the **New Scope Wizard**, select **Next**.
 
 3. On the **Scope Name** page, in the **Name** text box, enter **Portland-wired**, and then select **Next**. 
 
-4. On the **IP Address Range** page, in the **Start IP address** text box, enter **172.16.40.2**, in the **End IP address** text box, enter **172.16.40.254**, update the value in the **Subnet mask** text box to **255.255.255.0**, and then select **Next**.
+4. On the **IP Address Range** page, in the **Start IP address** text box, enter **172.16.40.2**, and in the **End IP address** text box, enter **172.16.40.254**. Update the value in the **Subnet mask** text box to **255.255.255.0**, and then select **Next**.
 
 5. On the **Add Exclusions and Delay** page, select **Next**. 
 
@@ -318,7 +318,7 @@ Answer the following questions. Your answers will help you develop a plan for im
 
 7. In the **Internet Protocol Version 4 (TCP/IPv4) Properties** dialog box, select the **Use the following IP address** radio button. 
 
-8. In the **IP address** text box, type **172.16.30.1**, in the **Subnet mask** text box, enter **255.255.255.0**, select **OK**, and then select **Close**. 
+8. In the **IP address** text box, enter **172.16.30.1**, and in the **Subnet mask** text box, enter **255.255.255.0**. Select **OK**, and then select **Close**. 
 
 9. In the **Network Connections** window, right-click the **MEX_WAN** connection to open the context menu, and then select **Properties**. 
 
@@ -326,7 +326,7 @@ Answer the following questions. Your answers will help you develop a plan for im
 
 11. In the **Internet Protocol Version 4 (TCP/IPv4) Properties** dialog box, select the **Use the following IP address** radio button.
 
-12. In the **IP address** text box, type **172.16.35.1**, in the **Subnet mask** text box, enter **255.255.255.0**, select **OK**, and then select **Close**. 
+12. In the **IP address** text box, enter **172.16.35.1**, and in the **Subnet mask** text box, enter **255.255.255.0**. Select **OK**, and then select **Close**. 
 
 13. In the **Network Connections** window, right-click the **POR_WAN** connection to open the context menu, and then select **Properties**. 
 
@@ -334,7 +334,7 @@ Answer the following questions. Your answers will help you develop a plan for im
 
 15. In the **Internet Protocol Version 4 (TCP/IPv4) Properties** dialog box, select the **Use the following IP address** radio button.
 
-16. In the **IP address** text box, type **172.16.40.1**, in the **Subnet mask** text box, type **255.255.255.0**, select **OK**, and then select **Close**. 
+16. In the **IP address** text box, enter **172.16.40.1**, and in the **Subnet mask** text box, enter **255.255.255.0**. Select **OK**, and then select **Close**. 
 
 
 ## Exercise 3: Implement DHCP failover
@@ -391,13 +391,13 @@ Answer the following questions. Your answers will help you develop a plan for im
 
 4. On the **Specify the partner server to use for failover** page, select **Add Server**. The **Add Server** dialog box opens.
 
-5. In the **Add Server** dialog box, in the **This server** text box, type **172.16.0.11**, which is the IP address of LON-SVR1, and then select **OK**, and select **Next**.
+5. In the **Add Server** dialog box, in the **This server** text box, enter **172.16.0.11**, which is the IP address of LON-SVR1, and then select **OK**, and select **Next**.
 
 6. On the **Create a new failover relationship** page, in the **Mode** drop-down list box, select **Hot standby**, and then set the **Maximum Client Lead Time** to **1 minute**. 
 
-   > **Note:** This low MCLT value is for the purposes of the lab environment. 
+   > **Note:** This low Maximum Client Lead Time (MCLT) value is for the purposes of the lab environment. 
 
-7. In the **Shared Secret** text box, type **Pa55w.rd**, select **Next**, and then select **Finish**. 
+7. In the **Shared Secret** text box, enter **Pa55w.rd**, select **Next**, and then select **Finish**. 
 
 8. In the **Configure Failover** dialog box, select **Close**. 
 
@@ -425,7 +425,7 @@ Answer the following questions. Your answers will help you develop a plan for im
 
 6. In the **Routing and Remote Access** console, in the navigation pane, right-click **DHCP Relay Agent** node to open the context menu, and then select **Properties**. 
 
-7. In the **DHCP Relay Agent Properties** dialog box, in the **Server address** box, type **172.16.18.20**, which is the IP address of TOR-SVR1, and then select **Add**. Then, in the **Server address** box, type **172.16.0.11**, which is the IP address of LON-SVR1, select **Add**, and then select **OK**. 
+7. In the **DHCP Relay Agent Properties** dialog box, in the **Server address** box, enter **172.16.18.20**, which is the IP address of TOR-SVR1, and then select **Add**. Then, in the **Server address** box, enter **172.16.0.11**, which is the IP address of LON-SVR1, select **Add**, and then select **OK**. 
 
 8. Right-click the **DHCP Relay Agent** node to open the context menu, and then select **New Interface**. 
 
@@ -447,7 +447,7 @@ Answer the following questions. Your answers will help you develop a plan for im
 
 2. If necessary, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
 
-3. On **LON-CL1**, select **Start**, type **network conn**, and then select **View network Connections**. 
+3. On **LON-CL1**, select **Start**, enter **network conn**, and then select **View network Connections**. 
 
    > The **Network Connections** window opens.
 
