@@ -2,27 +2,27 @@
 
 ## Lab scenario
 
-After making additional improvements to the WAN connection between London and Sydney locations, you have been asked to enable **SYD-SVR1** to update and replicate records for the Contoso.com domain.
+After making additional improvements to the wide area network (WAN) connection between the London and Sydney locations, you've been asked to enable **SYD-SVR1** to update and replicate records for the Contoso.com domain.
 
 ### Prerequisites
 
-To following lab(s) must be completed before this lab:
+You must complete the following lab(s) before beginning this lab:
 
 - 0401-Planning and implementing DNS name resolution
 
-## Exercise 1: Integrating DNS with AD DS
+## Exercise 1: Integrate DNS with AD DS
 
 ### Scenario
 
-You need to deploy another Active Directory-integrated DNS server in Contoso.com. To do this, you will promote **SYD-SVR1** to a domain controller, and integrate DNS with the AD DS database for Contoso.com.
+You need to deploy another Active Directory-integrated Domain Name System (DNS) server in Contoso.com. To do this, you'll promote **SYD-SVR1** to a domain controller, and integrate DNS with the Active Directory Domain Service (AD DS) database for Contoso.com.
 
-The main tasks for this exercise are as follows:
+The main tasks for this exercise are:
 
-1. View resource records for the Sydney location.
+1. Review resource records for the Sydney location.
 2. Install AD DS on SYD-SVR1.
 3. Review resource records on SYD-SVR1.
 
-### Task 1: View resource records for the Sydney location
+### Task 1: Review resource records for the Sydney location
 
 1. If necessary, sign in to **SYD-SVR1** as **Contoso\\Administrator** with the password of **Pa55w.rd**.
 
@@ -30,10 +30,10 @@ The main tasks for this exercise are as follows:
 
 3. In the **DNS Manager** console, in the console tree, expand **SYD-SVR1**, and then select and expand **Forward Lookup** **Zones**.
 
-   > Note that **Contoso.com** does not appear in the list of zones hosted on SYD-SVR1.
+   > Note that **Contoso.com** doesn't appear in the list of zones hosted on SYD-SVR1.
    >
 
-4. Expand the **Conditional** **Forwarders** node, right-click **Contoso.com**, and then select **Delete**. 
+4. Expand the **Conditional** **Forwarders** node, right-click **Contoso.com** to open the context menu, and then select **Delete**. 
 
 5. In the **DNS** window, select **Yes** and then close the **DNS Manager** console.
 
@@ -43,7 +43,7 @@ The main tasks for this exercise are as follows:
 
 8. In the console tree, expand **LON-DC1**, select and expand **Forward Lookup Zones**, and then select **Contoso.com**.
 
-   > Note the resource records in the details pane. You will compare these to the resource records on **SYD-SVR1** after it is promoted to be a domain controller.
+   > Note the resource records in the details pane. You'll compare these to the resource records on **SYD-SVR1** after it's promoted to be a domain controller.
    >
 
 9. Do not close the **DNS Manager** console on **LON-DC1**.
@@ -51,7 +51,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 2: Install AD DS on SYD-SVR1
 
-1. Switch to **SYD-SVR1** and open **Server Manager**.
+1. Switch to **SYD-SVR1**, and then open **Server Manager**.
 
 2. In the **Server Manager** console, select **Add roles and features**.
 
@@ -91,7 +91,7 @@ The main tasks for this exercise are as follows:
 
 19. After **SYD‑SVR1** restarts, sign in as **Contoso\\Administrator** with the password **Pa55w.rd**.
 
-20. On the **Taskbar**, right-click the **Network** icon, and then select **Open Network and Internet settings**.
+20. On the **Taskbar**, right-click the **Network** icon to open the context menu, and then select **Open Network and Internet settings**.
 
 21. On the **Status** page, in the **Advanced network settings** section, select **Network and Sharing Center**.
 
@@ -101,9 +101,9 @@ The main tasks for this exercise are as follows:
 
 24. In the **PAC_WAN Properties** dialog box, select **Internet Protocol Version 4 (TCP/IP4)**, and then select **Properties**.
 
-25. In the **Internet Protocol Version 4 (TCP/IP4) Properties** dialog box, in the **Preferred DNS server** text box, type **172.16.19.20**, and in the **Alternate DNS server** text box, type **172.16.0.10**, and then select **OK**.
+25. In the **Internet Protocol Version 4 (TCP/IP4) Properties** dialog box, in the **Preferred DNS server** text box, enter **172.16.19.20**, and then in the **Alternate DNS server** text box, enter **172.16.0.10**, and then select **OK**.
 
-26. Select **Close** two times and then close the **Network and Sharing Center** and **Settings** windows.
+26. Select **Close** two times, and then close the **Network and Sharing Center** and **Settings** windows.
 
 
 ### Task 3: Review resource records on SYD-SVR1
@@ -112,27 +112,27 @@ The main tasks for this exercise are as follows:
 
 2. In the **DNS Manager** console, in the console tree, expand **SYD-SVR1**, expand **Forward Lookup Zones**, and then select the **Contoso.com** zone.
 
-3. Right-click **Contoso.com**, and then select **Properties**.
+3. Right-click **Contoso.com** to open the context menu, and then select **Properties**.
 
 4. In the **Contoso.com Properties** dialog box, select the **Start of Authority** tab. 
 
-5. Ensure that **SYD-SVR1** shows as the **Primary server** and then select **Cancel**.
+5. Ensure that **SYD-SVR1** shows as the **Primary server**, and then select **Cancel**.
 
 6. With the **Contoso.com** zone still selected, review the resource records in the details pane. 
 
-   > All the resource records that displayed in the **Contoso.com** zone on **LON-DC1** also displays on **SYD-SVR1**.
+   > All the resource records that displayed in the **Contoso.com** zone on **LON-DC1** should also display on **SYD-SVR1**.
 
-7. In the console tree, right-click the **Contoso.com** zone, and then select **New Host (A or AAAA)**.
+7. In the console tree, right-click the **Contoso.com** zone to open the context menu, and then select **New Host (A or AAAA)**.
 
-8. In the **New Host** window, in the **Name** text box, type **SYD-CL1**, in the **IP address** text box, type **172.16.19.150**, and then select **Add Host**.
+8. In the **New Host** window, in the **Name** text box, enter **SYD-CL1**, and then in the **IP address** text box, enter **172.16.19.150**, and then select **Add Host**.
 
 9. In the **DNS** window, select **OK**, and then in the **New Host** window, select **Done**.
 
-10. Switch to **LON-DC1**, and in the **DNS Manager**, select and then right-click the **Contoso.com** zone and then select **Refresh**. 
+10. Switch to **LON-DC1**, and in the **DNS Manager**, select and then right-click the **Contoso.com** zone to open the context menu, and then select **Refresh**. 
 
-    > In the details pane, you should now see the **SYD-CL1** host record.
+    > In the details pane, you should now observe the **SYD-CL1** host record.
 
-11. If the **SYD-CL1** record does not appear, perform the following actions on **LON-DC1**:
+11. If the **SYD-CL1** record doesn't appear, perform the following actions on **LON-DC1**:
 
     - In **Server Manager**, in the **Tools** drop-down list, select **Active Directory Sites and Services**.
 
@@ -142,11 +142,11 @@ The main tasks for this exercise are as follows:
 
     - In the details pane, right-click the replication link, and then select **Replicate Now**.
 
-    - In the **Replicate Now** window, select **OK** and close Active Directory Site and Services.
+    - In the **Replicate Now** window, select **OK**, and then close Active Directory Site and Services.
 
 12. Repeat step 10 above. The **SYD-CL1** resource record should display in the **Contoso.com** zone.
 
 13. Close all open windows.
 
 
-**Results:** After completing this exercise, you will have successfully integrated DNS with AD DS.
+**Results:** After completing this exercise, you'll have successfully integrated DNS with AD DS.
