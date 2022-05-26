@@ -2,7 +2,7 @@
 
 ## Lab scenario
 
-The network environment at Contoso Corporation maintains network services in multiple locations, which has become increasingly complex to manage. You have decided to deploy an IP Address Management (IPAM) Server and use it to centrally manage the IP address configuration in the organization.
+The network environment at Contoso Corporation maintains network services in multiple locations, which has become increasingly complex to manage. You have decided to deploy an IP Address Management (IPAM) Server and use it to centrally manage the organization's IP address configuration.
 
 ## Exercise 1: Install the IPAM Server feature
 
@@ -10,20 +10,20 @@ The network environment at Contoso Corporation maintains network services in mul
 
 You need to implement IPAM for Contoso.com and install the server feature on LON-SVR2. 
 
-The main tasks for this exercise are as follows:
+The main tasks for this exercise are:
 
 1. Prepare the lab environment.
-2. Install the IPAM Server feature on LON-SVR2.
+2. Install the **IPAM Server** feature on LON-SVR2.
 
 ### Task 1: Prepare the lab environment
 
-**Note:** Running the following scripts will return several warnings. You can ignore these warnings.
+**Note:** Running the following scripts will return several warnings, which you can ignore.
 
 1. Sign in to **LON-SVR1** as **Contoso\Administrator** with the password **Pa55w.rd**.
 
-2. Right-click **Start**, and then select **Windows PowerShell (Admin)**.
+2. Right-click **Start** to open the context menu, and then select **Windows PowerShell (Admin)**.
 
-3. At the command prompt in the Windows PowerShell command-line interface, enter the following command, and then press Enter:
+3. At the command prompt in the Windows PowerShell command-line interface, enter the following command, and then select Enter:
 
    ```
    C:\Labfiles\Mod05\LON-SVR1_Mod05_Setup.ps1
@@ -31,9 +31,9 @@ The main tasks for this exercise are as follows:
 
 4. Sign in to **TOR-SVR1** as **Contoso\Administrator** with the password **Pa55w.rd**.
 
-5. On **TOR-SVR1**, right-click **Start**, and then select **Windows PowerShell (Admin)**.
+5. On **TOR-SVR1**, right-click **Start** to open the context menu, and then select **Windows PowerShell (Admin)**.
 
-6. At the Windows PowerShell command prompt, enter the following command, and then press Enter:
+6. At the Windows PowerShell command prompt, enter the following command, and then select Enter:
 
    ```
    C:\Labfiles\Mod05\TOR-SVR1_Mod05_Setup.ps1
@@ -41,9 +41,9 @@ The main tasks for this exercise are as follows:
 
 7. Sign in to **SYD-SVR1** as **Contoso\Administrator** with the password **Pa55w.rd**
 
-8. On **SYD-SVR1**, right-click **Start**, and then select **Windows PowerShell (Admin)**.
+8. On **SYD-SVR1**, right-click **Start** to open the context menu, and then select **Windows PowerShell (Admin)**.
 
-9. At the **Windows PowerShell** command prompt, enter the following command, and then press Enter:
+9. At the **Windows PowerShell** command prompt, enter the following command, and then select Enter:
 
    ```
    C:\Labfiles\Mod05\SYD-SVR1_Mod05_Setup.ps1
@@ -76,15 +76,15 @@ The main tasks for this exercise are as follows:
 10. When the **Add Roles and Features Wizard** completes, close the wizard.
 
 
-**Results:** After completing this exercise, you will have successfully installed the IPAM Server feature.
+**Results:** After completing this exercise, you'll have successfully installed the IPAM Server feature.
 
 ## Exercise 2: Provision the IPAM Server
 
 ### Scenario
 
-You need to configure IPAM discovery for servers in the Contoso.com domain. You will use IPAM to manage the following servers:
+You need to configure IPAM discovery for servers in the Contoso.com domain. You'll use IPAM to manage the following servers:
 
-- **LON-DC1**: DC, DHCP, DNS
+- **LON-DC1**: domain controller (DC), Dynamic Host Configuration Protocol (DHCP), Domain Name System (DNS)
 
 - **LON-SVR1**: DHCP, DNS
 
@@ -92,9 +92,9 @@ You need to configure IPAM discovery for servers in the Contoso.com domain. You 
 
 - **SYD-SVR1**: DC, DNS
 
-The main tasks for this exercise are as follows:
+The main tasks for this exercise are:
 
-1. Configure the IPAM server for GPO deployment.
+1. Configure the IPAM server for Group Policy object (GPO) deployment.
 
 2. Perform discovery on Contoso.com.
 
@@ -119,7 +119,7 @@ The main tasks for this exercise are as follows:
 
 8. On the **Confirm the Settings** page, select **Apply**. Provisioning will take a few moments to complete.
 
-   > **Note:** If provisioning fails with a Windows Internal Database error, open **Services.msc** and restart the Windows Internal Database service. Then repeat steps 3 through 8.
+   > **Note:** If provisioning fails with a Windows Internal Database error, open **Services.msc**, restart the Windows Internal Database service, and then repeat steps 3 through 8.
 
 9. When provisioning completes, select **Close**.
 
@@ -145,15 +145,15 @@ The main tasks for this exercise are as follows:
 
 ### Task 3: Provision the IPAM server to manage the DC, DNS, and DHCP servers
 
-1. On **LON-SVR2**, Right-click **Start**, and then select **Windows PowerShell (Admin)**.
+1. On **LON-SVR2**, right-click **Start** to open the context menu, and then select **Windows PowerShell (Admin)**.
 
-2. At the **Windows PowerShell** command prompt, enter the following command, and then press Enter:
+2. At the **Windows PowerShell** command prompt, enter the following command, and then select Enter:
 
    ```
    Invoke-IpamGpoProvisioning –Domain Contoso.com -DomainController lon-dc1.Contoso.com –GpoPrefixName IPAM –IpamServerFqdn LON-SVR2.Contoso.com –DelegatedGpoUser Administrator
    ```
 
-3. When you are prompted to confirm the action, enter **Y**, and then press Enter. The command will take a few moments to complete.
+3. When prompted to confirm the action, enter **Y**, and then select Enter. The command will take a few moments to complete.
 
 4. Close Windows PowerShell.
 
@@ -163,13 +163,13 @@ The main tasks for this exercise are as follows:
 
 7. In the **Active Directory Administrative Center** window, in the navigation pane, select **Global Search**.
 
-8. In the **Search** box, enter **IPAMUG**, and then press Enter.
+8. In the **Search** box, enter **IPAMUG**, and then select Enter.
 
 9. Double-click the **IPAMUG** group.
 
 10. In the **IPAMUG** dialog box, under **Group scope**, select **Global**.
 
-11. Scroll down to the **Member Of** section, and then select **Add**.
+11. Scroll to the **Member Of** section, and then select **Add**.
 
 12. In the **Select Groups** window, enter **Domain Admins**, select **Check Names**, and then select **OK**.
 
@@ -187,82 +187,82 @@ The main tasks for this exercise are as follows:
 
 19. Select **IPAM**, and then select **SERVER INVENTORY**.
 
-20. In the **IPv4 details** pane, Right-click **LON-DC1**, and then select **Edit Server**.
+20. In the **IPv4 details** pane, right-click **LON-DC1** to open the context menu, and then select **Edit Server**.
 
 21. In the **Add or Edit Server** dialog box, set the **Manageability status** field to **Managed**, and then select **OK**.
 
     > **Note:** If a Group Policy Object (GPO) error appears, switch the server back to **Unspecified**, and then restart **LON-DC1**, **LON-SVR1**, **LON-SVR2**, **TOR-SVR1**, and **SYD-SVR1**. Sign back in to all servers as **Contoso\Administrator** with the password **Pa55w.rd**. 
 
-22. In the **IPv4 details** pane, Right-click **lon-svr1**, and then select **Edit Server**.
+22. In the **IPv4 details** pane, right-click **lon-svr1** to open the context menu, and then select **Edit Server**.
 
-    > **Note:** If you do not see **LON-SVR1**, select **TASKS**, select **Add Server**, and then in the **Add or Edit Server** dialog box, in the **Server name (FQDN)** field, enter **LON-SVR1**. Select the **DHCP server** and **DNS server** check boxes, select **Verify**, and then proceed to step 23.
+    > **Note:** If **LON-SVR1** doesn't appear, select **TASKS**, select **Add Server**, and then in the **Add or Edit Server** dialog box, in the **Server name (FQDN)** field, enter **LON-SVR1**. Select the **DHCP server** and **DNS server** check boxes, select **Verify**, and then proceed to step 23.
 
 23. In the **Add or Edit Server** dialog box, set the **Manageability status** field to **Managed**, and then select **OK**.
 
-24. In the **IPv4 details** pane, Right-click **tor-svr1**, and then select **Edit Server**. 
+24. In the **IPv4 details** pane, right-click **tor-svr1** to open the context menu, and then select **Edit Server**. 
 
-    > **Note:** If you do not see **TOR-SVR1**, select **TASKS**, select **Add Server**, and then in the **Add or Edit Server** dialog box, in the **Server name (FQDN)** field, enter **TOR-SVR1**. Select the **DHCP server** check box, select **Verify**, and then proceed to step 25.
+    > **Note:** If **TOR-SVR1** doesn't appear, select **TASKS**, select **Add Server**, and then in the **Add or Edit Server** dialog box, in the **Server name (FQDN)** field, enter **TOR-SVR1**. Select the **DHCP server** check box, select **Verify**, and then proceed to step 25.
 
 25. In the **Add or Edit Server** dialog box, set the **Manageability status** field to **Managed**, and then select **OK**.
 
-26. In the **IPv4 details** pane, Right-click **SYD-SVR1**, and then select **Edit Server**.
+26. In the **IPv4 details** pane, right-click **SYD-SVR1** to open the context menu, and then select **Edit Server**.
 
-    > **Note:** If you do not see **SYD-SVR1**, select **TASKS**, select **Add Server**, and then in the **Add or Edit Server** dialog box, in the **Server name (FQDN)** field, enter **SYD-SVR1**. Select the **DC** and **DNS server** check boxes, select **Verify**, and then proceed to step 27.
+    > **Note:** If **SYD-SVR1** doesn't appear, select **TASKS**, select **Add Server**, and then in the **Add or Edit Server** dialog box, in the **Server name (FQDN)** field, enter **SYD-SVR1**. Select the **DC** and **DNS server** check boxes, select **Verify**, and then proceed to step 27.
 
 27. In the **Add or Edit Server** dialog box, set the **Manageability status** field to **Managed**, and then select **OK**.
 
 28. Switch to **LON-DC1**.
 
-29. Right-click **Start**, and then select **Windows PowerShell (Admin)**.
+29. Right-click **Start** to open the context menu, and then select **Windows PowerShell (Admin)**.
 
-30. At the **Windows PowerShell** command prompt, enter **Gpupdate /force**, and then press Enter.
+30. At the **Windows PowerShell** command prompt, enter **Gpupdate /force**, and then select Enter.
 
 31. Close the **Windows PowerShell** window.
 
 32. Switch to **LON-SVR1**.
 
-33. Right-click **Start**, and then select **Windows PowerShell (Admin)**.
+33. Right-click **Start** to open the context menu, and then select **Windows PowerShell (Admin)**.
 
-34. At the **Windows PowerShell** command prompt, enter **Gpupdate /force**, and then press Enter.
+34. At the **Windows PowerShell** command prompt, enter **Gpupdate /force**, and then select Enter.
 
 35. Close the **Windows PowerShell** window.
 
 36. Switch to **TOR-SVR1**.
 
-37. Right-click **Start**, and then select **Windows PowerShell (Admin)**.
+37. Right-click **Start** to open the context menu, and then select **Windows PowerShell (Admin)**.
 
-38. At the **Windows PowerShell** command prompt, enter **Gpupdate /force**, and then press Enter.
+38. At the **Windows PowerShell** command prompt, enter **Gpupdate /force**, and then select Enter.
 
 39. Close the **Windows PowerShell** window.
 
 40. Switch to **SYD-SVR1**.
 
-41. Right-click **Start**, and then select **Windows PowerShell (Admin)**.
+41. Right-click **Start** to open the context menu, and then select **Windows PowerShell (Admin)**.
 
-42. At the **Windows PowerShell** command prompt, enter **Gpupdate /force**, and then press Enter.
+42. At the **Windows PowerShell** command prompt, enter **Gpupdate /force**, and then select Enter.
 
 43. Close the **Windows PowerShell** window.
 
 44. Switch back to **LON-SVR2**.
 
-45. In **Server Manager**, Right-click **LON-DC1**, and then select **Refresh Server Access Status**. Repeat this step for **LON-SVR1**, **TOR-SVR1**, and **SYD-SVR1**.
+45. In **Server Manager**, right-click **LON-DC1** to open the context menu, and then select **Refresh Server Access Status**. Repeat this step for **LON-SVR1**, **TOR-SVR1**, and **SYD-SVR1**.
 
-46. When completed, refresh IPv4 by clicking **Refresh**. 
+46. When completed, refresh IPv4 by selecting **Refresh**. 
 
-    > **Note:** It might take up to five minutes for the status to change. If the status does not change, restart **LON-DC1**, **LON-SVR1**, **LON-SVR2**, **TOR-SVR1**, and **SYD-SVR1**, and then repeat steps 44–46. Ensure that you restart **LON-DC1** before restarting the other virtual machines.
+    > **Note:** It might take up to five minutes for the status to change. If the status doesn't change, restart **LON-DC1**, **LON-SVR1**, **LON-SVR2**, **TOR-SVR1**, and **SYD-SVR1**, and then repeat steps 44 to 46. Ensure that you restart **LON-DC1** before restarting the other virtual machines (VMs).
 
 47. In the **IPAM Overview** pane, select **Retrieve data from managed servers**. This action will take a few moments to complete.
 
 
-**Results**: After completing this exercise, you will have successfully provisioned the IPAM server.
+**Results**: After completing this exercise, you'll have successfully provisioned an IPAM server.
 
-## Exercise 3: Managing IP address spaces by using IPAM
+## Exercise 3: Manage IP address spaces by using IPAM
 
 ### Scenario
 
-You need to use IPAM to confirm the status of the current DHCP and DNS environment and to make the following changes:
+You need to use IPAM to confirm the status of the current DHCP and DNS environment and make the following changes:
 
-- Add an IP address block for the Toronto subnet, which is configured through static IP addresses:
+- Add an IP address block for the Toronto subnet, which you configure using static IP addresses:
 
   - Network ID: **172.16.18.0**
 
@@ -279,7 +279,7 @@ You need to use IPAM to confirm the status of the current DHCP and DNS environme
   - Description: **Toronto addresses**
 
 
-- Create an IP address reservation in the Houston scope for a network printer that is being installed:
+- Create an IP address reservation in the Houston scope for a network printer that's being installed:
 
   - Server IP: **172.16.20.200**
 
@@ -287,13 +287,13 @@ You need to use IPAM to confirm the status of the current DHCP and DNS environme
 - Deactivate the DHCP scope for the Portland office.
 
 
-The main tasks for this exercise are as follows:
+The main tasks for this exercise are:
 
 1. Add an IP address block.
 
 2. Create an IP address reservation.
 
-3. Deactivate the Portland Wired scope.
+3. Deactivate the Portland **Wired** scope.
 
 
 ### Task 1: Add an IP address block
@@ -302,7 +302,7 @@ The main tasks for this exercise are as follows:
 
 2. In the **IPv4** pane, next to the **Current view**, select **IP Address Ranges**.
 
-   > **Note:** Note the three IP address ranges displayed from **TOR-SVR1**.
+   > **Note:** Note the three IP address ranges that display from **TOR-SVR1**.
 
 3. On the upper-right side of the window, select **TASKS**, and then select **Add IP Address Block**.
 
@@ -328,15 +328,15 @@ The main tasks for this exercise are as follows:
 
 2. In the **IPv4** pane, next to the **Current view**, select **IP Address Ranges**.
 
-3. Right-click either of the IP address ranges with a **Network** value of **172.16.20.0/23**, and then select **Edit IP Address Range**. 
+3. Right-click either of the IP address ranges with a **Network** value of **172.16.20.0/23** to open the context menu, and then select **Edit IP Address Range**. 
 
-   > **Note:** If the expected IP address ranges do not display, perform the following tasks: 
+   > **Note:** If the expected IP address ranges don't display, perform the following tasks: 
    >
-   > - In **Server Manager**, Right-click **LON-DC1**, and then select **Refresh Server Access Status**. Repeat this step for **LON-SVR1**, **TOR-SVR1**, and **SYD-SVR1**.
+   > - In **Server Manager**, right-click **LON-DC1** to open the context menu, and then select **Refresh Server Access Status**. Repeat this step for **LON-SVR1**, **TOR-SVR1**, and **SYD-SVR1**.
    >
-   > - When completed, refresh **IPv4** by clicking **Refresh**. 
+   > - When completed, refresh **IPv4** by selecting **Refresh**. 
    >
-   > - If the IP address ranges do not display, restart **LON-DC1**, **LON-SVR1**, **LON-SVR2**, **TOR-SVR1**, and **SYD-SVR1**, and then repeat steps 1 and 2. Ensure that you restart **LON-DC1** before restarting the other virtual machines.
+   > - If the IP address ranges don't display, restart **LON-DC1**, **LON-SVR1**, **LON-SVR2**, **TOR-SVR1**, and **SYD-SVR1**, and then repeat steps 1 and 2. Ensure that you restart **LON-DC1** before restarting the other VMs.
    >
    > - In the **IPAM Overview** pane, select **Retrieve data from managed servers**. This action will take a few moments to complete.
    >
@@ -348,10 +348,10 @@ The main tasks for this exercise are as follows:
 
 ### Task 3: Deactivate the Portland Wired scope
 
-1. In the navigation pane, select the **DHCP Scopes** node, and then in the details pane, Right-click the first scope listed with a **Scope ID** of **172.16.23.0**, and then select **Deactivate DHCP Scope**.
+1. In the navigation pane, select the **DHCP Scopes** node, and then in the details pane, right-click the first scope listed with a **Scope ID** of **172.16.23.0** to open the context menu, and then select **Deactivate DHCP Scope**.
 
 2. Repeat step 1 for the second scope with a listed **Scope ID** of **172.16.23.0**.
 
-   > **Note:** This scope is duplicated as a result of Dynamic Host Configuration Protocol (DHCP) failover configuration between **TOR-SVR1** and **LON-SVR1**. The preceding steps deactivate the scopes on both servers.
+   > **Note:** This scope is duplicated as a result of DHCP failover configuration between **TOR-SVR1** and **LON-SVR1**. The preceding steps deactivate the scopes on both servers.
 
-**Results**: After completing this exercise, you will have successfully managed IP address spaces by using IPAM.
+**Results**: After completing this exercise, you'll have successfully managed IP address spaces by using IPAM.
