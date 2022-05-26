@@ -8,9 +8,9 @@ Contoso Corporation works with a partner organization that needs access to an in
 
 ### Scenario
 
-You need to implement Web Application Proxy to enable external users to access an internal application. You will use the initial deployment as a proof of concept while the developers at Contoso modify the internal application to use AD FS claims-based authentication.
+You need to implement Web Application Proxy to enable external users to access an internal application. You'll use the initial deployment as a proof of concept while the Contoso developers modify the internal application to use Active Directory Federation Services (AD FS) claims-based authentication.
 
-The main tasks for this exercise are as follows:
+The main tasks for this exercise are:
 
 1. Prepare the environment.
 
@@ -30,11 +30,11 @@ The main tasks for this exercise are as follows:
 
 3. In **Server Manager**, select **Tools**, and then select **Routing and Remote Access**.
 
-4. In the **Routing and Remote Access** console, in the left pane, right-click **EU-RTR (local)**, and then select **Disable Routing and Remote Access**. 
+4. In the **Routing and Remote Access** console, in the left pane, right-click **EU-RTR (local)** to open the context menu, and then select **Disable Routing and Remote Access**. 
 
 5. In the **Routing and Remote Access** dialog box, select **Yes**, and then close the **Routing and Remote Access** window.
 
-   > **Note:** Routing and Remote Access is preconfigured for the purpose of other labs in this course. The Web Application Proxy configuration in this lab will not work properly if you leave Routing and Remote Access enabled on the virtual machine.
+   > **Note:** Routing and Remote Access is preconfigured for the purpose of this course's other labs. The Web Application Proxy configuration in this lab won't work properly if you leave Routing and Remote Access enabled on the virtual machine (VM).
 
 ### Task 2: Configure LON-CL1 as an external client
 
@@ -42,13 +42,13 @@ The main tasks for this exercise are as follows:
 
 1. Sign in to **LON-CL1** as **Contoso\\Administrator** with the password of **Pa55w.rd**.
 
-2. Right-click the **Start** button, and then select **System**.
+2. Right-click the **Start** button to open the context  menu, and then select **System**.
 
 3. In the **System** window, select **Advanced system settings**, and then select the **Computer Name** tab.
 
 4. On the **Computer Name** tab, select the **Change** button.
 
-5. In the **Computer Name/Domain Changes** dialog box, select **Workgroup**, in the **Workgroup** box, enter **WORKGROUP**, and then select **OK**.
+5. In the **Computer Name/Domain Changes** dialog box, select **Workgroup**, and in the **Workgroup** box, enter **WORKGROUP**, and then select **OK**.
 
 6. In the **Computer Name/Domain Changes** dialog box, select **OK**.
 
@@ -63,7 +63,7 @@ The main tasks for this exercise are as follows:
 
 #### Import a root CA certificate on the client
 
-1. Sign in to **LON-CL1** as **Admin** and the password **Pa55w.rd**.
+1. Sign in to **LON-CL1** as **Admin** with the password of **Pa55w.rd**.
 
 2. On the taskbar, select **File Explorer**.
 
@@ -71,7 +71,7 @@ The main tasks for this exercise are as follows:
 
 4. When prompted for the user name, enter **Contoso\\Administrator**, with the password **Pa55w.rd**, and then press Enter.
 
-5. In the **File Explorer** window, right-click **ContosoRootCA.cer**, select **Show more options**, and then select **Install Certificate**.
+5. In the **File Explorer** window, right-click **ContosoRootCA.cer** to open the context menu, select **Show more options**, and then select **Install Certificate**.
 
 6. In the **Open File – Security Warning** dialog box, select **Open**.
 
@@ -85,9 +85,9 @@ The main tasks for this exercise are as follows:
 
 11. In the **Certificate Import Wizard**, select **OK**.
 
-12. Right-click the **Start** button, and then select **Windows Terminal**.
+12. Right-click the **Start** button to open the context menu, and then select **Windows Terminal**.
 
-13. In the **PowerShell** window, enter **mmc**, and then press Enter.
+13. In the **PowerShell** window, enter **mmc**, and then select Enter.
 
 14. In the **User Account Control** dialog box, select **Yes**.
 
@@ -101,27 +101,27 @@ The main tasks for this exercise are as follows:
 
 19. Verify that **ContosoCA** exists.
 
-    > **Note:** You perform the preceding steps to import the ContosoCA certificate into the Trusted Root Certification Authorities of **LON-CL1** and then to verify that the ContosoCA certificate is imported into the Trusted Root Certification Authorities of **LON-CL1**. This enables the client to trust the certificates issued by the Contoso Certification Authority.
+    > **Note:** You perform the preceding steps to import the ContosoCA certificate into the Trusted Root Certification Authorities of **LON-CL1** and to verify that the ContosoCA certificate is imported into the Trusted Root Certification Authorities of **LON-CL1**. This enables the client to trust the certificates issued by the Contoso Certification Authority (CA).
 
-#### Move the computer to the Internet
+#### Move the computer to the internet
 
-1. To move the client from the internal network to the Internet, on **LON-CL1**, right-click the **Start** button, and then select **Network Connections**.
+1. To move the client from the internal network to the internet, on **LON-CL1**, right-click the **Start** button to open the context menu, and then select **Network Connections**.
 
 2. Select **Advanced network settings**.
 
 3. Select **More network adapter options**.
 
-4. In **Network Connections**, right-click **London_Network**, and then select **Disable**.
+4. In **Network Connections**, right-click **London_Network** to open the context menu, and then select **Disable**.
 
-5. Right-click **Internet**, and then select **Enable**.
+5. Right-click **Internet** to open the context menu, and then select **Enable**.
 
 6. On the taskbar, select the **Microsoft Edge** icon.
 
-7. In Microsoft Edge, in the web address box, enter **`https://lon-svr1.contoso.com`**, and then press Enter. Notice that a Network Error message displays.
+7. In Microsoft Edge, in the web address box, enter **`https://lon-svr1.contoso.com`**, and then select Enter. Notice that a **Network Error** message displays.
 
 8. On LON-CL1, close all open windows.
 
-   > **Note:** You are unable to open the internal website running on **LON-SVR1** because the client cannot access the internal network.
+   > **Note:** You'll be unable to open the internal website that's running on **LON-SVR1** because the client can't access the internal network.
 
 ### Task 3: Install the Web Application Proxy role service
 
@@ -131,7 +131,7 @@ The main tasks for this exercise are as follows:
 
 3. On the **Dashboard** page, select **Add roles and features**. 
 
-4. In the **Add Roles and Features Wizard**, on the **Before you begin** page, select **Next**, on the **Select installation type** page, select **Next**, and then on the **Select destination server** page, select **Next**.
+4. In the **Add Roles and Features Wizard**, on the **Before you begin** page, select **Next**. On the **Select installation type** page, select **Next**, and then on the **Select destination server** page, select **Next**.
 
 5. On the **Select server roles** page, expand **Remote Access**, select **Web Application Proxy**, and then select **Next**.
 
@@ -146,9 +146,9 @@ The main tasks for this exercise are as follows:
 
 #### Obtain a certificate for the ADFSWAP farm
 
-1. On **EU-RTR**, right-click the **Start** button, and then select **Windows PowerShell**.
+1. On **EU-RTR**, right-click the **Start** button to open the context menu, and then select **Windows PowerShell**.
 
-2. In the **Windows PowerShell** window, enter **mmc**, and then press Enter.
+2. In the **Windows PowerShell** window, enter **mmc**, and then select Enter.
 
 3. In the **MMC**, on the **File** menu, select **Add/Remove Snap-In**.
 
@@ -156,7 +156,7 @@ The main tasks for this exercise are as follows:
 
 5. Verify that **Local Computer** is selected, select **Finish**, and then select **OK**.
 
-6. In the **MMC**, expand **Certificates (local Computer)**, right-click **Personal**, select **All Tasks**, and then select **Request New Certificate**.
+6. In the **MMC**, expand **Certificates (local Computer)**, right-click **Personal** to open the context menu, select **All Tasks**, and then select **Request New Certificate**.
 
 7. On the **Before You Begin** page, select **Next**.
 
@@ -164,13 +164,13 @@ The main tasks for this exercise are as follows:
 
 9. On the **Request Certificates** page, select **Contoso Web Server**, and then select the **More information is required to enroll for this certificate. select here to configure settings** link.
 
-10. In the **Subject name** section, select the drop-down list, select **Common name**, in the **Value** box, enter **adfswap.contoso.com**, and then select **Add**.
+10. In the **Subject name** section, select the drop-down list, select **Common name**, and in the **Value** box, enter **adfswap.contoso.com**, and then select **Add**.
 
 11. In the **Alternative name** list, select the drop-down list, and then select **DNS**. In the **Value** box, enter **adfswap.contoso.com**, and then select **Add**.
 
-12. In the **Alternative name** list, select **DNS**, in the **Value** box, enter **rdgw.contoso.com**, and then select **Add**.
+12. In the **Alternative name** list, select **DNS**, and in the **Value** box, enter **rdgw.contoso.com**, and then select **Add**.
 
-13. In the **Alternative name** list, select **DNS**, in the **Value** box, enter **lon-svr1.contoso.com**, and then select **Add**.
+13. In the **Alternative name** list, select **DNS**, and in the **Value** box, enter **lon-svr1.contoso.com**, and then select **Add**.
 
 14. Select **OK** to close the **Certificate Properties** dialog box.
 
@@ -178,7 +178,7 @@ The main tasks for this exercise are as follows:
 
 16. Select **Finish** to close the **Certificate Enrollment** dialog box.
 
-17. Close the MMC console and do not save changes.
+17. Close the MMC console, and don't save changes.
 
 
 #### Configure Web Application Proxy
@@ -191,13 +191,13 @@ The main tasks for this exercise are as follows:
 
 4. In the **Web Application Proxy Configuration Wizard**, on the **Welcome** page, select **Next**.
 
-5. In the **Federation service name** box, enter **adfswap.contoso.com**, which is the FQDN of the federation service.
+5. In the **Federation service name** box, enter **adfswap.contoso.com**, which is the federation service's fully qualified domain name (FQDN).
 
-6. In the **User name** box, enter **Administrator**, in the **Password** box, enter **Pa55w.rd**, and then select **Next**.
+6. In the **User name** box, enter **Administrator**, and in the **Password** box, enter **Pa55w.rd**, and then select **Next**.
 
 7. On the **AD FS Proxy Certificate** page, in the list of certificates currently installed on the Web Application Proxy server, select **adfswap.contoso.com**, and then select **Next**.
 
-8. On the **Confirmation** page, review the settings and then select **Configure**. 
+8. On the **Confirmation** page, review the settings, and then select **Configure**. 
 
 9. On the **Results** page, verify that the configuration is successful, and then select **Close**.
 
@@ -233,7 +233,7 @@ The main tasks for this exercise are as follows:
 
 #### Configure internal website authentication
 
-1. Switch to **LON-SVR1** and sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+1. Switch to **LON-SVR1**, and then sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
 
 2. Select the **Start** button, and then select **Server Manager**. 
 3. Select the **Tools** menu, and then select **Internet Information Services (IIS) Manager**.
@@ -243,9 +243,9 @@ The main tasks for this exercise are as follows:
 
 6. In the **Internet Information Services (IIS) Manager** console, in the **Default Web Site Home** pane, double-click **Authentication**.
 
-7. In the **Internet Information Services (IIS) Manager** console, in the **Authentication** pane, right-click **Windows Authentication**, and then select **Enable**.
+7. In the **Internet Information Services (IIS) Manager** console, in the **Authentication** pane, right-click **Windows Authentication** to open the context menu, and then select **Enable**.
 
-8. In the **Internet Information Services (IIS) Manager** console, in the **Authentication** pane, right-click **Anonymous Authentication**, and then select **Disable**.
+8. In the **Internet Information Services (IIS) Manager** console, in the **Authentication** pane, right-click **Anonymous Authentication** to open the context menu, and then select **Disable**.
 
 9. Close the **Internet Information Services (IIS) Manager** console.
 
@@ -256,9 +256,9 @@ The main tasks for this exercise are as follows:
 
 ### Scenario
 
-Now that you have deployed the Web Application Proxy role service, you need to verify that external users can access the internal application through the proxy.
+Now that you've deployed the Web Application Proxy role service, you need to verify that external users can access the internal application through the proxy.
 
-The main task for this exercise is as follows:
+The main task for this exercise is:
 
 1. Verify access to the internal website from the client computer.
 
@@ -268,13 +268,13 @@ The main task for this exercise is as follows:
 
 2. On the taskbar, select **Microsoft Edge**. 
 
-3. In the web address box, enter **`https://lon-svr1.contoso.com`** and then press Enter.
+3. In the web address box, enter **`https://lon-svr1.contoso.com`** and then select Enter.
 
 4. When you receive a Windows Security prompt, enter **Contoso\\susan** for the user name and **Pa55w.rd** for the password, and then select **OK**.
 
 5. Verify that the default Internet Information webpage for **LON-SVR1** opens.
 
-6. Close **Microsoft Edge** and sign out of **LON-CL1**.
+6. Close **Microsoft Edge**, and then sign out of **LON-CL1**.
 
 
-**Results:** After completing this exercise, you will have verified that external users are able to access the internal application through the Web Application Proxy.
+**Results:** After completing this exercise, you'll have verified that external users are able to access the internal application through the Web Application Proxy.
