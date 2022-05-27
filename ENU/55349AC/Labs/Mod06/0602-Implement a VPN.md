@@ -310,7 +310,8 @@ Tonnie reports that she can't connect to the Contoso VPN. You received an incide
 | **Incident  Details**                            | The Contoso VPN connection is suddenly not working on Tonnie’s computer, and she can't access intranet resources from her home network. |
 | **Additional Information**                       | Tonnie can't connect to intranet resources from home. Tonnie must be able to connect by using VPN from her computer, LON-CL1. |
 | **Plan  of Action**                              |                                                              |
-| The main tasks for this exercise are: |                                                              |
+
+The main tasks for this exercise are:
 
 1. Read the help-desk incident record for incident IN24578.
 
@@ -350,7 +351,7 @@ Tonnie reports that she can't connect to the Contoso VPN. You received an incide
    cd C:\Labfiles\Mod06\
    ```
 
-4. At the command prompt, enter the following commands, and then select Enter after each one:
+4. At the command prompt, enter the following command, and then select Enter:
 
    ```
    .\Mod6LabB.ps1
@@ -419,4 +420,4 @@ Tonnie reports that she can't connect to the Contoso VPN. You received an incide
 22. Disconnect from Contoso VPN, and then sign out of LON-CL1.
 
 
-**Results:** After completing this exercise, you should have resolved the VPN access issue successfully, and Logan should be able to connect to the Contoso VPN.
+**Results:** After completing this exercise, you should have resolved the VPN access issue successfully, and Tonnie should be able to connect to the Contoso VPN.
