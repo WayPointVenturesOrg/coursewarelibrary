@@ -69,7 +69,7 @@ The main tasks for this exercise are:
 
 8. In the **Certificates** snap-in, in the console tree of the **Certificates** snap-in, navigate to **Certificates (Local Computer)\Personal**.
 
-9. Right-click **Personal**, point to **All Tasks**, and then select **Request New Certificate**.
+9. Right-click **Personal** to open the context menu, point to **All Tasks**, and then select **Request New Certificate**.
 
 10. On the **Before you begin** page, select **Next**, and then, on the **Select Certificate Enrollment Policy** page, select **Next**.
 
@@ -123,7 +123,7 @@ The main tasks for this exercise are:
 
 11. In the **Ports** **Properties** dialog box, verify that five ports exist for Secure Socket Tunneling Protocol (SSTP), Internet Key Exchange version 2 (IKEv2), Point to Point Tunneling Protocol (PPTP), and Layer Two Tunneling Protocol (L2TP). 
 
-12. Double-click **WAN Miniport (SSTP)**. In the **Maximum ports** text box, enter **4**, and then select **OK**. 
+12. Open **WAN Miniport (SSTP)**. In the **Maximum ports** text box, enter **4**, and then select **OK**. 
 
 13. In the **Routing and Remote Access** message box, select **Yes**.
 
@@ -216,7 +216,7 @@ The main tasks for this exercise are:
 
 6. Right-click **Internet** to open the context menu, and then select **Properties**.
 
-7. In the **Internet Properties** dialog box, double-click **Internet Protocol Version 4 (TCP/IPv4)**.
+7. In the **Internet Properties** dialog box, open **Internet Protocol Version 4 (TCP/IPv4)**.
 
 8. In the **Internet Protocol Version 4 (TCP/IPv4) Properties** dialog box, ensure that the following settings display, and then select **OK**:
 
@@ -280,9 +280,9 @@ The main tasks for this exercise are:
 
 4. Select **OK** twice.
 
-5. In the **Network Connections** window, double-click the **Contoso VPN** icon, and then select **Disconnect**.
+5. In the **Network Connections** window, open **Contoso VPN**, and then select **Disconnect**.
 
-6. In the **Network Connections** window, double-click the **Contoso VPN** icon.
+6. In the **Network Connections** window, open **Contoso VPN**.
 
 7. On the quick settings, select **VPN**, select **Contoso VPN**, and then select **Connect**.
 
@@ -290,7 +290,7 @@ The main tasks for this exercise are:
 
 9. Switch to the **Network Connections** window, and then verify that the connection is established by using the **SSTP** protocol.
 
-10. In the **Network Connections** window, double-click the **Contoso VPN** icon, and then select **Disconnect**.
+10. In the **Network Connections** window, open **Contoso VPN**, and then select **Disconnect**.
 
 11. Sign out of **LON-CL1**.
 
@@ -359,11 +359,11 @@ The main tasks for this exercise are:
 
 5. Wait for the script to complete.
 
-6. Click **Start**, and then enter **Network Connections**.
+6. Select **Start**, and then enter **Network Connections**.
 
 7. Select **View network connections**.
 
-8. In the **Network Connections** window, double-click the **Contoso VPN** icon.
+8. In the **Network Connections** window, open **Contoso VPN**.
 
 9. On the **quick settings** page, select **VPN**, select **Contoso VPN**, and then select **Connect**.
 
