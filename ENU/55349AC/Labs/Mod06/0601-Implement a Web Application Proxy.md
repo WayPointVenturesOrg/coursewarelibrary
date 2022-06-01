@@ -241,7 +241,7 @@ The main tasks for this exercise are:
 
 5. Expand **Sites**, and then select **Default Web site**.
 
-6. In the **Internet Information Services (IIS) Manager** console, in the **Default Web Site Home** pane, double-click **Authentication**.
+6. In the **Internet Information Services (IIS) Manager** console, in the **Default Web Site Home** pane, open the **Authentication** pane.
 
 7. In the **Internet Information Services (IIS) Manager** console, in the **Authentication** pane, right-click **Windows Authentication** to open the context menu, and then select **Enable**.
 
