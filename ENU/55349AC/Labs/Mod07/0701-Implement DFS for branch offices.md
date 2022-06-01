@@ -2,15 +2,15 @@
 
 ## Lab scenario
 
-Contoso corporation has several key shared folders that must be accessible to users in Sydney and Toronto. The folders are accessed by users in Sydney only a few times per day, but are accessed from Toronto constantly throughout the day. To ensure that users have the optimal experience when accessing the files, Contoso has decided to implement DFSR for the users in Toronto.
+Contoso Corporation has several key shared folders that must be accessible to users in Sydney and Toronto. The Sydney users access the folders only a few times per day, but the Toronto users access them constantly throughout the day. To ensure that users have the optimal experience when accessing the files, Contoso has decided to implement Distributed File System Replication (DFSR) for the Toronto users.
 
 ## Exercise 1: Implementing DFS
 
 ### Scenario
 
-The Toronto office has a single server, **TOR-SVR1**. To support branch staff requirements, you need to configure DFS to replicate a shared folder named BranchDocs between **LON-SVR1** and **TOR-SVR1**. To avoid having to perform backups remotely, the BranchDocs folder in the London location is replicated with **TOR-SVR1** to provide quicker access to the files, while still maintaining the files in London for centralized backup.
+The Toronto office has a single server, **TOR-SVR1**. To support branch-staff requirements, you need to configure DFS to replicate a shared folder named **BranchDocs** between **LON-SVR1** and **TOR-SVR1**. To avoid having to perform backups remotely, the **BranchDocs** folder in the London location is replicated with **TOR-SVR1** to provide quicker access to the files, while still maintaining the London files for centralized backup.
 
-The main tasks for this exercise are as follows:
+The main tasks for this exercise are:
 
 1. Install the DFS role on LON-SVR1 and TOR-SVR1.
 2. Create the BranchDocs DFS Namespace.
@@ -55,7 +55,7 @@ The main tasks for this exercise are as follows:
 
 3. In the navigation pane, select **Namespaces**.
 
-4. Right-click **Namespaces**, and then select **New Namespace**.
+4. Right-click **Namespaces** to open the context menu, and then select **New Namespace**.
 
 5. In the **New Namespace Wizard**, on the **Namespace Server** page, under **Server**, enter **LON-SVR1**, and then select **Next**.
 
@@ -74,7 +74,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 3: Add the DataFiles folder to the BranchDocs namespace
 
-1. On **LON-SVR1**, in **DFS Management**, right-click **Contoso.com\\BranchDocs**, and then select **New Folder**. 
+1. On **LON-SVR1**, in **DFS Management**, right-click **Contoso.com\\BranchDocs** to open the context menu, and then select **New Folder**. 
 
 2. In the **New Folder** dialog box, under **Name**, enter **DataFiles**, and then select **Add**.
 
@@ -95,9 +95,9 @@ The main tasks for this exercise are as follows:
 
 1. On **LON-SVR1**, in **DFS Management**, expand **Namespaces**, **\\\\Contoso.com\\BranchDocs**, and then select **DataFiles**. 
 
-   > In the details pane, notice that there is currently only one folder target.
+   > In the **details** pane, notice that there's currently only one folder target.
 
-2. Right-click **DataFiles**, and then select **Add Folder Target**.
+2. Right-click **DataFiles** to open the context menu, and then select **Add Folder Target**.
 
 3. In the **New Folder Target** dialog box, under **Path to folder target**, enter **\\\\TOR-SVR1\\DataFiles**, and then select **OK**.
 
@@ -147,7 +147,7 @@ The main tasks for this exercise are as follows:
 15. In the details pane, on the **Memberships** tab, verify that the replicated folder appears on both **TOR-SVR1** and **LON-SVR1**.
 
 
-**Results:** Upon completion of this exercise, you will have implemented DFS.
+**Results:** Upon completion of this exercise, you'll have implemented DFS.
 
 ## Exercise 2: Validating the deployment
 
@@ -155,20 +155,20 @@ The main tasks for this exercise are as follows:
 
 1. On **LON-SVR1**, on the taskbar, select the **File Explorer** icon.
 
-2. In **File Explorer**, in the address bar, enter **\\\\Contoso.com\\BranchDocs\\DataFiles**, and then press Enter.
+2. In **File Explorer**, in the address bar, enter **\\\\Contoso.com\\BranchDocs\\DataFiles**, and then select Enter.
 
-3. In **File Explorer**, right-select the empty space in the details pane, select **New**, and then select **Text Document**.
+3. In **File Explorer**, right-select the empty space in the details pane to open the context menu, select **New**, and then select **Text Document**.
 
-4. Type **Repltest**, and then press Enter.
+4. Type **Repltest**, and then select Enter.
 
-5. In **File Explorer**, in the address bar, enter **C:\\BranchDocs\\Datafiles**, and then press Enter. 
+5. In **File Explorer**, in the address bar, enter **C:\\BranchDocs\\Datafiles**, and then select Enter. 
 
    > Confirm that the **Repltest.txt** file is located in the folder.
 
 6. Switch to **TOR-SVR1**.
 
-7. Open **File Explorer**, and in the address bar, enter **C:\\BranchDocs\\Datafiles**, and then press Enter. 
+7. Open **File Explorer**, and in the address bar, enter **C:\\BranchDocs\\Datafiles**, and then select Enter. 
 
-   > Confirm that the **Repltest.txt** file is located in the folder. If **Repltest.txt** does not appear within one minute or after refreshing the view, restart **TOR-SVR1**.
+   > Confirm that the **Repltest.txt** file is located in the folder. If **Repltest.txt** doesn't appear within one minute or after refreshing the view, restart **TOR-SVR1**.
 
-**Results**: Upon completion of this exercise, you will have validated the deployment of DFS in branch offices.
+**Results**: Upon completion of this exercise, you'll have validated the deployment of DFS in branch offices.
