@@ -274,7 +274,7 @@ The main tasks for this exercise are:
 4. In the details pane, right-click **Scenario.vbs** to open the context menu, and then select **Copy**.
 
 5. In the console tree of **File Explorer**, select the **Documents** folder, and then, in the empty space of the details pane, right-click and open the context menu, and then select **Paste**. 
-6. Double-click **Scenario.vbs** to run the script.
+6. Run the **Scenario.vbs** script.
 7. Close File Explorer.
 
 ### Task 3: Resolve the problem
