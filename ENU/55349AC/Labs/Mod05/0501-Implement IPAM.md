@@ -165,7 +165,7 @@ The main tasks for this exercise are:
 
 8. In the **Search** box, enter **IPAMUG**, and then select Enter.
 
-9. Double-click the **IPAMUG** group.
+9. Open the **IPAMUG** group.
 
 10. In the **IPAMUG** dialog box, under **Group scope**, select **Global**.
 
