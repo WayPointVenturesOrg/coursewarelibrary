@@ -2,15 +2,15 @@
 
 ## Lab scenario
 
-Contoso Corporation has implemented Hyper‑V to manage server and client virtualization initiatives. You have created a couple of test virtual machines and familiarized yourself with many of the configuration options. You need to now implement and test network connectivity for the virtual machines.
+Contoso Corporation has implemented Hyper‑V to manage server and client virtualization initiatives. You have created a couple of test virtual machines (VMs) and familiarized yourself with many of the configuration options. You now muct implement and test network connectivity for the VMs.
 
 ## Exercise 1: Create Hyper‑V virtual switches and configure NIC Teaming
 
 ### Scenario
 
-The Hyper‑V virtualization platform has been installed for your testing. Before deploying Hyper‑V in the production environment, you need to understand the different networking options that can be configured. First, you will review the current networking configuration of the Hyper‑V host. Next, you will create different types of Hyper‑V virtual switches and explore the connectivity options that exist when using each of the switches. Finally, you will create a new virtual network adapter and configure NIC teaming within a virtual machine.
+The Hyper‑V virtualization platform has been installed so you can test it. Before deploying Hyper‑V in the production environment, you need to understand the different networking options that can be configured. First, you'll review the current networking configuration of the Hyper‑V host. Next, you'll create different types of Hyper‑V virtual switches and explore the connectivity options that exist when using each of them. Finally, you will create a new virtual network adapter and configure Network Interface Card (NIC) teaming within a VM.
 
-The main tasks for this exercise are as follows:
+The main tasks for this exercise are:
 
 1. Verify the current Hyper‑V network configuration.
 
@@ -38,11 +38,11 @@ The main tasks for this exercise are as follows:
 
 1. In the **Virtual Switch Manager** **for** **LON-HV1** window, in the console tree, select **New virtual network switch**, and then in the details pane, in the **What type of virtual switch do you want to create?** area, select **External**, and then select **Create Virtual Switch**.
 
-   > A new Virtual Switch entry displays for you to enter the name and details for the new switch.
+   > A new Virtual Switch entry displays, in which you should enter the name and details for the new switch.
 
 2. In the **Name** box, enter **External Switch**.
 
-3. In the **Connection type** section, verify that **External network** is selected and **Microsoft Hyper-V Network Adapter** is selected. 
+3. In the **Connection type** section, verify that **External network** and **Microsoft Hyper-V Network Adapter** are selected. 
 
 4. Verify that **Allow management operating system to share this network adapter** is selected, and then select **OK**.
 
@@ -63,23 +63,23 @@ The main tasks for this exercise are as follows:
 
 ### Task 3: Create a virtual network adapter
 
-1. In **Hyper‑V Manager**, in the **Virtual Machines** pane, right-click **Server1**, and then select **Settings**.
+1. In **Hyper‑V Manager**, in the **Virtual Machines** pane, right-click **Server1** to open the context menu, and then select **Settings**.
 
-   > Take note of the network adapters currently attached to Server1. There should be three network adapters. One network adapter is connected to the Private Network, and the other two network adapters are not connected to any network.
+   > Take note of the network adapters currently attached to Server1. There should be three network adapters. One network adapter is connected to the Private Network, and the other two network adapters aren't connected to any network.
 
 2. Select the first network adapter.
 
-3. In the details pane, under **Virtual switch** select **External switch**.
+3. In the details pane, under **Virtual switch**, select **External switch**.
 
-4. Repeat steps 2 and 3 and change the remaining two Network Adapters to connect to the **External** switch.
+4. Repeat steps 2 and 3, and change the remaining two Network Adapters to connect to the **External** switch.
 
-5. Select **OK** to save changes and close the Settings for Server1 window.
+5. Select **OK** to save your changes and close the Settings for the **Server1** window.
 
-   > Next, you will use PowerShell to add a new network adapter and add the adapter to the External switch.
+   > Next, you'll use Windows PowerShell to add a new network adapter to the External switch.
 
 6. On **LON-HV1**, select **Start**, and then select **Windows PowerShell**.
 
-7. At the **Windows PowerShell** command prompt, enter the following commands, and then press Enter after each line:
+7. At the **Windows PowerShell** command prompt, enter the following commands, selecting Enter after each line:
 
    ```
    Add-VMNetworkAdapter -VMName Server1 -Name "External Network Adapter"
@@ -90,7 +90,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 4: Use the Hyper‑V virtual switches
 
-1. In **Hyper‑V Manager**, in the **Virtual Machines** pane, right-click **Server1**, and then select **Settings**.
+1. In **Hyper‑V Manager**, in the **Virtual Machines** pane, right-click **Server1** to open the context menu, and then select **Settings**.
 
 2. In the **Settings for Server1 on LON-HV1** window, in the console tree, select the **External Network Adapter**. 
 
@@ -108,13 +108,13 @@ The main tasks for this exercise are as follows:
 
 11. Next to **Ethernet 4**, select **IPv4 address assigned by DHCP, IPv6 enabled**.
 
-12. In the **Network Connections** window, right-click **Ethernet 4**, and then select **Status**.
+12. In the **Network Connections** window, right-click **Ethernet 4** to open the context menu, and then select **Status**.
 
 10. In the **Ethernet 4 Status** window, select **Details**.
 
-    > Note the IP address and other settings assigned to the network adapter. These settings have been assigned from the DHCP server installed on LON-DC1. The External Network Adapter communicates with the external network attached to LON-HV1.
+    > Note the IP address and other settings assigned to the network adapter. These settings have been assigned from the Dynamic Host Configuration Protocol (DHCP) server installed on LON-DC1. The External Network Adapter communicates with the external network attached to LON-HV1.
 
-15. On **Server1**, leave the Server Manager open and close all other open windows.
+15. On **Server1**, leave Server Manager open, and then close all other open windows.
 
 
 ### Task 5: Enable NIC Teaming
@@ -125,7 +125,7 @@ The main tasks for this exercise are as follows:
 
 3. Maximize the **NIC Teaming** dialog box, and then in the **TEAMS** pane, select **Tasks** and then select **New Team**.
 
-4. In the **New team** dialog box, in the **Team name** box, enter **Server1 NIC Team** and select all adapters.
+4. In the **New team** dialog box, in the **Team name** box, enter **Server1 NIC Team**, and then select all adapters.
 
    > Ensure that **Ethernet**, **Ethernet2**, **Ethernet3**, and **Ethernet4** are all selected.
 
@@ -137,51 +137,51 @@ The main tasks for this exercise are as follows:
    - Load Balancing: **Address Hash**
    - Standby adapter: **None (all adapters Active)** 
 
-   > **Note:** This is where you an modify the load balancing mode. However, since this is a guest virtual machine, some settings are not available.
+   > **Note:** This is where you an modify the load-balancing mode. However, since this is a guest VM, some settings aren't available.
 
 7. Next to **Standby adapter**, select **Ethernet4**.
 
 8. In the **NIC Teaming** dialog box, select **OK**.
 
-   > After a minute or two, the **Server1 NIC Team** should show a Status of **OK**. All Adapters, except **Ethernet4**, should show an **Active** state. **Ethernet4** shows that it is in a Standby state.
+   > After a minute or two, the **Server1 NIC Team** should show a Status of **OK**. All Adapters, except **Ethernet4**, should show an **Active** state. **Ethernet4** shows that it's in a Standby state.
 
 9. Close the **NIC Teaming** window.
 
-10. On **Server1**, in **Server Manager** refresh the Local Server Properties page.
+10. On **Server1**, in **Server Manager** refresh the **Local Server Properties** page.
 
     > Notice that all Ethernet instances have been replaced by a single Server1 NIC Team instance, which is configured to use DHCP.
 
 11. Leave Server Manager open for the next exercise.
-12. Close the **Server1 on LON-HV1** window.
+12. Close the Server1 on **LON-HV1** window.
 
-**Results**: After completing this exercise, you will have successfully configured a Hyper‑V virtual switch, Network adapters, and enabled NIC Teaming.
+**Results**: After completing this exercise, you'll have successfully configured a Hyper‑V virtual switch and network adapters, and enabled NIC Teaming.
 
 ## Exercise 2: Configure advanced features of a virtual switch
 
 ### Scenario
 
-You need to validate how DHCP guarding can be used in a virtual environment to protect against unauthorized DHCP server. You also need to evaluate the use and configuration of Hyper-V Switch Embedded Teaming (SET) and virtual switch bandwidth management.
+You need to validate how DHCP guarding can be used in a virtual environment to protect against unauthorized DHCP server. You also need to evaluate the use and configuration of Hyper-V Switch Embedded Teaming (SET) and virtual-switch bandwidth management.
 
-The main tasks for this exercise are as follows:
+The main tasks for this exercise are:
 
 1. Configure and use DHCP guard.
 
-3. Configure and use Hyper-V Switch Embedded Teaming (SET).
+3. Configure and use Hyper-V SET.
 
 4. Configure and use bandwidth management.
 
 
 ### Task 1: Configure and use DHCP guard
 
-First you will configure Server2 and install the DHCP server role.
+First, you'll configure Server2 and install the DHCP server role.
 
-1. On LON-HV1, in **Hyper‑V Manager**, in the **Virtual Machines** pane, right-click **Server2**, and then select **Settings**.
+1. On LON-HV1, in **Hyper‑V Manager**, in the **Virtual Machines** pane, right-click **Server2** to open the context menu, and then select **Settings**.
 
 2. Select **Network Adapter**.
 
-3. In the details pane, under **Virtual switch** select **External switch**.
+3. In the details pane, under **Virtual switch**, select **External switch**.
 
-4. Select **OK** to save changes and close the Settings for Server2 window.
+4. Select **OK** to save changes and close the **Settings for the Server2** window.
 
 5. In the **Hyper‑V Manager** console, connect to and start **Server2**.
 
@@ -207,13 +207,13 @@ First you will configure Server2 and install the DHCP server role.
 
 16. In **Server Manager**, select **Tools**, and then select **DHCP**.
 
-17. In the console tree, expand **server2**, select and then right-click **IPv4**, and then select **New Scope**.
+17. In the console tree, expand **server2**, select and then right-click **IPv4** to open the context menu, and then select **New Scope**.
 
 18. In the **New Scope Wizard**, on the **Welcome** page, select **Next**.
 
 19. On the **Scope Name** page, in the **Name** box, enter **Unauthorized Scope**, and then select **Next**.
 
-20. On the **IP Address Range** page, in the **Start IP address** box, enter **172.16.0.200**, in the **End IP address** box, enter **172.16.0.210**, in the **Subnet Mask** box, enter **255.255.0.0**, and then select **Next**.
+20. On the **IP Address Range** page, in the **Start IP address** box, enter **172.16.0.200**, and in the **End IP address** box, enter **172.16.0.210**. In the **Subnet Mask** box, enter **255.255.0.0**, and then select **Next**.
 
 21. On the **Add Exclusions and Delay** page, select **Next**.
 
@@ -233,17 +233,17 @@ First you will configure Server2 and install the DHCP server role.
 
 29. Close the **Server2 on LON-HV1** window.
 
-    > You will now configure DHCP guard to ensure that Server2 does not issue DHCP leases to other computers on the network.
+    > You'll now configure DHCP guard to ensure that Server2 doesn't issue DHCP leases to other computers on the network.
 
 30. On **LON-HV1**, select **Start**, and then select **Windows PowerShell**.
 
-31. At the **Windows PowerShell** command prompt, enter the following command to prevent **Server2** from issuing a DHCP lease, and then press Enter:
+31. At the **Windows PowerShell** command prompt, enter the following command to prevent **Server2** from issuing a DHCP lease, and then select Enter:
 
     ```
     Set-VMNetworkAdapter -VMName Server2 -DhcpGuard On
     ```
 
-32. On LON-HV1, in **Hyper‑V Manager**, in the **Virtual Machines** pane, right-click **Server2**, and then select **Settings**.
+32. On LON-HV1, in **Hyper‑V Manager**, in the **Virtual Machines** pane, right-click **Server2** to open the context menu, and then select **Settings**.
 
 33. Select and then expand **Network Adapter**.
 
@@ -251,15 +251,15 @@ First you will configure Server2 and install the DHCP server role.
 
     > Notice that **Enable DHCP guard** has been enabled.
 
-35. Select **Cancel** to close the Settings for Server2 window.
+35. Select **Cancel** to close the **Settings for the Server2** window.
 
 36. Close the **Server2 on LON-HV1** window.
 
 37. Connect to **Server1**.
 
-38. On **Server1**, right-click **Start**, and then select **Windows PowerShell (Admin)**.
+38. On **Server1**, right-click **Start** to open the context menu, and then select **Windows PowerShell (Admin)**.
 
-39. In the **Windows PowerShell** window, enter the following commands, and then press Enter after each line:
+39. In the **Windows PowerShell** window, enter the following commands, selecting Enter after each line:
 
     ```
     IPConfig /release
@@ -267,15 +267,15 @@ First you will configure Server2 and install the DHCP server role.
     IPConfig/renew
     ```
 
-40. In the notification area of the taskbar, right-click the **Network** icon, and then select **Open Network and Sharing Center**.
+40. In the notification area of the taskbar, right-click the **Network** icon to open the context menu, and then select **Open Network and Sharing Center**.
 
 41. In the **Settings** window, select **Change adapter options**.
 
-42. In the **Network Connections** window, right-click **Server1 NIC Team** and then select **Status**.
+42. In the **Network Connections** window, right-click **Server1 NIC Team** to open the context menu, and then select **Status**.
 
 43. In the **Server1 NIC Team Status** window, select **Details**. 
 
-    > Note that it still has an **DHCP Server IP Address** from **LON-DC1**. Even though Server2 is configured as a DHCP server, it does not issue a DHCP lease.
+    > Note that it still has an **DHCP Server IP Address** from **LON-DC1**. Even though Server2 is configured as a DHCP server, it doesn't issue a DHCP lease.
 
 43. Close all open windows on Server1.
 44. Close the **Server1 on LON-HV1** window.
@@ -284,11 +284,11 @@ First you will configure Server2 and install the DHCP server role.
 
 1. On **LON-HV1**, select **Start**, and then select **Windows PowerShell**.
 
-2. At the Windows PowerShell prompt, enter **`Get-NetAdapter`** and then press Enter.
+2. At the Windows PowerShell prompt, enter **`Get-NetAdapter`** and then select Enter.
 
-   > Notice the list of Ethernet and vEthernet adapters. You will configure a new SET for Ethernet 2 and Ethernet 3.
+   > Notice the list of Ethernet and vEthernet adapters. You'll configure a new SET for Ethernet 2 and Ethernet 3.
 
-3. At the **Windows PowerShell** command prompt, enter the following command to create a SET named SET1, and then press Enter:
+3. At the **Windows PowerShell** command prompt, enter the following command to create a SET named SET1, and then select Enter:
 
    ```
    New-VMSwitch -Name SET1 -NetAdapterName "Ethernet 2","Ethernet 3"
@@ -298,25 +298,25 @@ First you will configure Server2 and install the DHCP server role.
 
 5. In the **Virtual Switch Manager** **for** **LON-HV1** window, select the virtual switch named **SET1**.
 
-   > Note: Ethernet 2 and Ethernet 3 have been configured as a Hyper-V Switch Embedded Team. Notice that you cannot change any settings other than the name of the switch and description. 
+   > Note: Ethernet 2 and Ethernet 3 have been configured as a Hyper-V Switch Embedded Team. Notice that you can't change any settings other than the name of the switch and description. 
 
 6. Select **Cancel** to close the **Virtual Switch Manager** **for** **LON-HV1** window.
 
-7. On LON-HV1, in **Hyper‑V Manager**, in the **Virtual Machines** pane, right-click **Server2**, and then select **Settings**.
+7. On LON-HV1, in **Hyper‑V Manager**, in the **Virtual Machines** pane, right-click **Server2** to open the context menu, and then select **Settings**.
 
 8. Select **Network Adapter**.
 
-9. In the details pane, under **Virtual switch** select **Set1**.
+9. In the details pane, under **Virtual switch**, select **Set1**.
 
-10. Select **OK** to save changes and close the Settings for Server2 window.
+10. Select **OK** to save changes and close the **Settings for Server2** window.
 
 
 ### Task 4: Configure and use bandwidth management
 
-1. In **Hyper‑V Manager**, in the **Virtual Machines** pane, right-click **Server1**, and then select **Settings**.
+1. In **Hyper‑V Manager**, in the **Virtual Machines** pane, right-click **Server1** to open the context menu, and then select **Settings**.
 2. In the **Settings for Server1 on LON-HV1** window, in the console tree, select the **External Network Adapter**. 
 3. In the details pane, in the **Bandwidth Management** area, select **Enable bandwidth management.**
 4. In the **Maximum bandwidth** box, enter **100**, and then select **OK**.
 
 
-**Results**: After completing this exercise, you will have successfully configured the advanced features of the Hyper‑V virtual switch.
+**Results**: After completing this exercise, you'll have successfully configured the advanced features of the Hyper‑V virtual switch.
