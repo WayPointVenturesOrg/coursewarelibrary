@@ -258,7 +258,7 @@ The main tasks for this exercise are as follows:
 
 **Results:** After completing this exercise, you will have successfully performed an interactive backup and an authoritative restore of Active Directory Domain System (AD DS).
 
-## Exercise 2: Recover objects in AD DS
+## Exercise 2: Recover AD DS objects using Active Directory Recycle Bin
 
 ### Scenario
 
