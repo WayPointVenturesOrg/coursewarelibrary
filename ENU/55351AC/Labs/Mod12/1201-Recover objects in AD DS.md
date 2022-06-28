@@ -272,7 +272,7 @@ The main tasks for this exercise are as follows:
 
 3. Delete objects to simulate accidental deletion.
 
-4. Perform object restoration with the Active Directory Module for Windows PowerShell.
+4. Perform object restoration.
 
 5. Verify object restoration.
 
