@@ -4,7 +4,7 @@
 
 It is your responsibility to ensure that the directory service is backed up. Today, you notice that last night's backup did not run as scheduled. You therefore decide to perform an interactive backup. Shortly after the backup, a domain administrator accidentally deletes the IT OU and the user accounts contained in the OU. You must recover this OU and its associated user accounts.
 
-## Exercise 1: Back up and restoring AD DS
+## Exercise 1: Back up and restore AD DS
 
 ### Scenario
 
