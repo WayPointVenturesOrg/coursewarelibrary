@@ -2,21 +2,21 @@
 
 ## Lab scenario
 
-Contoso Corporation has deployed a single AD DS domain with all domain controllers located in its London datacenter. As the company has grown and added branch offices with a large numbers of users, it has become increasingly apparent that the current AD DS environment does not meet company requirements. The network team is concerned about the amount of AD DS–related network traffic that is crossing WAN links, which are becoming highly utilized.
+Contoso Corporation has deployed a single Active Directory Domain Services (AD DS) domain with all domain controllers (DCs) located in its London datacenter. As the company has grown and added branch offices with a large numbers of users, it's become increasingly apparent that the current AD DS environment doesn't meet company requirements. The network team is concerned about the amount of AD DS–related network traffic that is crossing wide area network (WAN) links, which are becoming highly utilized.
 
 The company has also become increasingly integrated with partner organizations, some of which need access to shared resources and applications that are located on the Contoso internal network. The Security department at Contoso wants to ensure that access for these external users is as secure as possible. 
 
-As one of the senior network administrators at Contoso Corporation, you are responsible for implementing an AD DS infrastructure that meets company requirements. You are responsible for planning an AD DS domain and forest deployment that provides optimal services for internal and external users while maintaining security requirements.
+As one of Contoso's senior network administrators, you're responsible for implementing an AD DS infrastructure that meets company requirements and for planning an AD DS domain and forest deployment that provides optimal services for internal and external users while maintaining security requirements.
 
 ## Exercise 1: Implement forest trusts
 
 ### Scenario
 
-Contoso Corporation is working on several projects with a partner organization named Trey Research. To simplify the process of enabling access to resources in the two organizations, they have deployed a WAN between London and Munich, where Trey Research is located. You now must implement and validate a forest trust between the two forests and configure the trust to allow access to only selected servers in London.
+Contoso Corporation is working on several projects with a partner organization named Trey Research. To simplify enabling access to resources in the two organizations, they've deployed a WAN between London and Munich, where Trey Research is located. You now must implement and validate a forest trust between the two forests and configure the trust to allow access to only selected servers in London.
 
 The main tasks for this exercise are as follows:
 
-1. Configure stub zones for DNS name resolution.
+1. Configure stub zones for Domain Name System (DNS) name resolution.
 
 2. Configure a forest trust with selective authentication.
 
@@ -41,7 +41,7 @@ The main tasks for this exercise are as follows:
 
 7. In the **Zone name** text box, enter **treyresearch.net**, and then select **Next**.
 
-8. On the **Master DNS Servers** page, select **`<Click here to add an IP Address or DNS Name>`**, enter **172.16.10.10**, press Enter, and then select **Next**.
+8. On the **Master DNS Servers** page, select **`<Click here to add an IP Address or DNS Name>`**, enter **172.16.10.10**, select Enter, and then select **Next**.
 
 9. On the **Completing the New Zone Wizard** page, select **Next**, and then select **Finish**.
 
@@ -67,7 +67,7 @@ The main tasks for this exercise are as follows:
 
 20. In the **Zone name** text box, enter **Contoso.com**, and then select **Next**.
 
-21. On the **Master DNS Servers** page, select **`<Click here to add an IP Address or DNS Name>`**, enter **172.16.0.10**, press Enter, and then select **Next**.
+21. On the **Master DNS Servers** page, select **`<Click here to add an IP Address or DNS Name>`**, enter **172.16.0.10**, select Enter, and then select **Next**.
 
 22. On the **Completing the New Zone Wizard** page, select **Next**, and then select **Finish**.
 
@@ -143,7 +143,7 @@ The main tasks for this exercise are as follows:
 9. When prompted for credentials, enter **TreyResearch\\Administrator** with the password **Pa55w.rd**, and then select **OK**.
 10. On the **Select Users, Computers, Service Accounts, or Groups** page, select **OK**.
 
-11. In the **LON-SVR2 Properties** window, ensure that **IT (TreyResearch\\IT)** is highlighted, select the **Allow** check box that is in line with **Allowed to authenticate**, and then select **OK**.
+11. In the **LON-SVR2 Properties** window, ensure that **IT (TreyResearch\\IT)** is highlighted, select the **Allow** check box that's in line with **Allowed to authenticate**, and then select **OK**.
 
 12. Switch to **LON-SVR2**.
 13. Sign in to **LON-SVR2** as **Contoso\\Administrator** with the password of **Pa55w.rd**.
@@ -153,7 +153,7 @@ The main tasks for this exercise are as follows:
 
 16. Right-click or access the context menu in the details pane, select **New**, and then select **Folder**.
 
-17. In the **Name** text box, enter **IT-Data**, and then press Enter.
+17. In the **Name** text box, enter **IT-Data**, and then select Enter.
 
 18. Right-click or access the context menu for **IT-Data**, and then select **Properties**.
 
@@ -179,20 +179,20 @@ The main tasks for this exercise are as follows:
 
 30. Sign out of TREY-DC1 and then sign back in to **TREY-DC1** as **TreyResearch\\Abbi** with the password **Pa55w.rd**.
 
-31. Select **Start**, enter **\\\\LON-SVR2.Contoso.com\\IT-Data**, and then press Enter. The folder opens.
+31. Select **Start**, enter **\\\\LON-SVR2.Contoso.com\\IT-Data**, and then select Enter. The folder opens.
 32. Sign out of TREY-DC1.
 
-**Results:** After completing this exercise, you will have successfully implemented forest trusts.
+**Results:** After completing this exercise, you'll have successfully implemented forest trusts.
 
 ## Exercise 2: Implement child domains in AD DS
 
 ### Scenario
 
-Contoso Corporation has decided to deploy a new child domain in the Contoso.com forest for the North American region. The first domain controller will deploy in Toronto, and the domain name will be Na.Contoso.com. You need to configure and install the new domain controller.
+Contoso Corporation has decided to deploy a new child domain in the Contoso.com forest for the North American region. The first DC will deploy in Toronto, and the domain name will be Na.Contoso.com. You need to configure and install the new DC.
 
 The main tasks for this exercise are as follows:
 
-1. Install a domain controller in a child domain.
+1. Install a DC in a child domain.
 
 2. Verify the default trust configuration.
 
@@ -252,7 +252,7 @@ The main tasks for this exercise are as follows:
 
 25. On the **Prerequisites Check** page, confirm that there are no issues, and then select **Install**.
 
-    > **Note:** If you receive a “Windows Server 2016 domain controllers have a default for the security setting named ‘Allow cryptography algorithms compatible with Windows NT 4.0’” warning, you may safely ignore it.
+    > **Note:** If you receive a warning that indicates that “Windows Server 2016 DCs have a default for the security setting named ‘Allow cryptography algorithms compatible with Windows NT 4.0’”, you may safely ignore it.
 
 26. After the configuration completes, the server restarts automatically.
 
