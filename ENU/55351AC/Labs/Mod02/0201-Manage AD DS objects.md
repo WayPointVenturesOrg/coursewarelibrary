@@ -2,15 +2,15 @@
 
 ## Lab scenario
 
-You are a server support specialist for Contoso Corporation.  You have been assigned to help configure the infrastructure for a new branch office for the Research department. To begin deployment of the new branch office, you are preparing AD DS objects. 
+You are a server support specialist for Contoso Corporation. You've been assigned to help configure the infrastructure for a new branch office for the Research department. To begin the new branch office's deployment, you're preparing Active Directory Domain Services (AD DS) objects. 
 
-You need to create users and groups for the new Research department branch office. You also need to test the ability to reset the secure channel for a computer account located in the branch office that has lost connectivity to the Contoso.com domain.
+You need to create users and groups for the new Research department branch office and test the ability to reset the secure channel for a branch-office computer account that's lost connectivity to the Contoso.com domain.
 
 ## Exercise 1: Create and manage groups in AD DS
 
 ### Scenario
 
-You need to create groups for the Research department. You require a distribution global group to facilitate email delivery to the Research users. Carlos Tijerina will manage this group. You will also create a Research Managers group and add Carlos Tijerina and Susan Kemp as members of the group. You also need to create a universal group in the Managers organizational unit (OU) that will contain all the departmental managers’ global groups. After creating the research distribution group, you realize that the group needs access to network resources, so you must convert the group to a security group.
+You need to create groups for the Research department, and you require a distribution global group to facilitate email delivery to Research users. Carlos Tijerina will manage this group. You will also create a Research Managers group and add Carlos Tijerina and Susan Kemp as members of the group. You also need to create a universal group in the Managers organizational unit (OU) that will contain all the departmental managers’ global groups. After creating the research distribution group, you realize that the group needs access to network resources, so you must convert the group to a security group.
 
 The main tasks for this exercise are as follows:
 
@@ -18,7 +18,7 @@ The main tasks for this exercise are as follows:
 
 2. Configure group nesting.
 
-3. Convert a group type from Distribution to Security.
+3. Convert a group type from **Distribution** to **Security**.
 
 
 ### Task 1: Create groups and add members
@@ -70,7 +70,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 2: Configure group nesting
 
-1. Select **Contoso(Local)** and then open the **Managers** OU.
+1. Select **Contoso(Local)**, and then open the **Managers** OU.
 
 2. Right-click or access the context menu for the **Enterprise Managers** group, and then select **Properties**.
 
@@ -89,13 +89,13 @@ The main tasks for this exercise are as follows:
 
 3. Under **Group type**, select **Security**, and then select **OK**.
 
-**Results:** After completing this exercise, you will have created groups and added members, configured group nesting, and converted a group type.
+**Results:** After completing this exercise, you'll have created groups and added members, configured group nesting, and converted a group type.
 
 ## Exercise 2: Create and configure user accounts in AD DS
 
 ### Scenario
 
-You have a list of new users that you must create for the branch office. You have decided to create a template to facilitate the quick creation of users for the branch. You will validate that template by creating a new test user and checking the properties.
+You have a list of new users that you must create for the branch office, and ou're going to create a template to facilitate quick creation of branch users. You'll validate that template by creating a new test user and checking the properties.
 
 The main tasks for this exercise are as follows:
 
@@ -149,7 +149,7 @@ The main tasks for this exercise are as follows:
 
 4. In the **Copy Object – User** dialog box, enter **Research** in the **First name** field, and then enter **User** in the **Last name** field.
 
-5. In the **User logon name** field, enter **ResearchUser**, and select **Next**.
+5. In the **User logon name** field, enter **ResearchUser**, and then select **Next**.
 
 6. In the **Password** and **Confirm password** fields, enter **Pa55w.rd**.
 
@@ -170,13 +170,13 @@ The main tasks for this exercise are as follows:
 
 5. Select **Cancel** to close the **Research** **User** **Properties** dialog box.
 
-**Results**: After completing this exercise, you will have created and configured a user template, created a user based upon the template, and verified attributes copied from the template. 
+**Results**: After completing this exercise, you'll have created and configured a user template, created a user based upon the template, and verified attributes copied from the template. 
 
 ## Exercise 3: Manage computer objects in AD DS
 
 ### Scenario
 
-A user is unable to sign in, and a workstation has lost its connectivity to the domain and cannot authenticate users properly. When users attempt to access resources from this workstation, access is denied. You need to repair the trust relationship between the computer and the domain.
+A user is unable to sign in, and a workstation has lost its connectivity to the domain and can't authenticate users properly. When users attempt to access resources from this workstation, access is denied. You need to repair the trust relationship between the computer and the domain.
 
 The main tasks for this exercise are as follows:
 
@@ -204,7 +204,7 @@ The main tasks for this exercise are as follows:
 1. Attempt to sign in as **Contoso\\Oscar** with the password **Pa55w.rd**. 
 
 
-> **Question**: What is the message displayed?
+> **Question**: What is the message that displays?
 >
 > **Answer**: The trust relationship between this workstation and the primary domain failed.
 
@@ -216,9 +216,9 @@ The main tasks for this exercise are as follows:
 
 2. Right-click or access the context menu for the **Start** button, and then select **Run**.
 
-3. Enter **PowerShell**, and then press Enter.
+3. Enter **PowerShell**, and then select Enter.
 
-4. In the **Administrator: Windows PowerShell** window, enter the following cmdlet, and then press Enter:
+4. In the **Administrator: Windows PowerShell** window, enter the following cmdlet, and then select Enter:
 
    ```
    Test-ComputerSecureChannel –Repair
@@ -232,4 +232,4 @@ The main tasks for this exercise are as follows:
 
    > Keep the lab environment running for the next lab.
 
-**Results**: After completing this exercise, you will have reset a computer account, and resolved computer account issues.
+**Results**: After completing this exercise, you'll have reset a computer account, and resolved computer account issues.
