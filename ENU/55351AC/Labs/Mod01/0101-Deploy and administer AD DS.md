@@ -2,13 +2,13 @@
 
 ## Lab scenario
 
-You are an IT administrator at Contoso Corporation. The company is expanding its business and has several new locations. The Active Directory Domain Services (AD DS) administration team is currently evaluating the methods available in Windows Server for a rapid and remote domain controller deployment. Also, the team is looking for a way to automate certain AD DS administrative tasks. The team wants a fast and seamless deployment of new domain controllers for new locations, and it wants to promote servers to domain controllers from a central location.
+You are an IT administrator at Contoso Corporation. The company is expanding its business and has several new locations. The Active Directory Domain Services (AD DS) administration team is currently evaluating available Windows Server methods for a rapid and remote domain-controller (DC) deployment. Also, the team is looking for a way to automate certain AD DS administrative tasks. The team wants a fast and seamless deployment of new DCs for new locations, and it wants to promote servers to DCs from a central location.
 
 ## Exercise 1: Deploy AD DS
 
 ### Scenario
 
-Contoso Corporation wants to deploy new domain controllers in remote sites with minimal engagement from the remote IT staff. You will use Windows PowerShell to deploy new domain controllers and then validate the deployment using the AD DS Best Practices Analyzer.
+Contoso Corporation wants to deploy new domain controllers in remote sites with minimal engagement from remote IT staff. You'll use Windows PowerShell to deploy new DCs and then validate the deployment using the AD DS Best Practices Analyzer.
 
 The main tasks for this exercise are as follows:
 
@@ -27,25 +27,25 @@ The main tasks for this exercise are as follows:
 
 2. In **Server Manager**, select **Tools**, and then select **Windows PowerShell**.
 
-3. At the command prompt in the Windows PowerShell command-line interface, enter the following command, and then press Enter:
+3. At the command prompt in the Windows PowerShell command-line interface, enter the following command, and then select Enter:
 
    ```
    Install-WindowsFeature –Name AD-Domain-Services –ComputerName LON-SVR1
    ```
 
-4. Enter the following command to verify that the AD DS role is installed on **LON-SVR1**, and then press Enter:
+4. Enter the following command to verify that the AD DS role is installed on **LON-SVR1**, and then select Enter:
 
    ```
    Get-WindowsFeature –ComputerName LON-SVR1
    ```
 
-5. In the output of the previous command, scroll up and search for **Active Directory Domain Services**. Verify that this check box is selected. Search for **Remote Server Administration Tools**. Look for the **Role Administration Tools** node below it, and then look for the **AD DS and AD LDS Tools** node. 
+5. In the output of the previous command, search for **Active Directory Domain Services**, and verify the check box is selected. Search for **Remote Server Administration Tools**, search for the **Role Administration Tools** node below it, and then search for the **AD DS and AD LDS Tools** node. 
 
-   > **Note:** Below the **AD DS and AD LDS Tools** node, only **Active Directory module for Windows PowerShell** has been installed and not the graphical tools, such as the Active Directory Administrative Center. If you centrally manage your servers, you will not usually need these on each server. If you want to install them, you need to specify the AD DS tools by running the **`Add-WindowsFeature`** cmdlet with the **`RSAT-ADDS`** command name.
+   > **Note:** Below the **AD DS and AD LDS Tools** node, only **Active Directory module for Windows PowerShell** has been installed and not the graphical tools, such as the Active Directory Administrative Center. If you centrally manage your servers, you usually won't need these on each server. If you want to install them, you need to specify the AD DS tools by running the **`Add-WindowsFeature`** cmdlet with the **`RSAT-ADDS`** command name.
    >
-   > **Note:** You might need to wait a short time after the installation process completes before verifying that the AD DS role has installed. If you do not see the expected results from the **`Get-WindowsFeature`** command, you can try again after a few minutes.
+   > **Note:** You might need to wait a short time after the installation process completes before verifying that the AD DS role has installed. If you don't observe the expected results from the **`Get-WindowsFeature`** command, you can try again after a few minutes.
 
-### Task 2: Prepare the AD DS installation and promote a remote server
+### Task 2: Prepare the AD DS installation, and promote a remote server
 
 #### Add LON-SVR1 to Server Manager on LON-DC1
 
@@ -60,7 +60,7 @@ The main tasks for this exercise are as follows:
 
 #### Remotely configure AD DS by using Server Manager
 
-1. On **LON-DC1**, ensure that the installation of the AD DS role on **LON-SRV1** is complete and that the server was added to **Server Manager**. Then select the **Notifications** flag symbol.
+1. On **LON-DC1**, ensure that the installation of the AD DS role on **LON-SRV1** is complete and that the server was added to **Server Manager**, and then select the **Notifications** flag symbol.
 
 2. Note the post-deployment configuration of **LON-SVR1**, and then select the **Promote this server to a domain controller** link.
 
@@ -92,7 +92,7 @@ The main tasks for this exercise are as follows:
 
     - Remove the line breaks.
 
-13. Now the **`Install-ADDSDomainController`** command and all the parameters are on one line. Place the cursor in front of the line, and then press Shift+End to select the whole line. On the menu, select **Edit**, and then select **Copy**.
+13. Now the **`Install-ADDSDomainController`** command and all the parameters are on one line. Place the cursor in front of the line, and then select Shift+End to select the whole line. On the menu, select **Edit**, and then select **Copy**.
 
 14. Switch to the **Active Directory Domain Services Configuration Wizard**, and then select **Cancel**. 
 
@@ -112,20 +112,20 @@ The main tasks for this exercise are as follows:
     Invoke-Command –ComputerName LON-SVR1 {Install-ADDSDomainController –NoGlobalCatalog:$true –Credential (Get-Credential) –CriticalReplicationOnly:$false –DatabasePath “C:\Windows\NTDS” –DomainName “Contoso.com” –InstallDns:$false –LogPath “C:\Windows\NTDS” –NoRebootonCompletion:$false –SiteName “Default-First-Site-Name” –SysvolPath “C:\Windows\SYSVOL” –Force:$true }
     ```
 
-19. Press Enter to start the installation.
+19. Select Enter to start the installation.
 
 20. In the **Windows PowerShell Credential Request** dialog box, enter **Contoso\\Administrator** in the **User name** box, enter **Pa55w.rd** in the **Password** box, and then select **OK**.
 
-21. When prompted for the **`SafeModeAdministratorPassword`** password, enter **Pa55w.rd**, and then press Enter.
+21. When prompted for the **`SafeModeAdministratorPassword`** password, enter **Pa55w.rd**, and then select Enter.
 
-22. When prompted for confirmation, enter **Pa55w.rd**, and then press Enter.
+22. When prompted for confirmation, enter **Pa55w.rd**, and then select Enter.
 
     > Wait until the command runs and the **`Status: Success`** message is returned. The **LON-SVR1** virtual machine restarts.
     >
 
 23. Close Notepad without saving the file.
 
-24. After **LON-SVR1** restarts, on **LON-DC1**, switch to **Server Manager**, and on the left side, select the **AD DS** node. 
+24. After **LON-SVR1** restarts, on **LON-DC1**, switch to **Server Manager**, and then on the left side, select the **AD DS** node. 
 
     > Note that **LON-SVR1** has been added as a server and that the warning notification has disappeared. You might have to select **Refresh**.
 
@@ -133,7 +133,7 @@ The main tasks for this exercise are as follows:
 
 1. On **LON-DC1**, in **Server Manager**, select the **All Servers** view.
 
-2. Scroll down to the **Best Practices Analyzer** section, select the **Tasks** menu, and then select **Start BPA Scan**.
+2. Go to the **Best Practices Analyzer** section, select the **Tasks** menu, and then select **Start BPA Scan**.
 
 3. In the **Select Servers** dialog box, select **LON-DC1.Contoso.com** and **LON-SVR1.Contoso.com**.
 
@@ -141,9 +141,9 @@ The main tasks for this exercise are as follows:
 
 5. Review the results of the BPA. 
 
-   > You will notice many result entries with severity such as Information and Warning. Select some of the entries to view additional information.
+   > You'll notice many result entries with severity such as Information and Warning. Select some of the entries to view additional information.
 
-**Results:** After this exercise, you will have successfully created a new domain controller and reviewed the Active Directory Domain Services (AD DS) Best Practices Analyzer (BPA) results for that domain controller.
+**Results:** After this exercise, you'll have successfully created a new DC and reviewed the AD DS BPA results for it.
 
 ## Exercise 2: Administer AD DS
 
@@ -178,7 +178,7 @@ The main task for this exercise is as follows:
 
    > Anita's password is reset.
 
-5. In the **Global Search** section, in the **Search** box, enter **Lon**, and then press Enter.
+5. In the **Global Search** section, in the **Search** box, enter **Lon**, and then select Enter.
 
    > All objects that start with the word **Lon** are displayed.
 
@@ -201,7 +201,7 @@ The main task for this exercise is as follows:
 
 2. Select **LON-CL4**, and then in the **Tasks** pane, in the **LON-CL4** section, select **Properties**.
 
-3. In the **LON-CL4** window, scroll down to the **Extensions** section, select the **Attribute Editor** tab, and note that all the attributes of the computer object are available here.
+3. In the **LON-CL4** window, scroll down to the **Extensions** section, select the **Attribute Editor** tab, and note that you can observe all attributes of the computer object here.
 
 4. Close the **LON-CL4** window by selecting **Cancel**.
 
@@ -210,9 +210,9 @@ The main task for this exercise is as follows:
 
 1. In the **Active Directory Administrative Center**, select the **Windows PowerShell History** toolbar at the bottom of the screen.
 
-2. View the details for the **`Set-ADAccountPassword`** cmdlet that was used to perform the password reset task.
-3. View the details for the **`New-ADComputer`** cmdlet that was used to create the LON-CL4 computer account.
+2. View the details for the **`Set-ADAccountPassword`** cmdlet that you used to perform the password reset task.
+3. View the details for the **`New-ADComputer`** cmdlet that you used to create the LON-CL4 computer account.
 4. Close all open windows.
 
 
-**Results**: After completing this exercise, you will have successfully used the Active Directory Administrative Center to manage AD DS and reviewed the Windows PowerShell cmdlets that run in the background.
+**Results**: After completing this exercise, you'll have successfully used the Active Directory Administrative Center to manage AD DS and reviewed the Windows PowerShell cmdlets that run in the background.
