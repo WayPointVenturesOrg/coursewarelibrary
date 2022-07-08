@@ -2,15 +2,15 @@
 
 ## Lab scenario
 
-You are preparing AD DS objects as part of a deployment for a new branch office. As part of this preparation, you need to create an OU for the branch office and delegate permission to manage it. Also, you need to evaluate Windows PowerShell to manage AD DS more efficiently.
+You're preparing AD DS objects as part of a deployment for a new branch office. As part of this preparation, you need to create an OU for the branch office and delegate permission to manage it. Also, you need to evaluate Windows PowerShell to manage AD DS more efficiently.
 
 ## Exercise 1: Delegate administration for OUs
 
 ### Scenario
 
-Contoso Corporation delegates management of each branch office to a specific group. This allows IT employees who work onsite to be administrators for the branch. Each branch office has a branch administrators group that can perform full administration within the branch office OU. There is also a branch office helpdesk group that can only manage users in the branch office OU. 
+Contoso Corporation delegates management of each branch office to a specific group. This allows IT employees who work onsite to be branch administrators. Each branch office has a branch administrators group that can perform full administration within the branch office OU, and there's also a branch office helpdesk group that can only manage users in the branch office OU. 
 
-You need to create the OU and groups for the new branch office and delegate permissions to the groups. You will also validate the permissions.
+You need to create the OU and groups for the new branch office and delegate permissions to the groups. You'll also validate the permissions.
 
 The main tasks for this exercise are as follows:
 
@@ -86,7 +86,7 @@ The main tasks for this exercise are as follows:
 
 11. On the **Active Directory Object Type** page, select **Only the following object in this folder**.
 
-12. Scroll to the bottom of the list, select **User objects**, and then select the check boxes for **Create selected objects in this folder** and **Delete selected objects in this folder**, and then select **Next**.
+12. Scroll to the bottom of the list, select **User objects**, select the check boxes for **Create selected objects in this folder** and **Delete selected objects in this folder**, and then select **Next**.
 
 13. On the **Permissions** page, select **Full Control**, and then select **Next**.
 
@@ -160,13 +160,13 @@ The main tasks for this exercise are as follows:
 5. Sign out of **LON-SVR1**.
 
 
-**Results:** After completing this exercise, you will have enabled created a new OU for the branch office, created and added members to groups for branch administrators and help-desk personnel, delegated permission to the groups, and installed AD DS tools and tested permissions.
+**Results:** After completing this exercise, you'll have created a new OU for the branch office, created and added members to groups for branch administrators and help-desk personnel, delegated permission to the groups, and installed AD DS tools and tested permissions.
 
 ## Exercise 2: Create and modify AD DS objects with Windows PowerShell
 
 ### Scenario
 
-You have a .csv file that contains a large list of new users for the branch office. It is inefficient to create these users individually with graphical tools, so you will use a Windows PowerShell script instead. A colleague who has experience with scripting has given you a script that she created. You need to sign in as branch administrator and modify the script to match the format of your .csv file.
+You have a .csv file that contains a large list of new users for the branch office. It's inefficient to create these users individually with graphical tools, so you'll use a Windows PowerShell script instead. A colleague who has experience with scripting has given you a script that they created. You need to sign in as branch administrator and modify the script to match the format of your .csv file.
 
 The main tasks for this exercise are as follows:
 
@@ -201,11 +201,11 @@ The main tasks for this exercise are as follows:
    Set-ADAccountPassword Ty
    ```
 
-5. When you receive a prompt for the current password, press Enter.
+5. When you receive a prompt for the current password, select Enter.
 
-6. When you receive a prompt for the desired password, type **Pa55w.rd**, and then press Enter.
+6. When you receive a prompt for the desired password, type **Pa55w.rd**, and then select Enter.
 
-7. When you receive a prompt to repeat the password, type **Pa55w.rd**, and then press Enter.
+7. When you receive a prompt to repeat the password, type **Pa55w.rd**, and then select Enter.
 
 8. To enable the account, run the following command:
 
@@ -268,7 +268,7 @@ The main tasks for this exercise are as follows:
 
 2. Under **Variables**, replace "**ou=orgunit,dc=domain,dc=com"** with "**ou=London,dc=Contoso,dc=com**".
 
-3. Select **File**, and then select **Save**. Scroll down, and then review the contents of the script.
+3. Select **File**, and then select **Save**. Scroll down, and then review the script's contents.
 
 4. Close the **Administrator: Windows PowerShell (ISE)** window.
 
@@ -277,11 +277,11 @@ The main tasks for this exercise are as follows:
 
 1. Switch to the **Administrator: Windows PowerShell** window.
 
-2. At the prompt, type **cd** **E:\\Labfiles\\Mod02**, and then press Enter.
+2. At the prompt, type **cd** **E:\\Labfiles\\Mod02**, and then select Enter.
 
-3. Type **.\\LabUsers.ps1**, and then press Enter.
+3. Type **.\\LabUsers.ps1**, and then select Enter.
 
-4. To view the users just created, type the following command, and then press Enter:
+4. To view the users just created, type the following command, and then select Enter:
 
    ```
    Get‑ADUser ‑Filter * ‑SearchBase "ou=London,dc=Contoso,dc=com"
