@@ -2,7 +2,7 @@
 
 ## Lab scenario
 
-Contoso Corporation has deployed Microsoft Office Professional Plus 2021 to users and you need to use Group Policy to configure and apply settings for some Microsoft Office apps. The IT department uses logon scripts to provide users with drive mapping to shared folders. However, maintaining these scripts is an ongoing problem, because they are large and complex. You decide to implement drive mapping by using Group Policy preferences to remove the reliance on logon scripts.
+Contoso Corporation has deployed Microsoft Office Professional Plus 2021 to users, and you need to use Group Policy to configure and apply settings for some Microsoft Office apps. The IT department uses logon scripts to provide users with drive mapping to shared folders. However, maintaining these scripts is an ongoing problem, because they're large and complex. You decide to use Group Policy preferences to implement drive mapping, which removes reliance on logon scripts.
 
 Your manager also has asked that you place a desktop shortcut to the Notepad app for all users who belong to the IT Security group. Additionally, you must add a new computer administrator’s security group as a local administrator on all servers.
 
@@ -38,7 +38,7 @@ The main tasks for this exercise are as follows:
 
 8. In File Explorer, in the navigation pane, select **Desktop**, and then in the content pane, open **admx**.
 
-9. Press Ctrl+A to select all files, right-click or access the context menu, and then select **Copy**.
+9. Select Ctrl+A to select all files, right-click or access the context menu, and then select **Copy**.
 
 10. In the navigation pane, expand **Local Disk (C:)**, expand **Windows**, right-click or access the context menu for **PolicyDefinitions**, and then select **Paste**.
 
@@ -84,7 +84,7 @@ The main tasks for this exercise are as follows:
 
 3. Right-click or access the context menu for **Start**, and then select **Windows Terminal**.
 
-4. In the **Windows PowerShell** window, enter the following command, and then press Enter:
+4. In the **Windows PowerShell** window, enter the following command, and then select Enter:
 
    ```
    Gpupdate /force
@@ -104,9 +104,9 @@ The main tasks for this exercise are as follows:
 
     - Right-click or access the context menu for **Start**, select **Shutdown or Sign out**, and then select **Restart**.
 
-    - After the computer has restarted, sign in as **Contoso\\Administrator** with the password **Pa55w.rd**.
+    - After the computer has restarted, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
 
-    - Perform steps 6-9 again.
+    - Perform steps 6through 9 again.
 
 11. Select **File**, select **Save**, and then select **Browse**.
 
@@ -117,21 +117,21 @@ The main tasks for this exercise are as follows:
 13. Close **Excel**.
 
 
-**Results:** After this exercise, you will have extended administrative templates with templates for Microsoft Office and configured Office settings by using Group Policy.
+**Results:** After this exercise, you'll have extended administrative templates with Microsoft Office templates and configured Office settings by using Group Policy.
 
 ## Exercise 2: Implement settings by using Group Policy preferences
 
 ### Scenario
 
-You need to provide users with drive mapping to shared folders. You will do this by using Group Policy preferences which will replace legacy logon scripts that Contoso currently uses. You also need to place a desktop shortcut to the Notepad app for all users who belong to the IT Security group.
+You need to provide users with drive mapping to shared folders. You'll do this by using Group Policy preferences, which will replace legacy logon scripts that Contoso currently uses. You also need to place a desktop shortcut to the Notepad app for all users who belong to the IT Security group.
 
 The main tasks for this exercise are as follows:
 
 1. Set up the current environment.
 
-2. Test mapped drive for Branch Office 1 users.
+2. Test the mapped drive for Branch Office 1 users.
 
-3. Create a Preferences GPO with the required Group Policy preferences.
+3. Create a Preferences Group Policy Object (GPO) with the required Group Policy preferences.
 
 4. Test the preferences.
 
@@ -145,7 +145,7 @@ The main tasks for this exercise are as follows:
 
 4. In the details pane, right-click or access the context menu for **Mod06-1.ps1**, and then select **Run with PowerShell**.
 
-5. If prompted, enter **`Y`**, and then press Enter.
+5. If prompted, enter **`Y`**, and then select Enter.
 
 6. Right-click or access the context menu for **BranchScript.cmd**, and then select **Copy**.
 
@@ -194,7 +194,7 @@ The main tasks for this exercise are as follows:
 
    - Right-click or access the context menu for **Start**, and select **Windows Terminal**.
 
-   - In the **Windows PowerShell** window, enter the following two commands, and press Enter after each command:
+   - In the **Windows PowerShell** window, enter the following two commands, selecting Enter after each command:
 
      ```
      Gpupdate /force
@@ -209,7 +209,7 @@ The main tasks for this exercise are as follows:
 
 1. Switch to **LON-DC1**.
 
-2. On **LON-DC1**, switch to **Server Manager**, select **Tools** and then select **Active Directory Users and Computers**.
+2. On **LON-DC1**, switch to **Server Manager**, select **Tools**, and then select **Active Directory Users and Computers**.
 
 3. In the **Active Directory Users and Computers** window, right-click or access the context menu for **IT**, select **New**, and then select **Group**.
 
@@ -292,7 +292,7 @@ The main tasks for this exercise are as follows:
 
 2. Right-click or access the context menu for **Start**, select **Shut down or sign out**, and then select **Restart**.
 
-3. When the computer has restarted, sign in as **Contoso\\Tonnie** with the password **Pa55w.rd**.
+3. When the computer has restarted, sign in as **Contoso\\Tonnie** with the password of **Pa55w.rd**.
 
 4. On the taskbar, select **File Explorer**.
 
@@ -304,11 +304,11 @@ The main tasks for this exercise are as follows:
 
 7. On the desktop, verify that a shortcut exists for Notepad.
 
-8. If the shortcut for Notepad is not available, perform these steps:
+8. If the shortcut for Notepad isn't available, perform these steps:
 
    - Right-click or access the context menu for **Start**, and select **Windows Terminal**.
 
-   - In the **Windows PowerShell** window, enter the following two commands, and press Enter after each command:
+   - In the **Windows PowerShell** window, enter the following two commands, selecting Enter after each command:
 
      ```
      Gpupdate /force
@@ -328,14 +328,14 @@ The main tasks for this exercise are as follows:
 
 11. In the details pane, open **Administrators**. 
 
-12. Verify that the **Computer Administrators** group is not a member of the **Administrators** group. 
+12. Verify that the **Computer Administrators** group isn't a member of the **Administrators** group. 
 
-    > **Note:** The **Computer Administrators** group is not a member of the **Administrators** group because the Preferences setting only applies to servers.
+    > **Note:** The **Computer Administrators** group isn't a member of the **Administrators** group because the Preferences setting only applies to servers.
 
 13. Sign out of **LON-CL1**. 
 
 
-**Results**: After this exercise, you will have removed the logon scripts, configured preference settings, and then assigned them by using GPOs.
+**Results**: After this exercise, you'll have removed the logon scripts, configured preference settings, and then assigned them by using GPOs.
 
 ## Exercise 3: Configure Folder Redirection
 
@@ -372,7 +372,7 @@ The main tasks for this exercise are as follows:
 8. Close File Explorer.
 
 
-### Task 2: Create a new GPO and link it to the Branch Office 1 organizational unit (OU)
+### Task 2: Create a new GPO and link it to the Branch Office 1 OU
 
 1. On **LON-DC1**, switch to **Group Policy Management**.
 
@@ -416,19 +416,19 @@ The main tasks for this exercise are as follows:
 
 1. Switch to **LON-CL1**.
 
-2. Sign in as **Contoso\\Tonnie** with the password **Pa55w.rd**.
+2. Sign in as **Contoso\\Tonnie** with the password of **Pa55w.rd**.
 
 3. Right-click or access the context menu for **Start**, and then select **Windows Terminal**.
 
-4. In the **Windows PowerShell** window, enter the following command, and then press Enter:
+4. In the **Windows PowerShell** window, enter the following command, and then select Enter:
 
    ```
    gpupdate /force
    ```
 
-5. When prompted, enter `Y` and then press Enter.
+5. When prompted, enter `Y`, and then select Enter.
 
-6. Sign out, and then sign back in to **LON-CL1** as **Contoso\\Tonnie** with the password **Pa55w.rd**.
+6. Sign out, and then sign back in to **LON-CL1** as **Contoso\\Tonnie** with the password of **Pa55w.rd**.
 
 7. On the taskbar, select **File Explorer**.
 
@@ -436,13 +436,13 @@ The main tasks for this exercise are as follows:
 
 9. In the **Documents** properties dialog box, verify that the location is **\\\\LON-DC1\\Branch1Redirect\\Tonnie**, and then select **OK**. 
 
-   > **Note:** If the location is **C:\\Users\\Tonnie**, perform steps 3 through 9 again. If the location has not changed, restart **LON-CL1** and perform steps 2 through 9 again.
+   > **Note:** If the location is **C:\\Users\\Tonnie**, perform steps 3 through 9 again. If the location hasn't changed, restart **LON-CL1**, and then perform steps 2 through 9 again.
 
 10. Open **Documents**, and verify that two subfolders, **Music** and **Pictures** exist. 
 
-    > **Note:** This verifies that **Music** and **Pictures** are redirected as well.
+    > **Note:** This verifies that **Music** and **Pictures** are redirected, as well.
 
 11. Sign out of **LON-CL1**.
 
 
-**Results**: After this exercise, you will have successfully configured Folder Redirection to a shared folder on the **LON-DC1** server.
+**Results**: After this exercise, you'll have successfully configured Folder Redirection to a shared folder on the **LON-DC1** server.
