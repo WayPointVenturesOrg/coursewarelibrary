@@ -2,17 +2,17 @@
 
 ## Lab scenario
 
-The security team at Contoso Corporation has been examining possible security issues in the organization, focusing on Active Directory Domain Services (AD DS). The security team is particularly concerned with AD DS authentication and security of branch-office domain controllers.
+The security team at Contoso Corporation has been examining possible security issues in the organization, focusing on Active Directory Domain Services (AD DS). The security team is particularly concerned with AD DS authentication and security of branch-office domain controllers (DCs).
 
-You need to improve security and monitoring of authentication against the enterprise’s AD DS domain. Contoso has instituted a new password policy, and you need to enforce it for all user accounts and develop a more-stringent password policy for security-sensitive administrative accounts. It also is important that you implement an appropriate audit trail to help monitor authentication attempts within AD DS. 
+You need to improve security and monitoring of authentication against the enterprise’s AD DS domain. Contoso has instituted a new password policy, and you need to enforce it for all user accounts and develop a more-stringent password policy for security-sensitive administrative accounts. It's also important that you implement an appropriate audit trail to help monitor authentication attempts within AD DS. 
 
-The second part of your assignment includes deploying and configuring Read-only domain controllers (RODCs) to support AD DS authentication within a branch office. Lastly, you need to evaluate the usage of a group managed service account (gMSA) by deploying it to the test server.
+The second part of your assignment includes deploying and configuring read-only domain controllers (RODCs) to support AD DS authentication within a branch office. Lastly, you need to evaluate the usage of a group managed service account (gMSA) by deploying it to the test server.
 
 ## Exercise 1: Implement security policies for accounts, passwords, and administrative groups
 
 ### Scenario
 
-Contoso management has indicated that it is important that all management processes are as secure as possible, to help prevent a security breach. The company’s security and management teams have identified its business requirements with respect to account logons and password security. In this exercise, you will define and implement the Group Policy settings to meet the company’s requirements.
+Contoso management has indicated that it's important that all management processes are as secure as possible, to help prevent a security breach. The company’s security and management teams have identified business requirements with respect to account logons and password security. In this exercise, you'll define and implement the Group Policy settings to meet the company’s requirements.
 
 #### Supporting documentation
 
@@ -20,7 +20,7 @@ Contoso management has indicated that it is important that all management proces
 
 Contoso has identified the following requirements regarding account logon and password policies:
 
-- All users must use a password that is at least eight characters long. For IT administrators, the minimum length must be 10 characters.
+- All users must use a password that's at least eight characters long. For IT administrators, the minimum length must be 10 characters.
 
 - Passwords for all users must be complex and stored securely.
 
@@ -46,7 +46,7 @@ Contoso has identified the following requirements regarding account logon and pa
 
 ##### Proposals
 
-**Password policies and account lockout proposal**
+**Password policies and account-lockout proposal**
 
 | Setting                                     | Configuration for all users | Configuration for IT administrators |
 | ------------------------------------------- | --------------------------- | ----------------------------------- |
@@ -65,13 +65,13 @@ Contoso has identified the following requirements regarding account logon and pa
 | Account lockout threshold                  |                             |                                     |
 | Reset account lockout counter after        |                             |                                     |
 
-1. How can you configure that IT administrators have different password and account lockout settings than regular users?
+1. How can you configure IT administrators to have different password and account-lockout settings than regular users?
 
-2. How can you identify IT administrators in terms of more restricted password and account lockout settings?
+2. How can you identify IT administrators in terms of more restricted password and account-lockout settings?
 
 3. How can you meet the requirement to limit the membership list for the local Administrators groups on all member servers to only the local Administrator account, the Domain Admins group, and the IT group?
 
-4. How can you meet the requirement that the Domain Admins group must include only the Administrator account, and that the Enterprise Admins and Schema Admins groups must be empty during normal operations?
+4. How can you meet the requirement that the Domain Admins group must include only the Administrator account and that the Enterprise Admins and Schema Admins groups must be empty during normal operations?
 
 5. How can you meet the requirement that other built-in groups, such as Account Operators and Server Operators, must not contain members?
 
@@ -84,7 +84,7 @@ The main tasks for this exercise are as follows:
 
 2. Configure password settings for all users.
 
-3. Configure a PSO for IT administrators.
+3. Configure a Password Settings object (PSO) for IT administrators.
 
 4. Implement administrative security policies.
 
@@ -94,7 +94,7 @@ The main tasks for this exercise are as follows:
 
 1. Read the documentation provided.
 
-2. Fill in the table of settings according to the Contoso Corporation requirements.
+2. Complete the table of settings according to Contoso Corporation requirements.
 
 | **Setting**                                  | **Configuration for all users** | **Configuration for IT administrators** |
 | -------------------------------------------- | ------------------------------- | --------------------------------------- |
@@ -102,11 +102,11 @@ The main tasks for this exercise are as follows:
 | Maximum password age                         | 60 days                         | 30 days                                 |
 | Minimum password age                         | 1 day                           | 1 day                                   |
 | Minimum password length                      | 8 characters                    | 10 characters                           |
-| Passwords must meet complexity  requirements | True                            | True                                    |
-| Store password using reversible  encryption  | False                           | False                                   |
-| Account lockout duration                     | 1 hour                          | Administrator must unlock               |
-| Account lockout threshold                    | 5                               | 3                                       |
-| Reset account lockout counter after          | 20 minutes                      | 20 minutes                              |
+| Passwords must meet complexity requirements  | True                            | True                                    |
+| Store password using reversible encryption   | False                           | False                                   |
+| Account-lockout duration                     | 1 hour                          | Administrator must unlock               |
+| Account-lockout threshold                    | 5                               | 3                                       |
+| Reset account-lockout counter after          | 20 minutes                      | 20 minutes                              |
 
 3. Answer the questions from the **Proposals** document.
 
@@ -114,7 +114,7 @@ The main tasks for this exercise are as follows:
 
   > **Answer:** Use the Default Domain Policy, which applies to all users, and create a fine-grained password policy object that applies only to the required administrative groups.
 
-- How can you identify IT administrators in terms of more restricted password and account lockout settings?
+- How can you identify IT administrators in terms of more restricted password and account-lockout settings?
 
   > **Answer:** The administrative password and account lockout settings should apply to the IT group and the Domain Admins group.
 
@@ -124,15 +124,15 @@ The main tasks for this exercise are as follows:
 
 - How can you meet the requirement that the Domain Admins group must include only the Administrator account and that the Enterprise Admins and Schema Admins groups must be empty during normal operations?
 
-  > **Answer:** You cannot configure groups other than local groups with the restricted groups feature. For Domain Admins, Enterprise Admins, and Schema Admins, you must configure the group membership manually and audit their changes.
+  > **Answer:** You can't configure groups other than local groups with the restricted groups feature. For Domain Admins, Enterprise Admins, and Schema Admins, you must configure the group membership manually and audit their changes.
 
 - How can you meet the requirement that other built-in groups, such as Account Operators and Server Operators, must not contain members?
 
   > **Answer:** Use the restricted groups feature.
 
-- How can you meet the requirement that you must audit all changes to users or groups in Active Directory Domain Services (AD DS)?
+- How can you meet the requirement that you must audit all changes to users or groups in AD DS?
 
-  > **Answer:** Configure advanced auditing policies to audit directory services changes.
+  > **Answer:** Configure advanced auditing policies to audit changes to directory services.
 
 ### Task 2: Configure password settings for all users
 
@@ -150,42 +150,42 @@ The main tasks for this exercise are as follows:
 
 6. In the details pane, open **Enforce password history**.
 
-7. In the **Enforce password history Properties** dialog box, configure the following settings and then select **OK**:
+7. In the **Enforce password history Properties** dialog box, configure the following settings, and then select **OK**:
 
    - **Define this policy setting**: selected
    - **Keep password history for:** **10** passwords remembered
 
 8. Open **Maximum password age**.
 
-9. In the **Maximum password age Properties** dialog box, configure the following settings and then select **OK**.
+9. In the **Maximum password age Properties** dialog box, configure the following settings, and then select **OK**.
 
    - **Define this policy setting**: selected
    - **Password will expire in**: **60** days
 
 10. Open **Minimum password age**.
 
-11. In the **Minimum password age Properties** dialog box, configure the following settings and then select **OK**.
+11. In the **Minimum password age Properties** dialog box, configure the following settings, and then select **OK**.
 
     - **Define this policy setting**: selected
     - **Password can be changed after:** **1** days
 
 12. Open **Minimum password length**.
 
-13. In the **Minimum password length Properties** dialog box, configure the following settings and then select **OK**.
+13. In the **Minimum password length Properties** dialog box, configure the following settings, and then select **OK**.
 
     - **Define this policy setting:** selected
     - **Password must be at least:** **8** characters
 
 14. Open **Password must meet complexity requirements**.
 
-15. In the **Password must meet complexity requirements Properties** dialog box, configure the following settings and then select **OK**.
+15. In the **Password must meet complexity requirements Properties** dialog box, configure the following settings, and then select **OK**.
 
     - **Define this policy setting:** selected
     - **Enabled:** selected
 
 16. Open **Store passwords using reversible encryption**.
 
-17. In the **Store passwords using reversible encryption Properties** dialog box, configure the following settings and then select **OK**.
+17. In the **Store passwords using reversible encryption Properties** dialog box, configure the following settings, and then select **OK**.
 
     - **Define this policy setting:** selected
     - **Disabled:** selected
@@ -194,7 +194,7 @@ The main tasks for this exercise are as follows:
 
 19. In the details pane, open **Account lockout duration**.
 
-20. In the **Account lockout duration Properties** dialog box, configure the following settings and then select **OK**.
+20. In the **Account lockout duration Properties** dialog box, configure the following settings, and then select **OK**.
 
     - **Define this policy setting:** selected
     - **Account is locked out for:**  **60** minutes
@@ -203,14 +203,14 @@ The main tasks for this exercise are as follows:
 
 22. Open **Account lockout threshold**.
 
-23. In the **Account lockout threshold Properties** dialog box, configure the following settings and then select **OK**.
+23. In the **Account lockout threshold Properties** dialog box, configure the following settings, and then select **OK**.
 
     - **Define this policy setting:** selected
     - **Account will lock out after:** **5** invalid logon attempts 
 
 24. Open **Reset account lockout counter after**.
 
-25. In the **Reset account lockout counter after Properties** dialog box, configure the following settings and then select **OK**.
+25. In the **Reset account lockout counter after Properties** dialog box, configure the following settings, and then select **OK**.
 
     - **Define this policy setting:** selected
     - **Reset account lockout counter after:** **20** minutes
@@ -234,7 +234,7 @@ The main tasks for this exercise are as follows:
 
 7. In the **Minimum password length (characters)** text box, enter **10**, and then ensure that **Enforce password history** is selected.
 
-8. In the **Number of passwords remembered** text box, enter **10**, ensure that **Password must meet complexity requirements** is selected, and then ensure that **Store password using reversible encryption** is not selected.
+8. In the **Number of passwords remembered** text box, enter **10**, ensure that **Password must meet complexity requirements** is selected, and then ensure that **Store password using reversible encryption** isn't selected.
 
 9. Under **Password age options**, ensure that **Enforce minimum password age** is selected.
 
@@ -254,7 +254,7 @@ The main tasks for this exercise are as follows:
 
 17. Switch to **Server Manager**, select **Tools**, and then select **Windows PowerShell**.
 
-18. At the Windows PowerShell command prompt, enter the following command, and then press Enter:
+18. At the Windows PowerShell command prompt, enter the following command, and then select Enter:
 
     ```
     Get-ADGroup IT
@@ -263,7 +263,7 @@ The main tasks for this exercise are as follows:
     > Verify that the IT group has a group scope of **Universal**.
     >
 
-19. At the command prompt, enter the following command, and then press Enter:
+19. At the command prompt, enter the following command, and then select Enter:
 
     ```
     Set-ADGroup IT –GroupScope Global
@@ -273,17 +273,17 @@ The main tasks for this exercise are as follows:
 
 21. In the **Select Users or Groups** dialog box, under **Enter the object names to select**, enter **IT; Domain Admins**, and then select **Check Names**. The names are both resolved. Select **OK**.
 
-22. Select **OK** to close the **Create Password Settings: Contoso Administrative Password Settings** dialog box and create the Password Settings object (PSO).
+22. Select **OK** to close the **Create Password Settings: Contoso Administrative Password Settings** dialog box and create the PSO.
 
 23. In **Active Directory Administrative Center**, in the navigation pane, select **Overview**.
 
-24. In the details pane, in the **Global Search** box, enter **Tonnie Thomsen**, and then press Enter. The user object Tonnie Thomsen is found.
+24. In the details pane, in the **Global Search** box, enter **Tonnie Thomsen**, and then select Enter. The user object Tonnie Thomsen is found.
 
-25. In the **Tasks** pane, select **View resultant password settings**. Note that the **Contoso Administrative Password Settings** PSO applies (Tonnie is in the IT group), and then select **Cancel**.
+25. In the **Tasks** pane, select **View resultant password settings**. Note that the **Contoso Administrative Password Settings** PSO applies, because Tonnie is in the IT group, and then select **Cancel**.
 
-26. In the **Global Search** box, enter **Susan Kemp**, and then press Enter.
+26. In the **Global Search** box, enter **Susan Kemp**, and then select Enter.
 
-27. In the **Tasks** pane, select **View resultant password settings**. Note that no resultant fine- grained password settings apply (Susan is not in the IT group and the Default Domain Policies settings apply to her), and then select **OK**.
+27. In the **Tasks** pane, select **View resultant password settings**. Note that no resultant fine-grained password settings apply, because Susan isn't in the IT group and the Default Domain Policies settings apply to her, and then select **OK**.
 
 28. Close **Active Directory Administrative Center** and **Windows PowerShell**.
 
@@ -299,7 +299,7 @@ The main tasks for this exercise are as follows:
 
 4. In the **Create Organizational Unit** dialog box, in the **Name** field, enter **Contoso Servers**, and then select **OK**.
 
-5. In **Active Directory Administrative Center**, in the details pane, open **Computers**, select **LON-SVR1**, and then press and hold the Shift key and select **LON-SVR2**. Both servers now are selected.
+5. In **Active Directory Administrative Center**, in the details pane, open **Computers**, select **LON-SVR1**, and then select and hold the Shift key and select **LON-SVR2**. Both servers now are selected.
 
 6. In the **Tasks** pane, in the **2 items selected** section, select **Move**.
 
@@ -331,7 +331,7 @@ The main tasks for this exercise are as follows:
 
 20. In the **Add Member** dialog box, in the **Members of this group** section, add **;Administrator** to the string, and then select **OK**.
 
-21. Verify that the **Administrator Properties** dialog box now shows the following in **Members of this group**, and then select **OK**:
+21. Verify that the **Administrator Properties** dialog box now depicts the following in **Members of this group**, and then select **OK**:
 
     - **Contoso\Domain Admins**
     - **Contoso\IT**
@@ -345,7 +345,7 @@ The main tasks for this exercise are as follows:
 
 25. On **LON-SVR1**, select **Start**, enter **cmd**, and then select **Command Prompt**.
 
-26. In the **Administrator: Command Prompt** window, enter the following command, and then press Enter:
+26. In the **Administrator: Command Prompt** window, enter the following command, and then select Enter:
 
     ```
     gpupdate /force
@@ -409,7 +409,7 @@ The main tasks for this exercise are as follows:
 
 13. On **LON-DC1**, select **Start**, enter **cmd**, and then select **Command Prompt**.
 
-14. In the **Administrator: Command Prompt** window, enter the following command, and then press Enter: 
+14. In the **Administrator: Command Prompt** window, enter the following command, and then select Enter: 
 
     ```
     gpupdate /force
@@ -453,26 +453,26 @@ The main tasks for this exercise are as follows:
 
 33. In the **Event Properties – Event 4728, Microsoft Windows security auditing** dialog box, you get the message “A member was added to a security-enabled global group.” 
 
-    > You can see that Contoso\\Administrator invoked the change and that Contoso\\Tonnie was added to the Contoso\\Domain Admins group.
+    > You'll observe that Contoso\\Administrator invoked the change and that Contoso\\Tonnie was added to the Contoso\\Domain Admins group.
 
-34. In **Event Viewer**, in the **Windows Logs\\Security Log** node, search for the two most recent **Event IDs** **5136**, then open the older of the two events.
+34. In **Event Viewer**, in the **Windows Logs\\Security Log** node, search for the two most recent **Event IDs** **5136**, and then open the older of the two events.
 
-35. In the **Event Properties – Event 5136, Microsoft Windows security auditing** dialog box, you will see the following message: “A directory service object was modified.” 
+35. In the **Event Properties – Event 5136, Microsoft Windows security auditing** dialog box, you will observe the following message: “A directory service object was modified.” 
 
-    > You can see that Contoso\\Administrator has modified the user object **cn=Billie Vester**, and then deleted the **Seattle** value. On the right side of the dialog box, select the Up Arrow to move to the next event.
+    > You'll observe that Contoso\\Administrator has modified the user object **cn=Billie Vester** and deleted the **Seattle** value. On the right side of the dialog box, select the Up Arrow to move to the next event.
     >
     > **Note:** In the **Event Properties** details page, notice that Contoso\\Administrator modified Billie Vester and added the **Birmingham** value.
 
 36. Close all open windows except for **Server Manager**.
 
 
-**Results:** After this exercise, you will have identified and configured the security policies for Contoso.
+**Results:** After this exercise, you'll have identified and configured the security policies for Contoso.
 
 ## Exercise 2: Deploying and configuring an RODC
 
 ### Scenario
 
-In this exercise, you will configure the server **LON-SVR1** as an RODC in the branch office. To avoid travel costs, you decide to do the conversion remotely, working with a desktop-support technician and the branch’s only IT staff member. This user already has installed a Windows Server named **LON-SVR1**. You will stage a delegated installation of an RODC so that this administrative user can complete the installation. After the deployment is complete, you will configure a domain-wide password replication policy and the password replication policy specific to **LON-SVR1**.
+In this exercise, you'll configure the server **LON-SVR1** as an RODC in the branch office. To avoid travel costs, you decide to do the conversion remotely, working with a desktop-support technician and the branch’s only IT staff member. This user already has installed a Windows Server named **LON-SVR1**. You'll stage a delegated installation of an RODC so that this administrative user can complete the installation. After the deployment is complete, you'll configure a domain-wide password replication policy and the password replication policy specific to **LON-SVR1**.
 
 The main tasks for this exercise are as follows:
 
@@ -592,14 +592,14 @@ To prestage an RODC account, the computer name must not be in use in the domain.
 
 15. In the **Supply the credentials to perform this operation** section, select **Change**.
 
-16. In the **Windows Security** dialog box, enter the following credentials and then select **OK**:
+16. In the **Windows Security** dialog box, enter the following credentials, and then select **OK**:
 
     - User name: **Contoso\Alberto**
     - Password: **Pa55w.rd**
 
-17. Under **Specify the domain information for this operation**, select **Select**, then select the domain **Contoso.com**, select **OK**, and then select **Next**.
+17. Under **Specify the domain information for this operation**, select **Select**, select the domain **Contoso.com**, select **OK**, and then select **Next**.
 
-    > You will receive a notification that an RODC account that matches the name of the server exists in the directory.
+    > You'll receive a notification that an RODC account that matches the server's name exists in the directory.
     >
 
 18. On the **Domain Controller Options** page, accept the default to **Use existing RODC account**, in the **Password** and **Confirm password** fields, enter **Pa55w.rd**, and then select **Next**.
@@ -614,7 +614,7 @@ To prestage an RODC account, the computer name must not be in use in the domain.
 
     > **Note:** The computer will configure AD DS and restart, but you can proceed to the next task.
 
-### Task 3: Configure the domain-wide password replication policy
+### Task 3: Configure the domain-wide password-replication policy
 
 1. Switch to **LON-DC1**. 
 
@@ -647,13 +647,13 @@ To prestage an RODC account, the computer name must not be in use in the domain.
 
 5. On the **Members** tab, select **Add**.
 
-6. In the **Select Users, Contacts, Computers, Services Accounts, or Groups** dialog box, in the **Enter the object names to select** text box, enter **Julia**, and then select **Check Names**, and then select **OK**.
+6. In the **Select Users, Contacts, Computers, Services Accounts, or Groups** dialog box, in the **Enter the object names to select** text box, enter **Julia**, select **Check Names**, and then select **OK**.
 
 7. In the **Munich Allowed RODC Password Replication Group Properties** dialog box, select **OK**.
 
 8. Close **Active Directory Users and Computers**.
 
-9. Open **Active Directory Administrative Center**, and then from the **Domain Controllers** OU, view the properties for **LON-SVR1**.
+9. Open **Active Directory Administrative Center**, and then from the **Domain Controllers** OU, review the properties for **LON-SVR1**.
 
 10. In the **Extensions** section, on the **Password Replication Policy** tab, select **Add**.
 
@@ -670,22 +670,22 @@ To prestage an RODC account, the computer name must not be in use in the domain.
 
 2. In the properties of **LON-SVR1**, in the **Extensions** section, on the **Password Replication Policy** tab, select **Advanced**.
 
-   > **Note:** Note that this dialog box shows all accounts with passwords that are stored in the RODC.
+   > **Note:** Note that this dialog box depicts all accounts with passwords that are stored in the RODC.
 
-3. Select **Accounts that have been authenticated to this Read-only Domain Controller**, and then note that this only shows accounts that have the permissions and already have been authenticated by this RODC.
+3. Select **Accounts that have been authenticated to this Read-only Domain Controller**, and then note that this only depicts those accounts that have the permissions and already have been authenticated by this RODC.
 
 4. Select the **Resultant Policy** tab, and then add **Julia Linares**. Notice that Julia Linares has a resultant policy of **Allow**.
 
 5. Close all open windows except for Server Manager.
 
 
-**Results**: After this exercise, you will have deployed and configured an RODC.
+**Results**: After this exercise, you'll have deployed and configured an RODC.
 
 ## Exercise 3: Creating and associating a group MSA
 
 ### Scenario
 
-You need to configure a group MSA to support a new web-based application that is being deployed. Using a group MSA will help maintain the password security requirements for the account.
+You need to configure a group MSA to support a new web-based application that's being deployed. Using a group MSA will help maintain the password security requirements for the account.
 
 The main tasks for this exercise are as follows:
 
@@ -697,25 +697,25 @@ The main tasks for this exercise are as follows:
 
 1. On **LON-DC1**, in **Server Manager**, select **Tools**, and then select **Active Directory Module for Windows PowerShell**.
 
-2. At the **Windows PowerShell** command prompt, enter the following command, and then press Enter:
+2. At the **Windows PowerShell** command prompt, enter the following command, and then select Enter:
 
    ```
    Add-KdsRootKey –EffectiveTime ((get-date).addhours(-10))
    ```
 
-3. At the **Windows PowerShell** command prompt, enter the following command, and then press Enter:
+3. At the **Windows PowerShell** command prompt, enter the following command, and then select Enter:
 
    ```
    New-ADServiceAccount –Name Webservice –DNSHostName LON-DC1 –PrincipalsAllowedToRetrieveManagedPassword LON-DC1$
    ```
 
-4. At the **Windows PowerShell** command prompt, enter the following command, and then press Enter:
+4. At the **Windows PowerShell** command prompt, enter the following command, and then select Enter:
 
    ```
    Add-ADComputerServiceAccount –identity LON-DC1 –ServiceAccount Webservice
    ```
 
-5. At the **Windows PowerShell** command prompt, enter the following command, and then press Enter:
+5. At the **Windows PowerShell** command prompt, enter the following command, and then select Enter:
 
    ```
    Get-ADServiceAccount -Filter *
@@ -726,7 +726,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 2: Install a group MSA
 
-1. On **LON-DC1**, at the **Windows PowerShell** command prompt, enter the following command, and then press Enter:
+1. On **LON-DC1**, at the **Windows PowerShell** command prompt, enter the following command, and then select Enter:
 
    ```
    Install-ADServiceAccount –Identity Webservice
@@ -751,4 +751,4 @@ The main tasks for this exercise are as follows:
 10. Close **Internet Information Services (IIS) Manager**.
 
 
-**Results**: After completing this exercise, you will have configured a group MSA.
+**Results**: After completing this exercise, you'll have configured a group MSA.
