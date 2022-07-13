@@ -2,26 +2,26 @@
 
 ## Lab scenario
 
-Your security department requires secure access to critical websites and additional security for Windows and networking services. To address these and other security requirements, you decide to implement a Public Key Infrastructure (PKI) by using the Active Directory Certificate Services (AD CS) role in Windows Server. As a senior network administrator at Contoso, you are responsible for implementing the AD CS deployment.
+Your security department requires secure access to critical websites and additional security for Windows and networking services. To address these and other security requirements, you decide to implement a Public Key Infrastructure (PKI) by using the Active Directory Certificate Services (AD CS) role in Windows Server. As a senior network administrator at Contoso, you're responsible for implementing the AD CS deployment.
 
 ## Exercise 1: Deploy an offline root CA
 
 ### Scenario
 
-Contoso requires a Certification Authority (CA) infrastructure to distribute and manage certificates for various network services. You decide to use the Windows Server 2022 Active Directory Certificate Services (AD CS) server role. To begin the implementation, you need to deploy a standalone root CA. This CA will be taken offline after it issues a certificate for a subordinate CA. After installation, you need to configure the CDP and AIA locations correctly. You must also make sure that you have a Domain Name System (DNS) record for the offline root CA so that it is accessible from the network.
+Contoso requires a certification authority (CA) infrastructure to distribute and manage certificates for various network services. You decide to use the Windows Server 2022 AD CS server role. To begin the implementation, you need to deploy a standalone root CA, which you'll take offline after it issues a certificate for a subordinate CA. After installation, you need to configure the CDP and authority information access (AIA) locations correctly. You must also make sure that you have a Domain Name System (DNS) record for the offline root CA so that it's accessible from the network.
 
 The main tasks for this exercise are as follows:
 
 1. Create file and printer sharing exceptions.
 
-2. Install and configure Active Directory Certificate Services (AD CS) on CA-SVR1.
+2. Install and configure AD CS on CA-SVR1.
 
-3. Create a Domain Name System (DNS) record for an offline root CA.
+3. Create a DNS record for an offline root CA.
 
 
 ### Task 1: Create file and printer sharing exceptions
 
-1. Sign in to **CA-SVR1** as **Administrator** with the password **Pa55w.rd**.
+1. Sign in to **CA-SVR1** as **Administrator** with the password of **Pa55w.rd**.
 
 2. Select **Start**, and then select **Control** **Panel**.
 
@@ -32,7 +32,7 @@ The main tasks for this exercise are as follows:
 5. Under **Guest or Public (current profile)**, select the **Turn on file and printer sharing** option, and then select **Save changes**.
 6. Close the **Network and Sharing Center** window.
 
-### Task 2: Install and configure Active Directory Certificate Services (AD CS) on CA-SVR1
+### Task 2: Install and configure AD CS on CA-SVR1
 
 1. On **CA-SVR1**, select **Start**, and then select **Server Manager**.
 
@@ -110,7 +110,7 @@ The main tasks for this exercise are as follows:
 
 37. In the **Variable** drop-down list, select **`<ServerDNSName>`**, and then select **Insert**.
 
-38. In the **Location** text box, enter an underscore `(_)`, in the **Variable** drop-down list, select **`<CaName>`**, and then select **Insert**. Position the cursor at the end of the URL.
+38. In the **Location** text box, enter an underscore `(_)`, and in the **Variable** drop-down list, select **`<CaName>`**, and then select **Insert**. Position the cursor at the end of the URL.
 
 39. In the **Variable** drop-down list, select **`<CertificateName>`**, and then select **Insert**.
 
@@ -134,7 +134,7 @@ The main tasks for this exercise are as follows:
 
 49. On the **Export File Format** page, select **DER encoded binary X.509 (.CER)**, and then select **Next**.
 
-50. On the **File to Export** page, select **Browse**, in the **File name** text box, enter **\\\\lon-svr1\\C$\RootCA.cer**, and then press Enter.
+50. On the **File to Export** page, select **Browse**, in the **File name** text box, enter **\\\\lon-svr1\\C$\RootCA.cer**, and then select Enter.
 
 51. Select **Finish**, and then select **OK** three times.
 
@@ -142,7 +142,7 @@ The main tasks for this exercise are as follows:
 
 53. In the **CertEnroll** folder, select both files, right-click or access the context menu for the highlighted files, and then select **Copy**.
 
-54. In the File Explorer address bar, enter **\\\\lon-svr1\\C$**, and then press Enter.
+54. In the File Explorer address bar, enter **\\\\lon-svr1\\C$**, and then select Enter.
 
 55. Right-click or access the context menu for the empty space, and then select **Paste**.
 
@@ -166,7 +166,7 @@ The main tasks for this exercise are as follows:
 6. Close **DNS Manager**.
 
 
-**Results:** After completing this exercise, you will have successfully installed and configured the standalone root certification authority (CA) role on the **CA-SVR1** server. Additionally, you will have created a DNS record needed so that other servers can resolve the name for **CA-SVR1**.
+**Results:** After completing this exercise, you'll have successfully installed and configured the standalone root CA role on the **CA-SVR1** server. Additionally, you'll have created a DNS record needed so that other servers can resolve the name for **CA-SVR1**.
 
 ## Exercise 2: Deploy an enterprise subordinate CA
 
@@ -250,7 +250,7 @@ The main tasks for this exercise are as follows:
 
 7. In the **File Explorer** window, select the **ContosoRootCA.crl** and **CA-SVR1_ContosoRootCA.crt** files, right-click or access the context menu for the files, and then select **Copy**.
 
-8. Open the **inetpub** folder and then open the **wwwroot** folder.
+8. Open the **inetpub** folder, and then open the **wwwroot** folder.
 
 9. Create a new folder, and then name it **CertData**.
 
@@ -260,7 +260,7 @@ The main tasks for this exercise are as follows:
 
 12. Right-click or access the context menu for the **LON-SVR1.Contoso.com_Contoso-LON-SVR1-CA.req** file, and then select **Copy**.
 
-13. In the File Explorer address bar, enter **\\\\CA-SVR1\\C$**, and then press Enter.
+13. In the File Explorer address bar, enter **\\\\CA-SVR1\\C$**, and then select Enter.
 
 14. In the **File Explorer** window, right-click or access the context menu for an empty space, and then select **Paste**. 
 
@@ -294,12 +294,12 @@ The main tasks for this exercise are as follows:
 
 28. Go to **Local Disk (C:)**, select the **SubCA.p7b** file, and then select **Open**.
 
-29. Wait for 15–20 seconds, and then on the toolbar, select the **Start this service** button to start the CA service.
+29. Wait for 15 to 20 seconds, and then on the toolbar, select the **Start this service** button to start the CA service.
 
     > Ensure that the CA successfully starts.
     >
 
-30. Switch to **CA-SVR1** and shut down the server.
+30. Switch to **CA-SVR1**, and then shut down the server.
 
     > **Note:** From this point, you can safely take the root CA offline and use just the enterprise subordinate CA.
 
@@ -313,7 +313,7 @@ The main tasks for this exercise are as follows:
 
 4. On the **File to Import** page, select **Browse**.
 
-5. In the **file name** text box, enter **\\\\lon-svr1\\C$**, and then press Enter.
+5. In the **file name** text box, enter **\\\\lon-svr1\\C$**, and then select Enter.
 
 6. Select file **RootCA.cer**, and then select **Open**.
 
@@ -321,9 +321,9 @@ The main tasks for this exercise are as follows:
 
 8. When the **Certificate Import** wizard window appears, select **OK**.
 
-   > **Note:** It might take 15–20 seconds for this window to appear.
+   > **Note:** It might take 15 to 20 seconds for this window to appear.
 
 9. Close the **Group Policy Management Editor** and the **Group Policy Management** Console.
 
 
-**Results**: After completing this exercise, you will have successfully deployed and configured an enterprise subordinate CA. You also should have a subordinate CA certificate issued by a root CA installed on **LON-SVR1**. To establish trust between the root CA and domain member clients, you configured Group Policy to deploy a root CA certificate.
+**Results**: After completing this exercise, you'll have successfully deployed and configured an enterprise subordinate CA. You also should have a subordinate CA certificate issued by a root CA installed on **LON-SVR1**. To establish trust between the root CA and domain member clients, you configured Group Policy to deploy a root CA certificate.
