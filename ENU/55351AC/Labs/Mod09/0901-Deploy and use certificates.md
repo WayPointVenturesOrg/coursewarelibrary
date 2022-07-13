@@ -2,23 +2,23 @@
 
 ## Lab scenario
 
-You are work as an administrator at Contoso Corporation. The Security department requires that all access to critical websites must be encrypted. Encryption must also be in place for features such as EFS, digital signatures, and virtual private networks (VPNs). The Security department especially wants to evaluate digital signatures in Microsoft Office documents. To address these and other security requirements, Contoso has decided to use certificates issued by the Active Directory Certificate Services (AD CS) role in Windows Server.
+You're a senior network administrator at Contoso Corporation. The Security department requires that all access to critical websites must be encrypted. Encryption must also be in place for features such as Encrypting File System (EFS), digital signatures, and virtual private networks (VPNs). The Security department especially wants to evaluate digital signatures in Microsoft Office documents. To address these and other security requirements, Contoso has decided to use certificates issued by the Active Directory Certificate Services (AD CS) role in Windows Server.
 
-As a senior network administrator at Contoso, you are responsible for implementing certificate enrollment. You also will be developing the procedures and process for managing certificate templates and for deploying and revoking certificates.
+You're responsible for implementing certificate enrollment, and you'll be developing the procedures and process for managing certificate templates and deploying and revoking certificates.
 
 ## Exercise 1: Configure certificate templates
 
 ### Scenario
 
-After deploying the Certificate Authority (CA) infrastructure, the next step is to deploy the certificate templates that the organization requires. First, Contoso wants to implement a new web server certificate and certificates for users.
+After deploying the certificate authority (CA) infrastructure, the next step is to deploy the certificate templates that the organization requires. First, Contoso wants to implement a new web-server certificate and certificates for users.
 
 The main tasks for this exercise are as follows:
 
 1. Create a new template based on the Web Server template.
 
-2. Create a new template for users that includes smart card sign in.
+2. Create a new template for users that includes smart-card sign in.
 
-3. Configure templates so that they can be issued.
+3. Configure templates so they can be issued.
 
 4. Enroll the Web Server certificate on LON-SVR2.
 
@@ -46,7 +46,7 @@ The main tasks for this exercise are as follows:
 9. In the **Certification Authority** console, right-click or access the context menu for **Revoked Certificates**, select **All Tasks**, select **Publish**, and then select **OK**.
 
 
-### Task 2: Create a new template for users that includes smart card sign in
+### Task 2: Create a new template for users that includes smart-card sign in
 
 1. On **LON-DC1**, in the **Certification Authority** console, expand **ContosoCA**, right-click or access the context menu for **Certificate Templates**, and then select **Manage**. 
 2. In the **Certificate Templates** **Console**, right-click or access the context menu for the **User** certificate template, and then select **Duplicate** **Template**.
@@ -67,7 +67,7 @@ The main tasks for this exercise are as follows:
 10. Close the **Certificate Templates** **Console**.
 
 
-### Task 3: Configure templates so that they can be issued
+### Task 3: Configure templates so they can be issued
 
 1. On **LON-DC1**, in the **Certification Authority** console, right-click or access the context menu for **Certificate Templates**, point to **New**, and then select **Certificate Template to Issue**.
 
@@ -82,9 +82,9 @@ The main tasks for this exercise are as follows:
 
 3. Select **Start**, and then select the **Windows PowerShell** icon.
 
-4. At the Windows PowerShell command prompt, enter **`gpupdate/force`**, and then press Enter. 
+4. At the Windows PowerShell command prompt, enter **`gpupdate/force`**, and then select Enter. 
 
-5. Select **Start**, and then enter **`certlm.msc`** and then press Enter.
+5. Select **Start**, and then enter **`certlm.msc`** and then select Enter.
 
    > The Local Computer Certificates console opens.
 
@@ -96,11 +96,11 @@ The main tasks for this exercise are as follows:
 
 9. Under **Production Web Server** select the **More information is required to enroll for this certificate** link.
 
-10. On the **Subject** tab, in the **Subject name** box, change **Type** to **Common name** and then enter **lon-svr2.contoso.com** as the value.
+10. On the **Subject** tab, in the **Subject name** box, change **Type** to **Common name**, and then enter **lon-svr2.contoso.com** as the value.
 
 11. Select **Add**.
 
-12. In the **Alternative name** box, change the **Type** to **DNS** and then enter **lon-svr2.contoso.com** as the value.
+12. In the **Alternative name** box, change the **Type** to **DNS**, and then enter **lon-svr2.contoso.com** as the value.
 
 13. Select **Add**.
 
@@ -108,7 +108,7 @@ The main tasks for this exercise are as follows:
 
 15. In the **Request Certificates** dialog box, select **Production Web Server** and then select **Enroll**.
 
-16. In the **Certificate Installation Results** page, ensure that the enrollment has succeeded and then select **Finish**.
+16. In the **Certificate Installation Results** page, ensure that the enrollment has succeeded, and then select **Finish**.
 
 17. Close the **Certificates** console.
 
@@ -132,7 +132,7 @@ The main tasks for this exercise are as follows:
 
 27. From the taskbar, select **Microsoft Edge**.
 
-28. In Microsoft Edge, enter **`https://lon-svr2.contoso.com`** in the address bar, and then press Enter.
+28. In Microsoft Edge, enter **`https://lon-svr2.contoso.com`** in the address bar, and then select Enter.
 
 29. Ensure that the **Internet Information Services** page opens and that no certificate error displays.
 
@@ -142,13 +142,13 @@ The main tasks for this exercise are as follows:
 
 31. Close **Microsoft Edge**.
 
-**Results:** After completing this exercise, you will have configured certificate templates.
+**Results:** After completing this exercise, you'll have configured certificate templates.
 
 ## Exercise 2: Enroll and use certificates
 
 ### Scenario
 
-The next step in implementing a PKI at Contoso is configuring certificate enrollment. Contoso wants to enable different options for distributing certificates. Users should be able to enroll automatically, and smart card users should get their smart cards from Enrollment Agents. Contoso has delegated Enrollment Agent rights for the Marketing department group to a user named Ellen Mogensen.
+The next step in implementing a public key infrastructure (PKI) at Contoso is configuring certificate enrollment. Contoso wants to enable different options for distributing certificates. Users should be able to enroll automatically, and smart-card users should get their smart cards from Enrollment Agents. Contoso has delegated Enrollment Agent rights for the Marketing department group to a user named Ellen Mogensen.
 
 The main tasks for this exercise are as follows:
 
@@ -156,7 +156,7 @@ The main tasks for this exercise are as follows:
 
 2. Verify autoenrollment.
 
-3. Configure the enrollment agent for smart card certificates.
+3. Configure the enrollment agent for smart-card certificates.
 
 4. Use certificates for digital signing of a Microsoft Office document.
 
@@ -184,9 +184,9 @@ The main tasks for this exercise are as follows:
 
 1. On **LON-CL1**, select **Start**, enter **PowerShell**, and then select the **Windows PowerShell** icon.
 
-2. At the **Windows PowerShell** command prompt, enter **`gpupdate /force`**, and then press Enter.
+2. At the **Windows PowerShell** command prompt, enter **`gpupdate /force`**, and then select Enter.
 
-3. After the policy refreshes, enter **`certmgr.msc`**, and then press Enter.
+3. After the policy refreshes, enter **`certmgr.msc`**, and then select Enter.
 
 4. Expand **Certificates – Current User**, expand **Personal**, and then select **Certificates**.
 
@@ -197,7 +197,7 @@ The main tasks for this exercise are as follows:
 6. Close **certmgr** and then sign out of **LON-CL1**.
 
 
-### Task 3: Configure the enrollment agent for smart card certificates
+### Task 3: Configure the enrollment agent for smart-card certificates
 
 1. Switch to **LON-DC1**.
 2. In **Server Manager**, select **Tools**, and then open **Certification Authority**.
@@ -258,7 +258,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 4: Use certificates for digital signing of a Microsoft Office document
 
-1. On **LON-CL1**, sign in as **Contoso\\Administrator** with the password **Pa55w.rd**.
+1. On **LON-CL1**, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
 
 2. Select the **Start** button, and then select **Word**. 
 
@@ -278,20 +278,20 @@ The main tasks for this exercise are as follows:
 
 10. In the text box to the right of the **X**, enter your name, select **Sign**, and then select **OK**. 
 
-    > Instead of typing your name, you also can select an image. This image can be your scanned handwriting signature.
+    > Instead of typing your name, you also can select an image. This image can be your scanned signature that you've written.
 
 11. Close Microsoft Word, and then save changes if you receive a prompt.
 
 12. Sign out of **LON-CL1**.
 
 
-**Results**: After completing this exercise, you will have implemented certificate enrollment.
+**Results**: After completing this exercise, you'll have implemented certificate enrollment.
 
 ## Exercise 3: Configure and implement key recovery
 
 ### Scenario
 
-As a part of establishing a PKI, you want to configure and test procedures for private key recovery. You want to assign a KRA certificate for an administrator and configure a CA and specific certificate templates to allow key archival. In addition, you want to test a procedure for key recovery.
+As a part of establishing a PKI, you want to configure and test procedures for private key recovery. You want to assign a key recovery agent (KRA) certificate for an administrator, and then configure a CA and specific certificate templates to allow key archival. Additionally, you want to test a procedure for key recovery.
 
 The main tasks for this exercise are as follows:
 
@@ -327,7 +327,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 2: Acquire the KRA certificate
 
-1. On **LON-DC1**, select **Start**, enter **`certmgr.msc`** and the press Enter. 
+1. On **LON-DC1**, select **Start**, enter **`certmgr.msc`** and then select Enter. 
 
 2. Expand the **Certificates - Current User** node, right-click or access the context menu for **Personal**, point to **All Tasks**, and then select **Request New Certificate**.
 
@@ -338,7 +338,7 @@ The main tasks for this exercise are as follows:
 5. On the **Request Certificates** page, select the **Key Recovery Agent** check box, select **Enroll**, and then select **Finish**.
 
 6. Expand **Personal** and then select **Certificates**.
-7. Verify the Key Recovery Agent (KRA) certificate in the personal store; scroll across the certificate properties and verify that **Key Recovery Agent** is present.
+7. Verify the KRA certificate in the personal store; scroll across the certificate properties and verify that **Key Recovery Agent** is present.
 8. Close **certmgr**.
 
 
@@ -380,7 +380,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 5: Verify key archival functionality
 
-1. Sign in to **LON-CL1** as **Contoso\\Oscar** with the password **Pa55w.rd**.
+1. Sign in to **LON-CL1** as **Contoso\\Oscar** with the password of **Pa55w.rd**.
 
 2. Select **Start**, enter **`certmgr.msc`** and the press Enter. 
 
@@ -392,11 +392,11 @@ The main tasks for this exercise are as follows:
 
 6. On the **Request Certificates** page, select the **Archive User** check box, select **Enroll**, and then select **Finish**.
 
-7. Refresh the console, then expand **Personal** and select **Certificates**. 
+7. Refresh the console, expand **Personal**, and then select **Certificates**. 
 
    > Note that a certificate is issued to Oscar based on the Archive User certificate template.
 
-8. Simulate the loss of a private key by deleting the certificate. In the central pane, right-click or access the context menu for the certificate that you just enrolled, select **Delete**, and then select **Yes** to confirm.
+8. Simulate the loss of a private key by deleting the certificate. In the central pane, right-click or access the context menu for the certificate you just enrolled, select **Delete**, and then select **Yes** to confirm.
 
 9. Switch to **LON-DC1**.
 
@@ -404,11 +404,11 @@ The main tasks for this exercise are as follows:
 
 11. In the details pane, open a certificate with a **Requestor Name** of **Contoso\\Oscar** and a **Certificate Template** name of **Archive User**.
 
-12. Select the **Details** tab, copy the **Serial number**, and then select **OK**. You can copy the number either by selecting it and pressing Ctrl+C or by noting it in a document.
+12. Select the **Details** tab, copy the **Serial number**, and then select **OK**. You can copy the number either by selecting it and selecting Ctrl+C or by noting it in a document.
 
 13. Select the **Start** button, and then select the **Windows PowerShell** icon.
 
-14. At the **Windows PowerShell** command prompt, enter the following command, where `<serial number>` is the serial number that you copied, and then press Enter:
+14. At the **Windows PowerShell** command prompt, enter the following command, where `<serial number>` is the serial number that you copied, and then select Enter:
 
     ```
     Certutil –getkey <serial number> outputblob 
@@ -418,7 +418,7 @@ The main tasks for this exercise are as follows:
 
 15. In the command prompt, enter `dir` to verify that the **Outputblob** file now displays in the **C:\\Users\\Administrator** folder.
 
-16. To convert the **Outputblob** file into a .pfx file, at the **Windows PowerShell** command prompt, enter the following command, and then press Enter: 
+16. To convert the **Outputblob** file into a .pfx file, at the **Windows PowerShell** command prompt, enter the following command, and then select Enter: 
 
     ```
     Certutil –recoverkey outputblob Oscar.pfx
@@ -428,11 +428,11 @@ The main tasks for this exercise are as follows:
 
 18. After the command executes, close Windows PowerShell.
 
-19. Open File Explorer and browse to **C:\\Users\\Administrator**, and then verify that **Oscar.pfx**—the recovered key—is created.
+19. Open File Explorer and browse to **C:\\Users\\Administrator**, and then verify that **Oscar.pfx** (which is the recovered key) is created.
 
 20. Switch to **LON-CL1**.
 
-21. Open **File Explorer**, and then browse to **\\\\LON-DC1.Contoso.com\\c$\\users\\administrator**. When prompted for credentials, use **Contoso\\Administrator** with the password **Pa55w.rd**.
+21. Open **File Explorer**, and then browse to **\\\\LON-DC1.Contoso.com\\c$\\users\\administrator**. When prompted for credentials, use **Contoso\\Administrator** with the password of **Pa55w.rd**.
 
 22. Right-click or access the context menu for the **Oscar.pfx** file, and then select **Install PFX**.
 
@@ -449,4 +449,4 @@ The main tasks for this exercise are as follows:
 28. Refresh the console, and then verify that the certificate for Oscar is restored.
 
 
-**Results**: After completing this exercise, you will have implemented certificate enrollment and archive functionality.
+**Results**: After completing this exercise, you'll have implemented certificate enrollment and archive functionality.
