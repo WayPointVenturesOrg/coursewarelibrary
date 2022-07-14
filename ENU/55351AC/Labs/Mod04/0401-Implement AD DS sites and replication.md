@@ -2,15 +2,15 @@
 
 ## Lab scenario
 
-Contoso Corporation has a single AD DS domain, with all the domain controllers located in the London datacenter. As the company has grown and added branch offices with large numbers of users, it has become apparent that the current AD DS environment does not meet the company’s requirements. Users in some branch offices report that it can take a long time for them to sign in to their computers. Connectivity to network resources such as the company’s Distributed File Systems (DFS) can be slow, and can sporadically fail.
+Contoso Corporation has a single Active Directory Domain Services (AD DS) domain, with all the domain controllers (DCs) located in the London datacenter. As the company has grown and added branch offices with large numbers of users, it's become apparent that the current AD DS environment doesn't meet the company’s requirements. Users in some branch offices report that it can take a long time for them to sign in to their computers. Connectivity to network resources such as the company’s Distributed File Systems (DFS) can be slow and sporadically fail.
 
-As one of the senior network administrators, you are responsible for planning and implementing an AD DS infrastructure that will help address the organization’s business requirements. You are responsible for configuring AD DS sites and replication to optimize the user experience and network utilization within the organization.
+As one of the senior network administrators, you're responsible for planning and implementing an AD DS infrastructure that will help address the organization’s business requirements and must configure AD DS sites and replication to optimize the user experience and network utilization within the organization.
 
 ## Exercise 1: Modify the default site
 
 ### Scenario
 
-Contoso has decided to implement additional AD DS sites to optimize the network utilization for AD DS network traffic. Your first step in implementing the new environment is to install a new domain controller for the Toronto site. You then will reconfigure the default site and assign appropriate IP address subnets to the site.
+Contoso has decided to implement additional AD DS sites to optimize the network utilization for AD DS network traffic. Your first step in implementing the new environment is to install a new DC for the Toronto site. You'll then reconfigure the default site and assign appropriate IP address subnets to it.
 
 Finally, your task is to change the name of the default site to **LondonHQ** and associate it with the **172.16.0.0/24** IP subnet, which is the subnet range for the London head office.
 
@@ -53,7 +53,7 @@ The main tasks for this exercise are as follows:
 
 13. In the **Domain Controller Options** window, ensure that both the **Domain Name system (DNS) server** and **Global Catalog (GC)** check boxes are selected.
 
-14. Confirm that **Site name:** is set to **Default-First-Site-Name**, and then under **Type the Directory Services Restore Mode (DSRM) password**, enter **Pa55w.rd** in both the **Password** and **Confirm password** boxes and then select **Next**.
+14. Confirm that **Site name:** is set to **Default-First-Site-Name**, and then under **Type the Directory Services Restore Mode (DSRM) password**, enter **Pa55w.rd** in both the **Password** and **Confirm password** boxes, and then select **Next**.
 
 15. On the **DNS Options** page, select **Next**.
 
@@ -67,7 +67,7 @@ The main tasks for this exercise are as follows:
 
     > The server will restart automatically.
 
-20. After **TOR-DC1** restarts, sign in as **Contoso\\Administrator** with the password **Pa55w.rd**.
+20. After **TOR-DC1** restarts, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
 
 
 ### Task 2: Rename the default site
@@ -79,7 +79,7 @@ The main tasks for this exercise are as follows:
 
 5. Right-click or access the context menu for **Default-First-Site-Name**, and then select **Rename**.
 
-6. Enter **LondonHQ**, and then press Enter.
+6. Enter **LondonHQ**, and then select Enter.
 
 7. Expand **LondonHQ**, expand the **Servers** folder, and then verify that both **LON-DC1** and **TOR-DC1** belong to the **LondonHQ** site.
 
@@ -95,7 +95,7 @@ The main tasks for this exercise are as follows:
 4. Under **Select a site object for this prefix**, select **LondonHQ**, and then select **OK**.
 
 
-**Results:** After completing this exercise, you will have successfully reconfigured the default site and assigned IP address subnets to the site.
+**Results:** After completing this exercise, you'll have successfully reconfigured the default site and assigned IP address subnets to the site.
 
 ## Exercise 2: Create additional sites and subnets
 
@@ -150,9 +150,9 @@ The main tasks for this exercise are as follows:
 
 8. In the navigation pane, select the **Subnets** folder. Verify in the details pane that the two subnets are created and associated with their appropriate site.
 
-   > **Note:** There are three subnets in total (**172.16.0.0** was created in Exercise 1, Task 3, “Configure IP subnets that are associated with the default site”).
+   > **Note:** There are three subnets in total. **172.16.0.0** was created in Exercise 1, Task 3, “Configure IP subnets that are associated with the default site”.
 
-**Results**: After completing this exercise, you will have successfully created two additional sites representing the IP subnet addresses in Toronto.
+**Results**: After completing this exercise, you'll have successfully created two additional sites representing the IP subnet addresses in Toronto.
 
 ## Exercise 3: Configure AD DS replication
 
@@ -160,9 +160,9 @@ The main tasks for this exercise are as follows:
 
 Now that the AD DS sites have been configured for Toronto, your next step is to configure the site links to manage replication between the sites and then to move the **TOR-DC1** domain controller to the **Toronto** site. Currently, all sites belong to **DEFAULTIPSITELINK**.
 
-You need to modify site links so that **LondonHQ** and **Toronto** belong to one common site link called **LON-TOR**. You should configure this link to replicate every hour. Additionally, you should link the **TestSite** site only to the **Toronto** site by using a site link named **TOR-TEST**. Replication should not be available from the **Toronto** site to the **TestSite** site during working hours from 9 AM to 3 PM. 
+You need to modify site links so that **LondonHQ** and **Toronto** belong to one common site link called **LON-TOR**. You should configure this link to replicate every hour. Additionally, you should link the **TestSite** site only to the **Toronto** site by using a site link named **TOR-TEST**. Replication shouldn't be available from the **Toronto** site to the **TestSite** site during working hours from 9 AM to 3 PM. 
 
-Finally, you will use tools to monitor replication between the sites.
+Finally, you'll use tools to monitor replication between the sites.
 
 The main tasks for this exercise are as follows:
 
@@ -183,7 +183,7 @@ The main tasks for this exercise are as follows:
 
 4. In the **New Object – Site Link** dialog box, in the **Name** text box, enter **TOR-TEST**.
 
-5. Under **Sites not in this site link**, press Ctrl on the keyboard, select **Toronto**, select **TestSite**, select **Add**, and then select **OK**.
+5. Under **Sites not in this site link**, select Ctrl on the keyboard, select **Toronto**, select **TestSite**, select **Add**, and then select **OK**.
 
 6. Right-click or access the context menu for **TOR-TEST**, and then select **Properties**.
 
@@ -191,7 +191,7 @@ The main tasks for this exercise are as follows:
 
 8. In the **Schedule for TOR-TEST** dialog box, highlight the range from **Monday 9 AM** to **Friday 3 PM**, as follows:
 
-   - Select the **Monday at 9:00AM** tile, press and hold the mouse button, and then drag the cursor to the **Friday at 3:00 PM** tile.
+   - Select the **Monday at 9:00AM** tile, select and hold the mouse button, and then drag the cursor to the **Friday at 3:00 PM** tile.
 
 9. Select **Replication Not Available**, and then select **OK**.
 
@@ -199,7 +199,7 @@ The main tasks for this exercise are as follows:
 
 11. Right-click or access the context menu for **DEFAULTIPSITELINK**, and then select **Rename**.
 
-12. Enter **LON-TOR**, and then press Enter.
+12. Enter **LON-TOR**, and then select Enter.
 
 13. Right-click or access the context menu for **LON-TOR**, and then select **Properties**.
 
@@ -223,7 +223,7 @@ The main tasks for this exercise are as follows:
 
 1. On **LON-DC1**, select **Start**, and then select the **Windows PowerShell** icon.
 
-2. At the **Windows PowerShell** prompt, enter the following, and then press Enter:
+2. At the **Windows PowerShell** prompt, enter the following, and then select Enter:
 
    ```
    Repadmin /kcc
@@ -232,7 +232,7 @@ The main tasks for this exercise are as follows:
    > This command recalculates the inbound replication topology for the server.
    >
 
-3. At the **Windows PowerShell** command prompt, enter the following command, and then press Enter:
+3. At the **Windows PowerShell** command prompt, enter the following command, and then select Enter:
 
    ```
    Repadmin /showrepl
@@ -240,7 +240,7 @@ The main tasks for this exercise are as follows:
 
 4. Verify that the last replication with **TOR-DC1** was successful.
 
-5. At the **Windows PowerShell** command prompt, enter the following command, and then press Enter:
+5. At the **Windows PowerShell** command prompt, enter the following command, and then select Enter:
 
    ```
    Repadmin /bridgeheads
@@ -249,7 +249,7 @@ The main tasks for this exercise are as follows:
    > This command displays the bridgehead servers for the site topology.
    >
 
-6. At the **Windows PowerShell** command prompt, enter the following, and then press Enter:
+6. At the **Windows PowerShell** command prompt, enter the following, and then select Enter:
 
    ```
    Repadmin /replsummary
@@ -258,7 +258,7 @@ The main tasks for this exercise are as follows:
    > This command displays a summary of replication tasks. Verify that no errors appear.
    >
 
-7. At the **Windows PowerShell** command prompt, enter the following, and then press Enter:
+7. At the **Windows PowerShell** command prompt, enter the following, and then select Enter:
 
    ```
    DCDiag /test:replications
@@ -269,7 +269,7 @@ The main tasks for this exercise are as follows:
 9. Switch to **TOR-DC1**, and then repeat steps 1 through 8 to view information from **TOR-DC1**. For step 4, verify that the last replication with **LON-DC1** was successful.
 
 
-**Results**: After completing this exercise, you will have successfully configured site links and monitored replication.
+**Results**: After completing this exercise, you'll have successfully configured site links and monitored replication.
 
 ## Exercise 4: Monitoring and troubleshooting AD DS replication
 
@@ -302,19 +302,19 @@ The main tasks for this exercise are as follows:
 
 6. In **Active Directory Sites and Services**, examine all the objects you created earlier, and then on the taskbar, select the **Windows PowerShell** icon.
 
-7. At the **Windows PowerShell** command prompt, enter the following, and then press Enter:
+7. At the **Windows PowerShell** command prompt, enter the following, and then select Enter:
 
    ```
    Get-ADReplicationUpToDatenessVectorTable –Target Contoso.com
    ```
 
-   > **Note:** This cmdlet will show you the last several replication events. Make a note of the date and time of the last (top) event.
+   > **Note:** This cmdlet will list the last several replication events. Make note of the date and time of the last (top) event.
 
 8. Switch to **TOR-DC1**.
 
 9. Select **Start**, and then select **Windows PowerShell**.
 
-10. At the **Windows PowerShell** command prompt, enter the following, and then press Enter after each command:
+10. At the **Windows PowerShell** command prompt, enter the following, and selecting Enter after each command:
 
     ```
     CD \Labfiles\Mod04
@@ -334,33 +334,33 @@ The main tasks for this exercise are as follows:
 
 5. On **TOR-DC1**, on the taskbar, select the **Windows PowerShell** icon.
 
-6. At the **Windows PowerShell** command prompt, enter the following, and then press Enter:
+6. At the **Windows PowerShell** command prompt, enter the following, and then select Enter:
 
    ```
    Get-ADReplicationUpToDatenessVectorTable –Target Contoso.com
    ```
 
-   > **Note:** This cmdlet will show you the last several replication events. Note that the last date and time shown (**Replication from** **LON-DC1**) is not updating. This indicates that one-way replication is not occurring.
+   > **Note:** This cmdlet will list the last several replication events. Note that the last date and time that appears (**Replication from** **LON-DC1**) isn't updating, which indicates that one-way replication isn't occurring.
 
-7. At the **Windows PowerShell** command prompt, enter the following, and then press Enter:
+7. At the **Windows PowerShell** command prompt, enter the following, and then select Enter:
 
    ```
    Get-AdReplicationSubnet –filter *
    ```
 
-   > **Note:** This cmdlet will show detailed information about any subnets assigned to any sites. Note that nothing is returned.
+   > **Note:** This cmdlet will provide detailed information about any subnets assigned to any sites. Note that nothing is returned.
 
-8. At the **Windows PowerShell** command prompt, enter the following, and then press Enter:
+8. At the **Windows PowerShell** command prompt, enter the following, and then select Enter:
 
    ```
    Get-AdReplicationSiteLink –filter *
    ```
 
-   > **Note:** This cmdlet will show detailed information about any site links assigned to particular sites. Note that nothing is returned.
+   > **Note:** This cmdlet will list detailed information about any site links assigned to particular sites. Note that nothing is returned.
 
 ### Task 3: Troubleshoot AD DS replication
 
-1. On TOR-DC!, at the **Windows PowerShell** command prompt, enter the following, and then press Enter:
+1. On TOR-DC!, at the **Windows PowerShell** command prompt, enter the following, and then select Enter:
 
    ```
    Ipconfig /all
@@ -369,7 +369,7 @@ The main tasks for this exercise are as follows:
    > Examine the results. Notice that the DNS server address is incorrectly set to **10.0.0.1**.
    >
 
-2. At the **Windows PowerShell** command prompt, enter the following, and then press Enter:
+2. At the **Windows PowerShell** command prompt, enter the following, and then select Enter:
 
    ```
    Get-DnsClient | Set-DnsClientServerAddress -ServerAddresses ("172.16.0.10","172.16.0.25")
@@ -389,13 +389,13 @@ The main tasks for this exercise are as follows:
 
 8. In **Active Directory Sites and Services**, examine all objects that you created earlier. Are any missing?
 
-9. On **TOR-DC1**, open **File Explorer** and browse to **C:\\Labfiles\\Mod04**.
+9. On **TOR-DC1**, open **File Explorer**, and then browse to **C:\\Labfiles\\Mod04**.
 
-10. Right-click or access the context menu for the **Mod04EX4Fix.ps1** file, and then select **Run with PowerShell**. Enter **`Y`** when prompted about execution policy, and then press Enter.
+10. Right-click or access the context menu for the **Mod04EX4Fix.ps1** file, and then select **Run with PowerShell**. Enter **`Y`** when prompted about execution policy, and then select Enter.
 
-11. In **Active Directory Sites and Services**, examine all the objects that you created earlier. Ensure that the site link has been created in the **Inter-Site Transports** node, and subnets have been created in the **Subnets** node.
+11. In **Active Directory Sites and Services**, examine all the objects that you created earlier. Ensure that the site link has been created in the **Inter-Site Transports** node and subnets have been created in the **Subnets** node.
 
 12. On **LON-DC1** and **TOR-DC1**, close all open windows.
 
 
-**Results**: After completing this exercise, you will have successfully diagnosed and resolved replication issues.
+**Results**: After completing this exercise, you'll have successfully diagnosed and resolved replication issues.
