@@ -16,7 +16,7 @@ The main tasks for this exercise are as follows:
 
 1. Create a new OU for the branch office.
 
-2. Create groups for branch administrators and branch help-desk personnel.
+2. Create groups for branch administrators and branch helpdesk personnel.
 
 3. Add members to the group.
 
@@ -36,7 +36,7 @@ The main tasks for this exercise are as follows:
 4. In the **New Object – Organizational Unit** dialog box, type **London** in the **Name** field, and then select **OK**.
 
 
-### Task 2: Create groups for branch administrators and branch help-desk personnel
+### Task 2: Create groups for branch administrators and branch helpdesk personnel
 
 1. Right-click or access the context menu for the **London** OU, select **New**, and then select **Group**.
 
@@ -160,7 +160,7 @@ The main tasks for this exercise are as follows:
 5. Sign out of **LON-SVR1**.
 
 
-**Results:** After completing this exercise, you'll have created a new OU for the branch office, created and added members to groups for branch administrators and help-desk personnel, delegated permission to the groups, and installed AD DS tools and tested permissions.
+**Results:** After completing this exercise, you'll have created a new OU for the branch office, created and added members to groups for branch administrators and helpdesk personnel, delegated permission to the groups, and installed AD DS tools and tested permissions.
 
 ## Exercise 2: Create and modify AD DS objects with Windows PowerShell
 
