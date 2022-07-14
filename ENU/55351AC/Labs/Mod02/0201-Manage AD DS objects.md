@@ -95,7 +95,7 @@ The main tasks for this exercise are as follows:
 
 ### Scenario
 
-You have a list of new users that you must create for the branch office, and ou're going to create a template to facilitate quick creation of branch users. You'll validate that template by creating a new test user and checking the properties.
+You have a list of new users that you must create for the branch office, and you're going to create a template to facilitate quick creation of branch users. You'll validate that template by creating a new test user and checking the properties.
 
 The main tasks for this exercise are as follows:
 
