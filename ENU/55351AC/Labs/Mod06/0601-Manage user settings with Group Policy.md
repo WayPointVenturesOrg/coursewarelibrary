@@ -106,7 +106,7 @@ The main tasks for this exercise are as follows:
 
     - After the computer has restarted, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
 
-    - Perform steps 6through 9 again.
+    - Perform steps 6 through 9 again.
 
 11. Select **File**, select **Save**, and then select **Browse**.
 
