@@ -2,15 +2,15 @@
 
 ## Lab scenario
 
-After configuring GPO settings for the Research department and kiosk computers in the conference room, you need to ensure that all settings apply as intended. You will do this by creating RSoP reports from both **Group Policy Management Console** and a Windows client. You do not have access to a kiosk in the conference room, so you have to simulate how settings will apply by using Group Policy modeling analyses. You will also identify the Group Policy-related events stored in Event Viewer to assist with troubleshooting.
+After configuring GPO settings for the Research department and kiosk computers in the conference room, you need to ensure that all settings apply as intended. You'll do this by creating Resultant Set of Policy (RSoP) reports from both **Group Policy Management Console** and a Windows client. You don't have access to a kiosk in the conference room, so you have to simulate how settings will apply by using Group Policy modeling analyses. You'll also identify the Group Policy-related events stored in Event Viewer to assist with troubleshooting.
 
-You also receive a Help desk ticket opened by a user. The issue is that the applied Screen Saver configuration is not the correct settings for the user. You have to investigate the issue and make sure that the correct settings apply to the user.
+You also receive a help-desk ticket that a user has opened. The issue is that the applied screen-saver configuration isn't the correct settings for the user. You have to investigate the issue and make sure that the correct settings apply to the user.
 
 ## Exercise 1: Verify GPO application
 
 ### Scenario
 
-After configuring GPO settings for the Research department and computers in the conference rooms, to make sure that all settings apply as intended, you need to create RSoP reports from both **Group Policy Management Console** and a Windows client. You do not have access to a kiosk in the conference room, so you have to simulate how settings will apply by using Group Policy modeling analyses. You will also identify the Group Policy-related events stored in Event Viewer to assist with troubleshooting.
+After configuring GPO settings for the Research department and computers in the conference rooms, to make sure that all settings apply as intended, you need to create RSoP reports from both **Group Policy Management Console** and a Windows client. You don't have access to a kiosk in the conference room, so you have to simulate how settings will apply by using Group Policy modeling analyses. You'll also identify the Group Policy-related events stored in Event Viewer to assist with troubleshooting.
 
 The main tasks for this exercise are as follows:
 
@@ -26,23 +26,23 @@ The main tasks for this exercise are as follows:
 
 1. Switch to **LON-CL1**, and sign in as **Contoso\\Susan** with the password of **Pa55w.rd**.
 
-2. Select **Start**, enter **cmd**, and then press Enter.
+2. Select **Start**, enter **cmd**, and then select Enter.
 
-   > The Command prompt opens.
+   > The command prompt opens.
 
-3. At the command prompt, enter the following command, and then press Enter:
+3. At the command prompt, enter the following command, and then select Enter:
 
    ```
    gpupdate /force
    ```
 
-4. Wait for the command to complete. Make a note of the current system time, which you will need to know for a task later in this lab. To record the system time, enter the following command, and then press Enter twice:
+4. Wait for the command to complete. Make a note of the current system time, which you'll need to know for a task later in this lab. To record the system time, enter the following command, and then select Enter twice:
 
    ```
    Time
    ```
 
-5. Restart **LON-CL1**. Wait for **LON-CL1** to restart before proceeding with the next task. Do not sign in to **LON-CL1**.
+5. Restart **LON-CL1**. Wait for **LON-CL1** to restart before proceeding with the next task. Don't sign in to **LON-CL1**.
 
 6. Switch to **LON-DC1**.
 
@@ -85,11 +85,11 @@ The main tasks for this exercise are as follows:
 
 1. Switch to **LON-CL1**.
 
-2. Sign in to **LON-CL1** as **Contoso\\Susan** with the password **Pa55w.rd**.
+2. Sign in to **LON-CL1** as **Contoso\\Susan** with the password of **Pa55w.rd**.
 
 3. Select **Start**, enter **cmd**, and then select **Command Prompt**.
 
-4. At the command prompt, enter the following command, and then press Enter:
+4. At the command prompt, enter the following command, and then select Enter:
 
    ```
    gpresult /r 
@@ -98,27 +98,27 @@ The main tasks for this exercise are as follows:
    > RSoP summary results are displayed. Notice that the information is very similar to the **Summary** tab of the RSoP report that was produced by **Group Policy Results Wizard**.
    >
 
-5. At the command prompt, enter the following command, and then press Enter:
+5. At the command prompt, enter the following command, and then select Enter:
 
    ```
    gpresult /v | more
    ```
 
-6. Press the spacebar to proceed through the report. 
+6. Select the spacebar to proceed through the report. 
 
    > Notice that many of the Group Policy settings that were applied by the client are listed in this report. 
 
-7. At the command prompt, enter the following command, and then press Enter:
+7. At the command prompt, enter the following command, and then select Enter:
 
    ```
    gpresult /z | more
    ```
 
-8. Press the spacebar to proceed through the report. 
+8. Select the spacebar to proceed through the report. 
 
    > This is the most detailed RSoP report.
 
-9. At the command prompt, enter the following command, and then press Enter:
+9. At the command prompt, enter the following command, and then select Enter:
 
    ```
    gpresult /h %userprofile%\Desktop\RSOP.html
@@ -146,9 +146,9 @@ The main tasks for this exercise are as follows:
 
 5. On the **Domain Controller Selection** page, select **Next**.
 
-6. On the **User and Computer Selection** page, in the **User information** section, select the **User** option, and then select **Browse**. In the **Select User** dialog box enter **Susan**, and then press Enter.
+6. On the **User and Computer Selection** page, in the **User information** section, select the **User** option, and then select **Browse**. In the **Select User** dialog box enter **Susan**, and then select Enter.
 
-7. In the **Computer information** section, select the **Computer** option, and then select **Browse**. In the **Select Computer** dialog box, enter **LON-CL1**, and then press Enter.
+7. In the **Computer information** section, select the **Computer** option, and then select **Browse**. In the **Select Computer** dialog box, enter **LON-CL1**, and then select Enter.
 
 8. In the **Group Policy Modeling Wizard**, select **Next**.
 
@@ -178,15 +178,15 @@ The main tasks for this exercise are as follows:
 
 20. Scroll to, and if necessary expand, **User Details**, expand **Settings**, expand **Policies**, expand **Administrative Templates**, and then expand **Control Panel/Personalization**.
 
-    > Confirm that the screen saver timeout is 7,200 seconds (2 hours)—the setting configured by the **Conference Room Settings** GPO that overrides the 10-minute standard configured by the **Contoso Standards** GPO.
+    > Confirm that the screen-saver timeout is 7,200 seconds (2 hours), which is the setting configured by the **Conference Room Settings** GPO that overrides the 10-minute standard configured by the **Contoso Standards** GPO.
 
-21. Close all open Windows on **LON-DC1**.
+21. Close all open windows on **LON-DC1**.
 
 ### Task 4: Review policy events
 
 1. Switch to **LON-CL1**. 
 
-2. Sign in as **Contoso\Administrator** with the password **Pa55w.rd**.
+2. Sign in as **Contoso\Administrator** with the password of **Pa55w.rd**.
 
 3. Right-click or access the context menu for **Start**, and then select **Event Viewer**. 
 
@@ -205,50 +205,50 @@ The main tasks for this exercise are as follows:
 
 9. Sign out of **LON-CL1**.
 
-**Results:** After completing this exercise, you will have used the RSoP tools successfully to verify the correct application of your GPOs, examined Group Policy events, and verified the health of the Group Policy infrastructure.
+**Results:** After completing this exercise, you'll have used the RSoP tools successfully to verify the correct application of your GPOs, examined Group Policy events, and verified the health of the Group Policy infrastructure.
 
 ## Exercise 2: Troubleshooting GPOs
 
 ### Scenario
 
-A user has opened a Help desk ticket because the screen saver settings do not apply as intended. You have to investigate the issue and make sure that the correct settings apply to the user.
+A user has opened a helpdesk ticket because the screen saver settings don't apply as intended. You have to investigate the issue and make sure that the correct settings apply to the user.
 
-You must resolve the reported GPO application problem that Tier 1 help desk staff could not resolve.
+You must resolve the reported GPO application problem that Tier 1 helpdesk staff couldn't resolve.
 
 | **Incident Record**                                          |
 | ------------------------------------------------------------ |
 | **Incident Reference Number:** 604531                        |
 | **Date of Call:** July 15                                    |
 | **User:** Susan Kemp                                         |
-| **Incident Details**:  A user reports that the Research configuration does not apply anymore. |
-| **Additional  Information:**  A user reports that suddenly she has a fixed time of 10 minutes before her screen saver activates. Because of an  application that the Research department uses, she is unable to complete her work. |
+| **Incident Details**:  A user reports that the Research configuration doesn't apply anymore. |
+| **Additional  Information:**  A user reports that suddenly she has a fixed time of 10 minutes before her screen saver activates. Because of an application that the Research department uses, she is unable to complete her work. |
 | **Plan  of Action:**                                         |
 | **Resolution:**                                              |
 
 The main tasks for this exercise are as follows:
 
-1. Read the Help desk Incident Record and simulate the problem.
+1. Read the help desk Incident Record and simulate the problem.
 
 2. Determine the Plan of Action.
 
 3. Troubleshoot and resolve the problem.
 
-### Task 1: Read the Help desk Incident Record and simulate the problem
+### Task 1: Read the helpdesk Incident Record and simulate the problem
 
-1. Read Help desk **Incident Record 604531** in the exercise scenario.
+1. Read helpdesk **Incident Record 604531** in the exercise scenario.
 
 2. On **LON-DC1**, on the taskbar, select **File Explorer**.
 
 3. In File Explorer, in the navigation pane, expand **Allfiles (E:)**, expand **Labfiles**, and then select **Mod05**.
 
-4. In the details pane, right-click or access the context menu for **Mod05-1.ps1**, and then select **Run with PowerShell**. If prompted, press **Y** and then press Enter.
+4. In the details pane, right-click or access the context menu for **Mod05-1.ps1**, and then select **Run with PowerShell**. If prompted, select **Y**, and then select Enter.
 
 
 ### Task 2: Determine Plan of Action
 
 1. Read the **Additional Information** section of the **Incident Record**.
 
-2. Discuss your **Plan of Action** with other students and the instructor and provide your recommendations:
+2. Discuss your **Plan of Action** with other students and the instructor, and provide your recommendations:
 
    - Verify the configuration for **Susan Kemp**.
 
@@ -259,11 +259,11 @@ The main tasks for this exercise are as follows:
 
 ### Task 3: Troubleshoot and resolve the problem
 
-1. On **LON-CL1**, sign in as **Contoso\\Susan** with the password **Pa55w.rd**.
+1. On **LON-CL1**, sign in as **Contoso\\Susan** with the password of **Pa55w.rd**.
 
 2. Select **Start**, and then enter **screen saver**.
 
-3. In the search results select **Change Screen Saver**.
+3. In the search results, select **Change Screen Saver**.
 
    > Verify that **Wait** is dimmed and has a value of **10 minutes**.
    >
@@ -290,11 +290,11 @@ The main tasks for this exercise are as follows:
 
 14. Select the **Details** tab, and then select **Show all**.
 
-15. On the **Susan on LON-CL1** results page, in the **User Details** section, locate the **Settings** section, and then in **Control Panel/Personalization**, verify that the screen saver timeout is **600** seconds and the winning GPO is **Contoso Standards**.
+15. On the **Susan on LON-CL1** results page, in the **User Details** section, locate the **Settings** section, and then in **Control Panel/Personalization**, verify that the screen-saver timeout is **600** seconds and the winning GPO is **Contoso Standards**.
 
-16. In the **User Details** section, locate the denied GPOs and verify that the **Research Application Override** GPO is in the list of denied GPOs with a reason of **Disabled Link**. In this case, it appears that the GPO link for the Research OU is disabled.
+16. In the **User Details** section, locate the denied GPOs, and then verify that the **Research Application Override** GPO is in the list of denied GPOs with a reason of **Disabled Link**. In this case, it appears that the GPO link for the Research OU is disabled.
 
-17. In the navigation pane, Select the **Research** OU, right-click or access the context menu for the **Research** OU, and then select **Refresh**.
+17. In the navigation pane, select the **Research** OU, right-click or access the context menu for the **Research** OU, and then select **Refresh**.
 
 18. Expand the **Research** OU.
 
@@ -302,7 +302,7 @@ The main tasks for this exercise are as follows:
 
 20. Switch to **LON-CL1**.
 
-21. On **LON-CL1**, sign in as **Contoso\\Susan** with the password **Pa55w.rd**.
+21. On **LON-CL1**, sign in as **Contoso\\Susan** with the password of **Pa55w.rd**.
 
 22. Select **Start**, and then enter **screen saver**.
 
@@ -310,9 +310,9 @@ The main tasks for this exercise are as follows:
 
 24. Verify that **Wait** is no longer dimmed and has a value of **10 minutes**.
 
-25. If Wait is still dimmed, then perform the following steps:
+25. If **Wait** is still dimmed, perform the following steps:
 
-    - Right-click or access the context menu for **Start**, select **Shut down or sign out** and then select **Restart**.
+    - Right-click or access the context menu for **Start**, select **Shut down or sign out**, and then select **Restart**.
 
     - Sign in as **Contoso\Susan** with the password **Pa55w.rd**.
 
@@ -321,4 +321,4 @@ The main tasks for this exercise are as follows:
 26. Sign out of **LON-CL1**.
 
 
-**Results**: After completing this exercise, you will have resolved the GPO application problem.
+**Results**: After completing this exercise, you'll have resolved the GPO application problem.
