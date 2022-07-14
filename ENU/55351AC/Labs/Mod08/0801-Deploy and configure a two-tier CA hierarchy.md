@@ -8,7 +8,7 @@ Your security department requires secure access to critical websites and additio
 
 ### Scenario
 
-Contoso requires a certification authority (CA) infrastructure to distribute and manage certificates for various network services. You decide to use the Windows Server 2022 AD CS server role. To begin the implementation, you need to deploy a standalone root CA, which you'll take offline after it issues a certificate for a subordinate CA. After installation, you need to configure the CDP and authority information access (AIA) locations correctly. You must also make sure that you have a Domain Name System (DNS) record for the offline root CA so that it's accessible from the network.
+Contoso requires a certification authority (CA) infrastructure to distribute and manage certificates for various network services. You decide to use the Windows Server 2022 AD CS server role. To begin the implementation, you need to deploy a standalone root CA, which you'll take offline after it issues a certificate for a subordinate CA. After installation, you need to configure the Certificate Revocation List (CRL) Distribution Point (CDP) and authority information access (AIA) locations correctly. You must also make sure that you have a Domain Name System (DNS) record for the offline root CA so that it's accessible from the network.
 
 The main tasks for this exercise are as follows:
 
