@@ -2,13 +2,13 @@
 
 ## Lab scenario
 
-You have been asked to use Group Policy Objects (GPOs) to implement standardized security configuration for the Contoso.com domain.  You need to optimize the Group Policy infrastructure and verify that all policies are applied as they were intended.
+You've been asked to use Group Policy Objects (GPOs) to implement standardized security configuration for the Contoso.com domain, and you need to optimize the Group Policy infrastructure and verify that all policies are applied as intended.
 
 ## Exercise 1: Create and configure GPOs
 
 ### Scenario
 
-You need to ensure that when users leave computers unattended for 10 minutes or more, their computer screens lock automatically. You also need to prevent access to local registry-editing tools on computers. You will use a Group Policy Object to implement these settings and link the GPO to the Contoso.com object in Active Directory.
+You need to ensure that when users leave computers unattended for 10 minutes or more, their computer screens lock automatically. You also need to prevent access to local registry-editing tools on computers. You'll use a GPO to implement these settings and link the GPO to the Contoso.com object in Active Directory.
 
 The main tasks for this exercise are as follows:
 
@@ -83,7 +83,7 @@ The main tasks for this exercise are as follows:
 
 8. Select **Start**, enter **screen saver**, and then, in the search results, select **Change screen saver**. 
 
-   > In the **Screen Saver Settings** dialog box, notice that the **Wait** option is dimmed—you cannot change the time-out. Notice that the **On resume, display logon screen** option is selected and dimmed and that you cannot change the settings. If the **On resume, display logon screen** option is not selected and dimmed, open a command prompt and run the `gpupdate/force` command. 
+   > In the **Screen Saver Settings** dialog box, notice that the **Wait** option is dimmed and you can't change the time-out. Notice also that the **On resume, display logon screen** option is selected and dimmed, and that you can't change it. If the **On resume, display logon screen** option isn't selected and dimmed, open a command prompt and run the `gpupdate/force` command. 
 
 9. To close the **Screen Saver Settings** dialog box, select **OK**.
 
@@ -103,9 +103,9 @@ The main tasks for this exercise are as follows:
 
 ### Scenario
 
-You configured a GPO to implement standardized settings to lock computer screens when users leave computers unattended for 10 minutes or more. However you have been informed that a critical application used by the Research engineering team fails when the screen saver starts. You need to prevent the Contoso Standards GPO from applying to any member of the **Research** security group. 
+You configured a GPO to implement standardized settings to lock computer screens when users leave computers unattended for 10 minutes or more. However, you've been informed that a critical application used by the Research engineering team fails when the screen saver starts. You need to prevent the Contoso Standards GPO from applying to any member of the **Research** security group. 
 
-You have also been asked to exempt conference room kiosk computers from the Contoso Standards GPO. However, you must ensure that the kiosk computers always use a 2-hour screen saver time out setting, regardless on who signs into the computer. You will use loopback processing to address this requirement.
+You have also been asked to exempt conference-room kiosk computers from the Contoso Standards GPO. However, you must ensure that the kiosk computers always use a two-hour screen saver time-out setting, regardless on who signs into the computer. You'll use loopback processing to address this requirement.
 
 The main tasks for this exercise are as follows:
 
@@ -162,7 +162,7 @@ The main tasks for this exercise are as follows:
 
 9. In the **Select User, Computer, or Group** dialog box, select **Object Types**.
 
-10. In the **Object Types** dialog box, select the **Computers** check box and then select **OK**.
+10. In the **Object Types** dialog box, select the **Computers** check box, and then select **OK**.
 
 11. In the **Select User, Computer, or Group** dialog box, in the **Enter Object Names to select (Examples)** text box, enter **LON-CL1**, and then select **OK**.
 
