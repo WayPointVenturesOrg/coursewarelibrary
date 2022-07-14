@@ -10,7 +10,7 @@ You're responsible for implementing certificate enrollment, and you'll be develo
 
 ### Scenario
 
-After deploying the certificate authority (CA) infrastructure, the next step is to deploy the certificate templates that the organization requires. First, Contoso wants to implement a new web-server certificate and certificates for users.
+After deploying the certification authority (CA) infrastructure, the next step is to deploy the certificate templates that the organization requires. First, Contoso wants to implement a new web-server certificate and certificates for users.
 
 The main tasks for this exercise are as follows:
 
