@@ -46,7 +46,7 @@ Contoso has identified the following requirements regarding account logon and pa
 
 ##### Proposals
 
-**Password policies and account-lockout proposal**
+**Password policies and account lockout proposal**
 
 | Setting                                     | Configuration for all users | Configuration for IT administrators |
 | ------------------------------------------- | --------------------------- | ----------------------------------- |
@@ -65,9 +65,9 @@ Contoso has identified the following requirements regarding account logon and pa
 | Account lockout threshold                  |                             |                                     |
 | Reset account lockout counter after        |                             |                                     |
 
-1. How can you configure IT administrators to have different password and account-lockout settings than regular users?
+1. How can you configure IT administrators to have different password and account lockout settings than regular users?
 
-2. How can you identify IT administrators in terms of more restricted password and account-lockout settings?
+2. How can you identify IT administrators in terms of more restricted password and account lockout settings?
 
 3. How can you meet the requirement to limit the membership list for the local Administrators groups on all member servers to only the local Administrator account, the Domain Admins group, and the IT group?
 
@@ -104,9 +104,9 @@ The main tasks for this exercise are as follows:
 | Minimum password length                      | 8 characters                    | 10 characters                           |
 | Passwords must meet complexity requirements  | True                            | True                                    |
 | Store password using reversible encryption   | False                           | False                                   |
-| Account-lockout duration                     | 1 hour                          | Administrator must unlock               |
-| Account-lockout threshold                    | 5                               | 3                                       |
-| Reset account-lockout counter after          | 20 minutes                      | 20 minutes                              |
+| Account lockout duration                     | 1 hour                          | Administrator must unlock               |
+| Account lockout threshold                    | 5                               | 3                                       |
+| Reset account lockout counter after          | 20 minutes                      | 20 minutes                              |
 
 3. Answer the questions from the **Proposals** document.
 
@@ -114,7 +114,7 @@ The main tasks for this exercise are as follows:
 
   > **Answer:** Use the Default Domain Policy, which applies to all users, and create a fine-grained password policy object that applies only to the required administrative groups.
 
-- How can you identify IT administrators in terms of more restricted password and account-lockout settings?
+- How can you identify IT administrators in terms of more restricted password and account lockout settings?
 
   > **Answer:** The administrative password and account lockout settings should apply to the IT group and the Domain Admins group.
 
