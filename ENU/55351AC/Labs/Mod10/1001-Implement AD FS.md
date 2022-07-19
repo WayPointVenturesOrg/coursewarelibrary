@@ -2,17 +2,17 @@
 
 ## Lab scenario
 
-Contoso Corporation has set up a variety of business relationships with other companies that need to access business applications that are running on the Contoso Corporation network. Contoso wants to provide maximum level of functionality and access to these companies. The Security and Operations departments want to ensure that business partners and customers can access only the resources that they are authorized for and that implementing the solution does not significantly increase the workload for the Operations team. 
+Contoso Corporation has set up a variety of business relationships with other companies that need to access business applications that are running on the Contoso corporate network. Contoso wants to provide maximum level of functionality and access to these companies. The Security and Operations departments want to ensure that business partners and customers can access only the resources for which they have authorization and also that implementing the solution doesn't significantly increase the workload for the Operations team. 
 
-To meet these business requirements, you plan to implement Active Directory Federation Services (AD FS). In the initial deployment, you plan to use AD FS to implement single sign-on (SSO) for internal users accessing an application on a web server. Contoso Corporation is partnering with another company, Trey Research. Trey Research users should be able to access the same application.
+To meet these business requirements, you plan to implement Active Directory Federation Services (AD FS). In the initial deployment, you plan to use AD FS to implement single sign-on (SSO) for internal users who are accessing an application on a web server. Contoso Corporation is partnering with another company, Trey Research, and its users should be able to access the same application.
 
-As a proof of concept, you will deploy a sample claims-aware application and configuring AD FS to allow both internal users and Trey Research users to access the same application.
+As a proof of concept, you'll deploy a sample claims-aware application and configure AD FS to allow both internal users and Trey Research users to access the same application.
 
 ## Exercise 1: Configuring the AD FS prerequisites
 
 ### Scenario
 
-To deploy AD FS, you must verify the configuration of all required components. You also need to verify that Active Directory Certificate Services (AD CS) is deployed in the organization and configure certificates for the AD FS server and web servers. You also need to configure the DNS forwarders to enable communication between Contoso.com and TreyResearch.net.
+To deploy AD FS, you must verify the configuration of all required components. You also need to verify that Active Directory Certificate Services (AD CS) is deployed in the organization and configure certificates for the AD FS server and web servers. Lastly, you must configure the Domain Name System (DNS) forwarders to enable communication between Contoso.com and TreyResearch.net.
 
 The main tasks for this exercise are as follows:
 
@@ -36,9 +36,9 @@ The main tasks for this exercise are as follows:
 
 5. In the **New Conditional Forwarder** window, in the **DNS Domain** box, enter **TreyResearch.net**.
 
-6. In the **IP addresses of the master servers** box, enter **172.16.10.10**, and then press Enter.
+6. In the **IP addresses of the master servers** box, enter **172.16.10.10**, and then select Enter.
 
-   > **Note:** If you receive a notification that the IP address is not authoritative for the required zone, you can safely ignore and proceed.
+   > **Note:** If you receive a notification that the IP address isn't authoritative for the required zone, you can safely ignore and proceed.
 
 7. Select the **Store this conditional forwarder in Active Directory, and replicate it as follows** check box, select **All DNS servers in this forest**, and then select **OK**.
 
@@ -56,15 +56,15 @@ The main tasks for this exercise are as follows:
 
 14. In the **New Conditional Forwarder** window, in the **DNS Domain** box, enter **Contoso.com**.
 
-15. In the **IP addresses of the master servers** box, enter **172.16.0.10**, and then press Enter.
+15. In the **IP addresses of the master servers** box, enter **172.16.0.10**, and then select Enter.
 
-    > **Note:** If you receive a notification that the IP address is not authoritative for the required zone, you can safely ignore and proceed.
+    > **Note:** If you receive a notification that the IP address isn't authoritative for the required zone, you can safely ignore and proceed.
 
 16. Select the **Store this conditional forwarder in Active Directory, and replicate it as follows** check box, select **All DNS servers in this forest**, and then select **OK**.
 
 17. Close DNS Manager.
 
-    > **Note:** In a real production environment, you probably will use Internet DNS instead of conditional forwarders.
+    > **Note:** In a real production environment, you'll probably use Internet DNS instead of conditional forwarders.
 
 ### Task 2: Configure the certificate trusts
 
@@ -90,7 +90,7 @@ The main tasks for this exercise are as follows:
 
 11. On the **Completing the Certificate Import Wizard** page, select **Finish**, and then select **OK** to close the success message.
 
-12. Close the Group Policy Management Editor, and close Group Policy Management.
+12. Close the Group Policy Management Editor, and then close Group Policy Management.
 
 13. Switch to **TREY-DC1**.
 
@@ -116,11 +116,11 @@ The main tasks for this exercise are as follows:
 
 24. On **LON-SVR1**, select **Start** and then select **Windows PowerShell**.
 
-25. At the **Windows PowerShell** command prompt, enter **gpupdate**, and then press Enter.
+25. At the **Windows PowerShell** command prompt, enter **gpupdate**, and then select Enter.
 
 26. Close Windows PowerShell.
 
-    > **Note:** If you obtain certificates from a trusted certification authority (CA), you do not need to configure a certificate trust between the organizations.
+    > **Note:** If you obtain certificates from a trusted certification authority (CA), you don't need to configure a certificate trust between the organizations.
 
 ### Task 3: Configure an SSL certificate for the web server
 
@@ -134,20 +134,20 @@ The main tasks for this exercise are as follows:
 
 5. In the **SSL certificate** list, select **ContosoTestApp Certificate**, and then select **OK**.
 
-   > The ContosoTestApp Certificate has been pre-created for this lab.
+   > The ContosoTestApp Certificate has been precreated for this lab.
 
 6. In the **Site Bindings** window, select **Close**.
 
 7. Close IIS Manager.
 
 
-**Results:** After completing this exercise, you will have enabled DNS resolution and certificate trusts between the domains successfully. Also, you will have enabled an SSL certificate for the website.
+**Results:** After completing this exercise, you'll have enabled DNS resolution and certificate trusts between the domains successfully and enabled an SSL certificate for the website.
 
 ## Exercise 2: Installing and configuring AD FS
 
 ### Scenario
 
-The first scenario for implementing the proof-of-concept AD FS application is to ensure that internal users can use SSO to access the web application. You plan to configure the AD FS server and a web application to enable this scenario. To start the AD FS implementation, you will install AD FS on the Contoso.com domain controller and configure the server as a standalone federation server. You will also configure the server to use a CA-signed token-signing certificate.
+The first scenario for implementing the proof-of-concept AD FS application is to ensure that internal users can use SSO to access the web application. You plan to configure the AD FS server and a web application to enable this scenario. To start the AD FS implementation, you'll install AD FS on the Contoso.com domain controller  (DC) and configure the server as a standalone federation server. You'll also configure the server to use a CA-signed token-signing certificate.
 
 The main tasks for this exercise are as follows:
 
@@ -176,13 +176,13 @@ The main tasks for this exercise are as follows:
 
 1. On **LON-DC1**, select **Start**, right-click or access the context menu for **Windows PowerShell**, and then select **Run as Administrator**.
 
-2. At the command prompt, enter the following command, and then press Enter:
+2. At the command prompt, enter the following command, and then select Enter:
 
    ```
    Add-KdsRootKey –EffectiveTime ((Get-Date).AddHours(-10))
    ```
 
-   > This command creates the Microsoft Group Key Distribution Service root key to generate group Managed Service Account (gMSA) passwords for the account that you will use later in this lab. You should receive a globally unique identifier (GUID) as a response to this command.
+   > This command creates the Microsoft Group Key Distribution Service root key to generate group Managed Service Account (gMSA) passwords for the account that you'll use later in this lab. You should receive a globally unique identifier (GUID) as a response to this command.
    >
 
 3. Select **Start**, select **Server Manager**, select **Manage**, and then select **Add Roles and Features**.
@@ -305,7 +305,7 @@ The main tasks for this exercise are as follows:
 
 1. Switch to **LON-DC1**.
 
-1. On **LON-DC1**, open **Windows PowerShell**, enter the following command to add a relying party trust, and then press Enter:
+1. On **LON-DC1**, open **Windows PowerShell**, enter the following command to add a relying party trust, and then select Enter:
 
    ```
    Add-ADFSRelyingPartyTrust –Name ‘Contoso Corporation Test App’ –MetadataURL ‘https://lon-svr1.Contoso.com/ContosoTestApp/federationmetadata/2007-06/federationmetadata.xml’
@@ -351,7 +351,7 @@ The main tasks for this exercise are as follows:
 
 19. In the **AD FS** management console, in the list of **Relying Party Trusts**, select **Contoso Corporation Test App**, and then select **Edit Access Control Policy**.
 
-20. In **Edit Access Control Policy for Contoso Corporation Test App**, select **Permit everyone**, and select **OK**.
+20. In **Edit Access Control Policy for Contoso Corporation Test App**, select **Permit everyone**, and then select **OK**.
 
 
 ### Task 5: Test access to the claims-aware application
@@ -362,11 +362,11 @@ The main tasks for this exercise are as follows:
 
 3. From the task bar, open **Microsoft Edge**.
 
-4. In Microsoft Edge, on the address bar, enter **`https://lon-svr1.Contoso.com/ContosoTestApp/`**, and then press Enter.
+4. In Microsoft Edge, on the address bar, enter **`https://lon-svr1.Contoso.com/ContosoTestApp/`**, and then select Enter.
 
    > **Note:** Be sure to include the trailing forward slash (/) in the URL for step 4.
 
-5. In the **Sign In** window, sign in as **Contoso\\Oscar** with the password **Pa55w.rd**.
+5. In the **Sign In** window, sign in as **Contoso\\Oscar** with the password of **Pa55w.rd**.
 
 6. Review the claim information that the application displays.
 
@@ -379,7 +379,7 @@ The main tasks for this exercise are as follows:
 
 ### Scenario
 
-The second deployment scenario is to enable Trey Research users to access the web application. You plan to configure the integration of AD FS at Trey Research with AD FS at Contoso Corporation and then verify that Trey Research users can access the application. You also need to confirm that you can configure access that is based on user groups. You must ensure that all users at Contoso Corporation, and only users who are in the Sales group at Trey Research can access the application.
+The second deployment scenario is to enable Trey Research users to access the web application. You plan to configure the integration of AD FS at Trey Research with AD FS at Contoso Corporation and then verify that Trey Research users can access the application. You also need to confirm that you can configure access that is based on user groups. You must ensure that all users at Contoso Corporation and only users who are in the Sales group at Trey Research can access the application.
 
 The main tasks for this exercise are as follows:
 
@@ -418,15 +418,15 @@ The main tasks for this exercise are as follows:
 
 ### Task 2: Install AD FS for Trey Research
 
-1. On **TREY-DC1**, select **Start**, right-click or access the context menu for **Windows PowerShell** and then select **Run as Administrator**.
+1. On **TREY-DC1**, select **Start**, right-click or access the context menu for **Windows PowerShell**, and then select **Run as Administrator**.
 
-2. At the command prompt, enter the following command, and then press Enter:
+2. At the command prompt, enter the following command, and then select Enter:
 
    ```
    Add-KdsRootKey –EffectiveTime ((Get-Date).AddHours(-10))
    ```
 
-   > This command creates the Key Distribution Service root key to generate gMSA passwords for the account that you will use later in this lab. You should receive a GUID as a response to this command.
+   > This command creates the Key Distribution Service root key to generate gMSA passwords for the account that you'll use later in this lab. You should receive a GUID as a response to this command.
    >
 
 3. Select **Start**, select **Server Manager**, select **Manage**, and then select **Add Roles and Features**.
@@ -485,13 +485,13 @@ The main tasks for this exercise are as follows:
 
 1. Switch to **LON-DC1**.
 
-2. On **LON-DC1**, at the **Windows PowerShell** command prompt, enter the following command to add a claims provider trust, and then press Enter:
+2. On **LON-DC1**, at the **Windows PowerShell** command prompt, enter the following command to add a claims provider trust, and then select Enter:
 
    ```
    Add-AdfsClaimsProviderTrust –Name ‘Trey Research’ –MetadataUrl ‘https://adfs.treyresearch.net/federationmetadata/2007-06/federationmetadata.xml’
    ```
 
-3. Because of compatibility issues with Microsoft Edge, enter the following command to disable token binding in AD FS, and then press Enter:
+3. Because of compatibility issues with Microsoft Edge, enter the following command to disable token binding in AD FS, and then select Enter:
 
    ```
    Set-AdfsProperties –IgnoreTokenBinding $true
@@ -501,7 +501,7 @@ The main tasks for this exercise are as follows:
 
 5. Select **Claims Provider Trusts**, right-click or access the context menu for **Trey Research**, and then select **Edit Claim Rules…**. 
 
-   > You may need to refresh Claims Provider Trusts if Trey Research does is not displayed.
+   > You may need to refresh Claims Provider Trusts if Trey Research does isn't displayed.
 
 6. In the **Edit Claim Rules for Trey Research** window, on the **Acceptance Transform Rules** tab, select **Add Rule**.
 
@@ -522,7 +522,7 @@ The main tasks for this exercise are as follows:
 
 1. On **TREY-DC1**, open the **Windows PowerShell** command prompt.
 
-2. At the **Windows PowerShell** command prompt, enter the following to create a new relying party trust, and then press Enter:
+2. At the **Windows PowerShell** command prompt, enter the following to create a new relying party trust, and then select Enter:
 
    ```
    Add-ADFSRelyingPartyTrust –Name ‘Contoso Corporation’ –MetadataURL ‘https://adfs.Contoso.com/federationmetadata/2007-06/federationmetadata.xml’
@@ -548,7 +548,7 @@ The main tasks for this exercise are as follows:
 
 12. In the list of **Relying Party Trusts**, select **Contoso Corporation**, and then select **Edit Access Control Policy**.
 
-13. In **Edit Access Control Policy for Contoso Corporation**, select **Permit everyone**, and select **OK**.
+13. In **Edit Access Control Policy for Contoso Corporation**, select **Permit everyone**, and then select **OK**.
 
 14. Close the **AD FS** management console.
 
@@ -559,23 +559,23 @@ The main tasks for this exercise are as follows:
 
 2. On the **Per Site Privacy Actions** page, in the **Address of website** box, enter **Contoso.com**, select **Allow**, select **OK** to close the **Per Site Privacy Actions** page, and then select **OK** to close the **Internet Options** window.
 
-3. On **TREY-DC1**, open Microsoft Edge, and then in the address bar, enter **`https://lon-svr1.Contoso.com/Contosotestapp/`**, and press Enter.
+3. On **TREY-DC1**, open Microsoft Edge, and then in the address bar, enter **`https://lon-svr1.Contoso.com/Contosotestapp/`**, and then select Enter.
 
 4. On the **Contoso Corporation** page, select **Trey Research**.
 
-   > **Note:** If you receive the error message **This page cannot be displayed**, select **Refresh** and try this step again.
+   > **Note:** If you receive the error message **This page cannot be displayed**, select **Refresh**, and then try this step again.
 
-6. In the **Sign in** page, sign in as **TreyResearch\\Connie** with the password **Pa55w.rd**.
+6. In the **Sign in** page, sign in as **TreyResearch\\Connie** with the password of **Pa55w.rd**.
 
 7. After the application loads, close **Microsoft Edge**.
 
-8. Open **Microsoft Edge** again, and then in the address bar, enter **`https://lon-svr1.Contoso.com/Contosotestapp/`**, and press Enter.
+8. Open **Microsoft Edge** again, and then in the address bar, enter **`https://lon-svr1.Contoso.com/Contosotestapp/`**, and then select Enter.
 
-10. In the **Sign in** page, sign in as **TreyResearch\\Connie** with the password **Pa55w.rd**.
+10. In the **Sign in** page, sign in as **TreyResearch\\Connie** with the password of **Pa55w.rd**.
 
 11. Close Microsoft Edge.
 
-    > **Note:** You are not prompted for a home realm on the second access. After a user selects a home realm and a realm authority authenticates that user, the relying party’s federation server issues a **_LSRealm** cookie. The default lifetime for the cookie is 30 days. Therefore, to sign in multiple times, you should delete that cookie after each sign-in attempt to return to a clean state.
+    > **Note:** You aren't prompted for a home realm on the second access. After a user selects a home realm and a realm authority authenticates that user, the relying party’s federation server issues a **_LSRealm** cookie. The default lifetime for the cookie is 30 days. Therefore, to sign in multiple times, you should delete that cookie after each sign-in attempt to return to a clean state.
 
 ### Task 7: Configure issuance-authorization claim rules to allow access only for specific groups
 
@@ -589,7 +589,7 @@ The main tasks for this exercise are as follows:
 
 5. Select **Add Rule**.
 
-6. In the **Claim rule template** box, select **Pass Through or Filter an Incoming Claim** and then select **Next**.
+6. In the **Claim rule template** box, select **Pass Through or Filter an Incoming Claim**, and then select **Next**.
 
 7. On the **Claim rule name** box, enter **Allow Sales Members**.
 
@@ -597,7 +597,7 @@ The main tasks for this exercise are as follows:
 
 9. Select **Pass through only a specific claim value**, and then in the Incoming claim value, enter **TreyResearch-Sales**.
 
-10. Select **Finish** and then select **OK**.
+10. Select **Finish**, and then select **OK**.
 
 11. In the **AD FS** management console, select **Claims Provider Trusts**, right-click or access the context menu for **Active Directory**, and then select **Edit Claim Rules**.
 
@@ -622,7 +622,7 @@ The main tasks for this exercise are as follows:
 
 1. On **TREY-DC1**, open Microsoft Edge, and on the address bar, enter **`https://lon-svr1.Contoso.com/Contosotestapp/`**.
 
-2. In the **Sign in** page, sign in as **TreyResearch\\Allan** with the password **Pa55w.rd**.
+2. In the **Sign in** page, sign in as **TreyResearch\\Allan** with the password of **Pa55w.rd**.
 
 3. Verify Allan can access the application.
 
