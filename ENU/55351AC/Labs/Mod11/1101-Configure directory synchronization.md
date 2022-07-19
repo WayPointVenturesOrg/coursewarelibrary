@@ -8,13 +8,13 @@ As part of the proof-of-concept phase, your team must configure and test synchro
 
 ### Scenario
 
-Before you configure directory synchronization, you must create and prepare your Azure AD tenant. In this exercise, you will create the required accounts and create a new Azure AD tenant by provisioning the Office 365 trial subscription.
+Before you configure directory synchronization, you must create and prepare your Azure AD tenant. In this exercise, you'll create the required accounts and create a new Azure AD tenant by provisioning the Office 365 trial subscription.
 
 The main tasks for this exercise are as follows:
 
 1. Create a trial Office 365 E5 subscription.
 
-2. Verify the Azure AD tenant and add a domain.
+2. Verify the Azure AD tenant, and add a domain.
 
 
 ### Task 1: Create a trial Office 365 E5 subscription
@@ -25,13 +25,13 @@ The main tasks for this exercise are as follows:
 
 3. Open the **`https://products.office.com/en-us/business/office-365-enterprise-e5-business-software`** URL, and then select the **Free trial** link.
 
-4. On the **Let's get you started** page, in the **Email** text box, enter an email address in the form of **`mmddyy<yourinitials.@outlook.com`** and then select **Next**. (Where mmddyy represents the month, day, and year in two digits.)
+4. On the **Let's get you started** page, in the **Email** text box, enter an email address in the form of **`mmddyy<yourinitials.@outlook.com`**, and then select **Next**. (Where mmddyy represents the month, day, and year in two digits.)
 
-   > You will be directed to create a new account.
+   > You'll be directed to create a new account.
 
 5. On the **Let's get you started** page, select **Set up account**.
 
-6. On the **Tell us about yourself** page, fill in the form as follows and then select **Next**:
+6. On the **Tell us about yourself** page, fill in the form as follows, and then select **Next**:
 
    - First name: Your choice
    - Last name: Your choice
@@ -42,26 +42,26 @@ The main tasks for this exercise are as follows:
 
 7. On the **Tell us about yourself** page, select **Text me**, in the **Phone number** text box, enter your cell phone number, and then select **Send verification code**.
 
-8. Retrieve the verification code from your phone, and in the **Enter your verification code** text box, enter the provided code and then select **Verify**.
+8. Retrieve the verification code from your phone, and in the **Enter your verification code** text box, enter the provided code, and then select **Verify**.
 
-9. On the **How you'll sign in** page, fill in the following details and then select **Next**:
+9. On the **How you'll sign in** page, enter the following details, and then select **Next**:
 
    - Username: Your choice
    - Domain name: **`mmddyy<yourinitials>Contoso.onmicrosoft.com`**
    - Password and Confirm password: **Pa55w.rd1234**
 
-10. On the Confirmation details page, review your username information and then select **Get Started**.
+10. On the **Confirmation details** page, review your username information, and then select **Get Started**.
 
-    > Be sure to write down your username and password so that you can use it later.
+    > Be sure to note your username and password, as you'll need to use it again.
 
-11. On the **Install Office** page, at the bottom right corner, select **Exit setup**. Provide a reason for exiting setup and complete the task.
+11. On the **Install Office** page, at the bottom-right corner, select **Exit setup**. Provide a reason for exiting setup, and then complete the task.
 
     > The Microsoft 365 admin center opens.
 
 12. Leave the Microsoft Edge browser window open.
 
 
-### Task 2: Verify the Azure AD tenant and add a domain
+### Task 2: Verify the Azure AD tenant, and add a domain
 
 1. On **LON-CL1**, in the **Microsoft Edge** window, open a new tab, and then browse to **`https://portal.azure.com`**.
 
@@ -79,11 +79,11 @@ The main tasks for this exercise are as follows:
 
 8. On the Contoso.com page, review the content, and then close the **Contoso.com** window.
 
-   > Notice that you need to create a TXT record on your DNS server to verify the custom domain.
+   > Notice that you need to create a TXT record on your Domain Name System (DNS) server to verify the custom domain.
 
 9. Leave the Microsoft Azure portal open.
 
-**Results:** After completing this exercise, you will have created the Azure AD tenant.
+**Results:** After completing this exercise, you'll have created the Azure AD tenant.
 
 ## Exercise 2: Configure directory synchronization
 
@@ -97,7 +97,7 @@ The main tasks for this exercise are as follows:
 
 2. Install and configure Azure AD Connect.
 
-3. Verify the initial synchronization and manage the settings.
+3. Verify the initial synchronization, and manage the settings.
 
 
 ### Task 1: Configure a synchronization account
@@ -106,7 +106,7 @@ The main tasks for this exercise are as follows:
 
 2. Select **All users**.
 
-3. Select **New user** and then select **Create new user**.
+3. Select **New user**, and then select **Create new user**.
 
 4. In the **New user** blade, next to **Select template**, select **Create user**.
 
@@ -136,13 +136,13 @@ The main tasks for this exercise are as follows:
 
 11. In the new browser window, browse to **`https://portal.azure.com`**.
 
-12. Sign in as **`sync@mmddyy<initials>Contoso.onmicrosoft.com`** with the password **Pa55w.rd1234**.
+12. Sign in as **`sync@mmddyy<initials>Contoso.onmicrosoft.com`** with the password of **Pa55w.rd1234**.
 
 13. On the **Update your password** page, enter **Pa55w.rd1234** in the **Current password** text box, and then enter a new password in the **New password** and **Confirm password** text boxes. Select **Sign in**. Document the password for the SYNC account.
 
     > Verify that the Azure portal opens. 
 
-14. Close the in-private **Microsoft Edge** window. Keep Microsoft Edge, where you are signed in with your account, open.
+14. Close the in-private **Microsoft Edge** window. Keep Microsoft Edge, where you're signed in with your account, open.
 
 
 ### Task 2: Install and configure Azure AD Connect
@@ -181,20 +181,20 @@ The main tasks for this exercise are as follows:
 
 16. On the **Ready to configure** page, select **Install**, and when the configuration is complete, select **Exit**.
 
-    > The synchronization of objects from your local Active Directory Domain Services (AD DS) and Azure Active Directory (Azure AD) begins. Wait approximately 5-10 minutes for this process to complete. 
+    > The synchronization of objects from your local AD DS and Azure AD begins. Wait approximately 5-10 minutes for this process to complete. 
 
 17. On **LON-SVR1**, close the **Microsoft Edge** window.
 
 
-### Task 3: Verify the initial synchronization and manage the settings
+### Task 3: Verify the initial synchronization, and manage the settings
 
 1. Switch to **LON-CL1**.
 
    > Microsoft Edge should still be open with the Microsoft Azure portal.
 
-2. If necessary, under the **Manage** options list, select **Users** and then select **All users.**
+2. If necessary, under the **Manage** options list, select **Users**, and then select **All users.**
 
-   > Verify that you can see the user accounts from your local AD DS. You should be able to see all users from your local Contoso.com domain.
+   > Verify that the user accounts from your local AD DS are listed, as well as all users from your local Contoso.com domain.
 
 3. Switch to **LON-SVR1**.
 
@@ -202,40 +202,40 @@ The main tasks for this exercise are as follows:
 
 5. In the **Synchronization Service Manager on LON-SVR1** window, select the **Operations** tab.
 
-6. Ensure that you can see the **Export, Full Synchronization**, and **Full Import** tasks. 
+6. Ensure that you can observe the **Export, Full Synchronization**, and **Full Import** tasks. 
 
-7. Ensure that all the tasks have a current time and date in the **Start Time** and **End Time** columns. Also, ensure that all tasks show **success** in the **Status** column. 
+7. Ensure that all the tasks have a current time and date in the **Start Time** and **End Time** columns. Also, ensure that all tasks indicate **success** in the **Status** column. 
 
-   > **Note:** It is normal for some tasks to have the **completed-no-objects** status.
+   > **Note:** It's normal for some tasks to have the **completed-no-objects** status.
 
 8. Close the **Synchronization Service Manager** window.
 
 9. On **LON-SVR1**, select **Start**, and then open **Windows PowerShell**.
 
-10. In the **Administrator: Windows PowerShell** window, enter the following command, and then press Enter.
+10. In the **Administrator: Windows PowerShell** window, enter the following command, and then select Enter.
 
     ```
     Get-ADSyncScheduler
     ```
 
-11. Review the results. Ensure that the **`AllowedSyncCycleInterval`** value and the **`CurrentlyEffectiveSyncCycleInterval`** value are set to **30 minutes**.
+11. Review the results. Ensure that the **`AllowedSyncCycleInterval`** and **`CurrentlyEffectiveSyncCycleInterval`** values are set to **30 minutes**.
 
-12. In the **Administrator: Windows PowerShell** window, enter the following command, and then press Enter.
+12. In the **Administrator: Windows PowerShell** window, enter the following command, and then select Enter.
 
     ```
     Set-ADSyncScheduler –CustomizedSyncCycleInterval 01:00:00
     ```
 
-13. In the **Administrator: Windows PowerShell** window, enter the following command, and then press Enter.
+13. In the **Administrator: Windows PowerShell** window, enter the following command, and then select Enter.
 
     ```
     Start-ADSyncSyncCycle –Policytype Delta
     ```
 
-    > Wait for approximately two minutes.
+    > Wait for approximately 2 minutes.
     >
 
-14. In the **Administrator: Windows PowerShell** window, enter the following command, and then press Enter.
+14. In the **Administrator: Windows PowerShell** window, enter the following command, and then select Enter.
 
     ```
     Get-ADSyncScheduler
@@ -248,7 +248,7 @@ The main tasks for this exercise are as follows:
 
 **Results**: After completing this exercise, you should have installed Azure AD Connect with the customized settings, completed directory synchronization to Azure AD, and verified that the synchronization was successful.
 
-## Exercise 3: Manage Active Directory users and groups and validate directory synchronization
+## Exercise 3: Manage Active Directory users and groups, and validate directory synchronization
 
 ### Scenario
 
@@ -289,13 +289,13 @@ The main tasks for this exercise are as follows:
 
 1. On **LON-SVR1**, right-click or access the context menu for **Start**, and then select **Windows PowerShell (Admin)**.
 
-2. In the **Administrator: Windows PowerShell** window, enter the following command, and then press Enter.
+2. In the **Administrator: Windows PowerShell** window, enter the following command, and then select Enter.
 
    ```
    Start-ADSyncSyncCycle –Policytype Delta
    ```
 
-3. Wait for approximately four minutes. Do not close the **Administrator: Windows PowerShell** window. However, you can minimize it.
+3. Wait for approximately 4 minutes. Don't close the **Administrator: Windows PowerShell** window. However, you can minimize it.
 
 4. Switch to Microsoft Edge on **LON-CL1**, where you have the Azure portal open. 
 
@@ -305,4 +305,4 @@ The main tasks for this exercise are as follows:
 
    > Verify that your account was also added to the **Sales** group. Leave the browser window open.
 
-**Results**: After completing this exercise, you will have identified how managing user and group accounts has changed with directory synchronization.
+**Results**: After completing this exercise, you'll have identified how managing user and group accounts has changed with directory synchronization.
