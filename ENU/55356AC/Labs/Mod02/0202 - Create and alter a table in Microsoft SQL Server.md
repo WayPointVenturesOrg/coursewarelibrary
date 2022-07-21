@@ -2,14 +2,14 @@
 
 ## Scenario
 
-You work at a publishing house handling information about books and publishers. Recently, the publishing house has begun offering instructive classes to teach the basics of publishing. The publishing house has a database named **pubs**. You have been asked to create a new table in the **pubs** database to store information about these classes. You will use Microsoft SQL Server Management Studio to create this table.
+You work at a publishing house managing information about books and publishers. Recently, the publishing house has begun offering instructive classes to teach the basics of publishing. The publishing house has a database named **pubs**. You've been asked to create a new table in the **pubs** database to store information about these classes. You'll use Microsoft SQL Server Management Studio to create this table.
 
 ## Objectives
 
-After completing this lab, you will be able to:
+By completing this lab, you’ll achieve the knowledge and skills to:
 
-- Connect to the database
-- Create and alter a table
+- Connect to the database.
+- Create and alter a table.
 
 
 Estimated time: 10 minutes
@@ -18,12 +18,12 @@ Estimated time: 10 minutes
 
 ### Scenario
 
-You will begin by using Microsoft SQL Server Management Studio to connect to the publishing house's database, called **pubs**. This will allow you to create a table inside the database.
+You'll begin by using Microsoft SQL Server Management Studio to connect to the publishing house's database, called **pubs**. This will allow you to create a table inside the database.
 
 The main tasks for this exercise are as follows:
 
-1. Prepare the lab environment
-2. Connect to the database
+1. Prepare the lab environment.
+2. Connect to the database.
 
 #### Task 1: Prepare the lab environment.
 
@@ -60,16 +60,16 @@ You have connected to the **pubs** database and have opened a new query window.
 
 ### Scenario
 
-Now that you have successfully connected to the **pubs** database, you will run a `CREATE TABLE` statement to produce a table that stores information about instructional classes. Once the table has been successfully created, you will add a new field to the table representing the name of the instructor who teaches the class.
+Now that you've successfully connected to the **pubs** database, you'll run a `CREATE TABLE` statement to produce a table that stores information about instructional classes. After the table has been successfully created, you'll add a new field to the table representing the name of the instructor who teaches the class.
 
 The main tasks for this exercise are as follows:
 
-1. Create a table using the `CREATE TABLE` statement
-1. Alter a table using the `ALTER TABLE` statement
+1. Create a table using the `CREATE TABLE` statement.
+1. Alter a table using the `ALTER TABLE` statement.
 
 #### Task 1: Create a table using the CREATE TABLE statement
 
-1. In a new query to the **pubs** database, write the following statement in the **SQLQuery1.sql** window:
+1. In a new query to the **pubs** database, enter the following statement in the **SQLQuery1.sql** window:
 
    ```sql
    CREATE TABLE instructional_class (
@@ -80,17 +80,17 @@ The main tasks for this exercise are as follows:
    );
    ```
 
-2. Select the **Execute** button, or press **`F5`** on the keyboard to run the statement. 
+2. Select the **Execute** button, or enter **`F5`** on the keyboard to run the statement. 
 
    > The table is created.
    
-3. Delete the previous query from the **SQLQuery1.sql** window and then write the following `SELECT` statement:
+3. Delete the previous query from the **SQLQuery1.sql** window and then enter the following `SELECT` statement:
 
    ```sql
    SELECT * FROM instructional_class;
    ```
 
-4. Select the **Execute** button, or press **`F5`** on the keyboard to run the statement.
+4. Select the **Execute** button, or enter **`F5`** on the keyboard to run the statement.
 
    > You should receive the empty table you just created. 
    >
@@ -99,24 +99,24 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Alter a table using the ALTER TABLE statement
 
-1. Delete the previous query from the **SQLQuery1.sql** window and then write the following statement in the **SQLQuery1.sql** window:
+1. Delete the previous query from the **SQLQuery1.sql** window and then enter the following statement in the **SQLQuery1.sql** window:
 
    ```sql
    ALTER TABLE instructional_class
    ADD teacher nvarchar(100) NOT NULL;
    ```
 
-2. Select the **Execute** button, or press **`F5`** on the keyboard to run the statement. 
+2. Select the **Execute** button, or enter **`F5`** on the keyboard to run the statement. 
 
    > The table is created.
 
-3. Delete the previous query from the **SQLQuery1.sql** window and then write the following `SELECT` statement:
+3. Delete the previous query from the **SQLQuery1.sql** window and then enter the following `SELECT` statement:
 
    ```sql
    SELECT * FROM instructional_class;
    ```
 
-4. Select the **Execute** button, or press **`F5`** on the keyboard to run the statement.
+4. Select the **Execute** button, or enter **`F5`** on the keyboard to run the statement.
 
    > You should receive the empty table you just created, with the additional **`teacher`** column. 
    >
