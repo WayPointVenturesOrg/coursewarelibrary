@@ -2,14 +2,14 @@
 
 ## Scenario
 
-You work at a publishing house handling information about books and publishers. In your customer-facing role you are often asked for the titles of books and the names of their publishers. However, these two pieces of information are stored in different tables in the database. You will retrieve a synthesis of this information using a JOIN statement. Once you have done so, you will create a view that runs this statement.
+You work at a publishing house managing information about books and publishers. In your customer-facing role, you're often asked for the titles of books and the names of their publishers. However, these two pieces of information are stored in different tables in the database. You'll retrieve a synthesis of this information using a JOIN statement. After you've done so, you'll create a view that runs this statement.
 
 ## Objectives
 
-After completing this lab, you will be able to:
+By completing this lab, you’ll achieve the knowledge and skills to:
 
-- Connect to the database
-- Create a view that retrieves information using a JOIN statement
+- Connect to the database.
+- Create a view that retrieves information using a JOIN statement.
 
 
 Estimated time: 10 minutes
@@ -18,12 +18,12 @@ Estimated time: 10 minutes
 
 ### Scenario
 
-You will begin by using Microsoft SQL Server Management Studio to connect to the publishing house's database, called **pubs**. This will allow you to retrieve information from the database.
+You'll begin by using Microsoft SQL Server Management Studio to connect to the publishing house's database, named **pubs**. This will allow you to retrieve information from the database.
 
 The main tasks for this exercise are as follows:
 
-1. Prepare the lab environment
-2. Connect to the database
+1. Prepare the lab environment.
+2. Connect to the database.
 
 #### Task 1: Prepare the lab environment.
 
@@ -53,29 +53,29 @@ The main tasks for this exercise are as follows:
 
 ### Results
 
-You have connected to the **pubs** database and have opened a new query window.
+You've connected to the **pubs** database and have opened a new query window.
 
 ## Exercise 2: Create a view that retrieves information using a JOIN statement
 
 ### Scenario
 
-Now that you have successfully connected to the **pubs** database, you will run a `SELECT` statement to retrieve information from the **titles** and **publishers** tables. Then you will use a `JOIN` statement to combine select information from each table to retrieve only the titles of books and the names of their publishers. Finally, you will create and run a view from this `JOIN` statement.
+Now that you've successfully connected to the **pubs** database, you'll run a `SELECT` statement to retrieve information from the **titles** and **publishers** tables. Then you'll use a `JOIN` statement to combine select information from each table to retrieve only the titles of books and the names of their publishers. Finally, you'll create and run a view from this `JOIN` statement.
 
 The main tasks for this exercise are as follows:
 
-1. Retrieve information using the `SELECT` and `JOIN` statements
-1. Create a view and use it to retrieve information from the database
+1. Retrieve information using the `SELECT` and `JOIN` statements.
+1. Create a view and use it to retrieve information from the database.
 
 #### Task 1: Retrieve information using the SELECT and JOIN statements
 
-1. In a new query to the **pubs** database, write the following `SELECT` statements in the **SQLQuery1.sql** window:
+1. In a new query to the **pubs** database, enter the following `SELECT` statements in the **SQLQuery1.sql** window:
 
    ```sql
    SELECT * FROM titles;
    SELECT * FROM publishers;
    ```
 
-2. Select the **Execute** button, or press **`F5`** on the keyboard to run the statements. 
+2. Select the **Execute** button, or select **`F5`** on the keyboard to run the statements. 
 
    > You should receive two tables.
    >
@@ -83,7 +83,7 @@ The main tasks for this exercise are as follows:
    >
    > The second table, **publishers**, contains information about publishers. It should have 5 columns and 8 rows.
    
-3. Delete the previous query from the **SQLQuery1.sql** window and then write the following `JOIN` statement:
+3. Delete the previous query from the **SQLQuery1.sql** window and then enter the following `JOIN` statement:
 
    ```sql
    SELECT title, pub_name FROM titles
@@ -91,7 +91,7 @@ The main tasks for this exercise are as follows:
    ON titles.pub_id = publishers.pub_id;
    ```
 
-4. Select the **Execute** button, or press **`F5`** on the keyboard to run the statement.
+4. Select the **Execute** button, or select **`F5`** on the keyboard to run the statement.
 
    > You should receive a table that matches the titles of books to the names of their publishers.
    >
@@ -100,7 +100,7 @@ The main tasks for this exercise are as follows:
 
 #### Task 2: Create a view and use it to retrieve information from the database
 
-1. Modify the final statement from **Task 1** or write the following `CREATE VIEW` statement in a new query to the **pubs** database:
+1. Modify the final statement from **Task 1** or enter the following `CREATE VIEW` statement in a new query to the **pubs** database:
 
    ```sql
    CREATE VIEW title_and_publisher_name
@@ -110,17 +110,17 @@ The main tasks for this exercise are as follows:
    ON titles.pub_id = publishers.pub_id;
    ```
 
-2. Select the **Execute** button, or press **`F5`** on the keyboard to run the statement. 
+2. Select the **Execute** button, or select **`F5`** on the keyboard to run the statement. 
 
    > The view is created.
 
-3. Delete the previous query from the **SQLQuery1.sql** window. Write the following `SELECT` statement:
+3. Delete the previous query from the **SQLQuery1.sql** window. Enter the following `SELECT` statement:
 
    ```sql
    SELECT * FROM title_and_publisher_name;
    ```
 
-4. Select the **Execute** button, or press **`F5`** on the keyboard to run the statement.
+4. Select the **Execute** button, or select **`F5`** on the keyboard to run the statement.
 
    > You should receive an identical table to the one you received from the final `SELECT` statement in **Task 1**, that matches the titles of books to the names of their publishers. 
    >
