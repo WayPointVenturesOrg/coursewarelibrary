@@ -113,3 +113,4 @@ The main task for this exercise is as follows:
 ### Results
 
 You can now use Microsoft SQL Server Management Studio to retrieve data from a database using a SELECT statement.
+
