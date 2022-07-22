@@ -48,7 +48,7 @@ The main tasks for this exercise are as follows:
 
 3. Right-click or access the context menu for the **pubs** database, and then select **New Query**.
 
-   > The SQLQuery1.sql window opens. In this query window, you can run SQL code against the **pubs** database.
+   > The **SQLQuery1.sql** window opens. In this query window, you can run SQL code against the **pubs** database.
 
 ### Results
 
