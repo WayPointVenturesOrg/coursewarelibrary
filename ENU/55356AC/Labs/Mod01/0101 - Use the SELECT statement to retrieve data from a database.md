@@ -2,11 +2,11 @@
 
 ## Scenario
 
-You work at a publishing house handling information about books and publishers. A customer asks for a selection of books that meet various search criteria. You will connect to the publishing house's database, named **pubs**, using Microsoft SQL Server Management Studio. Once connected, you will retrieve information about the books that match the customer's search criteria.
+You work at a publishing house managing information about books and publishers. A customer asks for a selection of books that meet various search criteria. You'll connect to the publishing house's database, named **pubs**, using Microsoft SQL Server Management Studio. After you've connected, you'll retrieve information about the books that match the customer's search criteria.
 
 ## Objectives
 
-After completing this lab, you will be able to:
+By completing this lab, you’ll achieve the knowledge and skills to:
 
 - Connect to the database.
 
@@ -19,12 +19,12 @@ Estimated time: 10 minutes
 
 ### Scenario
 
-You will begin by using Microsoft SQL Server Management Studio to connect to the publishing house's database, called **pubs**. This will allow you to begin retrieving information from the database.
+You'll begin by using Microsoft SQL Server Management Studio to connect to the publishing house's database, called **pubs**. This will allow you to begin retrieving information from the database.
 
 The main tasks for this exercise are as follows:
 
-1. Prepare the lab environment
-2. Connect to the database
+1. Prepare the lab environment.
+2. Connect to the database.
 
 #### Task 1: Prepare the lab environment.
 
@@ -52,25 +52,25 @@ The main tasks for this exercise are as follows:
 
 3. Right-click or access the context menu for the **pubs** database, and then select **New Query**.
 
-   > The SQLQuery1.sql window opens. In this query window you can run SQL code against the **pubs** database.
+   > The SQLQuery1.sql window opens. In this query window, you can run SQL code against the **pubs** database.
 
 ### Results
 
-You have connected to the **pubs** database and have opened a new query window.
+You've connected to the **pubs** database and have opened a new query window.
 
 ## Exercise 2: Retrieve data from the database
 
 ### Scenario
 
-Now that you have successfully connected to the **pubs** database, you will run `SELECT` statements to gather data from the server in order to answer the customer's requests.
+Now that you've successfully connected to the **pubs** database, you'll run `SELECT` statements to gather data from the server to answer the customer's requests.
 
 The main task for this exercise is as follows:
 
-1. Use a SELECT statement to retrieve information from the database
+1. Use a SELECT statement to retrieve information from the database.
 
 #### Task 1: Use a SELECT statement to retrieve information from the database
 
-1. In a new query to the **pubs** database, write the following `SELECT` statement in the **SQLQuery1** window:
+1. In a new query to the **pubs** database, enter the following `SELECT` statement in the **SQLQuery1** window:
 
    ```sql
    SELECT * FROM titles;
@@ -80,7 +80,7 @@ The main task for this exercise is as follows:
 
    > You should receive a table containing information about books. The table should have 10 columns and 18 rows.
    >
-   > Notice that the results show all columns from the `titles` table.
+   > Notice that the results display all columns from the `titles` table.
    
 3. From the **SQLQuery1** window, delete the previous query and replace the text with the following `SELECT` statement:
 
@@ -88,7 +88,7 @@ The main task for this exercise is as follows:
    SELECT title_id, title, type, notes FROM titles;
    ```
 
-4. Select the **Execute** button, or press **`F5`** on the keyboard to run the statement.
+4. Select the **Execute** button, or select **`F5`** on the keyboard to run the statement.
 
    > You should receive a table containing information about books. The table should have 4 columns and 18 rows.
    >
@@ -100,9 +100,9 @@ The main task for this exercise is as follows:
    SELECT title FROM titles WHERE type='business';
    ```
    >
-   > Note: Remember that strings are surrounded by single quotes in SQL.
+   > Note: Remember that strings are surrounded by single quotation marks in SQL.
 
-7. Select the **Execute** button, or press **`F5`** on the keyboard to run the statement. 
+7. Select the **Execute** button, or select **`F5`** on the keyboard to run the statement. 
 
     > You should receive a table containing the titles of books. The table should have 1 column and 4 rows. 
     >
