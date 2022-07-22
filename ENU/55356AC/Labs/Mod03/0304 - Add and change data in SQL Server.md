@@ -196,7 +196,7 @@ The main tasks for this exercise are as follows:
    ```sql
    UPDATE employee
    SET job_lvl = 100
-WHERE emp_id = 'JDD55356M';
+   WHERE emp_id = 'JDD55356M';
    ```
    
    > Ensure the `emp_id` value matches the field in the row you added during **Task 1**.
