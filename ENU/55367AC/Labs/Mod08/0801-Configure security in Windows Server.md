@@ -4,7 +4,7 @@ lab:
     module: 'Module 8: Windows Server security'
 ---
 
-# Configure security in Windows Server
+# Lab: Configure security in Windows Server
 
 ## Scenario
 
