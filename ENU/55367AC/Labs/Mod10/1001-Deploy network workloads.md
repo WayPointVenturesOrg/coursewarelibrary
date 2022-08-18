@@ -4,7 +4,7 @@ lab:
     module: 'Module 10: Remote Access and web services in Windows Server'
 ---
 
-# Deploy network workloads
+# Lab: Deploy network workloads
 
 ## Scenario
 
