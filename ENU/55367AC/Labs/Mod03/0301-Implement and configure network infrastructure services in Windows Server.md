@@ -17,9 +17,9 @@ After completing this lab, you'll be able to:
 - Deploy and configure DHCP
 - Deploy and configure DNS
 
-## Exercise 1: Deploy and configure DHCP
-
 ## Estimated time: 45 minutes
+
+## Exercise 1: Deploy and configure DHCP
 
 ### Scenario
 
