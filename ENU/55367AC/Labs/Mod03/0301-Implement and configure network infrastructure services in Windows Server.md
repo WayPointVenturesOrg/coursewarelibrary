@@ -19,6 +19,8 @@ After completing this lab, you'll be able to:
 
 ## Exercise 1: Deploy and configure DHCP
 
+## Estimated time: 45 minutes
+
 ### Scenario
 
 The Trey Research subdivision of Contoso, Ltd. has a separate office with only about 25 users. They have been manually configuring IP addresses on all of their computers and want to use DHCP instead. You will install DHCP on **LON-SVR1** with a scope for the Trey Research site. Additionally, you will configure DHCP Failover for high availability with **LON-DC1**.
