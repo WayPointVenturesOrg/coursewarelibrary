@@ -20,7 +20,7 @@ After completing this lab, you’ll be able to:
 
 - Deploy and use certificate services.
 
-## Estimated time: 40 minutes
+## Estimated time: 60 minutes
 
 ## Exercise 1: Deploy a new domain controller on Server Core
 
