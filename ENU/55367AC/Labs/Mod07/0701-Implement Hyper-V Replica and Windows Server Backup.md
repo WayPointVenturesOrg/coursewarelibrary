@@ -4,7 +4,7 @@ lab:
     module: 'Module 7: Disaster Recovery in Windows Server'
 ---
 
-# Implement Hyper-V Replica and Windows Server Backup
+# Lab: Implement Hyper-V Replica and Windows Server Backup
 
 ## Scenario
 
