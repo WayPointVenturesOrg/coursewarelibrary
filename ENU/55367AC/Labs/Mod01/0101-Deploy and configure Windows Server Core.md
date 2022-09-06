@@ -183,11 +183,11 @@ The main tasks for this exercise are as follows:
 
 1. On the **Send diagnostic data to Microsoft** page, select **Next**.
 
-1. On the **Use Microsoft Update to help keep your computer secure and up-to-date** page, select **Next**.
-
 1. On the **Install Windows Admin Center on Windows Server** page, select **Next**.
 
-1. On the **Configure Gateway Endpoint** page, select **Next**, and then select **Install**.
+1. On the **Installing Windows Admin Center** page, select **Next**.
+
+1. On the **Configure Gateway Endpoint** page, select **Install**.
 
 1. Select **Finish** and then close File Explorer.
 
