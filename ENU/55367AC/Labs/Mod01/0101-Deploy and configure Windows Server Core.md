@@ -8,7 +8,7 @@ lab:
 
 ## Scenario
 
-Contoso, Ltd. needs to implement several new servers in their network environment and have decided to use Windows Server Core. They've also decided to implement Windows Admin Center for remote management of both these servers and other servers in the organization.
+Contoso, Ltd. needs to implement several new servers in their network environment and will use Windows Server Core. They'll also implement Windows Admin Center for remote management of both these servers and other servers in the organization.
 
 ## Objectives
 
@@ -201,7 +201,7 @@ The main tasks for this exercise are as follows:
 
 1. At the Windows Security prompt, enter **Contoso\\Administrator** with the password of **Pa55w.rd**.
 
-   > The Windows Admin Center console opens. Notice that the host server (Lon-adm1.contoso.com) is listed by default.
+   > The Windows Admin Center console opens. Notice that the host server (**Lon-adm1.contoso.com**) is listed by default.
 
 1. In Windows Admin Center, close the **Read what's new** box.
 
