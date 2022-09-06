@@ -13,7 +13,7 @@ Contoso, Ltd. needs to implement several new servers in their network environmen
 ## Objectives
 
 - Deploy and configure Server Core.
-- Implement and configure Windows Admin Center.
+- Implement and use remote server administration.
 
 ## Estimated time: 45 minutes
 
