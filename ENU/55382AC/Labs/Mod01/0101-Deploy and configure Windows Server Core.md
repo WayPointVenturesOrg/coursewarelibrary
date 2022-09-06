@@ -1,6 +1,6 @@
 ---
 lab:
-    title: 'Lab: Deploy and configure Windows Server'
+    title: 'Lab: Deploy and configure Windows Server Core'
     module: 'Module 1: Installing, upgrading, and migrating servers and workloads'
 ---
 
