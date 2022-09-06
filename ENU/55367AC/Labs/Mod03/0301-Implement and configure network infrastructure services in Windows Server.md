@@ -1,7 +1,7 @@
 ---
 lab:
     title: 'Lab: Implement and configure network infrastructure services in Windows Server'
-    module: 'Module 3: Network Infrastructure services in Windows Server'
+    module: 'Module 3: Network infrastructure services in Windows Server'
 ---
 
 # Lab: Implement and configure network infrastructure services in Windows Server
