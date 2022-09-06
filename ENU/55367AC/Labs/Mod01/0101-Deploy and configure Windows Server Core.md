@@ -111,7 +111,7 @@ The main tasks for this exercise are as follows:
 
 1. In the **Windows PowerShell credential request** window, enter **`Pa55w.rd`**, and then select **OK**.
 
-   > **LON-SVR1** is joined to the Contoso.com domain and then restarts.
+   > **LON-SVR4** is joined to the Contoso.com domain and then restarts.
 
 ### Task 3: Install Features on Demand on Server Core
 
