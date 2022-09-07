@@ -31,7 +31,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 1: Create a hard disk volume and format for ReFS
 
-1. On **LON-SVR1**, sign in as **Contoso\\Administrator** with the password of **Pa55wr.d**.
+1. On **LON-SVR1**, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
 
 2. Select **Start**, and then select **Windows PowerShell ISE**.
 
