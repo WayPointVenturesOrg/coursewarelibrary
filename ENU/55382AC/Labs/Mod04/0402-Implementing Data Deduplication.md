@@ -130,9 +130,13 @@ The main tasks for this exercise are as follows:
 
 9. In the **Allfiles (E:\\) Deduplication Settings** dialog box, select **Add**. 
 
-10. In the **Select Folder** dialog box, expand **Allfiles (E:)**, select **shares**.
+10. In the **Select Folder** dialog box, expand **Allfiles (E:)**, select **shares** and then select **Select Folder**.
 
-11. Select **Select Folder**, and then select **OK**.
+11. In the **Allfiles (E:\\) Deduplication Settings** dialog box, select **Add**. 
+
+12. In the **Select Folder** dialog box, expand **Allfiles (E:)**, select **virtualmachines** and then select **Select Folder**.
+
+13. In the **Allfiles (E:\\) Deduplication Settings** dialog box, select **OK**.
 
     > You have excluded the **Shares** folder from data deduplication.
 
