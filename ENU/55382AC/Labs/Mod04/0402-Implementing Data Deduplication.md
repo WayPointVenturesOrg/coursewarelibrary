@@ -136,10 +136,13 @@ The main tasks for this exercise are as follows:
 
 12. In the **Select Folder** dialog box, expand **Allfiles (E:)**, select **virtualmachines** and then select **Select Folder**.
 
-13. In the **Allfiles (E:\\) Deduplication Settings** dialog box, select **OK**.
+13. In the **Allfiles (E:\\) Deduplication Settings** dialog box, select **Add**. 
 
-    > You have excluded the **Shares** folder from data deduplication.
+14. In the **Select Folder** dialog box, expand **Allfiles (E:)**, select **ISOs** and then select **Select Folder**.
 
+15. In the **Allfiles (E:\\) Deduplication Settings** dialog box, select **OK**.
+
+    > You have excluded the **Shares**, **virtualmachines**, and **ISOs** folders from data deduplication.
 
 ### Task 2: Configure optimization to run now and view the status
 
