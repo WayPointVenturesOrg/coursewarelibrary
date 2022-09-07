@@ -8,22 +8,22 @@ lab:
 
 ## Scenario
 
-You work as an administrator at Contoso, Ltd. Contoso wants to assess and configure new disaster recovery and backup features and technologies. As the system administrator, you have been tasked with performing that assessment and implementation. You decide to evaluate **Hyper-V Replica** and Windows Server Backup.
+You work as an administrator at Contoso, Ltd. Contoso wants to assess and configure new disaster recovery and backup features and technologies. As the system administrator, you've been tasked with performing that assessment and implementation. You decide to evaluate **Hyper-V Replica** and **Windows Server Backup**.
 
 ## Objectives
 
 After completing this lab, you'll be able to:
 
 - Configure and implement **Hyper-V Replica**.
-- Configure and implement backup with Windows Server Backup.
+- Configure and implement backup with **Windows Server Backup**.
 
 ## Estimated time: 45 minutes
 
-## Exercise1: Configure and Implement Hyper-V Replica
+## Exercise1: Configure and implement Hyper-V Replica
 
 ### Scenario
 
-Before you start with a cluster deployment, you have decided to evaluate the new technology in Hyper-V for replicating VMs between hosts. You want to be able to manually mount a copy of a VM on another host if the active copy or host fails.
+Before you start with a cluster deployment, you've decided to evaluate the new technology in Hyper-V for replicating virtual machines (VMs) between hosts. You want to be able to manually mount a copy of a VM on another host if the active copy or host fails.
 
 The main tasks for this exercise are to:
 
@@ -33,7 +33,7 @@ The main tasks for this exercise are to:
 
 ### Task 1: Configure a replica on two host machines
 
-1. On **LON-ADM1**, sign in as **Contoso\\Administrator** with password **Pa55w.rd**.
+1. On **LON-ADM1**, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
 
 1. Select **Start**, and then select **Windows PowerShell ISE**. 
 
@@ -43,7 +43,7 @@ The main tasks for this exercise are to:
    $cred=Get-Credential
    ```
 
-1. When prompted, sign in as **Contoso\\Administrator** with password **Pa55w.rd**.
+1. When prompted, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
 
 1. In the **Administrator: Windows PowerShell ISE** window, enter the following command, and then select Enter:
 
@@ -117,7 +117,7 @@ The main tasks for this exercise are to:
      $cred=Get-Credential
      ```
 
-1. When prompted, sign in as **Contoso\\Administrator** with password **Pa55w.rd**.
+1. When prompted, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
 
 1. In the **Administrator: Windows PowerShell** window, enter the following command, and then select Enter:
 
@@ -133,7 +133,7 @@ The main tasks for this exercise are to:
 
      > You should get a [`LON-svr2.contoso.com`] title in your command prompt. From this point, all commands that you enter run on **LON-SVR2**.
 
-1. Repeat steps 7 through 12 in the PowerShell ISE window where you have a session opened on **`LON-svr2.contoso.com`**. This will configure **LON-SRV2** for **Hyper-V Replica**. 
+1. Repeat steps 7 through 12 in the PowerShell Integrated Scripting Environment (ISE) window where you have a session opened on **`LON-svr2.contoso.com`**. This will configure **LON-SRV2** for **Hyper-V Replica**. 
 
      > In step 12, you should get no result when running the **Get-VM** command because no VMs are configured on **LON-SVR2**.
 
@@ -147,15 +147,15 @@ The main tasks for this exercise are to:
    Enable-VMReplication LON-CORE1 -ReplicaServerName LON-SVR2.contoso.com -ReplicaServerPort 80 -AuthenticationType Kerberos -computername LON-SVR1.contoso.com
    ```
 
-1. After you have verified that you didn't receive any error message from the previous command, enter the following command, and then select Enter:
+1. After you've verified that you didn't receive any error message from the previous command, enter the following command, and then select Enter:
 
    ```powershell
    Start-VMInitialReplication LON-CORE1
    ```
 
-   > This starts the initial replication process for VM **LON-CORE1**, from **LON-SVR1** to **LON-SVR2**.
+   > This starts the initial replication process for the VM **LON-CORE1**, from **LON-SVR1** to **LON-SVR2**.
 
-1. After you have verified that you didn't receive any error message from the previous command, enter the following command, and then select Enter:
+1. After you've verified that you didn't receive any error message from the previous command, enter the following command, and then select Enter:
 
    ```powershell
    Get-VMReplication
@@ -163,7 +163,7 @@ The main tasks for this exercise are to:
 
    > This command retrieves the replication status.
 >
-   > In the result table, search for the value in the **State** column. It should be **InitialReplicationInProgress**. Wait for 4&ndash;5 minutes, and then repeat this command. Verify that the value in the **State** column is **Replicating**. Don't proceed to the next steps until you get this value. Additionally, ensure that **Primary server** is set to **LON-SVR1** and **ReplicaServer** is set to **LON-SVR2**.
+   > In the result table, search for the value in the **State** column. It should be **InitialReplicationInProgress**. Wait for five minutes, and then repeat this command. Verify that the value in the **State** column is **Replicating**. Don't proceed to the next steps until you get this value. Additionally, ensure that **Primary server** is set to **LON-SVR1** and **ReplicaServer** is set to **LON-SVR2**.
 
 1. Switch to the PowerShell window where you have a remote PowerShell session opened for **`LON-svr2.contoso.com`**, enter the following command, and then select Enter:
 
@@ -204,21 +204,21 @@ The main tasks for this exercise are to:
    Start-VM -VMName LON-CORE1 -computername LON-SVR2.contoso.com
    ```
 
-   > This command starts the VM that has been switched from a replica VM to a primary VM.
+   > This command starts the VM that's been switched from a replica VM to a primary VM.
 1. In the PowerShell window where you have a remote PowerShell session opened for **`LON-svr2.contoso.com`**, enter the following command, and then select Enter:
 
    ```powershell
    Get-VM
    ```
 
-   > In the result table, search for the value in the **State** column. It should be **Running**.
+   > In the resulting table, search for the value in the **State** column. It should be **Running**.
 1. In the PowerShell window where you have a remote PowerShell session opened for **`LON-svr2.contoso.com`**, enter the following command, and then select Enter:
 
    ```powershell
    Get-VMReplication
    ```
 
-   > In the result table, search for the value in the **State** column. It should be **Replicating**. Additionally, ensure that the **Primary server** is now set to **LON-SVR2** and that **ReplicaServer** is set to **LON-SVR1**.
+   > In the resulting table, search for the value in the **State** column. It should be **Replicating**. Additionally, ensure that the **Primary server** is now set to **LON-SVR2** and that **ReplicaServer** is set to **LON-SVR1**.
 1. In the PowerShell window where you have a remote PowerShell session opened for **`LON-svr2.contoso.com`**, enter the following command, and then select Enter:
 
    ```powershell
@@ -241,7 +241,7 @@ The main tasks for this exercise are to:
 
 1. Close both PowerShell windows.
 
->**Note:** If you want to verify the results of this exercise by using GUI tools, you can start Hyper-V Manager on **LON-ADM1**, and then add the **LON-SVR1** and **LON-SVR2** servers to the **Hyper-V** console. You can then verify that the **LON-CORE1** VM exists on both **LON-SVR1** and **LON-SVR2** and that replication is running from **LON-SVR2** to **LON-SVR1**.
+>**Note:** If you want to verify the results of this exercise by using graphical user interface (GUI) tools, you can start Hyper-V Manager on **LON-ADM1**, and then add the **LON-SVR1** and **LON-SVR2** servers to the **Hyper-V** console. You can then verify that the **LON-CORE1** VM exists on both **LON-SVR1** and **LON-SVR2** and that replication is running from **LON-SVR2** to **LON-SVR1**.
 
 **Results**: After completing this exercise, you should have configured **Hyper-V Replica** and tested failover.
 
@@ -249,11 +249,11 @@ The main tasks for this exercise are to:
 
 ### Scenario
 
-You need to evaluate Windows Server Backup for your servers. You decide to configure Windows Server Backup on **LON-SVR1** and perform a trial backup to a network share located on **LON-ADM1**.
+You need to evaluate **Windows Server Backup** for your servers. You decide to configure **Windows Server Backup** on **LON-SVR1** and perform a trial backup to a network share located on **LON-ADM1**.
 
 The main tasks for this exercise are to:
 
-1. Configure Windows Server Backup options.
+1. Configure **Windows Server Backup** options.
 1. Perform a backup.
 
 ### Task1: Configure Windows Server Backup options
@@ -330,7 +330,7 @@ The main tasks for this exercise are to:
     wbadmin /?
     ```
 
-    > You'll get the list of commands that are available for the Windows Server Backup command-line tool.
+    > You'll get the list of commands that are available for the **Windows Server Backup** command-line tool.
 
 1. In the **Administrator: Windows PowerShell ISE** window, enter the following command, and then select Enter:
 
@@ -338,7 +338,7 @@ The main tasks for this exercise are to:
     Get-Command -Module WindowsServerBackup -CommandType Cmdlet
     ```
 
-    > You'll get a list of available PowerShell cmdlets for Windows Server Backup.
+    > You'll get a list of available PowerShell cmdlets for **Windows Server Backup**.
 
 ### Task 2: Perform a backup
 
@@ -349,7 +349,7 @@ The main tasks for this exercise are to:
    $Filespec = New-WBFileSpec -FileSpec "C:\Files"
    ```
 
-1. After you have run the commands from the previous step, where you defined variables for the backup policy and the file path to back up, add this to the backup policy by entering the following command, and then selecting Enter:
+1. After you've run the commands from the previous step, where you defined variables for the backup policy and the file path to back up, add this to the backup policy by entering the following command, and then selecting Enter:
 
    ```powershell
    Add-WBFileSpec -Policy $Policy -FileSpec $FileSpec
@@ -362,9 +362,9 @@ The main tasks for this exercise are to:
    $NetworkBackupLocation = New-WBBackupTarget -NetworkPath "\\LON-ADM1\BackupShare" -Credential $Cred
    ```
 
-   >**Note**: When prompted, sign in as **Contoso\\Administrator** with password **Pa55w.rd**.
+   >**Note**: When prompted, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
 
-1. Now you must add this backup location to the backup policy by entering the following command, and then selecting Enter (if prompted, enter Y, and then select Enter):
+1. Now you must add this backup location to the backup policy by entering the following command, and then selecting Enter (if prompted, enter **Y**, and then select Enter):
 
    ```powershell
    Add-WBBackupTarget -Policy $Policy -Target $NetworkBackupLocation
@@ -376,7 +376,7 @@ The main tasks for this exercise are to:
    Set-WBVssBackupOptions -Policy $Policy -VssCopyBackup
    ```
 
-1. To start a backup job, in order to back up the content of the **C:\\Files** folder on **LON-SVR1** to a network share on **LON-ADM1**, you must enter the following command, and then select Enter:
+1. To start a backup job, to back up the content of the **C:\\Files** folder on **LON-SVR1** to a network share on **LON-ADM1**, you must enter the following command, and then select Enter:
 
    ```powershell
    Start-WBBackup -Policy $Policy
@@ -386,6 +386,6 @@ The main tasks for this exercise are to:
 
 1. On **LON-ADM1**, open File Explorer, and then browse to **C:\\BackupShare**. Open the folder, and then ensure that the backup files are there.
 
-1. Close all open windows on LON-ADM1.
+1. Close all open windows on **LON-ADM1**.
 
-**Results**: After completing this exercise, you should have configured Windows Server Backup and performed a backup.
+**Results**: After completing this exercise, you should have configured **Windows Server Backup** and performed a backup.
