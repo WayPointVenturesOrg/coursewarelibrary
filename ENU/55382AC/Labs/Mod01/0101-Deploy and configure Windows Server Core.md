@@ -54,13 +54,13 @@ The main tasks for this exercise are as follows:
 
 1. In the **`New password`** and **`Confirm password`** fields, enter **`Pa55w.rd`**, and then press Enter twice to acknowledge the password has been changed.
 
-   > After a few moments **sconfig** starts automatically and presents the server management screen.
+   > After a few moments the Server Configuration tool (**sconfig**) starts automatically and presents the server management screen.
 
 ### Task 2: Configure Server Core with sconfig and PowerShell
 
-1. On **LON-SVR6**, verify that the server management screen is active. 
+1. On **LON-SVR6**, verify that the Server Configuration tool is active. 
 
-   > **NOTE:** If the screen is not active, at the command prompt, enter **`sconfig`**, and then press Enter.
+   > **NOTE:** If the tool is not active, at the command prompt, enter **`sconfig`**, and then press Enter.
 
 1. To access **Network settings**, enter **`8`**, and then press Enter.
 
@@ -100,7 +100,7 @@ The main tasks for this exercise are as follows:
 
 1. On **LON-SVR6**, select Ctrl+Alt+Del, enter the password **Pa55w.rd**, and then press Enter.
 
-   > After a few moments **sconfig** starts automatically and presents the server management screen.
+   > After a few moments **sconfig** starts automatically and presents the Server Configuration tool.
 
 1. To exit to Command Line (PowerShell), enter **`15`**, and then press Enter.
 
