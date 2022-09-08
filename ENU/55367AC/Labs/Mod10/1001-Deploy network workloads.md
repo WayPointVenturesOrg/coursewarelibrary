@@ -358,7 +358,7 @@ The main tasks for this exercise are as follows:
 
 2. If necessary, sign in to **LON-SVR1** as **Contoso\\Administrator** with the password of **Pa55w.rd**.
 
-3. At the SConfig management screen, enter `15`, and then select Enter to exit to the command line (PowerShell).
+3. At the Server Configuration tool (SConfig) management screen, enter `15`, and then select Enter to exit to the command line (PowerShell).
 
 4. In the **Administrator C:\Windows\system32\cmd.exe - powershell** window, enter the following command, and then select Enter:
 
@@ -388,7 +388,7 @@ The main tasks for this exercise are as follows:
 
    `Get-NetFirewallProfile -Name Domain | Get-NetFirewallRule | where-Object {$_.DisplayName -like "World Wide Web*"}`
 
-   > This will return information about three rules, including one for HTTP and one for HTTPS. Verify that both rules are enabled and allow inbound traffic.
+   > This will return information about three rules, including one for HTTP and one for HTTPS. Verify that the rules are enabled and allow inbound traffic.
 
 2. Examine the **Enabled** value. It should display **True**. Also examine the **Direction** value, which should display **Inbound**.
 
