@@ -54,7 +54,7 @@ The main tasks for this exercise are as follows:
 
 1. In the **`New password`** and **`Confirm password`** text boxes, enter **`Pa55w.rd`**, and then select Enter twice to acknowledge the password has been changed.
 
-   > After a few moments, the Server Configuration tool (**sconfig**) starts automatically and presents the server management window.
+   > After a few moments, the Server Configuration tool (**sconfig**) starts automatically and presents the server management menu.
 
 ### Task 2: Configure Server Core with sconfig and PowerShell
 
@@ -128,7 +128,7 @@ The main tasks for this exercise are as follows:
 1. Add servers for remote administration.
 1. Configure Windows Admin Center extensions.
 1. Verify remote administration.
-1. Administer remote servers with Remote PowerShell.
+1. Administer remote servers with Windows PowerShell remoting.
 
 ### Task 1: Install Windows Admin Center
 
@@ -176,7 +176,7 @@ The main tasks for this exercise are as follows:
 
 1. After the message displays, select **Add**.
 
-1. Select **Add** again, and then repeat the steps to add **LON-SVR6**.
+1. Select **Add** again, and then repeat the steps 7 and 8 to add **LON-SVR6**.
 
 ### Task 3: Configure Windows Admin Center extensions
 
@@ -198,7 +198,7 @@ The main tasks for this exercise are as follows:
 
    > The extension will install, and Windows Admin Center will refresh.
 
-1. On the top menu, next to **Settings**, select the drop-down arrow, and then select **Server Manager**.
+1. On the top menu, select the **Settings** drop-down menu, and then select **Server Manager**.
 
 1. On the **Server connections** page, select the ```LON-DC1``` link.
 
@@ -212,7 +212,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 4: Verify remote administration
 
-1. On the top menu, next to **Settings**, select the drop-down arrow, and then select **Server Manager**.
+1. On the top menu, select the **Settings** drop-down menu, and then select **Server Manager**.
 
 1. On the **Server connections** page, select the ```LON-SVR6``` link.
 
@@ -226,13 +226,13 @@ The main tasks for this exercise are as follows:
 
 1. Scroll down and select the **Telnet Client** checkbox, and then at the top of the list, select **Install**.
 
-1. To install the Telnet Client, select **Yes**. 
+1. To install the telnet client, select **Yes**. 
 
-   >In a few moments, you'll receive a message stating that the Telnet Client installed successfully.
+   >In a few moments, you'll receive a message stating that the telnet client installed successfully.
 
 1. Close the browser.
 
-### Task 5: Administer remove servers with Remote PowerShell
+### Task 5: Administer remote servers with Windows PowerShell remoting
 
 1. On **LON-SVR1**, select **Start**, and then select **Windows PowerShell ISE**.
 
@@ -258,4 +258,4 @@ The main tasks for this exercise are as follows:
 
 ### Results
 
-After completing this exercise, you will have installed Windows Admin Center and connected the server to manage. You also performed the management tasks of installing a feature. Finally, you used Remote PowerShell to start a service, and check the status of a service.
+After completing this exercise, you will have installed Windows Admin Center and connected the server to manage. You also performed the management tasks of installing a feature. Finally, you used Windows PowerShell remoting to start a service, and check the status of a service.
