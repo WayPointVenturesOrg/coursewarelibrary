@@ -176,7 +176,7 @@ The main tasks for this exercise are as follows:
 
 1. After the message displays, select **Add**.
 
-1. Select **Add** again, and then repeat the steps 7 and 8 to add **LON-SVR6**.
+1. Select **Add** again, and then repeat steps 7 and 8 to add **LON-SVR6**.
 
 ### Task 3: Configure Windows Admin Center extensions
 
