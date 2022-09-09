@@ -170,7 +170,7 @@ The main tasks for this exercise are as follows:
 
 10. Switch to **Disk Management**. 
 
-    > Notice the NTFS volume on **Disk 5** of size approximately **10** gigabytes (GB).
+    > Notice the NTFS volume on **Disk 5** has a size of approximately **10** gigabytes (GB).
 
 11. Switch to the Diskpart command prompt.
  
@@ -210,7 +210,7 @@ After completing this exercise, you will have successfully resized a volume.
 
 ### Scenario
 
-You need to create and configure a VHD for use in Windows Server Hyper-V. The VHD will be for the Sales department. You will use Windows PowerShell to achieve these objectives. 
+You need to create and configure a VHD for use in Microsoft Hyper-V running in Windows Server. The VHD will be for the Sales department. You will use Windows PowerShell to achieve these objectives. 
 
 The main tasks for this exercise are as follows:
 
