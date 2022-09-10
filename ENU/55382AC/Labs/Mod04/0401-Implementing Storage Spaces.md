@@ -8,7 +8,7 @@ lab:
 
 ## Scenario
 
-Contoso Ltd. has just purchased a number of hard disk drives and solid-state drives (SSDs) (TM). You have been tasked with creating a storage solution that can utilize these new drives to their fullest. With mixed requirements for data access and redundancy, you must ensure that you have a redundancy solution for critical data that doesn't require fast disk read and write access. You decide to use Storage Spaces and storage tiering to meet these requirements. 
+Contoso Ltd. has just purchased a number of hard disk drives and solid-state drives (SSDs). You have been tasked with creating a storage solution that can utilize these new drives to their fullest. With mixed requirements for data access and redundancy, you must ensure that you have a redundancy solution for critical data that doesn't require fast disk read and write access. You decide to use Storage Spaces and storage tiering to meet these requirements. 
 
 ## Objectives
 
@@ -127,7 +127,7 @@ The main tasks for this exercise are as follows:
 
 2. In the **Add Physical Disk** window, select the first disk in the list, and then select **OK**.
 
-   > Notice that the disk is added to **StoragePool1** as displayed in the **PHYSICAL DISKS** section.
+   > Notice that the disk is added to **StoragePool1** and displays in the **PHYSICAL DISKS** section.
 
 3. In the **PHYSICAL DISKS** section, right-click or access the context menu for the first disk  in the list, and then select **Remove Disk**.
 
@@ -140,7 +140,7 @@ The main tasks for this exercise are as follows:
 
 ### Results
 
-After completing this exercise, you should have successfully created a storage pool and added six physical disks to it. Additionally, you should have created a three-way mirrored, thinly-provisioned virtual disk from the storage pool. You also should have copied a file to the new volume and then verified that it's accessible. Finally, you added another physical disk to the storage pool and removed one of the initial physical disks.
+After completing this exercise, you successfully created a storage pool and added six physical disks to it. Additionally, you created a three-way mirrored, thinly-provisioned virtual disk from the storage pool. You also copied a file to the new volume and then verified that it's accessible. Finally, you added another physical disk to the storage pool and removed one of the initial physical disks.
 
 ## Exercise 2: Enabling and configuring storage tiering
 
@@ -277,7 +277,7 @@ The main tasks for this exercise are as follows:
 
 20. In **Server Manager**, right-click or access the context menu for the virtual disk you just created, and then select **Properties**.
 
-21. In the **TieredVirtDisk** **Properties** window, on the **General** tab, review the **Storage tiers**, **Capacity**, **Allocated space**, and **Used pool space** details. 
+21. In the **TieredVirtDisk Properties** window, on the **General** tab, review the **Storage tiers**, **Capacity**, **Allocated space**, and **Used pool space** details. 
 
 22. Select the **Health** tab. Review the **Storage layout** details, and then select **OK**.
 
