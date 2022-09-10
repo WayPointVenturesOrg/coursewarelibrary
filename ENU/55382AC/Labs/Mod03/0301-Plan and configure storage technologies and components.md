@@ -45,7 +45,7 @@ The new storage system should include:
 
 - Centralized management and control over the storage infrastructure.
 
-- Support for applications that require large amounts of storage for SQL databases.
+- Support for applications that require large amounts of storage for Microsoft SQL Server databases.
 
 - An easy, inexpensive way to provision block-level storage that has minimal management overhead.
 
@@ -66,7 +66,7 @@ As a senior server administrator at Contoso, you're responsible for implementing
 
 - You plan to evaluate how iSCSI, Fibre Channel, and InfiniBand solutions meet the requirements. Which solution do you expect to select?
 
-- Which storage—block-level storage or file-level storage—do you plan to implement for the SQL databases?
+- Which storage—block-level storage or file-level storage—do you plan to implement for the SQL Server databases?
 
 - How will your solution minimize administrative overhead for the storage administrators?
 
@@ -269,7 +269,7 @@ In the **Value** text box, enter **10.100.100.3**, and then select **OK**.
 
 19. In the **MPIO Properties** dialog box, on the **Discover Multi-Paths** tab, select **Add support for iSCSI devices**, and then select **Add**.
 
-20. Select **OK** at the message, and then select **OK** to close the **MPIO Properties**.
+20. Select **OK** at the message prompt, and then select **OK** to close the **MPIO Properties**.
 
 21. In Server Manager, on the menu bar, select **Tools**, and then select **MPIO**.
 
