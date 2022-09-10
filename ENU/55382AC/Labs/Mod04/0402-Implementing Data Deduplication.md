@@ -86,7 +86,7 @@ The main tasks for this exercise are as follows:
   Measure-Command -Expression {Get-ChildItem –Path E:\ -Recurse}
   ```
 
-  > **Note:** You will use the values returned from the previous command later in the lab.
+  > **Note:** Record the values returned from the previous command as you will use them later in the lab.
 
 ### Results
 
