@@ -55,14 +55,14 @@ The main task for this exercise is as follows:
 
 11. Browse to and select **E:\\VirtualMachines**, and then select the **Select Folder** button.
 
-    > You have now specified the default folder for storing Virtual Hard Disks (VHDs) (TM) and Virtual Machine files.
+    > You have now specified the default folder for storing Virtual Hard Disks (VHDs) and Virtual Machine files.
 
 12. Select **OK** to close the **Hyper-V Settings for** **LON-SVR1** window.
 
 
 ### Results
 
-After completing this exercise, you should have successfully verified the presence and configuration of the Hyper-V server role on (**LON-SVR1**.
+After completing this exercise, you successfully verified the presence and configuration of the Hyper-V server role on **LON-SVR1**.
 
 ## Exercise 2: Configuring Hyper-V networks
 
@@ -88,7 +88,7 @@ The main tasks for this exercise are as follows:
 
 5. In the **Connection type** area, select **External network**. 
 
-6. From the drop-down menu, select **Microsoft Hyper-V Network Adapter #3**.
+6. From the External network drop-down menu, select **Microsoft Hyper-V Network Adapter #3**.
 
 7. Ensure that the **Allow management operating system to share this network adapter** checkbox is selected, and then select **OK**.
 
@@ -109,7 +109,7 @@ The main tasks for this exercise are as follows:
 
 5. In the **Connection type** area, verify that **Private network** is selected, and then select **OK**.
 
-6. In **Server Manager**, verify that no new network adapter has been added. A private network isn't connected to any physical network adapter on the host machine.
+6. In **Server Manager**, verify that no new network adapter has been added and that a private network isn't connected to any physical network adapter on the host machine.
 
 
 ### Task 3: Create an internal network
@@ -169,9 +169,9 @@ The main tasks for this exercise are as follows:
 
 6. In Hyper-V Manager, in the **Actions** pane, select **New**, and then select **Virtual Machine**.
 
-7. In the **New Virtual Machine** **Wizard**, on the **Before You Begin** page, select **Next**.
+7. In the **New Virtual Machine Wizard**, on the **Before You Begin** page, select **Next**.
 
-8. On the **Specify Name and Location** page, select **Store** **the virtual machine in a different location**, enter the following values, and then select **Next**:
+8. On the **Specify Name and Location** page, select **Store the virtual machine in a different location**, enter the following values, and then select **Next**:
 
    - Name: **LON-GUEST2**
 
@@ -197,7 +197,7 @@ The main tasks for this exercise are as follows:
 
 18. In the **SCSI Controller** pane, select **DVD Drive**, and then select **Add**.
 
-19. In the **DVD Drive** area, select **Image** **file**.
+19. In the **DVD Drive** area, select **Image file**.
 
 20. In the **Image file** text box, enter **E:\\ISOs\\Win2022_Eval.iso**, and then select **Apply**.
 
@@ -245,7 +245,7 @@ The main tasks for this exercise are as follows:
 
 1. In **Hyper-V Manager**, in the **Actions** pane, select **New**, and then select **Hard Disk**.
 
-2. In the **New Virtual Hard Disk** **Wizard**, on the **Before You Begin** page, select **Next**.
+2. In the **New Virtual Hard Disk Wizard**, on the **Before You Begin** page, select **Next**.
 
 3. On the **Choose Disk Format** page, select **VHD**, and then select **Next**.
 
@@ -333,11 +333,11 @@ The main tasks for this exercise are as follows:
 
 6. On **LON-SVR1**, in **Hyper-V Manager**, right-click or access the context menu for **LON-GUEST2**, and then select **Settings**.
 
-7. In the **Settings for LON-GUEST2 on LON-SVR1** window, in the **Hardware** area, select **Add Hardware**.
+7. In the **Settings for LON-GUEST2 on LON-SVR1** window, in the **Hardware** section, select **Add Hardware**.
 
-8. In the **Add Hardware** area, select **Network Adapter**, and then select **Add**.
+8. In the **Add Hardware** pane, select **Network Adapter**, and then select **Add**.
 
-9. In the **Network adapter** area, in the **Virtual switch** box, select **Host Internal Network**, and then select **OK**.
+9. In the **Network adapter** pane, in the **Virtual switch** drop-down menu, select **Host Internal Network**, and then select **OK**.
 
 10. On **LON-SVR1**, in **Hyper-V Manager**, right-click or access the context menu for **LON-GUEST2**, and then select **Checkpoint**.
 
@@ -347,7 +347,7 @@ The main tasks for this exercise are as follows:
 
 13. In the **Apply Checkpoint** dialog box, select **Apply**.
 
-14. Verify that the **Status for LON-GUEST2** is **Off**, because it was a production checkpoint.
+14. Verify that the **Status for LON-GUEST2** is **Off**. LON-GUEST2 status is off, because it was a production checkpoint.
 
 
 ### Task 5: Enable host resource protection
@@ -438,7 +438,7 @@ The main tasks for this exercise are as follows:
 
 7. At the menu screen, enter `15` and then select Enter to exit to the PowerShell Command Line window.
 
-8. At the command prompt, enter **Get-WindowsFeature Hyper**, and then select Enter.
+8. At the command prompt, enter `Get-WindowsFeature Hyper**`, and then select Enter.
 
    > Notice that the Hyper-V feature is installed as indicated by the `X` selection.
 
@@ -448,4 +448,4 @@ The main tasks for this exercise are as follows:
 
 ### Results
 
-After completing this exercise, you should have successfully configured a VM for nested virtualization.
+After completing this exercise, you configured a VM for nested virtualization.
