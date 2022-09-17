@@ -8,7 +8,7 @@ lab:
 
 ## Scenario
 
-Contoso Ltd. has many services and applications that must be available to internal and external users who work in different time zones around the world. As one of the senior network administrators at Contoso, you're responsible for implementing failover clustering on the servers that are running Windows Server 2022 to provide high availability for network services and applications. You're also responsible for planning the failover cluster configuration and deploying applications and services on the failover cluster.
+As one of the senior network administrators at Contoso Ltd., you're responsible for implementing failover clustering on the servers that are running Windows Server 2022 to provide high availability for network services and applications. You're also responsible for planning the failover cluster configuration and deploying applications and services on the failover cluster.
 
 ## Objectives
 
