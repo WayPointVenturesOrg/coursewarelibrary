@@ -56,7 +56,7 @@ The main tasks for this exercise are:
 
 8. On the **Review role services** page, review the description of the role services, and then select **Next**.
 
-9. On the **Specify RD Connection Broker server** page, in the **Server Pool** section, select **```LON-RDS1.Contoso.com```**. Add the computer to the **Selected** section by selecting the arrow,[[Conan: I just want to confirm, since I can't see the UI, that they simply select an arrow to select the item? And are there multiple arrows to select if there are multiple items on a particular page that you want to add?]] and then select **Next**.
+9. On the **Specify RD Connection Broker server** page, in the **Server Pool** section, select **```LON-RDS1.Contoso.com```**. Add the computer to the **Selected** section by selecting the arrow, and then select **Next**.
 
 10. On the **Specify RD Web Access server** page, in the **Server Pool** section, select **```LON-RDS1.Contoso.com```**. Add the computer to the **Selected** section by selecting the arrow, and then select **Next**.
 
@@ -76,7 +76,7 @@ The main tasks for this exercise are:
 
 15. When the installation completes, close the **Add Roles and Features Wizard**.
 
-#### Configure SSL certificate requirements [[ Conan: Is this considered a task or is it truly a subtask under Task 1? Same for the other similar "subtasks" that are in this lab. Just want to confirm. Thanks! ]] 
+#### Configure SSL certificate requirements 
 
 **NOTE:** This task is required because of an incompatibility with the self-signed certificate that's created and installed during the **Remote Desktop Services** role-services deployment.
 
@@ -224,7 +224,7 @@ The main tasks for this exercise are:
 
    - `New-Item C:\RDSUserProfiles -itemtype directory`
 
-   - `New-SMBShare –Name “RDSUserProfiles” –Path “C:\RDSUserProfiles” –FullAccess "Contoso\LON-RDS1$", "Contoso\administrator"`
+   - `New-SMBShare –Name "RDSUserProfiles" –Path "C:\RDSUserProfiles" –FullAccess "Contoso\LON-RDS1$", "Contoso\administrator"`
 
    - `$acl = Get-Acl C:\RDSUserProfiles`
 
