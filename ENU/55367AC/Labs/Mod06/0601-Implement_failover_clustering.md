@@ -46,7 +46,7 @@ The main tasks for this exercise are to:
 
     > This command installs the **Failover Clustering** feature on LON-ADM1. Wait until the installation process is complete and a command prompt appears.
 
-1. On **LON-ADM1**, repeat step 2 to open a new PowerShell Intergrated Scripting Environment (ISE) session that you'll use to connect to the **LON-SVR2** server.
+1. On **LON-ADM1**, repeat step 2 to open a new PowerShell Integrated Scripting Environment (ISE) session that you'll use to connect to the **LON-SVR2** server.
 
 1. In the new **Administrator:Windows PowerShell ISE** window, enter the following command, and then select Enter:
 
@@ -326,7 +326,7 @@ The main tasks for this exercise are to:
 
     > **Note:** You must sign in to **LON-SVR2** because you can't run cluster commands over remote PowerShell.
 
-1. At the **SConfig** menu, enter `15` [[! CONAN: Do they need to enter the apostrophe on either side of 15 or are you just indicating that they should enter the number 15? If the latter, let's make 15 bold rather than enclose it in apostrophes. Thanks! ]] to exit to the command line, and then select Enter.
+1. At the **SConfig** menu, enter `15` to exit to the command line, and then select Enter.
 
 1. At the command prompt on **LON-SVR2**, enter **`Test-Cluster LON-SVR2, LON-SVR3`**, and then select Enter.
 
@@ -472,7 +472,7 @@ The main tasks for this exercise are to:
 1. Try to access **\\\FSCluster** from **LON-ADM1** to verify that **FSCluster** has moved to another node and that the **\\\FSCluster** location is still available.
 1. Select **Nodes**, and then right-click or access the context menu for the node that has the status of **Down**.
 1. Select **More Actions**, and then select **Start Cluster Service**.
-1. In the **Failover Cluster Manager** console, right-click or access the context menu for the **`WFC2022.Contoso.com`** [[! Conan: just confirming that the apostrophes are needed here? Can you let me know what they're for, or what they signify, so I know going forward? ]]cluster, select **More Actions**, and then select **Configure Cluster Quorum Settings**.
+1. In the **Failover Cluster Manager** console, right-click or access the context menu for the **`WFC2022.Contoso.com`** cluster, select **More Actions**, and then select **Configure Cluster Quorum Settings**.
 1. On the **Before you begin** page, select **Next**.
 1. On the **Select Quorum Configuration Options** page, select **Use default quorum configuration**, and then select **Next**.
 1. On the **Confirmation** page, select **Next**, and then select **Finish**.
