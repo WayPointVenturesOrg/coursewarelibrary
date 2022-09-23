@@ -8,13 +8,13 @@ lab:
 
 ## Scenario
 
-As one of the senior network administrators at Contoso Ltd., you're responsible for implementing failover clustering on the servers that are running Windows Server 2022 to provide high availability for network services and applications. You're also responsible for planning the failover cluster configuration and deploying applications and services on the failover cluster.
+As a senior network administrator at Contoso Ltd., you're responsible for implementing failover clustering on servers that are running Windows Server 2022. This implementation provides high availability for network services and applications. You also must plan the failover-cluster configuration and deploy applications and services on the failover cluster.
 
 ## Objectives
 
 After completing this lab, you'll be able to:
 
-- Configure iSCSI storage.
+- Configure Internet Small Computer System Interface (iSCSI) storage.
 - Configure a failover cluster.
 - Deploy and configure a highly available file server
 - Validate the deployment of the highly available file server.
@@ -25,28 +25,28 @@ After completing this lab, you'll be able to:
 
 ### Scenario
 
-Contoso has applications and services that it needs to make highly available. You decide to use Internet SCSI (iSCSI) storage for failover clustering. First, you'll install failover clustering on LON-SVR2 and LON-SVR3. Next, you'll configure iSCSI storage to support your failover cluster.
+Contoso has applications and services that it requires to make its servers highly available. You decide to use iSCSI storage for failover clustering, so you'll install failover clustering on LON-SVR2 and LON-SVR3, and then you'll configure iSCSI storage to support your failover cluster.
 
 The main tasks for this exercise are to:
 
-- Install Failover Clustering.
+- Install the **Failover Clustering** feature.
 - Configure iSCSI virtual disks.
 
-### Task 1: Install Failover Clustering
+### Task 1: Install the Failover Clustering feature
 
-1. Sign in to **LON-ADM1** as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+1. Sign in to **LON-ADM1** as **Contoso\\Administrator** with the password **Pa55w.rd**.
 
 1. On **LON-ADM1**, select **Start**, and then select **Windows PowerShell ISE**. 
 
-1. In the **Administrator: Windows PowerShell ISE** command prompt window, enter the following command, and then select Enter:
+1. In the **Administrator: Windows PowerShell ISE** command-prompt window, enter the following command, and then select Enter:
 
     ```powershell
     Install-WindowsFeature –Name Failover-Clustering –IncludeManagementTools
     ```
 
-    > This command installs the Failover Clustering feature on LON-ADM1. Wait until the installation process is complete and a command prompt appears.
+    > This command installs the **Failover Clustering** feature on LON-ADM1. Wait until the installation process is complete and a command prompt appears.
 
-1. On **LON-ADM1**, repeat step 2 to open a new PowerShell ISE session that you'll use to connect to the **LON-SVR2** server.
+1. On **LON-ADM1**, repeat step 2 to open a new PowerShell Integrated Scripting Environment (ISE) session that you'll use to connect to the **LON-SVR2** server.
 
 1. In the new **Administrator:Windows PowerShell ISE** window, enter the following command, and then select Enter:
 
@@ -54,7 +54,7 @@ The main tasks for this exercise are to:
     $cred=Get-Credential
     ```
 
-1. When prompted, provide the credentials as **Contoso\\Administrator** with password **Pa55w.rd**.
+1. When prompted, provide the credentials of **Contoso\\Administrator** with the password **Pa55w.rd**.
 
 1. In the new **Administrator: Windows PowerShell ISE** window, enter the following command, and then select Enter:
 
@@ -70,7 +70,7 @@ The main tasks for this exercise are to:
 
 1. Verify that **`lon-svr2.contoso.com`** appears at the beginning of the command prompt.
 
-    > You are now connected to LON-SVR2 using PowerShell remoting.
+    > You're now connected to **LON-SVR2** using PowerShell remoting.
 
 1. In the **Administrator: Windows PowerShell ISE** window for **LON-SVR2**, enter the following command, and then select Enter:
 
@@ -78,15 +78,15 @@ The main tasks for this exercise are to:
    Install-WindowsFeature –Name Failover-Clustering –IncludeManagementTools
    ```
 
-1. On **LON-ADM1**, repeat step 2 to open a third PowerShell ISE session that you'll use to connect to the **LON-SVR3** server.
+1. On **LON-ADM1**, repeat step 2 to open a third PowerShell ISE session, which you'll use to connect to the **LON-SVR3** server.
 
-1. To install the Failover Clustering feature on **LON-SVR3**, in the third **Administrator: Windows PowerShell ISE** window, enter the following command, and then select Enter.
+1. To install the **Failover Clustering** feature on **LON-SVR3**, in the third **Administrator: Windows PowerShell ISE** window, enter the following command, and then select Enter:
 
      ```powershell
      $cred=Get-Credential
      ```
 
-1. When prompted, provide the credentials as **Contoso\\Administrator** with password **Pa55w.rd**.
+1. When prompted, provide the credentials of **Contoso\\Administrator** with password **Pa55w.rd**.
 
 1. In the third **Administrator: Windows PowerShell ISE** window, enter the following command, and then select Enter:
 
@@ -102,7 +102,7 @@ The main tasks for this exercise are to:
 
 1. Verify that **`lon-svr3.contoso.com`** appears at the beginning of the command prompt.
 
-     > You are now also connected to LON-SVR3 by using PowerShell remoting.
+     > You're now connected to **LON-SVR3** by using PowerShell remoting.
 
 1. In the **Administrator: Windows PowerShell ISE** window for **LON-SVR3**, enter the following command, and then select Enter:
 
@@ -116,9 +116,9 @@ The main tasks for this exercise are to:
       Add-WindowsFeature FS-iSCSITarget-Server
       ```
 
-      > This command installs the iSCSI Target Server role on LON-ADM1. Wait until the installation finishes and the command prompt returns.
+      > This command installs the **iSCSI Target Server** role on **LON-ADM1**. Wait until the installation finishes and the command prompt returns.
 
-      > Verify that the Failover clustering feature installation is complete on LON-SVR2 and LON-SVR3. If not, wait until the installation is complete and then continue with the following steps.
+      > Verify that the failover-clustering installation is complete on **LON-SVR2** and **LON-SVR3**. If not, wait until the installation is complete, and then continue with the following steps.
 
 1. In the PowerShell window for **LON-SVR2**, enter the following command, and then select Enter:
 
@@ -138,11 +138,11 @@ The main tasks for this exercise are to:
      Restart-Computer
      ```
 
-     > Wait for 3–4 minutes for all three servers to restart before continuing with the next task.
+     > Wait for 3 to 4 minutes for all three servers to restart before continuing with the next task.
 
 ### Task 2: Configure iSCSI virtual disks
 
-1. Sign in to **LON-ADM1** as **Contoso\\Administrator** with password **Pa55w.rd**.
+1. Sign in to **LON-ADM1** as **Contoso\\Administrator** with the password **Pa55w.rd**.
 
 1. Select **Start**, and then select **Windows PowerShell ISE**.
 
@@ -164,7 +164,7 @@ The main tasks for this exercise are to:
     New-IscsiVirtualDisk c:\Storage\disk3.VHDX –size 10GB
     ```
 
-1. To open another **Windows PowerShell ISE** window to connect to **LON-SVR2**, select **Start**, and then select **Windows PowerShell ISE**.
+1. To open another **Windows PowerShell ISE** window, so you can connect to **LON-SVR2**, select **Start**, and then select **Windows PowerShell ISE**.
 
 1. In the new **Administrator: Windows PowerShell ISE** window, enter the following command, and then select Enter:
 
@@ -172,7 +172,7 @@ The main tasks for this exercise are to:
     $cred=Get-Credential
     ```
 
-1. When prompted, provide the credentials as **Contoso\\Administrator** with password **Pa55w.rd**.
+1. When prompted, provide the credentials as **Contoso\\Administrator** with the password **Pa55w.rd**.
 
 1. In the new **Administrator: Windows PowerShell ISE** window, enter the following command, and then select Enter:
 
@@ -186,9 +186,9 @@ The main tasks for this exercise are to:
      Enter-PSSession $sess
      ```
 
-     > Verify that **`lon-svr2.contoso.com`** appears at the beginning of the command prompt. You are now connected to LON-SVR2 by using PowerShell remoting.
+     > Verify that **`lon-svr2.contoso.com`** appears at the beginning of the command prompt. You're now connected to **LON-SVR2** by using PowerShell remoting.
 
-1. To open another **Windows PowerShell ISE** window to connect to **LON-SVR3**, select **Start**, and then select **Windows PowerShell ISE**.
+1. To open another **Windows PowerShell ISE** window, so you can connect to **LON-SVR3**, select **Start**, and then select **Windows PowerShell ISE**.
 
 1. In the third **Administrator: Windows PowerShell ISE** window, enter the following command, and then select Enter:
 
@@ -196,7 +196,7 @@ The main tasks for this exercise are to:
      $cred=Get-Credential
      ```
 
-1. When prompted, provide the credentials as **Contoso\\Administrator** with password **Pa55w.rd**.
+1. When prompted, provide the credentials as **Contoso\\Administrator** with the password **Pa55w.rd**.
 
 1. In the third **Administrator: Windows PowerShell ISE** window, enter the following command, and then select Enter:
 
@@ -212,17 +212,9 @@ The main tasks for this exercise are to:
 
 1. Verify that **`lon-svr3.contoso.com`** appears at the beginning of the command prompt.
 
-     > **Note:** You should have three **Windows PowerShell ISE** windows opened. Ensure that you always use the proper PowerShell session window that's connected to the server where you want to run a command.
+     > **Note:** You should have three **Windows PowerShell ISE** windows opened. Ensure that you always use the proper PowerShell session window that's connected to the specific server on which you want to run a command.
 
-1. In the **Administrator: Windows PowerShell ISE** window for **LON-SVR2**, start the Microsoft iSCSI Initiator service by entering the following commands, each followed by selecting Enter:
-
-   ```powershell
-   Start-Service msiscsi
-
-   Set-Service msiscsi -startuptype "automatic"
-   ```
-
-1. In the **Administrator: Windows PowerShell ISE** window for **LON-SVR3**, start the Microsoft iSCSI Initiator service by entering the following commands, each followed by selecting Enter:
+1. In the **Administrator: Windows PowerShell ISE** window for **LON-SVR2**, start the **Microsoft iSCSI Initiator** service by entering the following commands, selecting Enter after each:
 
    ```powershell
    Start-Service msiscsi
@@ -230,7 +222,15 @@ The main tasks for this exercise are to:
    Set-Service msiscsi -startuptype "automatic"
    ```
 
-1. On **LON-ADM1**, in the **Administrator: Windows PowerShell ISE** window for the local machine, enter:
+1. In the **Administrator: Windows PowerShell ISE** window for **LON-SVR3**, start the **Microsoft iSCSI Initiator** service by entering the following commands, selecting Enter after each:
+
+   ```powershell
+   Start-Service msiscsi
+
+   Set-Service msiscsi -startuptype "automatic"
+   ```
+
+1. On **LON-ADM1**, in the local machine's **Administrator: Windows PowerShell ISE** window, enter:
 
    ```powershell
    New-IscsiServerTarget iSCSI-MOD6 -InitiatorIds "IQN:iqn.1991-05.com.microsoft:lon-svr2.contoso.com","IQN:iqn.1991-05.com.microsoft:lon-svr3.contoso.com"
@@ -238,13 +238,13 @@ The main tasks for this exercise are to:
 
 ### Results
 
-After completing this exercise, you successfully installed the Failover Clustering feature and configured the Internet SCSI (iSCSI) Target Server.
+After completing this exercise, you'll have successfully installed the **Failover Clustering** feature and configured the iSCSI Target Server.
 
 ## Exercise 2: Configuring a failover cluster
 
 ### Scenario
 
-In this exercise, you'll configure a failover cluster. You'll implement the core components for failover clustering. You'll validate the cluster and then create the failover cluster.
+In this exercise, you'll configure a failover cluster by implementing the core components for failover clustering. You'll then validate the cluster and create the failover cluster.
 
 The main tasks for this exercise are to:
 
@@ -254,7 +254,7 @@ The main tasks for this exercise are to:
 
 ### Task 1: Connect clients to the iSCSI targets
 
-1. In the PowerShell window for **LON-ADM1**, enter each of the following commands, each followed by selecting Enter:
+1. In the PowerShell window for **LON-ADM1**, enter each of the following commands, selecting Enter after each:
 
     ```powershell
     Add-IscsiVirtualDiskTargetMapping iSCSI-MOD6 c:\Storage\Disk1.VHDX
@@ -264,7 +264,7 @@ The main tasks for this exercise are to:
     Add-IscsiVirtualDiskTargetMapping iSCSI-MOD6 c:\Storage\Disk3.VHDX
     ```
 
-1. In the **Administrator: Windows PowerShell ISE** window for **LON-SVR2**, enter the following commands, and after each, select Enter:
+1. In the **Administrator: Windows PowerShell ISE** window for **LON-SVR2**, enter the following commands, selecting Enter after each:
 
     ```powershell
     New-iSCSITargetPortal –TargetPortalAddress LON-ADM1.contoso.com
@@ -276,9 +276,9 @@ The main tasks for this exercise are to:
 
 1. Verify that after running the last command, the value for the *IsConnected* variable is True.
 
-    > This validates the LON-SVR2 is now connected to the iSCSI Target server.
+    > This validates that **LON-SVR2** is now connected to the iSCSI target server.
 
-1. In the **Administrator: Windows PowerShell ISE** window for **LON-SVR3**, enter the following commands, and then select Enter after each:
+1. In the **Administrator: Windows PowerShell ISE** window for **LON-SVR3**, enter the following commands, selecting Enter after each:
 
     ```powershell
     New-iSCSITargetPortal –TargetPortalAddress LON-ADM1.contoso.com
@@ -290,7 +290,7 @@ The main tasks for this exercise are to:
 
 1. Verify that after you run the last command, the value for the *IsConnected* variable is True.
 
-    > This validates the LON-SVR3 is now connected to the iSCSI Target server.
+    > This validates that **LON-SVR3** is now connected to the iSCSI target server.
 
 ### Task 2: Initialize the disks
 
@@ -322,15 +322,15 @@ The main tasks for this exercise are to:
 
 ### Task 3: Validate and create a failover cluster
 
-1. Switch to **LON-SVR2**, and then sign in as **Contoso\Administrator** with password **Pa55w.rd**.
+1. Switch to **LON-SVR2**, and then sign in as **Contoso\Administrator** with the password **Pa55w.rd**.
 
-    > **Note:** You must sign in on **LON-SVR2** because you can't run cluster commands over remote PowerShell.
+    > **Note:** You must sign in to **LON-SVR2** because you can't run cluster commands over remote PowerShell.
 
-1. At the SConfig menu, enter `15` to Exit to the command line and then select Enter.
+1. At the **SConfig** menu, enter `15` to exit to the command line, and then select Enter.
 
 1. At the command prompt on **LON-SVR2**, enter **`Test-Cluster LON-SVR2, LON-SVR3`**, and then select Enter.
 
-    > Wait for a few minutes for the cluster validation test to complete. You can expect a few warning messages to appear, but there should be no errors.
+    > Wait a few minutes for the cluster-validation test to complete. You can expect a few warning messages to appear, but there should be no errors.
 
 1. At the command prompt on **LON-SVR2**, enter the following command, and then select Enter:
 
@@ -338,7 +338,7 @@ The main tasks for this exercise are to:
     New-Cluster -Name WFC2022 -Node lon-svr2 -StaticAddress 172.16.0.125
     ```
 
-    > You should receive a cluster name as a result. It should display **Name WFC2022**. Verify that there are no errors.
+    > A cluster name of **Name WFC2022** should display as a result. Verify that there are no errors.
 
 1. At the command prompt on **LON-SVR2**, enter the following command, and then select Enter:
 
@@ -350,7 +350,7 @@ The main tasks for this exercise are to:
 
 ### Results
 
-After completing this exercise, you installed and configured the Failover Clustering feature.
+After completing this exercise, you'll have installed and configured the **Failover Clustering** feature.
 
 ## Exercise 3: Deploying and configuring a highly available file server
 
@@ -360,11 +360,11 @@ After you have created a cluster infrastructure, you decide to configure a highl
 
 The main tasks for this exercise are to:
 
-1. Add the file server application to the failover cluster.
+1. Add the file-server application to the failover cluster.
 1. Add a shared folder to a highly available file server.
 1. Configure the failover and failback settings.
 
-### Task 1: Add the file server application to the failover cluster
+### Task 1: Add the file-server application to the failover cluster
 
 1. Switch to **LON-ADM1**.
 
@@ -406,7 +406,7 @@ The main tasks for this exercise are to:
 
 ### Task 2: Add a shared folder to a highly available file server
 
-1. On **LON-ADM1**, in **Failover Cluster Manager**, select **Roles**, select **FSCluster**, and then in the Actions pane, select **Add File Share**.
+1. On **LON-ADM1**, in **Failover Cluster Manager**, select **Roles**, select **FSCluster**, and then in the **Actions** pane, select **Add File Share**.
 1. On the **Select Profile** page, select **SMB Share - Quick**, and then select **Next**.
 1. On the **Share Location** page, select **Next**.
 1. On the **Share Name** page, enter **Docs** for the share name, and then select **Next**.
@@ -422,7 +422,7 @@ The main tasks for this exercise are to:
 1. Select the **Failover** tab, and then select **Allow failback**.
 
 1. Select **Failback between**, and then enter:
-    - **4** in the first text box
+    - **4** in the first text box.
     - **5** in the second text box.
 
 1. Select the **General** tab.
@@ -431,34 +431,34 @@ The main tasks for this exercise are to:
 
 1. Select the **LON-SVR3** object, select **Up**, and then select **OK**.
 
-    > LON-SVR3 is now the first preferred owner.
+    > **LON-SVR3** is now the first preferred owner.
 
 ### Results
 
-After completing this exercise, you configured a highly available file server.
+After completing this exercise, you'll have configured a highly available file server.
 
 ## Exercise 4: Validating the deployment of the highly available file server
 
 ### Scenario
 
-In implementing a failover cluster, you want to perform failover and failback tests. Additionally, you want to change the witness disk in the quorum.
+When you implement a failover cluster, you want to perform failover and failback tests. Additionally, you want to change the witness disk in the quorum.
 
 The main tasks for this exercise are to:
 
-1. Validate the highly available file server deployment.
-1. Validate the failover and quorum configuration for the File Server role.
+1. Validate the highly available file-server deployment.
+1. Validate the failover and quorum configuration for the **File Server** role.
 
-### Task 1: Validate the highly available file server deployment
+### Task 1: Validate the highly available file-server deployment
 
 1. On **LON-ADM1**, open File Explorer, and then try to access the **\\\FSCluster** location.
 
-1. In **FSCluster**, open the Docs folder.
+1. In **FSCluster**, open the **Docs** folder.
 
    > Verify that you can access the **Docs** folder.
 
-1. Inside the **Docs** folder, right-click or access the context menu in an empty area of the folder, select **New**, and then select **Text Document**.
+1. Inside the **Docs** folder, right-click within the folder to access the context menu, select **New**, and then select **Text Document**.
 
-1. To accept the default name of the document as **New Text Document.txt**, select Enter.
+1. To accept the document's default name of **New Text Document.txt**, select Enter.
 
 1. In the **Failover Cluster Manager** console, right-click or access the context menu for **FSCluster**, select **Move**, select **Select Node**, choose the available node from the **Cluster nodes** list, and then select **OK**.
 
@@ -466,7 +466,7 @@ The main tasks for this exercise are to:
 
 ### Task 2: Validate the failover and quorum configuration for the File Server role
 
-1. On **LON-ADM1**, in **Failover Cluster Manager**, determine the current owner for the **FSCluster** role. If you select **Roles** and observe the value in the **Owner Node** column, it will be **LON-SVR2** or **LON-SVR3**.
+1. On **LON-ADM1**, in **Failover Cluster Manager**, determine the current owner for the **FSCluster** role. If you select **Roles** and observe the value in the **Owner Node** column, it should be **LON-SVR2** or **LON-SVR3**.
 1. Select **Nodes**, and then right-click or access the context menu for the node that's the current owner of the **FSCluster** role.
 1. Select **More Actions**, and then select **Stop Cluster Service**.
 1. Try to access **\\\FSCluster** from **LON-ADM1** to verify that **FSCluster** has moved to another node and that the **\\\FSCluster** location is still available.
@@ -476,12 +476,12 @@ The main tasks for this exercise are to:
 1. On the **Before you begin** page, select **Next**.
 1. On the **Select Quorum Configuration Options** page, select **Use default quorum configuration**, and then select **Next**.
 1. On the **Confirmation** page, select **Next**, and then select **Finish**.
-1. Browse to the **Disks** node, select the disk marked **Disk Witness in Quorum**, and then in the Actions pane, select **Take Offline**.
-1. In the Offline Cluster Disk prompt, select **Yes**.
+1. Browse to the **Disks** node, select the disk marked **Disk Witness in Quorum**, and then in the **Actions** pane, select **Take Offline**.
+1. In the **Offline Cluster Disk** prompt, select **Yes**.
 1. Verify that **FSCluster** is still available by trying to access it from **LON-ADM1**.
-1. In the **Failover Cluster Manager** console, select the disk marked **Disk Witness in Quorum**, and then in the Actions pane, select **Bring Online**.
+1. In the **Failover Cluster Manager** console, select the disk marked **Disk Witness in Quorum**, and then in the **Actions** pane, select **Bring Online**.
 1. On **LON-ADM1**, close all open windows.
 
 ### Results
 
-After completing this exercise, you validated high availability with Failover Clustering.
+After completing this exercise, you validated high availability when using the **Failover Clustering** feature.
