@@ -8,13 +8,13 @@ lab:
 
 ## Scenario
 
-You are exploring the option of using iSCSI to decrease the cost and complexity of configuring centralized storage at Contoso Ltd. To test this, you must install the iSCSI Target Server role, configure the iSCSI targets, and configure the iSCSI initiators to provide access to the targets.
+You're exploring the option of using Internet Small Computer System Interface (iSCSI) to decrease the cost and complexity of configuring centralized storage at Contoso Ltd. To test this, you must install the **iSCSI Target Server** role, configure the iSCSI targets, and configure the iSCSI initiators to provide access to the targets.
 
 ## Objectives
 
 After completing this lab, you'll be able to:
 
-- Install and configure the iSCSI target server role.
+- Install and configure the **iSCSI Target Server** role.
 - Configure and connect to iSCSI targets.
 
 ## Estimated time: 30 minutes
@@ -23,15 +23,15 @@ After completing this lab, you'll be able to:
 
 ### Scenario
 
-You plan to install the iSCSI Target server role service on LON-SVR3 by using PowerShell remote. You will use PowerShell to install the role service, configure a disk on LON-SVR3, and enable firewall rules to allow for iSCSI connectivity.
+You plan to install the **iSCSI Target server** role service on **LON-SVR3** by using PowerShell remote. You'll install the role service, configure a disk on **LON-SVR3**, and enable firewall rules to allow for iSCSI connectivity.
 
 The main task for this exercise is:
 
-1. Install the iSCSI Target Server role.
+1. Install the **iSCSI Target Server** role.
 
 ### Task 1: Install the iSCSI Target Server role
 
-1. Sign in to **LON-ADM1** as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+1. Sign in to **LON-ADM1** as **Contoso\\Administrator** with the password **Pa55w.rd**.
 
 2. Select **Start**, and then select **Windows PowerShell (ISE)**.
 
@@ -49,9 +49,9 @@ The main task for this exercise is:
 
 5. In the **Windows PowerShell credential request** pop-up window, in the **Password** text box, enter **Pa55w.rd**, and then select **OK**.
 
-6. In the **Administrator: Windows PowerShell ISE** window, enter the following commands, pressing Enter at the end of each line:
+6. In the **Administrator: Windows PowerShell ISE** window, enter the following commands, selecting Enter at the end of each line:
 
-   > **Note**: In the following command, drive letter  `_Y_` is placeholder text only. The drive letter to use will be returned to you in the results of the second command.
+   > **Note:** In the following command, drive letter  `_Y_` is placeholder text only. The drive letter to use will be returned to you in the second command's results.
 
    ```
    Get-Disk
@@ -62,7 +62,7 @@ The main task for this exercise is:
 
 7. Repeat step 6 for disk 3, replacing 2 with the number 3.
 
-8. In the **Administrator: Windows PowerShell ISE** window, enter the following commands, pressing Enter at the end of each line:
+8. In the **Administrator: Windows PowerShell ISE** window, enter the following commands, selecting Enter at the end of each line:
 
      ```
      New-NetFirewallRule -DisplayName "iSCSITargetIn" -Profile "Any" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 3260
@@ -72,7 +72,7 @@ The main task for this exercise is:
      New-NetFirewallRule -DisplayName "iSCSITargetOut" -Profile "Any" -Direction Outbound -Action Allow -Protocol TCP -LocalPort 3260
      ```
 
-     > **Note:** Word wrap is used to display the previous command. Don't use word wrap when entering the command in Windows PowerShell.
+     > **Note:** Word wrap is used to display the previous command. However, don't use word wrap when entering the command in Windows PowerShell.
 
 9. In the **Administrator: Windows PowerShell** window, enter the following command, and then select Enter:
 
@@ -80,13 +80,13 @@ The main task for this exercise is:
      Exit-PSSEssion
      ```
 
-**Results**: After this exercise, you will have successfully installed the  iSCSI Target Server role and configured disks and firewall rules to support iSCSI.
+**Results:** After this exercise, you'll have successfully installed the **iSCSI Target Server** role, and configured disks and firewall rules to support iSCSI.
 
 ## Exercise 2: Configuring and Connecting to iSCSI Targets
 
 ### Scenario
 
-Now that you have installed the iSCSI Target Server role, you now need to configure the iSCSI target. You will create two iSCSI virtual disks, both 5 GB in size. You will then configure an iSCSI target named iSCSIFarm and connect LON-DC1 to the target. Finally, you will verify that the disks are available on LON-DC1.
+Now that you've installed the **iSCSI Target Server** role, you need to configure the iSCSI target. You'll create two iSCSI virtual disks, both 5 gigabytes (GB) in size, and then configure an iSCSI target named iSCSIFarm, connect **LON-DC1** to the target, and then verify that the disks are available on **LON-DC1**.
 
 The main tasks for this exercise are:
 
@@ -97,13 +97,13 @@ The main tasks for this exercise are:
 
 1. On **LON-ADM1**, select **Start**, and then select **Server Manager**.
 
-2. In Server Manager, in the console tree, select **File and Storage Services**, select **Disks** , and then scroll down to the **LON-SVR3** server. 
+2. In Server Manager, in the console tree, select **File and Storage Services**, select **Disks**, and then scroll down to the **LON-SVR3** server. 
 
-   > Note that disks **2**, and **3** are **Online**. These are the disks you initialized earlier in the lab.
+   > Note that disks **2** and **3** are **Online**. These are the disks you initialized earlier in the lab.
 
-3. Select Disk number **2** and verify the volume drive letter. It should show a Drive E.
+3. Select Disk number **2**, and then verify the volume-drive letter. It should indicate **Drive E**.
 
-4. Select Disk number **3** and verify the volume drive letter. It should show a Drive F.
+4. Select Disk number **3**, and then verify the volume-drive letter. It should indicate **Drive F**.
 
 5. In the **Server Manager** window, in **File and Storage Services**, select **iSCSI**.
 
@@ -142,9 +142,9 @@ The main tasks for this exercise are:
      - Disk size: **5 GB**, **Dynamically Expanding**
      - iSCSI target: **iSCSIFarm**
 
-21. Switch to **LON-DC1** and sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+21. Switch to **LON-DC1**, and then sign in as **Contoso\\Administrator** with the password **Pa55w.rd**.
 
-22. Select **Start** and then select **Windows PowerShell ISE**.
+22. Select **Start**, and then select **Windows PowerShell ISE**.
 
 23. In the **Windows PowerShell ISE** window, enter the following commands, selecting **Enter** after each command:
 
@@ -156,7 +156,7 @@ The main tasks for this exercise are:
      iscsicpl
      ```
 
-    > **Note**: The **iscsicpl** command opens the **iSCSI Initiator Properties** dialog box.
+    > **Note:** The **iscsicpl** command opens the **iSCSI Initiator Properties** dialog box.
 
 24. In the **iSCSI Initiator Properties** dialog box, on the **Targets** tab, in the **Target** text box, enter **LON-SVR3**, and then select **Quick Connect**.
 
@@ -170,7 +170,7 @@ The main tasks for this exercise are:
 
 2. In **Server Manager**, select **File and Storage Services**, and then select **Disks**. In the **Tasks** drop-down list box, select **Refresh**.
 
-     > Notice the two new **5 GB** disks on the **LON-DC1** server that are offline. Notice that the Bus Type is **iSCSI**.
+     > Notice the two new **5 GB** disks on the **LON-DC1** server that are offline and that the **Bus Type** is **iSCSI**.
 
 3. Switch back to **LON-DC1**.
 
@@ -180,7 +180,7 @@ The main tasks for this exercise are:
    Get-Disk
    ```
 
-   > **Note**: Both disks are present and healthy, but offline. To use them, you need to initialize and format them on **LON-DC1**.
+   > **Note:** Both disks are present and healthy, but offline. To use them, you need to initialize and format them on **LON-DC1**.
 
 5. In the **Windows PowerShell ISE** window, enter the following commands, selecting Enter after each command:
 
@@ -200,6 +200,6 @@ The main tasks for this exercise are:
 
 7. Return to **LON-ADM1**.
 
-8. In **Server Manager**, refresh the page in the **Tasks** drop-down, and note that both the drives on LON-DC1 are now **Online**.
+8. In **Server Manager**, refresh the page in the **Tasks** drop-down list, and note that both the drives on **LON-DC1** are now **Online**.
 
-**Results**: After this exercise, you will have successfully configuring iSCSI targets and verified iSCSI disks.
+**Results**: After this exercise, you'll have successfully configured iSCSI targets and verified iSCSI disks.
