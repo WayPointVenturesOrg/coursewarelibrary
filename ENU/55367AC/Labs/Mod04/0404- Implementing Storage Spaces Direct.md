@@ -1,10 +1,10 @@
 ---
 lab:
-    title: 'Lab: Implementing Storage Spaces Direct'
+    title: 'Lab: Implement Storage Spaces Direct'
     module: 'Module 4: File servers and storage management in Windows Server'
 ---
 
-# Lab: Implementing Storage Spaces Direct
+# Lab: Implement Storage Spaces Direct
 
 ## Scenario
 
@@ -18,7 +18,7 @@ After completing this lab, you'll be able to:
 
 ## Estimated time: 30 minutes
 
-## Exercise 1: Implementing Storage Spaces Direct
+## Exercise 1: Implement Storage Spaces Direct
 
 ### Scenario
 
