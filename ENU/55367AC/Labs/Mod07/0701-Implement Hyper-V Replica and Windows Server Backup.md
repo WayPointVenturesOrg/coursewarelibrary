@@ -245,7 +245,7 @@ The main tasks for this exercise are to:
 
 **Results**: After completing this exercise, you should have configured **Hyper-V Replica** and tested failover.
 
-## Exercise 2: Configure and Implement backup with Windows Server Backup
+## Exercise 2: Configure and implement backup with Windows Server Backup
 
 ### Scenario
 
