@@ -23,7 +23,7 @@ After completing this lab, you'll be able to:
 
 ## Estimated time: **60 minutes**
 
-## Exercise 1: Implementing RDS
+## Exercise 1: Implement RDS
 
 ### Scenario
 
