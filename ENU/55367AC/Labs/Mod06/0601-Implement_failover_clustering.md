@@ -21,7 +21,7 @@ After completing this lab, you'll be able to:
 
 ## Estimated time: **60 minutes**
 
-## Exercise 1: Configuring iSCSI storage
+## Exercise 1: Configure iSCSI storage
 
 ### Scenario
 
@@ -240,7 +240,7 @@ The main tasks for this exercise are to:
 
 After completing this exercise, you'll have successfully installed the **Failover Clustering** feature and configured the iSCSI Target Server.
 
-## Exercise 2: Configuring a failover cluster
+## Exercise 2: Configure a failover cluster
 
 ### Scenario
 
@@ -352,7 +352,7 @@ The main tasks for this exercise are to:
 
 After completing this exercise, you'll have installed and configured the **Failover Clustering** feature.
 
-## Exercise 3: Deploying and configuring a highly available file server
+## Exercise 3: Deploy and configure a highly available file server
 
 ### Scenario
 
@@ -437,7 +437,7 @@ The main tasks for this exercise are to:
 
 After completing this exercise, you'll have configured a highly available file server.
 
-## Exercise 4: Validating the deployment of the highly available file server
+## Exercise 4: Validate deployment of a highly available file server
 
 ### Scenario
 
