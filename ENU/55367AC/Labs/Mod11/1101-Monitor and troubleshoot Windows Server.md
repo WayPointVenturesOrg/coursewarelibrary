@@ -4,7 +4,7 @@ lab:
     module: 'Module 11: Server and performance monitoring in Windows Server'
 ---
 
-# Lab: Monitoring and troubleshooting Windows Server
+# Lab: Monitor and troubleshoot Windows Server
 
 ## Scenario
 
@@ -34,7 +34,7 @@ The main tasks for this exercise are:
 2. Create a typical workload on the server.
 3. Analyze the collected data.
 
-> **Note**: After starting the Data Collector Set, there might be a delay of 10 minutes for the results to display.
+> **Note:** After starting the Data Collector Set, there might be a delay of 10 minutes for the results to display.
 
 ### Task 1: Create and start a data collector set
 
