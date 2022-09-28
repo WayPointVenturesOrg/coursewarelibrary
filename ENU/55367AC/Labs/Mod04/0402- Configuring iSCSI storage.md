@@ -1,10 +1,10 @@
 ---
 lab:
-    title: 'Lab: Configuring iSCSI storage'
+    title: 'Lab: Configure iSCSI storage'
     module: 'Module 4: File servers and storage management in Windows Server'
 ---
 
-# Lab: Configuring iSCSI storage
+# Lab: Configure iSCSI storage
 
 ## Scenario
 
@@ -19,7 +19,7 @@ After completing this lab, you'll be able to:
 
 ## Estimated time: 30 minutes
 
-## Exercise 1: Installing and configuring the iSCSI Target Server role
+## Exercise 1: Install and configure the iSCSI Target Server role
 
 ### Scenario
 
@@ -82,7 +82,7 @@ The main task for this exercise is:
 
 **Results:** After this exercise, you'll have successfully installed the **iSCSI Target Server** role, and configured disks and firewall rules to support iSCSI.
 
-## Exercise 2: Configuring and Connecting to iSCSI Targets
+## Exercise 2: Configure and connect to iSCSI Targets
 
 ### Scenario
 
