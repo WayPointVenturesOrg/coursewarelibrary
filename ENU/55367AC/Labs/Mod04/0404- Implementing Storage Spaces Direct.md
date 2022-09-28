@@ -86,7 +86,7 @@ The main tasks for this exercise are:
 
    > Wait until the installation finishes.
 
-6. Verify that the command's output only includes warnings and that the last line has a **Name** column with the value **S2DCluster**. [[Conan: So just to confirm the last line's output will have a column named "Name"?]]
+6. Verify that the command's output only includes warnings and that the last line has a **Name** column with the value **S2DCluster**.
 
 7. Switch to the **Failover Cluster Manager** window, and in the **Management** pane, select **Connect to Cluster**, enter **```S2DCluster.Contoso.com```**, and then select **OK**.
 
