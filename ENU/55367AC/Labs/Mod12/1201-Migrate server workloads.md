@@ -82,7 +82,7 @@ Answer the following questions based on the scenario:
 
 1. Which cmdlet can you use to verify which features you can migrate from a source server?
 
-   > **Answer:** The `Get-SmigServerFeature` cmdlet lists the Windows features that you can migrate from either a local computer or a migration stored. [[Conan: Do we mean "migration store" here?]]
+   > **Answer:** The `Get-SmigServerFeature` cmdlet lists the Windows features that you can migrate from either a local computer or a migration store.
 
 1. List the high-level steps for using the Windows Server Migration Tools to migrate settings from a source server to a destination server.
 
