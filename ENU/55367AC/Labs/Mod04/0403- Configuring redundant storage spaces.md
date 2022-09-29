@@ -1,10 +1,10 @@
 ---
 lab:
-    title: 'Lab: Configuring redundant storage spaces'
+    title: 'Lab: Configure redundant storage spaces'
     module: 'Module 4: File servers and storage management in Windows Server'
 ---
 
-# Lab: Configuring redundant storage spaces
+# Lab: Configure redundant storage spaces
 
 ## Scenario
 
