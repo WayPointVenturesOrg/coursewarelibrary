@@ -21,7 +21,7 @@ After completing this lab, you'll be able to:
 
 ## Estimated time: 60 minutes
 
-## Exercise 1: Creating and configuring VMs
+## Exercise 1: Create and configure VMs
 
 ### Exercise scenario
 
@@ -147,7 +147,7 @@ The main tasks for this exercise are:
 
 After this exercise, you'll have used Hyper-V Manager and Windows Admin Center to create a virtual switch and VHD, and then create and manage a VM.
 
-## Exercise 2: Installing and configuring containers
+## Exercise 2: Install and configure containers
 
 ### Exercise Scenario
 
