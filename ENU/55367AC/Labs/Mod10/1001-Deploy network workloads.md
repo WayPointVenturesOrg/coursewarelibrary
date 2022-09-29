@@ -205,9 +205,9 @@ The main tasks for this exercise are as follows:
 1. In the **Windows Security** dialog box, sign in as **Contoso\Administrator** with the password of **Pa55w.rd**.
 1. Close **Microsoft Edge**.
 
-**Results**: After completing this exercise, you'll have configured Web Application Proxy to provide secure access to a web application (Windows Admin Center).
+**Results:** After completing this exercise, you'll have configured Web Application Proxy to provide secure access to a web application (Windows Admin Center).
 
-### Exercise 2: Implement a VPN in Windows Server
+## Exercise 2: Implement a VPN in Windows Server
 
 ### Scenario
 
@@ -219,7 +219,7 @@ The main tasks for this exercise are as follows:
 2. Configure a client VPN connection.
 3. Test the VPN connection.
 
-#### Task 1: Configure RRAS service and NPS policies for VPN
+### Task 1: Configure RRAS service and NPS policies for VPN
 
 1. On **LON-ADM1**, select **Start**, and then select **Windows PowerShell ISE**.
 
@@ -231,7 +231,7 @@ The main tasks for this exercise are as follows:
 
 3. Leave the **Administrator: Windows PowerShell ISE** window open.
 
-##### Request a certificate for LON-ADM1
+#### Request a certificate for LON-ADM1
 
 1. On **LON-ADM1**, in the **Administrator: Windows PowerShell ISE** window, enter `certlm.msc`, and then select Enter.
 2. In the **Certificates-Local Computer** snap-in, expand **Personal**, and then select **Certificates**.
@@ -245,7 +245,7 @@ The main tasks for this exercise are as follows:
 14. On the **details** pane, verify that a new certificate with the name **```vpn.contoso.com```** is enrolled with **Intended Purposes** of **Server Authentication**.
 16. Close the **Certificates-Local Computer** console.
 
-##### Change the HTTPS bindings
+#### Change the HTTPS bindings
 
 1. On **LON-ADM1**, open **Server Manager**, select **Tools**, and then select **Internet Information Services (IIS) Manager.**
 2. In the **Internet Information Services (IIS) Manager**, expand **LON-ADM1 (CONTOSO\Administrator)**.
@@ -254,7 +254,7 @@ The main tasks for this exercise are as follows:
 5. In the **Add Site Binding** dialog box, under the **Type** select **https**, in the Secure Sockets Layer (SSL) Certificate list, select the **Contoso VPN** certificate, select **OK**, select **Yes** when prompted, and then select **Close**.
 6. Close the **Internet Information Services (IIS) Manager** console.
 
-##### Configure and enable VPN configuration
+#### Configure and enable VPN configuration
 
 1. On **LON-ADM1**, in the **Server Manager**, select **Tools**, and then select **Routing and Remote Access**.
 2. Right-click or access the context menu for **LON-ADM1 (local)**, and then select **Configure and Enable Routing and Remote Access**.
@@ -275,7 +275,7 @@ The main tasks for this exercise are as follows:
 17. Select the **IPv4** tab, and then verify that the VPN server is configured to assign IP version 4 (IPv4) addressing by using **Dynamic Host Configuration Protocol (DHCP)**.
 18. To close the **LON-ADM1 (local) Properties** dialog box, select **OK**, and then select **Yes** when prompted.
 
-##### Configure the Remote Access policies on NPS
+#### Configure the Remote Access policies on NPS
 
 1. On **LON-ADM1**, in **Server Manager**, on the **Tools** menu, select **Network Policy Server**.
 2. In the **Network Policy Server** console, on the **navigation** pane, expand **Policies**, and then select **Network Policies**.
@@ -297,7 +297,7 @@ The main tasks for this exercise are as follows:
 18. On the **Completing New Network Policy** page, select **Finish**.
 19. Close all open windows on **LON-ADM1**.
 
-#### Task 2: Configure a client VPN connection
+### Task 2: Configure a client VPN connection
 
 1. On **LON-CL1**, right-click or access the context menu for the **Start** button, and then select **Network Connections**.
 2. In **Network & Internet**, select **VPN**, and then select **Add VPN**.
@@ -309,7 +309,7 @@ The main tasks for this exercise are as follows:
     - Type of sign-in info: **User name and password**
     - Remember my sign-in info: **Cleared**. You might need to scroll down to find this setting.
 
-#### Task 3: Test the VPN connection
+### Task 3: Test the VPN connection
 
 1. In **Network & Internet**, select **Contoso VPN**, and then select **Connect**.
 2. In the **Sign in** dialog box, in the **User name** text box, enter **Contoso\Tonnie**. In the **Password text** box, enter **Pa55w.rd**, and then select **OK**.
@@ -317,7 +317,7 @@ The main tasks for this exercise are as follows:
 4. Select **Network & Internet**, select **Advanced network settings**, and then under **Related settings**, select **More network adapter options**.
 5. In **Network Connections**, verify that **WAN Miniport (SSTP)** displays under **Contoso VPN**.
 
-##### Verify connection on client and VPN server
+#### Verify connection on client and VPN server
 
 1. On **LON-CL1**, select **Start**, and then enter **Windows PowerShell ISE**.
 
@@ -339,7 +339,7 @@ The main tasks for this exercise are as follows:
 
 **Results**: After completing this exercise, you'll have installed and configured the Remote Access server to successfully provide VPN access.
 
-### Exercise 3: Deploy and configure a web server
+## Exercise 3: Deploy and configure a web server
 
 ### Scenario
 
@@ -352,7 +352,7 @@ The main tasks for this exercise are as follows:
 3. Create and configure a new site.
 4. Verify site functionality.
 
-#### Task 1: Install the Web Server role
+### Task 1: Install the Web Server role
 
 1. Switch to **LON-SVR1**.
 
@@ -368,7 +368,7 @@ The main tasks for this exercise are as follows:
 
 5. Verify that **True** displays under **Success** in the output.
 
-##### Verify the Web Server installation
+#### Verify the Web Server installation
 
 1. In the Windows PowerShell command prompt, enter the following command, and then select Enter:
 
@@ -382,7 +382,7 @@ The main tasks for this exercise are as follows:
 
   > Verify that only errors with word **License** display under the **Message** column.
 
-##### Verify that the Windows Firewall rules for HTTP and HTTPS traffic are enabled
+#### Verify that the Windows Firewall rules for HTTP and HTTPS traffic are enabled
 
 1. On **LON-SVR1**, in a Windows PowerShell command prompt, enter the following command, and then select Enter:
 
@@ -394,7 +394,7 @@ The main tasks for this exercise are as follows:
 
 3. Leave the Windows PowerShell command prompt open.
 
-##### Test the default website
+#### Test the default website
 
 1. Switch to **LON-ADM1**, and in the taskbar, select **Microsoft Edge**.
 
@@ -408,9 +408,9 @@ The main tasks for this exercise are as follows:
 
 6. Leave Microsoft Edge open.
 
-#### Task 2: Configure Web Server options
+### Task 2: Configure Web Server options
 
-##### Configure DNS for the default website
+#### Configure DNS for the default website
 
 1. On **LON-ADM1**, select **Start**, and then select **Windows PowerShell ISE**.
 
@@ -424,12 +424,12 @@ The main tasks for this exercise are as follows:
 
 4. In the output, verify that **www** displays in the **HostName** column.
 
-##### Test the website by using DNS names
+#### Test the website by using DNS names
 
 1. In Microsoft Edge, enter **```http://www.contoso.com```** in the address bar, and then select Enter.
 2. Verify that IIS displays the default, **Internet Information Services webpage**.
 
-##### Enable remote management of IIS using IIS Manager
+#### Enable remote management of IIS using IIS Manager
 
 1. Switch to **LON-SVR1**.
 
@@ -472,16 +472,16 @@ The main tasks for this exercise are as follows:
 12. On the **Actions** pane, select **Set Website Defaults**. In the **Website Defaults** dialog box, notice the **Application Pool** setting. Select **Cancel**.
 13. Leave **Internet Information Services (IIS) Manager** open. 
 
-#### Task 3: Create and configure a new site
+### Task 3: Create and configure a new site
 
-##### Create a webpage in the default website
+#### Create a webpage in the default website
 
 1. Switch to **LON-SVR1**, and in the **Administrator C:\Windows\system32\cmd.exe - powershell** window, enter the following command, and then select Enter: `notepad`
 2. In **Notepad**, enter the following: **```<p>Contoso intranet running on LON-SVR1</p>```**
 3. In the menu bar, select **File**, and then select **Save As**. In the **Save As** dialog box, select **File name**, and then delete **.txt**. In the **File name** box, enter **c:\inetpub\wwwroot\default.htm**. 
 4. In the **Text Documents (``*``.txt)** drop-down box, select **All Files**. Then select **Save**. Close **Notepad**.
 
-##### Request a new Web Server certificate
+#### Request a new Web Server certificate
 
 1. On **LON-SVR1**, in the **Administrator C:\Windows\system32\cmd.exe - powershell** window, enter the following command, and then select Enter:
 
@@ -491,7 +491,7 @@ The main tasks for this exercise are as follows:
 
 2. In the output, verify that **Issued** displays under **Status**.
 
-#### Task 4: Verify site functionality
+### Task 4: Verify site functionality
 
 1. Switch to **LON-ADM1**, and in the **Internet Information Services (IIS) Manager**, right-click or access the context menu for **Default Web Site** for **LON-SVR1**, and then select **Edit Bindings**.
 2. In the **Site Bindings** dialog box, select **Add**, and then under **type**, select **https**.
