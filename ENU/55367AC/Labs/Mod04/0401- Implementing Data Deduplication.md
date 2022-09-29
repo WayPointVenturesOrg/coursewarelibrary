@@ -1,10 +1,10 @@
 ---
 lab:
-    title: 'Lab: Implementing data deduplication'
+    title: 'Lab: Implement data deduplication'
     module: 'Module 4: File servers and storage management in Windows Server'
 ---
 
-# Lab: Implementing Data Deduplication
+# Lab: Implement Data Deduplication
 
 ## Scenario
 
