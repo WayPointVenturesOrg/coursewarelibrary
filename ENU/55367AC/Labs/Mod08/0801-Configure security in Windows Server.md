@@ -20,7 +20,7 @@ After completing this lab, you'll be able to:
 
 ## Estimated time: 40 minutes
 
-## Exercise 1: Configuring Windows Defender Credential Guard
+## Exercise 1: Configure Windows Defender Credential Guard
 
 ### Scenario
 
@@ -52,7 +52,7 @@ The main tasks for this exercise are to:
 13. Close the Group Policy Management Editor.
 14. Close the Group Policy Management Console.
 
-### Task 2: Enable Windows Defender Credential Guard using the Hypervisor-Protected Code Integrity and Windows Defender Credential Guard hardware readiness tool
+### Task 2: Enable Windows Defender Credential Guard using the Hypervisor-Protected Code Integrity and Windows Defender Credential Guard hardware readiness tools
 
 1. On **LON-ADM1**, select **Start**, and then select **Windows PowerShell ISE**.
 
@@ -79,7 +79,7 @@ After completing this exercise, you'll have:
 1. Used Group Policy to implement Windows Defender Credential Guard on all computers in your organization.
 2. Enabled Windows Defender Credential guard on **LON-ADM1**.
 
-## Exercise 2: Locating problematic accounts
+## Exercise 2: Locate problematic accounts
 
 ### Scenario
 
@@ -129,7 +129,7 @@ The main tasks for this exercise are to:
 
 5. Close Windows PowerShell ISE.
 
-## Exercise 3: Implementing LAPS
+## Exercise 3: Implement LAPS
 
 ### Scenario
 
