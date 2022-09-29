@@ -10,7 +10,7 @@ lab:
 
 Contoso recently deployed a Windows Server 2022 server and client infrastructure. Because of many Contoso's physical servers are underutilized, you plan to expand virtualization to optimize the environment, and you want to perform a proof of concept to validate how you can use Hyper-V to manage a virtual-machine (VM) environment. 
 
-The Contoso DevOps team also wants to explore container technology to determine whether it can help reduce deployment times for new applications and simplify moving applications to the cloud. You'll work with the DevOps team to evaluate Windows Server containers and whether to provides Internet Information Services (IIS) web services in a container.
+The Contoso DevOps team also wants to explore container technology to determine whether it can help reduce deployment times for new applications and simplify moving applications to the cloud. You'll work with the DevOps team to evaluate Windows Server containers and whether to provide Internet Information Services (IIS) web services in a container.
 
 ## Objectives
 
