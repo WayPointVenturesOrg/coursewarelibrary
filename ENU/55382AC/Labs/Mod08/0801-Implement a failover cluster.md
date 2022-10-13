@@ -8,11 +8,11 @@ lab:
 
 ## Scenario
 
-Contoso Ltd. is looking to ensure that its critical services, such as file services, are highly available with minimal downtime. You decide to implement a failover cluster with file services to provide improved uptime and availability. 
+Contoso Ltd. wants to ensure that its critical services, such as file services, are highly available with minimal downtime. You decide to implement a failover cluster with file services to provide improved uptime and availability. 
 
 ## Objectives
 
-After completing this lab, you will be able to:
+After completing this lab, you'll be able to:
 
 - Create a failover cluster.
 - Verify quorum settings and add a node to the cluster.
@@ -23,15 +23,15 @@ After completing this lab, you will be able to:
 
 ### Scenario
 
-Contoso Ltd. has critical applications and services that need to be highly available. Therefore, you decide to implement failover clustering by using iSCSI storage. You will configure iSCSI storage to support your failover cluster, and then configure a failover cluster. 
+Contoso Ltd. has critical applications and services that need to be highly available. Therefore, you decide to implement failover clustering by using Internet Small Computer System Interface (iSCSI) storage, which you'll configure to support your failover cluster, and then you'll configure a failover cluster. 
 
-To configure a failover cluster, you plan to implement the core components for failover clustering, validate the cluster, and then create the failover cluster. After you create a cluster infrastructure, you plan to configure a highly available file server, and then implement settings for failover and failback. Additionally, you also will perform failover and failback tests.
+To configure a failover cluster, you plan to implement the core components for failover clustering, validate the cluster, and then create the failover cluster. After you create a cluster infrastructure, you're going to configure a highly available file server, and then implement settings for failover and failback. Additionally, you'll also perform failover and failback tests.
 
-The main tasks for this exercise are as follows:
+The main tasks for this exercise are:
 
 1. Connect cluster nodes to iSCSI shared storage.
 
-2. Install the Failover Cluster feature.
+2. Install the **Failover Cluster** feature.
 
 3. Validate the servers for failover clustering.
 
@@ -39,21 +39,21 @@ The main tasks for this exercise are as follows:
 
 5. Add the file-server application to the failover cluster.
 
-6. Add a shared folder to a highly-available file server.
+6. Add a shared folder to a highly available file server.
 
 7. Configure failover and failback settings.
 
 8. Validate the highly available file-server deployment.
 
-9. Validate the failover and quorum configuration for the File Server role.
+9. Validate the failover and quorum configuration for the **File Server** role.
 
 ### Task 1: Connect cluster nodes to iSCSI shared storage
 
 #### Configure the iSCSI targets
 
-1. Sign in to **LON-SVR1** as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+1. Sign in to **LON-SVR1** as **Contoso\\Administrator** with the password **Pa55w.rd**.
 2. Select **Start**, and then select **Server Manager**.
-3. In **Server Manager**, in the navigation pane, select **File and Storage Services**.
+3. In **Server Manager**, in the **navigation** pane, select **File and Storage Services**.
 
 4. In the **File and Storage Services** pane, select **iSCSI**.
 
@@ -75,7 +75,7 @@ The main tasks for this exercise are as follows:
 
 13. On the **Specify access servers** page, select **Add**.
 
-14. In the **Select a method to identify the initiator** dialog box, select **Enter a value for the selected type**, and then, in the **Type** drop-down list, select **IP Address**. In the **Value** box, enter **172.16.0.23**, and then select **OK**.
+14. In the **Select a method to identify the initiator** dialog box, select **Enter a value for the selected type**, and then in the **Type** drop-down list, select **IP Address**. In the **Value** box, enter **172.16.0.23**, and then select **OK**.
 
 15. On the **Specify access servers** page, select **Next**.
 
@@ -85,7 +85,7 @@ The main tasks for this exercise are as follows:
 
 18. On the **View results** page, wait until creation is complete, and then select **Close**.
 
-19. In the **iSCSI VIRTUAL DISKS** pane, select **TASKS**, and then, in the **TASKS** drop-down list, select **New iSCSI Virtual Disk**.
+19. In the **iSCSI VIRTUAL DISKS** pane, select **TASKS**, and then in the **TASKS** drop-down list, select **New iSCSI Virtual Disk**.
 
 20. In the **New iSCSI Virtual Disk Wizard**, on the **Select iSCSI virtual disk location** page, under **Storage location**, select **C:**, and then select **Next**.
 
@@ -99,7 +99,7 @@ The main tasks for this exercise are as follows:
 
 25. On the **View results** page, wait until the creation is completed, and then select **Close**.
 
-26. In the **iSCSI VIRTUAL DISKS** pane, select **TASKS**, and then, in the **TASKS** drop-down list, select **New iSCSI Virtual Disk**.
+26. In the **iSCSI VIRTUAL DISKS** pane, select **TASKS**, and then in the **TASKS** drop-down list, select **New iSCSI Virtual Disk**.
 
 27. In the **New iSCSI Virtual Disk Wizard**, on the **Select iSCSI virtual disk location** page, under **Storage location**, select **C:**, and then select **Next**.
 
@@ -116,9 +116,9 @@ The main tasks for this exercise are as follows:
 
 #### Connect nodes to the iSCSI targets
 
-1. Sign in to **LON-SVR2** as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+1. Sign in to **LON-SVR2** as **Contoso\\Administrator** with the password **Pa55w.rd**.
 
-2. Select **Start** and then select **Server Manager**.
+2. Select **Start**, and then select **Server Manager**.
 
 3. In **Server Manager**, select **Tools**, and then select **iSCSI Initiator**.
 
@@ -136,7 +136,7 @@ The main tasks for this exercise are as follows:
 
 10. Switch to **LON-SVR3**.
 
-11. Sign in to **LON-SVR3** as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+11. Sign in to **LON-SVR3** as **Contoso\\Administrator** with the password **Pa55w.rd**.
 
 12. On **LON-SVR3**, open **Server Manager**, select **Tools**, and then select **iSCSI Initiator**.
 
@@ -150,7 +150,7 @@ The main tasks for this exercise are as follows:
 
 17. In the **Targets** list, select **iqn.1991-05.com.microsoft:lon-svr1-lon-svr1-target**, and then select **Connect**.
 
-18. Ensure that the **Add this connection to the list of Favorite Targets** check box is selected, and then select **OK** two times.
+18. Ensure that the **Add this connection to the list of Favorite Targets** checkbox is selected, and then select **OK** two times.
 
 19. Switch to **LON-SVR2**.
 
@@ -160,7 +160,7 @@ The main tasks for this exercise are as follows:
 
 22. Right-click or access the context menu for **Disk 5**, and then select **Online**. 
 
-    > **Note:** This should be the first disk that has 5.00 GB Unallocated.
+    > **Note:** This should be the first disk that has 5.00 gigabytes (GB) unallocated.
 
 23. Right-click or access the context menu for **Disk 5**, and then select **Initialize Disk**. 
 
@@ -174,13 +174,13 @@ The main tasks for this exercise are as follows:
 
 28. On the **Assign Drive Letter or Path** page, select **Next**.
 
-29. On the **Format Partition** page, in the **Volume label** text box, enter **Data1**. Select the **Perform a quick format** check box, and then select **Next**.
+29. On the **Format Partition** page, in the **Volume label** text box, enter **Data1**. Select the **Perform a quick format** checkbox, and then select **Next**.
 
 30. Select **Finish**.
 
 31. Repeat steps 22 through 30 for **Disk 6** and **Disk 7**, using **Data2** and **Data3**, respectively, for volume labels. 
 
-    > **Note:** These should be the second and third disks that have 5.00 GB Unallocated.
+    > **Note:** These should be the second and third disks that have 5.00 GB unallocated.
 
 32. Close the **Computer Management** window. 
 
@@ -198,7 +198,7 @@ The main tasks for this exercise are as follows:
 
 39. Right-click or access the context menu for **Disk 5**, and then select **Online**.
 
-    > **Note:** Be sure that the disks that you switch to online are the ones that show 5.00 GB in size.
+    > **Note:** Be sure that the online disks that you switch to are 5.00 GB in size.
 
 40. Close the **Computer Management** window.
 
@@ -227,7 +227,7 @@ The main tasks for this exercise are as follows:
 
 11. On **LON-SVR3** and **LON-SVR4**, repeat steps 2 through 10. 
 
-    > **Note:** If necessary, sign in to **LON-SVR4** as **Contoso\\Administrator** with the password of **Pa55wr.d**.
+    > **Note:** If necessary, sign in to **LON-SVR4** as **Contoso\\Administrator** with the password **Pa55wr.d**.
 
 
 ### Task 3: Validate the servers for failover clustering
@@ -289,7 +289,7 @@ The main tasks for this exercise are as follows:
 
 7. On the **Client Access Point** page, in the **Name** text box, enter **ContosoFS**. In the **Address** text box, enter **172.16.0.130**, and then select **Next**.
 
-8. On the **Select Storage** page, select the **Cluster Disk 2** check box, and then select **Next**.
+8. On the **Select Storage** page, select the **Cluster Disk 2** checkbox, and then select **Next**.
 
 9. On the **Confirmation** page, select **Next**.
 
@@ -308,7 +308,7 @@ The main tasks for this exercise are as follows:
 
 6. On the **Specify share name** page, in the **Share name** text box, enter **Docs**, and then select **Next**.
 
-7. On the **Configure share settings** page, review the available options but do not make any changes, and then select **Next**.
+7. On the **Configure share settings** page, review the available options but don't make any changes, and then select **Next**.
 
 8. On the **Specify permissions to control access** page, select **Next**.
 
@@ -329,16 +329,16 @@ The main tasks for this exercise are as follows:
 
 5. Select both **LON-SVR2** and **LON-SVR3** as preferred owners.
 
-6. Select **LON-SVR3**, and select **Up** so that it is first in the preferred owners list.
+6. Select **LON-SVR3**, and select **Up** so that it's first in the preferred owners list.
 
 7. To close the **ContosoFS** **Properties** dialog box, select **OK**.
 
 
 ### Task 8: Validate the highly available file-server deployment
 
-1. Switch to **LON-DC1** and sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+1. Switch to **LON-DC1** and sign in as **Contoso\\Administrator** with the password **Pa55w.rd**.
 
-2. On **LON-DC1**, open **File Explorer**. In the address bar, enter **`\\ContosoFS`**, and then press Enter.
+2. On **LON-DC1**, open **File Explorer**. In the address bar, enter **`\\ContosoFS`**, and then select Enter.
 
 3. Verify that you can access the location and that you can open the **Docs** folder. 
 
@@ -354,13 +354,13 @@ The main tasks for this exercise are as follows:
 
 8. Right-click or access the context menu for **ContosoFS**, select **Move**, and then select **Select Node**.
 
-9. In the **Move Clustered Role** dialog box, select the cluster node (it will be either **LON-SVR2** or  **LON-SVR3**), and then select **OK**.
+9. In the **Move Clustered Role** dialog box, select the cluster node (it'll be **LON-SVR2** or  **LON-SVR3**), and then select **OK**.
 
 10. Verify that **ContosoFS** has moved to a new owner.
 
 11. Switch to **LON-DC1**.
 
-12. To verify that you can still access the **ContosoFS** location, open **File Explorer**, and in the address bar, enter **`\\ContosoFS`**, and then press Enter. 
+12. To verify that you can still access the **ContosoFS** location, open **File Explorer**, and in the address bar, enter **`\\ContosoFS`**, and then select Enter. 
 
 
 ### Task 9: Validate the failover and quorum configuration for the File Server role
@@ -373,7 +373,7 @@ The main tasks for this exercise are as follows:
 
    > **Note:** The owner will be **LON-SVR2** or **LON-SVR3**.
 
-4. Select **Nodes**, and then select the node that is the current owner of the **ContosoFS** role.
+4. Select **Nodes**, and then select the node that's the current owner of the **ContosoFS** role.
 
 5. Right-click or access the context menu for the node, select **More Actions**, and then select **Stop Cluster Service**. 
 
@@ -383,7 +383,7 @@ The main tasks for this exercise are as follows:
 
 7. Switch to **LON-DC1**.
 
-8. On **LON-DC1**, to verify that you can still access the **ContosoFS** location, open **File Explorer**. In the address bar, enter **`\\ContosoFS`**, and then press Enter.
+8. On **LON-DC1**, to verify that you can still access the **ContosoFS** location, open **File Explorer**. In the address bar, enter **`\\ContosoFS`**, and then select Enter.
 
 9. Switch to **LON-SVR2**.
 
@@ -391,15 +391,15 @@ The main tasks for this exercise are as follows:
 
 11. Expand **Storage**, and then select **Disks**. 
 
-12. In the center pane, find the disk that is assigned to **Disk Witness in Quorum**. 
+12. In the center pane, find the disk that's assigned to **Disk Witness in Quorum**. 
 
-    > **Note:** You can view this in the **Assigned To** column.
+    > **Note:** You can review this in the **Assigned To** column.
 
 13. Right-click or access the context menu for the disk, select **Take Offline**, and then select **Yes**.
 
 14. Switch to **LON-DC1**.
 
-15. On **LON-DC1**, to verify that you can still access the **ContosoFS** location, open **File Explorer**, and in the address bar, enter **`\\ContosoFS`**, and then press Enter. 
+15. On **LON-DC1**, to verify that you can still access the **ContosoFS** location, open **File Explorer**, and in the address bar, enter **`\\ContosoFS`**, and then select Enter. 
 
     > **Note:** This verifies that the cluster is running even if the witness disk is offline.
 
@@ -417,7 +417,7 @@ The main tasks for this exercise are as follows:
 
     > **Note:** Notice that you can select a node or nodes that will, or will not, have a vote in the cluster.
 
-22. Do not make any changes, and then select **Next**.
+22. Don't make any changes, and then select **Next**.
 
 23. On the **Select Quorum Witness** page, ensure that **Configure a disk** **witness** is selected, and then select **Next**.
 
@@ -430,19 +430,19 @@ The main tasks for this exercise are as follows:
 
 ### Results
 
-After completing this exercise, you will have created a failover cluster successfully, configured a highly available file server, and tested the failover scenarios.
+After completing this exercise, you'll have created a failover cluster successfully, configured a highly available file server, and tested the failover scenarios.
 
-## Exercise 2: Verify quorum settings and add a node to the cluster
+## Exercise 2: Verify quorum settings, and add a node to the cluster
 
 ### Scenario
 
-It is becoming increasingly important that many of the applications and services on the network have increased scalability and remain high available at all times. Your responsibility is to increase the number of cluster nodes in the current cluster, and to evaluate and suggest a new quorum model. 
+It's becoming increasingly important that many of your network applications and services have increased scalability and remain highly available at all times. Your responsibility is to increase the current cluster's number of nodes and to evaluate and suggest a new quorum model. 
 
-The main tasks for this exercise are as follows:
+The main tasks for this exercise are:
 
 1. Remotely connect to a cluster.
 
-2. Check the assigned votes in the Nodes section.
+2. Check the assigned votes in the **Nodes** section.
 
 3. Verify the status of the disk witness.
 
@@ -475,12 +475,12 @@ The main tasks for this exercise are as follows:
    Get-ClusterNode | select name, nodeweight, ID, state
    ```
 
-4. Verify that the **NodeWeight** property of a cluster node has value **1**, which means that the quorum vote of the node is assigned and that the cluster is managing it.
+4. Verify that the cluster node's **NodeWeight** property has a value **1**, which means that the node's quorum vote is assigned and the cluster is managing it.
 
 
 ### Task 3: Verify the status of the disk witness
 
-1. On **LON-SVR2**, in the **Windows PowerShell ISE** console, enter the following cmdlet, and then press Enter:
+1. On **LON-SVR2**, in the **Windows PowerShell ISE** console, enter the following cmdlet, and then select Enter:
 
    ```
    Get-ClusterQuorum | Select Cluster, QuorumResource, QuorumType
@@ -509,19 +509,19 @@ The main tasks for this exercise are as follows:
 
 ### Task 5: Verify the assigned votes
 
-1. On **LON-SVR2**, in the **Windows PowerShell ISE** console, enter following cmdlet, and then press Enter:
+1. On **LON-SVR2**, in the **Windows PowerShell ISE** console, enter following cmdlet, and then select Enter:
 
    ```
    Get-ClusterNode | select name, nodeweight, ID, state
    ```
 
-2. Verify that the **NodeWeight** property of a cluster node has value **1**, which means that the quorum vote of the node is assigned and that the cluster is managing it.
+2. Verify that the cluster node's **NodeWeight** property has a value of **1**, which means that the node's quorum vote is assigned and the cluster is managing it.
 
 3. Close the **Windows PowerShell ISE** console.
 
 
-> **NOTE:** When you finish the exercise, leave the virtual machines running for the subsequent lab.
+> **NOTE:** When you finish the exercise, leave the VMs running for the subsequent lab.
 
 ### Results
 
-After completing this exercise, you will have added another node in the cluster successfully, and changed the quorum to the witness disk.
+After completing this exercise, you'll have added another node in the cluster successfully, and changed the quorum to the witness disk.
