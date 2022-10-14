@@ -8,13 +8,13 @@ lab:
 
 ## Scenario
 
-The initial deployment of VMs on Hyper-V has been successful for Contoso. As a next step in VM deployment, you are considering ways to ensure that the services and applications deployed on the VMs are highly available. As part of the implementation of high availability you also need to consider options for making the VMs that run on Hyper-V highly available.
+The initial deployment of virtual machines (VMs) on Hyper-V has been successful for Contoso. As a next step in VM deployment, you're considering ways to ensure that the services and applications deployed on the VMs are highly available. As part of the high-availability implementation, you also need to consider options for making VMs that run on Hyper-V highly available.
 
-As one of the senior network administrators at Contoso, you are responsible for integrating Hyper-V with failover clustering to ensure that the VMs deployed on Hyper-V are highly available. You are responsible for planning the VM and storage configuration, and for implementing the VMs as highly available services on the failover cluster. 
+As a Contoso senior network administrator, you're responsible for integrating Hyper-V with failover clustering to ensure that VMs deployed on Hyper-V are highly available, for planning VM and storage configuration, and for implementing VMs as highly available services on the failover cluster. 
 
 ## Objectives
 
-After completing this lab, you will be able to:
+After completing this lab, you'll be able to:
 
 - Configure a failover cluster for Hyper-V.
 - Configure a highly available VM.
@@ -25,18 +25,18 @@ After completing this lab, you will be able to:
 
 ### Scenario
 
-You are responsible for implementing Hyper-V VMs as highly available services on a failover cluster. The failover cluster will use iSCSI storage that is already configured and available on LON-SVR4. You need to first connect the cluster nodes (LON-SVR2 and LON-SVR3) to the iSCSI storage. Next, you will install and configure failover clustering and prepare the disk storage for the cluster.
+You're responsible for implementing Hyper-V VMs as highly available services on a failover cluster, which will use Internet Small Computer System Interface (iSCSI) storage that's already configured and available on **LON-SVR4**. You need to first connect the cluster nodes (**LON-SVR2** and **LON-SVR3**) to the iSCSI storage. Next, you'll install and configure failover clustering and prepare the disk storage for the cluster.
 
-The main tasks for this exercise are as follows:
+The main tasks for this exercise are:
 
 1. Connect cluster nodes to iSCSI shared storage.
-2. Install the Failover Clustering feature.
+2. Install the **Failover Clustering** feature.
 3. Validate and create a failover cluster.
 4. Configure disks for a failover cluster.
 
 ### Task 1: Connect cluster nodes to iSCSI shared storage
 
-1. Sign in to **LON-SVR2** as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+1. Sign in to **LON-SVR2** as **Contoso\\Administrator** with the password **Pa55w.rd**.
 
 2. Select **Start** and then select **Server Manager**.
 
@@ -56,7 +56,7 @@ The main tasks for this exercise are as follows:
 
 10. Switch to **LON-SVR3**.
 
-11. Sign in to **LON-SVR3** as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+11. Sign in to **LON-SVR3** as **Contoso\\Administrator** with the password **Pa55w.rd**.
 
 12. On **LON-SVR3**, open **Server Manager**, select **Tools**, and then select **iSCSI Initiator**.
 
@@ -70,7 +70,7 @@ The main tasks for this exercise are as follows:
 
 17. In the **Targets** list, select **iqn.1991-05.com.microsoft:lon-svr4-svr4target-target**, and then select **Connect**.
 
-18. Ensure that the **Add this connection to the list of Favorite Targets** check box is selected, and then select **OK** two times.
+18. Ensure that the **Add this connection to the list of Favorite Targets** checkbox is selected, and then select **OK** two times.
 
 19. Switch to **LON-SVR2**.
 
@@ -80,7 +80,7 @@ The main tasks for this exercise are as follows:
 
 22. Right-click or access the context menu for **Disk 5**, and then select **Online**. 
 
-    > **Note:** This should be the first disk that has 20.00 GB Unallocated.
+    > **Note:** This should be the first disk that has 20.00 gigabytes (GB) unallocated.
 
 23. Right-click or access the context menu for **Disk 5**, and then select **Initialize Disk**. 
 
@@ -94,13 +94,13 @@ The main tasks for this exercise are as follows:
 
 28. On the **Assign Drive Letter or Path** page, select **Next**.
 
-29. On the **Format Partition** page, in the **Volume label** text box, enter **ClusterDisk**. Select the **Perform a quick format** check box, and then select **Next**.
+29. On the **Format Partition** page, in the **Volume label** text box, enter **ClusterDisk**. Select the **Perform a quick format** checkbox, and then select **Next**.
 
 30. Select **Finish**.
 
 31. Repeat steps 22 through 30 for **Disk 6** and **Disk 7**, using **ClusterVMs** and **Quorum**, respectively, for volume labels. 
 
-    > **Note:** These should be the second and third disks that have 20.00 GB Unallocated.
+    > **Note:** These should be the second and third disks that have 20.00 GB unallocated.
 
 32. Close the **Computer Management** window. 
 
@@ -118,7 +118,7 @@ The main tasks for this exercise are as follows:
 
 39. Right-click or access the context menu for **Disk 5**, and then select **Online**.
 
-    > **Note:** Be sure that the disks that you switch to online are the ones that show 20.00 GB in size.
+    > **Note:** Be sure that the online disks that you switch to indicate they're 20.00 GB in size.
 
 40. Close the **Computer Management** window.
 
@@ -129,15 +129,15 @@ The main tasks for this exercise are as follows:
 
 2. On **LON-SVR2**, select **Start**, and then select **Windows PowerShell ISE**. 
 
-3. In the **Administrator: Windows PowerShell ISE** command prompt window, enter the following command, and then select Enter:
+3. In the **Administrator: Windows PowerShell ISE** command-prompt window, enter the following command, and then select Enter:
 
    ```powershell
    Install-WindowsFeature –Name Failover-Clustering –IncludeManagementTools
    ```
 
-   > This command installs the Failover Clustering feature on LON-SVR2.
+   > This command installs the **Failover Clustering** feature on LON-SVR2.
 
-4. On **LON-SVR2**, repeat step 2 to open a new PowerShell ISE session that you'll use to connect to the **LON-SVR3** server.
+4. On **LON-SVR2**, repeat step 2 to open a new PowerShell Integrated Scripting Environment (ISE) session that you'll use to connect to the **LON-SVR3** server.
 
 5. In the new **Administrator: Windows PowerShell ISE** window, enter the following command, and then select Enter:
 
@@ -161,7 +161,7 @@ The main tasks for this exercise are as follows:
 
 9. Verify that **`lon-svr3.contoso.com`** appears at the beginning of the command prompt.
 
-   > You are now connected to LON-SVR3 using PowerShell remoting.
+   > You're now connected to **LON-SVR3** using PowerShell remoting.
 
 10. In the **Administrator: Windows PowerShell ISE** window for **LON-SVR3**, enter the following command, and then select Enter:
 
@@ -169,9 +169,9 @@ The main tasks for this exercise are as follows:
     Install-WindowsFeature –Name Failover-Clustering –IncludeManagementTools
     ```
 
-    > Wait until the Failover clustering feature installation is complete on LON-SVR2 and LON-SVR3 and then continue with the following steps. 
+    > Wait until the Failover clustering feature installation is complete on **LON-SVR2** and **LON-SVR3**, and then continue with the following steps. 
 
-11. After the Failover clustering feature is installed on LON-SVR2 and LON-SVR3, close both Windows PowerShell ISE windows.
+11. Close both Windows PowerShell ISE windows.
 
 ### Task 3: Validate and create a failover cluster
 
@@ -218,7 +218,7 @@ The main tasks for this exercise are as follows:
 
 8. On the **Summary** page, select **Finish.**
 
-9. Ensure that **LON-SVR2** is the owner of the disk that you just assigned to the **Cluster Shared Volume**. You can read the owner value in the **Owner Node** column. If that is not the case, then move the disk to **LON-SVR2** before proceeding to the next task. 
+9. Ensure that **LON-SVR2** is the owner of the disk that you just assigned to the **Cluster Shared Volume**. You can read the owner value in the **Owner Node** column. If that isn't the case, then move the disk to **LON-SVR2** before proceeding to the next task. 
 
 > **Note:** To move the disk: 
 >
@@ -229,7 +229,7 @@ The main tasks for this exercise are as follows:
 
 ### Results
 
-After completing this exercise, you will have successfully configured the failover clustering infrastructure for Hyper-V.
+After completing this exercise, you'll have successfully configured the failover-clustering infrastructure for Hyper-V.
 
 ## Exercise 2: Configure a highly available VM
 
@@ -237,7 +237,7 @@ After completing this exercise, you will have successfully configured the failov
 
 After you have configured the Hyper-V failover cluster, you need to add VMs as highly available resources.
 
-The main tasks for this exercise are as follows:
+The main tasks for this exercise are:
 
 1. Move VM storage to the Cluster Shared Volume.
 
@@ -249,11 +249,11 @@ The main tasks for this exercise are as follows:
 
 ### Task 1: Move VM storage to the Cluster Shared Volume
 
-1. On **LON-SVR2**, from the task bar, select **Hyper-V Manager**.
+1. On **LON-SVR2**, from the taskbar, select **Hyper-V Manager**.
 
 2. In **Hyper-V Manager**, in the **Virtual Machines** section, select **LON-SVR5**.
 
-3. In the **Actions** pane, under LON-SVR5, select **Move**.
+3. In the **Actions** pane, under **LON-SVR5**, select **Move**.
 
    > The **Move "LON-SVR5" Wizard** starts.
 
@@ -263,7 +263,7 @@ The main tasks for this exercise are as follows:
 
 6. On the **Choose Options for Moving Storage** page, select **Move all of the virtual machine's data to a single location**, and then select **Next**.
 
-7. On the **Choose a new location for virtual machine** page, in the Folder box, enter **`C:\ClusterStorage\Volume1\`** and then select **Next**.
+7. On the **Choose a new location for virtual machine** page, in the **Folder** box, enter **`C:\ClusterStorage\Volume1\`** and then select **Next**.
 
 8. On the **Completing Move Wizard** page, select **Finish**.
 
@@ -286,13 +286,13 @@ The main tasks for this exercise are as follows:
 
 6. On the **Confirmation** page, select **Next**.
 
-7. On the **Summary** page, ensure that the result is successful and then select **Finish**.
+7. On the **Summary** page, ensure that the result is successful, and then select **Finish**.
 
-   > Notice that LON-SVR5 is now available in Failover Cluster Manager. 
+   > Notice that **LON-SVR5** is now available in Failover Cluster Manager. 
 
 8. Right-click or access the context menu for **LON-SVR5**, and then select **Start**.
 
-   > Ensure that LON-SVR5 starts successfully.
+   > Ensure that **LON-SVR5** starts successfully.
 
 ### Task 3: Failover a highly available VM
 
@@ -302,7 +302,7 @@ The main tasks for this exercise are as follows:
 
 3. In the **Move Virtual Machine** dialog box, select **LON-SVR3**, and then select **OK**. 
 
-   > Wait until the machine is migrated to LON-SVR3. You will see that the **Owner** **Node** column changes the value when migration completes.
+   > Wait until the machine is migrated to **LON-SVR3**. You'll notice that the **Owner** **Node** column changes the value when migration completes.
 
 4. In **Failover Cluster Manager**, right-click or access the context menu for **LON-SVR5**, and select **Shut Down**.
 
@@ -310,7 +310,7 @@ The main tasks for this exercise are as follows:
 
 1. On **LON-SVR2**,  select **Start**, and then select **Windows PowerShell ISE**.
 
-2. At the **Windows PowerShell ISE** command prompt, enter the following command, and then press Enter:
+2. At the **Windows PowerShell ISE** command prompt, enter the following command, and then select Enter:
 
    ```
    (Get-Cluster).DrainOnShutdown
@@ -322,7 +322,7 @@ The main tasks for this exercise are as follows:
 
 4. Select **Roles** in **Failover Cluster Manager**.
 
-   > Notice that LON-SVR5 is currently owned by LON-SVR3.
+   > Notice that **LON-SVR3** currently owns **LON-SVR5**.
 
 5. Shut down the **LON-SVR3** VM.
 
@@ -331,4 +331,4 @@ The main tasks for this exercise are as follows:
 
 ### Results
 
-After completing this exercise, you will have successfully configured a VM as highly available.
+After completing this exercise, you'll have successfully configured a VM as highly available.
