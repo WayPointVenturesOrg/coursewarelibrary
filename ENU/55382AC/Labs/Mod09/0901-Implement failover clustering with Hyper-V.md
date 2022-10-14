@@ -171,7 +171,7 @@ The main tasks for this exercise are:
 
     > Wait until the Failover clustering feature installation is complete on **LON-SVR2** and **LON-SVR3**, and then continue with the following steps. 
 
-11. <!--- CONAN: Can we remove everything up to "close" since we just said it in the sentence above, and then just start with Close both..."? ---> After the Failover clustering feature is installed on LON-SVR2 and LON-SVR3, close both Windows PowerShell ISE windows.
+11. Close both Windows PowerShell ISE windows.
 
 ### Task 3: Validate and create a failover cluster
 
