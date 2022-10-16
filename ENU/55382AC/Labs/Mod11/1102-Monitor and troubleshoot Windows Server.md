@@ -8,7 +8,7 @@ lab:
 
 ## Scenario
 
-You've deployed several new Windows Server <!-- should this be "2022" --> 2002 servers at Contoso Ltd. To assist with monitoring and troubleshooting services, it's important to establish a performance baseline that indicates a typical load for these new servers. You need to establish a performance baseline and configure centralized monitoring of event logs for your organization's new servers. 
+You've deployed several new Windows servers at Contoso Ltd. To assist with monitoring and troubleshooting services, it's important to establish a performance baseline that indicates a typical load for these new servers. You need to establish a performance baseline and configure centralized monitoring of event logs for your organization's new servers. 
 
 ## Objectives
 
