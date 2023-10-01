@@ -117,17 +117,17 @@ Del \\LON-dc1\c$\bigfile*.*
 
 5.  Record the values that the report lists for later analysis. Recorded values include:
 
-   - **Memory, Pages/sec**: @lab.TextBox(memory)
+   - **Memory, Pages/sec**: 
 
-   - **Network Interface, Bytes Total/sec**: @lab.TextBox(network)
+   - **Network Interface, Bytes Total/sec**: 
 
-   - **PhysicalDisk, % Disk Time**: @lab.TextBox(Disktime)
+   - **PhysicalDisk, % Disk Time**: 
 
-   - **PhysicalDisk, Avg. Disk Queue Length**: @lab.TextBox(DiskLength)
+   - **PhysicalDisk, Avg. Disk Queue Length**: 
 
-   - **Processor, % Processor Time**: @lab.TextBox(Processortime)
+   - **Processor, % Processor Time**: 
 
-   - **System, Processor Queue Length**: @lab.TextBox(ProcessorLength)
+   - **System, Processor Queue Length**: 
 
 ### Results
 
@@ -178,17 +178,17 @@ E:\Labfiles\Mod11\StressTest.ps1
 5.  Record the following values: 
 
 
-   - **Memory, Pages/sec**: @lab.TextBox(memory2)
+   - **Memory, Pages/sec**: 
 
-   - **Network Interface, Bytes Total/sec**: @lab.TextBox(network2)
+   - **Network Interface, Bytes Total/sec**: 
 
-   - **PhysicalDisk, % Disk Time**: @lab.TextBox(Disktime2)
+   - **PhysicalDisk, % Disk Time**: 
 
-   - **PhysicalDisk, Avg. Disk Queue Length**: @lab.TextBox(DiskLength2)
+   - **PhysicalDisk, Avg. Disk Queue Length**: 
 
-   - **Processor, % Processor Time**: @lab.TextBox(Processortime2)
+   - **Processor, % Processor Time**: 
 
-   - **System, Processor Queue Length**: @lab.TextBox(ProcessorLength2)
+   - **System, Processor Queue Length**: 
 
    > **Question:** Compared with your previous report, which values have changed?
    >
