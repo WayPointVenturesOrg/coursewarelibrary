@@ -19,7 +19,6 @@ After completing this lab, you'll be able to:
 - Configure Hyper-V Replica.
 
 ## Estimated time: 60 minutes
-
 ## Exercise 1: Plan for an appropriate high-availability and disaster-recovery solution
 
 ### Scenario
@@ -48,10 +47,13 @@ Read the scenario, and then record your answers to the following question:
 
 1. What actions should you take and which technologies should you consider using?
 
+<details>
+<summary>**Answer**</summary>
    > - Create a Business Recovery Plan to outline and prioritize the divisional and service requirements, with the customer-facing financial requirements having the most critical requirements
    > - Consider using Live Migration for monthly planned downtime to allow for updates to your VMs.
    > - Consider using Storage Migration to migrate VM storage off the existing server, to upgrade the existing servers’ storage, and to migrate back the VM storage to the server without any VM downtime.
    > - Consider using Hyper-V Recovery Manager solution, integrated with Hyper-V Replica, to provide disaster recovery for critical VMs should disaster occur in any offices.
+</details>
 
 ### Results
 
@@ -69,25 +71,25 @@ The main task for this exercise is:
 
 ### Task 1: Configure and perform storage migration
 
-1. Sign in to **LON-SVR2** as **Contoso\\Administrator** with the password **Pa55w.rd**.
+1. Sign in to **LON-SVR2** as **Contoso\\Administrator** with the password **`Pa55w.rd`**.
 
 2. On the taskbar, select **Hyper-V Manager**.
 
-   > The Hyper-V Manager console opens.
+>The Hyper-V Manager console opens.
 
 3. In Hyper-V Manager, in the **navigation** pane, select **LON-SVR2**.
 
-   > When you select **LON-SVR2**, the **details** and **Actions** panes display to manage VMs that are available on this host.
+>When you select **LON-SVR2**, the **details** and **Actions** panes display to manage VMs that are available on this host.
 
 4. In the **details** pane, in the **Virtual Machines** section, right-click or access the context menu for **LON-SVR5**, and then select **Start**.
 
-   > This starts **LON-SVR5** to allow you to validate storage migration without service disruption.
+>This starts **LON-SVR5** to allow you to validate storage migration without service disruption.
 
 5. In the **details** pane, in the **Virtual Machines** section, right-click or access the context menu for **LON-SVR5**, and then select **Settings**.
 
 6. In **Settings for LON-SVR5**, under **IDE Controller 0**, select **Hard Drive**. 
 
-   > Confirm that **LON-SVR5.vhd** is stored at **E:\\Labfiles\\LON-SVR5**.
+>Confirm that **LON-SVR5.vhd** is stored at **E:\\Labfiles\\LON-SVR5**.
 
 7. Select **OK** to close the **Settings for LON-SVR5**.
 
@@ -99,11 +101,11 @@ The main task for this exercise is:
 
 11. On the **Choose Options for Moving** **Storage** page, select the **Move all of the virtual machine's data to a single location** option, and then select **Next**.
 
-12. On the **Choose a new location for virtual machine** page, in the **Folder** text box, type **C:\\VMs\\LON-SVR5**, and then select **Next**.
+12. On the **Choose a new location for virtual machine** page, in the **Folder** text box, type **`C:\VMs\LON-SVR5`**, and then select **Next**.
 
 13. On the **Completing Move Wizard** page, select **Finish**. 
 
-    > **Note:** A message box displays that states **Performing the move**. While the move is completing, connect to **LON-SVR5** and verify that the VM is still accessible during the move. Wait until the move is complete.
+>A message box displays that states **Performing the move**. While the move is completing, connect to **LON-SVR5** and verify that the VM is still accessible during the move. Wait until the move is complete.
 
 14. In Hyper-V Manager, right-click or access the context menu for **LON-SVR5**, and then select **Settings**.
 
@@ -111,7 +113,7 @@ The main task for this exercise is:
 
 16. Confirm that **LON-SVR5.vhd** is stored on the **C:\\VMs\\LON-SVR5** folder structure, and then select **OK** to close the **Settings for LON-SVR5** dialog box.
 
-    > **Note:** This confirms that the virtual hard disk (VHD) was moved while the VM was running.
+>This confirms that the virtual hard disk (VHD) was moved while the VM was running.
 
 ### Results
 
@@ -131,7 +133,7 @@ The main tasks for this exercise are:
 
 ### Task 1: Enable replication on both host machines
 
-1. Sign in to **LON-SVR3** as **Contoso\\Administrator** with the password **Pa55w.rd**.
+1. Sign in to **LON-SVR3** as **Contoso\\Administrator** with the password **`Pa55w.rd`**.
 2. On **LON-SVR3**, on the taskbar, select **Hyper-V Manager**.
 3. In Hyper-V Manager, right-click or access the context menu for **LON-SVR3**, and then select **Hyper-V Settings**.
 
@@ -143,7 +145,7 @@ The main tasks for this exercise are:
 
 7. In the **Authorization and storage** section, select **Allow replication from any authenticated server**, and then select **Browse**.
 
-8. Expand **This PC**, select to expand **Local Disk (C)**, and then select **New folder**. For the folder name, type **VMReplica**, and then select Enter. 
+8. Expand **This PC**, select to expand **Local Disk (C)**, and then select **New folder**. For the folder name, type **`VMReplica`**, and then select Enter. 
 9. Select the **C:\\VMReplica** folder, and then select **Select Folder**.
 10. In **Hyper-V Settings** **for LON-SVR3**, select **OK**. 
 
@@ -159,16 +161,15 @@ The main tasks for this exercise are:
 
 17. Switch to **LON-SVR2**, and repeat steps 1 through 16.
 
-
 ### Task 2: Configure replication for LON-SVR5 VM
 
 1. On **LON-SVR2**, in the **Hyper-V Manager** console, right-click or access the context menu for **LON-SVR5**, and then select **Enable Replication**.
 
-   > The **Enable Replication for LON-SVR5** wizard starts.
+>The **Enable Replication for LON-SVR5** wizard starts.
 
 2. On the **Before You Begin** page, select **Next**.
 
-3. On the **Specify Replica Server** page, in the **Replica server** box, type **LON-SVR3**, and then select **Next**.
+3. On the **Specify Replica Server** page, in the **Replica server** box, type **`LON-SVR3`**, and then select **Next**.
 
 4. On the **Specify Connection Parameters** page, select **Use Kerberos authentication (HTTP)**, and then select **Next**.
 
@@ -182,8 +183,7 @@ The main tasks for this exercise are:
 
 9. On the **Completing the Enable Replication wizard** page, select **Finish**.
 
-   > Wait approximately five minutes. You can monitor the progress of the initial replication in the **Status** column in the **Hyper-V Manager** console. When it completes (progress reaches 100 percent), switch to **LON-SVR3**, and ensure that **LON-SVR5** displays in an **Off** state in **Hyper-V Manager**. 
-   >
+>Wait approximately five minutes. You can monitor the progress of the initial replication in the **Status** column in the **Hyper-V Manager** console. When it completes (progress reaches 100 percent), switch to **LON-SVR3**, and ensure that **LON-SVR5** displays in an **Off** state in **Hyper-V Manager**. 
 
 ### Task 3: Validate a planned failover to the replica site
 
@@ -191,21 +191,19 @@ The main tasks for this exercise are:
 
 2. Select **Replication**, and then select **View** **Replication Health**.
 
-   > Review content of the window that appears, and ensure that there are no errors.
-   >
+>Review content of the window that appears, and ensure that there are no errors.
 
 3. To close the Replication Health for **LON-SVR5**, select **Close**.
 
 4. On **LON-SVR2**, in Hyper-V Manager, right-click or access the context menu for **LON-SVR5**, and then select **Shut Down**.
 
-   > Wait for **LON-SVR5** to shut down. To perform a planned failover, the VM must not be running.
+>Wait for **LON-SVR5** to shut down. To perform a planned failover, the VM must not be running.
 
 5. On **LON-SVR2**, in Hyper-V Manager, right-click or access the context menu for **LON-SVR5**, point to **Replication,** and then select **Planned** **Failover**.
 
 6. In the **Planned Failover** window, ensure that the option **Start the Replica virtual machine after failover** is selected, and then select **Fail Over**.
 
 7. Switch to **LON-SVR3**, and in Hyper-V Manager, ensure that **LON-SVR5** is running.
-
 
 ### Results
 
