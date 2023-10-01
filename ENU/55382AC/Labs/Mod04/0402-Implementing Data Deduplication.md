@@ -1,10 +1,10 @@
 ---
 lab:
     title: 'Lab: Implementing Data Deduplication'
-    module: 'Module 4: Implementing Storage Spaces and Data Deduplication'
+    module: 'Module 4: Implement Storage Spaces and Data Deduplication'
 ---
 
-# Lab: Implementing Data Deduplication
+# Lab B: Implementing Data Deduplication
 
 ## Scenario
 
@@ -17,7 +17,6 @@ After you have tested the storage redundancy and performance options, you now de
 - Check the status of Data Deduplication.
 
 ## Estimated time: 40 minutes
-
 ## Exercise 1: Install Data Deduplication
 
 ### Scenario
@@ -34,59 +33,57 @@ The main tasks for this exercise are as follows:
 
 ### Task 1: Install the Data Deduplication role service
 
-1. Sign in to **LON-SVR1** as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+1.  Sign in to **LON-SVR1** as **Contoso\\Administrator** with the password of **`Pa55w.rd`**.
 
-2. Select **Start**, and then select **Server Manager**.
+2.  Select **Start**, and then select **Server Manager**.
 
-3. In **Server Manager**, in the **navigation** pane, select **Dashboard**.
+3.  In **Server Manager**, in the **navigation** pane, select **Dashboard**.
 
-4. In the **details** pane, select **Add roles and features**.
+4.  In the **details** pane, select **Add roles and features**.
 
-5. In the **Add Roles and Features Wizard**, on the **Before you begin** page, select **Next**.
+5.  In the **Add Roles and Features Wizard**, on the **Before you begin** page, select **Next**.
 
-6. On the **Select installation** **type** page, select **Next**.
+6.  On the **Select installation** **type** page, select **Next**.
 
-7. On the **Select destination server** page, select **Next**.
+7.  On the **Select destination server** page, select **Next**.
 
-8. On the **Select server roles** page, in the **Roles** list, expand **File and Storage Services (4 of 12 installed)**. 
+8.  On the **Select server roles** page, in the **Roles** list, expand **File and Storage Services (4 of 12 installed)**. 
 
-9. Expand **File and iSCSI Services (3 of 11 installed)**, select the **Data Deduplication** checkbox, and then select **Next**.
+9.  Expand **File and iSCSI Services (3 of 11 installed)**, select the **Data Deduplication** checkbox, and then select **Next**.
 
-10. On the **Select features** page, select **Next**.
+10.  On the **Select features** page, select **Next**.
 
-11. On the **Confirm installation selections** page, select **Install**. 
+11.  On the **Confirm installation selections** page, select **Install**. 
 
-12. When installation is complete, on the **Installation progress** page, select **Close**.
-
+12.  When installation is complete, on the **Installation progress** page, select **Close**.
 
 ### Task 2: Check the status of Data Deduplication
 
-1. On **LON-SVR1**, select **Start**, and then select **Windows PowerShell ISE**.
+1.  On **LON-SVR1**, select **Start**, and then select **Windows PowerShell ISE**.
 
-2. In the **Windows PowerShell ISE** command prompt window, enter the following command, and then select Enter:
+2.  In the **Windows PowerShell ISE** command prompt window, enter the following command, and then select Enter:
 
    ```
-   Get-DedupVolume 
+Get-DedupVolume 
    ```
 
-3. At the command prompt, enter the following command, and then select Enter:
+3.  At the command prompt, enter the following command, and then select Enter:
 
    ```
    Get-DedupStatus 
    ```
 
-   > These commands return no results because you need to enable it on the volume after installing it.
-   >
+> These commands return no results because you need to enable it on the volume after installing it.
 
 ### Task 3: Verify the VM performance
 
-- On **LON-SRV1**, in the **Windows PowerShell ISE** command prompt window, enter the following command, and then select Enter:
+-  On **LON-SRV1**, in the **Windows PowerShell ISE** command prompt window, enter the following command, and then select Enter:
 
   ```
   Measure-Command -Expression {Get-ChildItem –Path E:\ -Recurse}
   ```
 
-  > **Note:** Record the values returned from the previous command as you will use them later in the lab.
+> Record the values returned from the previous command as you will use them later in the lab.
 
 ### Results
 
@@ -110,99 +107,99 @@ The main tasks for this exercise are as follows:
 
 ### Task 1: Configure Data Deduplication
 
-1. On **LON-SVR1**, in **Server Manager**, in the navigation pane, select **File and Storage Services**, and then select **Disks**.
+1.  On **LON-SVR1**, in **Server Manager**, in the navigation pane, select **File and Storage Services**, and then select **Disks**.
 
-2. In the **Disks** pane, select **1**.
+2.  In the **Disks** pane, select **1**.
 
-3. In the **VOLUMES** pane, select **E**.
+3.  In the **VOLUMES** pane, select **E**.
 
-4. Right-click or access the context menu for **E**, and then select **Configure Data Deduplication**.
+4.  Right-click or access the context menu for **E**, and then select **Configure Data Deduplication**.
 
-5. In the **Allfiles (E:\\) Deduplication Settings** dialog box, in the **Data deduplication** list, select **General purpose file server**.
+5.  In the **Allfiles (E:\\) Deduplication Settings** dialog box, in the **Data deduplication** list, select **General purpose file server**.
 
-6. In the **Deduplicate files older than (in days)** text box, enter **0**.
+6.  In the **Deduplicate files older than (in days)** text box, enter **`0`**.
 
-7. Select **Set Deduplication Schedule**.
+7.  Select **Set Deduplication Schedule**.
 
-8. In the **LON-SVR1** **Deduplication Schedule** dialog box, select the **Enable throughput optimization** checkbox, and then select **OK**.
+8.  In the **LON-SVR1** **Deduplication Schedule** dialog box, select the **Enable throughput optimization** checkbox, and then select **OK**.
 
-9. In the **Allfiles (E:\\) Deduplication Settings** dialog box, select **Add**. 
+9.  In the **Allfiles (E:\\) Deduplication Settings** dialog box, select **Add**. 
 
-10. In the **Select Folder** dialog box, expand **Allfiles (E:)**, select **shares**, and then select **Select Folder**.
+10.  In the **Select Folder** dialog box, expand **Allfiles (E:)**, select **shares**, and then select **Select Folder**.
 
-11. In the **Allfiles (E:\\) Deduplication Settings** dialog box, select **Add**. 
+11.  In the **Allfiles (E:\\) Deduplication Settings** dialog box, select **Add**. 
 
-12. In the **Select Folder** dialog box, expand **Allfiles (E:)**, select **virtualmachines**, and then select **Select Folder**.
+12.  In the **Select Folder** dialog box, expand **Allfiles (E:)**, select **virtualmachines**, and then select **Select Folder**.
 
-13. In the **Allfiles (E:\\) Deduplication Settings** dialog box, select **Add**. 
+13.  In the **Allfiles (E:\\) Deduplication Settings** dialog box, select **Add**. 
 
-14. In the **Select Folder** dialog box, expand **Allfiles (E:)**, select **ISOs**, and then select **Select Folder**.
+14.  In the **Select Folder** dialog box, expand **Allfiles (E:)**, select **ISOs**, and then select **Select Folder**.
 
-15. In the **Allfiles (E:\\) Deduplication Settings** dialog box, select **OK**.
+15.  In the **Allfiles (E:\\) Deduplication Settings** dialog box, select **OK**.
 
-    > You have excluded the **Shares**, **virtualmachines**, and **ISOs** folders from data deduplication.
+> You have excluded the **Shares**, **virtualmachines**, and **ISOs** folders from data deduplication.
 
 ### Task 2: Configure optimization to run now and review the status
 
-1. On **LON-SRV1**, in the **Windows PowerShell ISE** window, enter the following command, and then select Enter:
+1.  On **LON-SRV1**, in the **Windows PowerShell ISE** window, enter the following command, and then select Enter:
 
    ```
-   Start-DedupJob E: -Type Optimization –Memory 50
+Start-DedupJob E: -Type Optimization –Memory 50
    ```
 
-2. Enter the following command, and then select Enter:
+2.  Enter the following command, and then select Enter:
 
    ```
    Get-DedupJob –Volume E:
    ```
 
-   > **Note:** Verify the status of the optimization job from the previous command. To do this, repeat the previous command until the Progress displays as 100 percent. If you get a message that no MSFT_DedupJob objects exist, repeat steps 1 and 2. Step 2 needs to be completed immediately after step 1.
+>Verify the status of the optimization job from the previous command. To do this, repeat the previous command until the Progress displays as 100 percent. If you get a message that no MSFT_DedupJob objects exist, repeat steps 1 and 2. Step 2 needs to be completed immediately after step 1.
 
 ### Task 3: Verify that the file has been optimized
 
-1. On **LON-SVR1**, open **File Explorer**, and then navigate to **E:\\Labfiles\\Mod04**.
+1.  On **LON-SVR1**, open **File Explorer**, and then navigate to **E:\\Labfiles\\Mod04**.
 
-2. Right-click or access the context menu for **ContosoP1AnnualReport.docx**, and then select **Properties**. 
+2.  Right-click or access the context menu for **ContosoP1AnnualReport.docx**, and then select **Properties**. 
 
-3. In the **Properties** window, review the values of **Size** and **Size on disk**, and note any differences.
+3.  In the **Properties** window, review the values of **Size** and **Size on disk**, and note any differences.
 
-4. Repeat steps 2 and 3 for a few more files to verify deduplication.
+4.  Repeat steps 2 and 3 for a few more files to verify deduplication.
 
-5. Switch to **Windows PowerShell ISE**.
+5.  Switch to **Windows PowerShell ISE**.
 
-6. In Windows PowerShell ISE, and at the command prompt, enter the following command, and then select Enter:
+6.  In Windows PowerShell ISE, and at the command prompt, enter the following command, and then select Enter:
 
    ```
-   Get-DedupStatus –Volume E: |fl
+Get-DedupStatus –Volume E: |fl
    ```
 
-7. At the command prompt, enter the following command, and then select Enter:
+7.  At the command prompt, enter the following command, and then select Enter:
 
    ```
    Get-DedupVolume –Volume E: |fl
    ```
 
-   > **Note:** Review the number of optimized files.
+> Review the number of optimized files.
 
-8. In **Server Manager**, in the navigation pane, select **File and Storage Services**, and then select **Disks**.
+8.  In **Server Manager**, in the navigation pane, select **File and Storage Services**, and then select **Disks**.
 
-9. In the **DISKS** pane, select **1**.
+9.  In the **DISKS** pane, select **1**.
 
-10. In the **VOLUMES** pane, select **E**.
+10.  In the **VOLUMES** pane, select **E**.
 
-11. Select **Refresh**, and observe the values for **Deduplication Rate** and **Deduplication Savings**. 
+11.  Select **Refresh**, and observe the values for **Deduplication Rate** and **Deduplication Savings**. 
 
-    > **Note:** Because most of the files on drive **E** are small, you might not notice a significant amount of saved space.
+> Because most of the files on drive **E** are small, you might not notice a significant amount of saved space.
 
 ### Task 4: Verify VM performance again
 
-- In the **Windows PowerShell ISE** window, enter the following command, and then select Enter:
+-  In the **Windows PowerShell ISE** window, enter the following command, and then select Enter:
 
   ```
   Measure-Command -Expression {Get-ChildItem –Path E:\ -Recurse}
   ```
 
-  > **Note:** To assess whether system performance has changed, compare the values returned from the previous command with the value of the same command earlier in the lab.
+> To assess whether system performance has changed, compare the values returned from the previous command with the value of the same command earlier in the lab.
 
 ### Results
 
