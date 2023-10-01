@@ -10,7 +10,6 @@ You must complete the following lab(s) before beginning this lab:
 
 - 0401-Planning and implementing DNS name resolution
 - 0402-Integrating DNS with AD DS
-
 ## Exercise 1: Configuring DNS policies
 
 ### Scenario
@@ -25,103 +24,108 @@ The main tasks for this exercise are:
 
 ### Task 1: Verify DNS name resolution before configuring DNS policies
 
-1. Switch to **LON-DC1**, and if necessary, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+1.  Switch to **LON-DC1**, and if necessary, sign in as **Contoso\\Administrator** with the password of **`Pa55w.rd`**.
 
-2. Open **Server Manager**, select **Tools**, and then select **DNS**.
+2.  Open **Server Manager**, select **Tools**, and then select **DNS**.
 
-3. In the **DNS Manager** console, expand **LON-DC1**, expand **Forward Lookup Zones**, and then select **Contoso.com**.
+3.  In the **DNS Manager** console, expand **LON-DC1**, expand **Forward Lookup Zones**, and then select **Contoso.com**.
 
-4. Right-click **Contoso.com** to open the context menu, and then select **New Alias (CNAME)**.
+4.  Right-click **Contoso.com** to open the context menu, and then select **New Alias (CNAME)**.
 
-5. In the **New Resource Record** window, in the **Alias Name** text box, enter **www**, and in the **Fully qualified domain name (FQDN) for target host** text box, enter **LON-DC1.Contoso.com**, and then select **OK**. 
+5.  In the **New Resource Record** window, in the **Alias Name** text box, enter **`www`**, and in the **Fully qualified domain name (FQDN) for target host** text box, enter **`LON-DC1.Contoso.com`**, and then select **OK**. 
 
-6. Switch to **TOR-SVR1** and if necessary, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+6.  Switch to **TOR-SVR1** and if necessary, sign in as **Contoso\\Administrator** with the password of **`Pa55w.rd`**.
 
-7. On **TOR-SVR1**, right-click **Start**, and then select **Windows PowerShell**.
+7.  On **TOR-SVR1**, click **Start**, and then select **Windows PowerShell ISE**.
 
-8. In the **Windows PowerShell** console, enter the following two commands, and select Enter after each command:
+8.  In the **Windows PowerShell ISE** console, enter the following two commands, and select Enter after each command:
 
    ```
    ipconfig /flushdns
-   
+   ```
+   ```   
    nslookup www.contoso.com
    ```
+9.  Verify that the last command returns the IP address **172.16.0.10**.
 
-9. Verify that the last command returns the IP address **172.16.0.10**.
+10.  Switch to **LON-CL1** and, if necessary, sign in as **Contoso\\Administrator** with the password of **`Pa55w.rd`**.
 
-10. Switch to **LON-CL1** and, if necessary, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+11.  Right-click the **Start** icon to open the context menu, and then select **Windows Terminal (Admin)**.
 
-11. Right-click the **Start** icon to open the context menu, and then select **Windows Terminal (Admin)**.
+12.  In the **Administrator: Windows PowerShell** console, enter the following two commands, and select Enter after each command:
 
-12. In the **Administrator: Windows PowerShell** console, enter the following two commands, and select Enter after each command:
-
-    ```
-    ipconfig /flushdns
-    
-    nslookup www.contoso.com
-    ```
-
-13. Verify that the last command returns the IP address **172.16.0.10**.
-
+   ```
+ipconfig /flushdns
+nslookup www.contoso.com
+   ```
+13.  Verify that the last command returns the IP address **172.16.0.10**.
 
 ### Task 2: Configure DNS policies
 
-1. Switch to **LON-DC1**, right-click **Start** to open the context, and then select **Windows PowerShell**.
+1.  Switch to **LON-DC1**, click **Start**, and then select **Windows PowerShell ISE**.
 
-2. On **LON-DC1**, in the **Windows PowerShell** window, enter the following command, and then select Enter: 
+2.  On **LON-DC1**, in the **Windows PowerShell ISE** command prompt, enter the following command, and then select Enter: 
 
    ```
    Import-Module DnsServer
    ```
 
-   > **Note:** There's a text file on **LON-DC1** in **E:\Labfiles\Mod04** named **ConfigurePolicies.txt** that has all of the following cmdlets that you can copy and paste into Windows PowerShell.
+>Note: There's a text file on **LON-DC1** in **E:\Labfiles\Mod04** named **ConfigurePolicies.txt** that has all of the following cmdlets that you can copy and paste into Windows PowerShell.
 
-3. At the Windows PowerShell command prompt, enter the following cmdlets, and select Enter after each cmdlet:
+3.  At the Windows PowerShell command prompt, enter the following cmdlets, and select Enter after each cmdlet:
 
    ```
    Add-DnsServerClientSubnet -Name "UKSubnet" -IPv4Subnet "172.16.0.0/24"
-   
+   ```
+   ```
    Add-DnsServerClientSubnet -Name "CanadaSubnet" -IPv4Subnet "172.16.18.0/24"
-   
+   ```
+   ```
    Add-DnsServerZoneScope -ZoneName "Contoso.com" -Name "UKZoneScope"
-   
+   ```
+   ```
    Add-DnsServerZoneScope -ZoneName "Contoso.com" -Name "CanadaZoneScope"
-   
+   ```
+   ```
    Add-DnsServerResourceRecord -ZoneName "Contoso.com" -A -Name "www" -IPv4Address "172.16.0.41" -ZoneScope "UKZoneScope"
-   
+   ```
+   ```
    Add-DnsServerResourceRecord -ZoneName "Contoso.com" -A -Name "www" -IPv4Address "172.16.18.17" -ZoneScope "CanadaZoneScope"
-   
+   ```
+   ```
    Add-DnsServerQueryResolutionPolicy -Name "UKPolicy" -Action ALLOW -ClientSubnet "eq,UKSubnet" -ZoneScope "UKZoneScope,1" -ZoneName "Contoso.com"
-   
+   ```
+   ```
    Add-DnsServerQueryResolutionPolicy -Name "CanadaPolicy" -Action ALLOW -ClientSubnet "eq,CanadaSubnet" -ZoneScope "CanadaZoneScope,1" -ZoneName Contoso.com
    ```
 
 ### Task 3: Validate DNS name resolution after configuring DNS policies
 
-1. Switch to **LON-CL1**.
+1.  Switch to **LON-CL1**.
 
-2. In the **Administrator: Command Prompt** window, enter the following two commands, and select Enter after each command:
+2.  In the **Administrator: Windows PowerShell** window, enter the following two commands, and select Enter after each command:
 
    ```
    ipconfig /flushdns
-   
+   ```
+   ```   
    nslookup www.contoso.com
    ```
 
-   > You should get the result **172.16.0.41** because LON-CL1 is in the UKZoneScope.
-   >
+>Note: You should get the result **172.16.0.41** because LON-CL1 is in the UKZoneScope.
 
-3. Switch to **TOR-SVR1**.
+3.  Switch to **TOR-SVR1**.
 
-4. In the **Windows PowerShell** window, enter the cmdlets, and select Enter after each one: 
+4.  In the **Windows PowerShell ISE** window, enter the cmdlets, and select Enter after each one: 
 
    ```
    Ipconfig /flushdns
-   
+   ```
+   ```
    Nslookup www.contoso.com
    ```
 
-   > You should get a result of **172.16.18.17** because TOR-SVR1 is in the CanadaZoneScope.
+>Note: You should get a result of **172.16.18.17** because TOR-SVR1 is in the CanadaZoneScope.
 
 **Results:** After completing this exercise, you'll have configured DNS policies, and then tested that the policies work successfully.
 
@@ -139,64 +143,64 @@ The main tasks for this exercise are:
 
 ### Task 1: Connect the client to the appropriate virtual LAN
 
-1. Switch to the **LON-CL1** virtual machine (VM).
+1.  Switch to the **LON-CL1** virtual machine.
 
-2. If necessary, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+2.  If necessary, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
 
-3. On **LON-CL1**, right-click **Start** to open the context menu, and then select **Windows Terminal**.
+3.  On **LON-CL1**, right-click **Start** to open the context menu, and then select **Windows Terminal**.
 
-4. In the **Windows PowerShell** console, enter the following cmdlet, and then select Enter:
+4.  In the **Windows PowerShell** console, enter the following cmdlet, and then select Enter:
 
    ```
    Get-DnsClientServerAddress
    ```
 
-   > Note that the DNS server address is **172.16.0.10** from the London_Network. This is **LON-DC1**.
+>Note: Note that the DNS server address is **172.16.0.10** from the London_Network. This is **LON-DC1**.
 
-5. On **LON-CL1**, select **Start**, enter **network conn**, and then select **View network Connections**. 
+5.  On **LON-CL1**, select **Start**, enter **network conn**, and then select **View network Connections**. 
 
-   > The **Network Connections** window opens.
+>Note: The **Network Connections** window opens.
 
-6. In the **Network Connections** window, right-click the **London_Network** connection to open the context menu, and then select **Disable**.
+6.  In the **Network Connections** window, right-click the **London_Network** connection to open the context menu, and then select **Disable**.
 
-7. In the **Network Connections** window, right-click the **PAC_WAN** connection to open the context menu, and then select **Enable**. 
+7.  In the **Network Connections** window, right-click the **PAC_WAN** connection to open the context menu, and then select **Enable**. 
 
-   > **Note:** By doing this, you disconnect LON-CL1 from the London network, and then connect it to the PAC_WAN network.
+>Note: By doing this, you disconnect LON-CL1 from the London network, and then connect it to the PAC_WAN network.
 
-8. In the **Network Connections** window, right-click the **PAC_WAN** connection to open the context menu, and then select **Properties**.
+8.  In the **Network Connections** window, right-click the **PAC_WAN** connection to open the context menu, and then select **Properties**.
 
-9. Select **Internet Protocol Version 4 (TCP/IPv4)**, and then select **Properties**.
+9.  Select **Internet Protocol Version 4 (TCP/IPv4)**, and then select **Properties**.
 
-10. Select **Use the following IP address** and then configure the following:
+10.  Select **Use the following IP address** and then configure the following:
 
-    - IP address: **172.16.19.50**
-    - Subnet mask: **255.255.255.0**
-    - Default gateway: **172.16.19.1**
+    - IP address: **`172.16.19.50`**
+    - Subnet mask: **`255.255.255.0`**
+    - Default gateway: **`172.16.19.1`**
 
-11. In the **Preferred DNS server** box, enter **172.16.19.20**, and then select **OK**.
+11.  In the **Preferred DNS server** box, enter **`172.16.19.20`**, and then select **OK**.
 
-12. In the **PAC_WAN Properties** dialog box, select **Close**.
+12.  In the **PAC_WAN Properties** dialog box, select **OK**.
 
 ### Task 2: Use DNS tools to confirm proper client configuration
 
-1. On **LON-CL1**, in Windows PowerShell, enter the following cmdlets, and select Enter after each line:
+1.  On **LON-CL1**, in Windows PowerShell, enter the following cmdlets, and select Enter after each line:
 
    ```
    Clear-DnsClientCache
-   
+   ```
+   ```
    Get-DnsClientServerAddress
    ```
 
-   > Note that the DNS server address assigned to PAC_WAN is **172.16.19.20**. This is **SYD-SVR1**.
-   >
+>Note: Note that the DNS server address assigned to PAC_WAN is **172.16.19.20**. This is **SYD-SVR1**.
 
-2. On **SYD-SVR1**, in **Server Manager**, select **Tools**, and then select **DNS**.
+2.  On **SYD-SVR1**, in **Server Manager**, select **Tools**, and then select **DNS**.
 
-3. In **DNS Manager**, expand **SYD-SVR1**, expand **Forward Lookup Zones**, and then select **Contoso.com**.
+3.  In **DNS Manager**, expand **SYD-SVR1**, expand **Forward Lookup Zones**, and then select **Contoso.com**.
 
-4. In the details pane, examine the **LON-CL1** host record. The IP address should be **172.16.19.50**.
+4.  In the details pane, examine the **LON-CL1** host record. The IP address should be **172.16.19.50**.
 
-5. If the address still appears as **172.16.0.50**, perform the following:
+5.  If the address still appears as **172.16.0.50**, perform the following:
 
    - Switch to **LON-CL1**.
 
@@ -207,33 +211,31 @@ The main tasks for this exercise are:
    - Switch to **SYD-SVR1**. In the console tree, right-click **Contoso.com** to open the context menu, and then select **Refresh**.
 
 
-   > The host record for **LON-CL1** should have an IP address of **172.16.19.50**.
-   >
+>Note: The host record for **LON-CL1** should have an IP address of **172.16.19.50**.
 
-6. In the console tree, right-click **SYD-SVR1** to open the context menu, and then select **Clear Cache**.
+6.  In the console tree, right-click **SYD-SVR1** to open the context menu, and then select **Clear Cache**.
 
 
 ### Task 3: Test DNS name resolution to external and internal hosts
 
-1. On **LON-CL1**, in the **Windows PowerShell** console, enter the following cmdlets, and select Enter after each line:
+1.  On **LON-CL1**, in the **Windows PowerShell** console, enter the following cmdlets, and select Enter after each line:
 
    ```
    Clear-DnsClientCache
-   
+   ```
+   ```
    Nslookup mail.adatum.com
    ```
 
-   > You should get a nonauthoritative reply of **10.10.0.50**.
-   >
+>Note: You should get a nonauthoritative reply of **10.10.0.50**.
 
-2. On **LON-CL1**, in the **Windows PowerShell** console, enter the following cmdlet, and then select Enter:
+2.  On **LON-CL1**, in the **Windows PowerShell** console, enter the following cmdlet, and then select Enter:
 
    ```
    Nslookup treyresearch.net
    ```
 
-   > You should get a reply of **172.16.19.20**.
-   >
+>Note: You should get a reply of **172.16.19.20**.
 
 **Results:** After completing this exercise, you should have validated the DNS infrastructure's implementation.
 
@@ -265,99 +267,99 @@ The main tasks for this exercise are:
 
 ### Task 2: Simulate the problem
 
-1. Switch to **LON-CL1**.
+1.  Switch to **LON-CL1**.
 
-2. From the Taskbar, select **File Explorer**.
+2.  From the Taskbar, select **File Explorer**.
 
-3. In File Explorer, in the address bar, enter **\\\\LON-DC1\\Labfiles\\Mod04**, and then select Enter.
+3.  In File Explorer, in the address bar, enter **`\\LON-DC1\Labfiles\Mod04`**, and then select Enter.
 
-4. In the details pane, right-click **Scenario.vbs** to open the context menu, and then select **Copy**.
+4.  In the details pane, right-click **Scenario.vbs** to open the context menu, and then select **Copy**.
 
-5. In the console tree of **File Explorer**, select the **Documents** folder, and then, in the empty space of the details pane, right-click and open the context menu, and then select **Paste**. 
-6. Run the **Scenario.vbs** script.
-7. Close File Explorer.
+5.  In the console tree of **File Explorer**, select the **Documents** folder, and then, in the empty space of the details pane, right-click and open the context menu, and then select **Paste**. 
+6.  Run the **Scenario.vbs** script.
+7.  Close File Explorer.
 
 ### Task 3: Resolve the problem
 
-1. On **LON-CL1**, while still in **Windows PowerShell**, enter the following command, and then select Enter:
+1.  On **LON-CL1**, while still in **Windows PowerShell**, enter the following command, and then select Enter:
 
    ```
    Get-DnsClientCache
    ```
 
-   > Notice the records that are returned. 
-   >
+>Note: Notice the records that are returned. 
 
-2. At the **Windows PowerShell** command prompt, enter the following command, and then select Enter: 
-
-   ```
-   Clear-DnsClientCache
-   ```
-
-3. At the **Windows PowerShell** command prompt, enter the following command, and then select Enter. Notice that the address returned is the default gateway:
+2.  At the **Windows PowerShell** command prompt, enter the following command, and then select Enter: 
 
    ```
-   test-connection lon-dc1
+Clear-DnsClientCache
    ```
 
-4. At the **Windows PowerShell** command prompt, enter the following command, and then select Enter. Notice that the wrong IP address is returned for **LON-DC1**:
+3.  At the **Windows PowerShell** command prompt, enter the following command, and then select Enter. Notice that the address returned is the default gateway:
 
    ```
-   Get-DnsClientCache | fl
+test-connection lon-dc1
    ```
 
-5. At the **Windows PowerShell** command prompt, enter the following command, and then select Enter. Notice that the correct record is returned from the DNS server:
+4.  At the **Windows PowerShell** command prompt, enter the following command, and then select Enter. Notice that the wrong IP address is returned for **LON-DC1**:
 
    ```
-   nslookup LON-DC1
+Get-DnsClientCache | fl
    ```
 
-6. At the **Windows PowerShell** command prompt, enter the following command, and then select Enter:
+5.  At the **Windows PowerShell** command prompt, enter the following command, and then select Enter. Notice that the correct record is returned from the DNS server:
 
    ```
-   notepad C:\windows\system32\drivers\etc\hosts
+nslookup LON-DC1
    ```
 
-7. Scroll to the end of the file, delete **172.16.0.1 lon-dc1.Contoso.com**, and then select Enter. 
-
-   > Note: Be sure to verify that there aren't other entries listed. If there are, delete the additional entries that refer to lon-dc1.
-
-8. Select **File**, select **Save**, and then close **Notepad**.
-
-9. At the **Windows PowerShell** command prompt, enter the following command, and then select Enter:
+6.  At the **Windows PowerShell** command prompt, enter the following command, and then select Enter:
 
    ```
-   Clear-DnsClientCache
+notepad C:\windows\system32\drivers\etc\hosts
    ```
 
-10. At the **Windows PowerShell** command prompt, enter the following command, and then select Enter:
+7.  Scroll to the end of the file, delete **172.16.0.1 lon-dc1.Contoso.com**, and then select Enter. 
+
+>Note: Be sure to verify that there aren't other entries listed. If there are, delete the additional entries that refer to lon-dc1.
+
+8.  Select **File**, select **Save**, and then close **Notepad**.
+
+9.  At the **Windows PowerShell** command prompt, enter the following command, and then select Enter:
+
+   ```
+Clear-DnsClientCache
+   ```
+
+10.  At the **Windows PowerShell** command prompt, enter the following command, and then select Enter:
 
     ```
-    test-connection lon-dc1
+test-connection lon-dc1
     ```
 
-11. At the **Windows PowerShell** command prompt, enter the following command, and then select Enter. You can now view the correct record for **LON-DC1** in the cache:
+11.  At the **Windows PowerShell** command prompt, enter the following command, and then select Enter. You can now view the correct record for **LON-DC1** in the cache:
 
     ```
-    Get-DnsClientCache | fl
+Get-DnsClientCache | fl
     ```
 
-12. At the **Windows PowerShell** command prompt, enter the following command, and then select Enter. Note that the command runs successfully:
+12.  At the **Windows PowerShell** command prompt, enter the following command, and then select Enter. Note that the command runs successfully:
 
     ```
-    Resolve-Dnsname LON-DC1 | fl
+Resolve-Dnsname LON-DC1 | fl
     ```
 
-13. On the task bar, select **File Explorer**.
+13.  On the task bar, select **File Explorer**.
 
-14. In the **File Explorer** address bar, enter **\\\\LON-DC1\\Labfiles**, and then select Enter. The folder opens.
+14.  In the **File Explorer** address bar, enter **`\\LON-DC1\Labfiles`**, and then select Enter. The folder opens.
 
-15. Close **File Explorer**.
+15.  Close **File Explorer**.
 
-16. Review the **Resolution** with your class:
+16.  Review the **Resolution** with your class:
 
-    > **The client had an incorrect entry in the hosts file. Because this entry is used to populate the DNS resolver cache, the client couldn't resolve the host name LON-DC1.** 
-    >
-    > **Removed the entry, and the client was able to connect to resources.**
+<details>
+<summary>**Answer**</summary>
+The client had an incorrect entry in the hosts file. Because this entry is used to populate the DNS resolver cache, the client couldn't resolve the host name LON-DC1. Removed the entry, and the client was able to connect to resources.
+</details>
 
 **Results:** After completing this exercise, you should have resolved the name-resolution problems successfully.

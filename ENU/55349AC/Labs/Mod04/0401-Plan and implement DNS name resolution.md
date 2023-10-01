@@ -27,7 +27,6 @@ The virtual machines (VMs) used in this lab provide the following services:
 - **LON-DC1** (172.16.0.10). Domain controller and DNS server hosting the Contoso.com namespace.
 - **LON-SVR1** (172.16.0.11). DNS server hosting the Treyresearch.net namespace.
 - **SYD-SVR1** (172.16.19.20). The server that you'll configure with DNS to provide name resolution for Sydney's client computers.
-
 ## Exercise 1: Planning DNS name resolution
 
 ### Scenario
@@ -42,26 +41,40 @@ The main task for this exercise is:
 
 Read the scenario and answer the following:
 
-1. What is the first step in implementing your new DNS plan for the Sydney office?
+1.  What is the first step in implementing your new DNS plan for the Sydney office?
 
+<details>
+<summary>**Answer**</summary>
    > **Answer:** Install the DNS Server role on **SYD-SVR1**.
+</details>
 
-2. How will you configure **SYD-SVR1** to resolve DNS queries for internet-based addresses?
+2.  How will you configure **SYD-SVR1** to resolve DNS queries for internet-based addresses?
 
+<details>
+<summary>**Answer**</summary>
    > **Answer:** Set forwarding to **INET1** (131.107.0.100).
+</details>
 
-3. How will you configure **SYD-SVR1** to resolve DNS queries for the Adatum.com DNS namespace? 
+3.  How will you configure **SYD-SVR1** to resolve DNS queries for the Adatum.com DNS namespace? 
 
+<details>
+<summary>**Answer**</summary>
    > **Answer:** Set conditional forwarding for Adatum.com to **INET1**.
+</details>
 
-4. How will you configure **SYD-SVR1** to resolve queries for the Treyresearch.net DNS namespace? 
+4.  How will you configure **SYD-SVR1** to resolve queries for the Treyresearch.net DNS namespace? 
 
+<details>
+<summary>**Answer**</summary>
    > **Answer:** Create a Secondary zone for TreyResearch.net on **SYD-SVR1**.
+</details>
 
-5. How will you configure **SYD-SVR1** to resolve queries for the Contoso.com domain? 
+5.  How will you configure **SYD-SVR1** to resolve queries for the Contoso.com domain? 
 
+<details>
+<summary>**Answer**</summary>
    > **Answer:** Set conditional forwarding for Contoso.com to **LON-DC1** (172.16.0.10).
-
+</details>
 **Results:** After completing this exercise, you'll have created a plan for implementing DNS name resolution for the Sydney office.
 
 ## Exercise 2: Implementing DNS servers and zones
@@ -96,112 +109,110 @@ The main tasks for this exercise are:
 
 ### Task 1: Install the DNS server role on SYD-SVR1
 
-1. On **SYD‑SVR1**, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
-2. Select **Start**, and then select **Server Manager**.
-3. In **Server Manager**, select **Add roles and features**.
+1.  On **SYD‑SVR1**, sign in as **Contoso\\Administrator** with the password of **`Pa55w.rd`**.
+2.  Select **Start**, and then select **Server Manager**.
+3.  In **Server Manager**, select **Add roles and features**.
 
-4. On the **Before you begin** page, select **Next**.
+4.  On the **Before you begin** page, select **Next**.
 
-5. On the **Select installation type** page, select **Next**.
+5.  On the **Select installation type** page, select **Next**.
 
-6. On the **Select destination server** page, select **Next**.
+6.  On the **Select destination server** page, select **Next**.
 
-7. On the **Select server roles** page, select **DNS Server**.
+7.  On the **Select server roles** page, select **DNS Server**.
 
-8. When the **Add Roles and Features Wizard** displays, select **Add Features**, and then select **Next**.
+8.  When the **Add Roles and Features Wizard** displays, select **Add Features**, and then select **Next**.
 
-9. On the **Select features** page, select **Next**.
+9.  On the **Select features** page, select **Next**.
 
-10. On the **DNS Server** page, select **Next**.
+10.  On the **DNS Server** page, select **Next**.
 
-11. On the **Confirm installation selections** page, select **Install**.
+11.  On the **Confirm installation selections** page, select **Install**.
 
-12. On the **Installation progress** page, when the **Installation succeeded** message appears, select **Close**.
-
+12.  On the **Installation progress** page, when the **Installation succeeded** message appears, select **Close**.
 
 ### Task 2: Configure DNS forwarding to INET1
 
-1. On **SYD-SVR1**, in **Server Manager**, select **Tools**, and then select **DNS**.
+1.  On **SYD-SVR1**, in **Server Manager**, select **Tools**, and then select **DNS**.
 
-2. In **DNS Manager**, expand **SYD-SVR1**, select and right-click **SYD-SVR1** to open the context menu, and then select **Properties**.
+2.  In **DNS Manager**, expand **SYD-SVR1**, select and right-click **SYD-SVR1** to open the context menu, and then select **Properties**.
 
-3. In the **SYD-SVR1 Properties** dialog box, select the **Forwarders** tab.
+3.  In the **SYD-SVR1 Properties** dialog box, select the **Forwarders** tab.
 
-4. On the **Forwarders** tab, select **Edit**. 
-5. In the **Edit Forwarders** window, enter **131.107.0.100**, select Enter, and then select **OK**.
-6. In the **SYD-SVR1 Properties** window, select **OK**.
-
+4.  On the **Forwarders** tab, select **Edit**. 
+5.  In the **Edit Forwarders** window, enter **`131.107.0.100`**, select Enter, and then select **OK**.
+6.  In the **SYD-SVR1 Properties** window, select **OK**.
 
 ### Task 3: Configure DNS conditional forwarding
 
-1. On **SYD-SVR1**, with the **SYD-SVR1** node still expanded in the **DNS Manager** console tree, select **Conditional Forwarders**.
+1.  On **SYD-SVR1**, with the **SYD-SVR1** node still expanded in the **DNS Manager** console tree, select **Conditional Forwarders**.
 
-2. Right-click **Conditional Forwarders**, and then select **New Conditional Forwarder**.
+2.  Right-click **Conditional Forwarders**, and then select **New Conditional Forwarder**.
 
-3. In the **New Conditional Forwarder** window, in the **DNS Domain** text box, enter **Contoso.com**, and then, in the IP Address text area, enter **172.16.0.10**, select Enter, and then select **OK**.
+3.  In the **New Conditional Forwarder** window, in the **DNS Domain** text box, enter **`Contoso.com`**, and then, in the IP Address text area, enter **`172.16.0.10`**, select Enter, and then select **OK**.
 
-   > **Note:** You might see a red **X** icon beside the IP address after you select Enter. This is normal. Continue by selecting **OK** in the window. The red **X** icon will resolve after this. You can return to the **Conditional Forwarder** dialog box, and select **Edit**, which will now show a green **Check Mark** icon in place of the red **X** icon.
+>Note: You might see a red **X** icon beside the IP address after you select Enter. This is normal. Continue by selecting **OK** in the window. The red **X** icon will resolve after this. You can return to the **Conditional Forwarder** dialog box, and select **Edit**, which will now show a green **Check Mark** icon in place of the red **X** icon.
 
-4. Right-click **Conditional Forwarders** to open the context menu, and then select **New Conditional Forwarder**.
+4.  Right-click **Conditional Forwarders** to open the context menu, and then select **New Conditional Forwarder**.
 
-5. In the **New Conditional Forwarder** window, in the **DNS Domain** text box, enter **Adatum.com**, and then, in the IP address text area, enter **131.107.0.100**, select Enter, and then select **OK**.
-
+5.  In the **New Conditional Forwarder** window, in the **DNS Domain** text box, enter **`Adatum.com`**, and then, in the IP address text area, enter **`131.107.0.100`**, select Enter, and then select **OK**.
 
 ### Task 4: Configure secondary zones and zone transfer
 
-1. On **SYD-SVR1**, in the **DNS Manager** console, select and then right-click **Forward Lookup Zones** to open the context menu, and then select **New Zone**.
+1.  On **SYD-SVR1**, in the **DNS Manager** console, select and then right-click **Forward Lookup Zones** to open the context menu, and then select **New Zone**.
 
-2. In the **New Zone Wizard**, select **Next**.
+2.  In the **New Zone Wizard**, select **Next**.
 
-3. On the **Zone Type** page, select **Secondary zone**, and then select **Next**.
+3.  On the **Zone Type** page, select **Secondary zone**, and then select **Next**.
 
-4. On the **Zone Name** page, in the **Zone name** text box, enter **TreyResearch.net**, and then select **Next**.
+4.  On the **Zone Name** page, in the **Zone name** text box, enter **`TreyResearch.net`**, and then select **Next**.
 
-5. On the **Master DNS Servers** page, enter **172.16.0.11**, select Enter, and then select **Next**.
+5.  On the **Master DNS Servers** page, enter **`172.16.0.11`**, select Enter, and then select **Next**.
 
-6. On the **Completing the New Zone Wizard** page, select **Finish**.
+6.  On the **Completing the New Zone Wizard** page, select **Finish**.
 
-7. Switch to **LON-SVR1** and, if necessary, sign in as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+7.  Switch to **LON-SVR1** and, if necessary, sign in as **Contoso\\Administrator** with the password of **`Pa55w.rd`**.
 
-8. Select **Start**, and then select **Server Manager**.
+8.  Select **Start**, and then select **Server Manager**.
 
-9. In **Server Manager**, select **Tools**, and then select **DNS**.
+9.  In **Server Manager**, select **Tools**, and then select **DNS**.
 
-10. In the console tree, select **LON-SVR1**, and then select and expand **Forward Lookup Zones**.
+10.  In the console tree, select **LON-SVR1**, and then select and expand **Forward Lookup Zones**.
 
-11. Select and right-click **TreyResearch.net**, and then select **Properties**.
+11.  Select and right-click **TreyResearch.net**, and then select **Properties**.
 
-12. In the **TreyResearch.net Properties** page, select the **Zone Transfers** tab.
+12.  In the **TreyResearch.net Properties** page, select the **Zone Transfers** tab.
 
-13. Under the **Allow zone transfers** area, select **Only to the following servers**, and then select **Edit**.
+13.  Under the **Allow zone transfers** area, select **Only to the following servers**, and then select **Edit**.
 
-14. In the IP address text area, enter **172.16.19.20**, select Enter, and then select **OK.**
+14.  In the IP address text area, enter **`172.16.19.20`**, select Enter, and then select **OK.**
 
-15. In the **TreyResearch.net Properties** dialog box**,** while still in the **Zone Transfers** tab, select **Notify**.
+15.  In the **TreyResearch.net Properties** dialog box, while still in the **Zone Transfers** tab, select **Notify**.
 
-16. In the **Notify** window, under the **Automatically notify** area, select **The following servers**. In the IP address text area, enter **172.16.19.20**, select Enter, and then select **OK.**
+16.  In the **Notify** window, under the **Automatically notify** area, select **The following servers**. In the IP address text area, enter **`172.16.19.20`**, select Enter, and then select **OK.**
 
-17. In the **TreyResearch.net Properties** page, select **OK**.
+17.  In the **TreyResearch.net Properties** page, select **OK**.
 
-18. Switch to **SYD-SVR1**, and then in the DNS console, in the console tree, select the **TreyResearch.net** zone.
+18.  Switch to **SYD-SVR1**, and then in the DNS console, in the console tree, select the **TreyResearch.net** zone.
 
-19. In the details pane, you should observe the **Start of Authority (SOA)** and **Name Server (NS)** resource records for **LON-SVR1.Contoso.com**.
+19.  In the details pane, you should observe the **Start of Authority (SOA)** and **Name Server (NS)** resource records for **LON-SVR1.Contoso.com**.
 
+>Note: It may take a minute or two for the records to syncronize. 
 
 ### Task 5: Validate zone transfer
 
-1. Switch to **LON-SVR1**, and in the **DNS** console, in the console tree, select the **TreyResearch.net** zone.
+1.  Switch to **LON-SVR1**, and in the **DNS** console, in the console tree, select the **TreyResearch.net** zone.
 
-2. Right-click **TreyResearch.net** to open the context menu, and then select **New Host (A or AAAA).**
+2.  Right-click **TreyResearch.net** to open the context menu, and then select **New Host (A or AAAA).**
 
-3. In the **New Host** window, in the **Name** text box, enter **ATL-SVR1**, and in the **IP address** text box, enter **172.16.18.125**, and then select **Add Host**.
+3.  In the **New Host** window, in the **Name** text box, enter **`ATL-SVR1`**, and in the **IP address** text box, enter **`172.16.18.125`**, and then select **Add Host**.
 
-4. In the **DNS** message window, select **OK**, and then in the **New Host** window, select **Done**.
+4.  In the **DNS** message window, select **OK**, and then in the **New Host** window, select **Done**.
 
-5. Switch to **SYD-SVR1**, and then in the **DNS** console, in the console tree, select the **TreyResearch.net** zone.
+5.  Switch to **SYD-SVR1**, and then in the **DNS** console, in the console tree, select the **TreyResearch.net** zone.
 
-6. Right-click **TreyResearch.net**, and then select **Refresh**. 
+6.  Right-click **TreyResearch.net**, and then select **Refresh**. 
 
-   > In the details pane, you should now observe the **ATL-SVR1** host record, along with the **Start of Authority (SOA)** and **Name Server (NS)** resource records for **LON-SVR1.Contoso.com**.
+>Note: In the details pane, you should now observe the **ATL-SVR1** host record, along with the **Start of Authority (SOA)** and **Name Server (NS)** resource records for **LON-SVR1.Contoso.com**.
 
 **Results:** After completing this exercise, you'll have installed and configured DNS on **SYD‑SVR1**.

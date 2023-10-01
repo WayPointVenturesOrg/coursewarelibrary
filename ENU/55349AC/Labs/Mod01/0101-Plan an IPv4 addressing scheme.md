@@ -47,44 +47,73 @@ The main task for this exercise is:
 
 ### Task 1: Plan the IPv4 implementation
 
-1. How will you determine the number of IP addresses that each location requires? 
+1.  How will you determine the number of IP addresses that each location requires? 
 
+<details>
+<summary>**Answer**</summary>
    > **Answer**: This exercise's key factors are the number of systems per location and the requirements.
+</details>
 
-2. How do laptops with both wired and wireless network adapters affect the number of IP addresses required?
+2.  How do laptops with both wired and wireless network adapters affect the number of IP addresses required?
 
+<details>
+<summary>**Answer**</summary>
    > **Answer**: There is a requirement for all potential wired and wireless clients to have addresses. Having clients that could potentially be either wired or wireless will increase the number of required addresses.
+</details>
 
-3. What is the simplest subnet class to use when planning an IP addressing scheme for each North America branch location?
+3.  What is the simplest subnet class to use when planning an IP addressing scheme for each North America branch location?
 
+<details>
+<summary>**Answer**</summary>
    > **Answer**: The starting point for each location would be to use /24 subnets.
+</details>
 
-4. In the Houston office, what is the number of potential wired and wireless clients?
+4.  In the Houston office, what is the number of potential wired and wireless clients?
 
+<details>
+<summary>**Answer**</summary>
    > **Answer**: There are 400 potential wired clients (300 desktops and 100 laptops) and 150 potential wireless clients (100 laptops and 50 tablets).
+</details>
 
-5. In the Houston office, how many /24 subnets are required for wired connections? How many are required for wireless?
+5.  In the Houston office, how many /24 subnets are required for wired connections? How many are required for wireless?
 
+<details>
+<summary>**Answer**</summary>
    > **Answer**: Two /24 subnets is the minimum required for wired connections (each /24 supports a maximum of 253 clients + 1 gateway). One /24 subnet would suffice for the potential wireless clients.
+</details>
 
-6. In the Mexico City office, what's the number of potential wired and wireless clients?
+6.  In the Mexico City office, what's the number of potential wired and wireless clients?
 
+<details>
+<summary>**Answer**</summary>
    > **Answer**: There are 150 potential wired connections (100 desktops and 50 laptops) and 70 potential wireless connections (70 laptops and 20 tablets).
+</details>
 
-7. In the Mexico City office, how many /24 subnets are required for wired connections? How many for wireless?
+7.  In the Mexico City office, how many /24 subnets are required for wired connections? How many for wireless?
 
+<details>
+<summary>**Answer**</summary>
    > **Answer**: One /24 subnet would be required for the wired connections, and one /24 subnet for the potential wireless connections.
+</details>
 
-8. In the Portland office, what's the number of potential wired and wireless clients?
+8.  In the Portland office, what's the number of potential wired and wireless clients?
 
+<details>
+<summary>**Answer**</summary>
    > **Answer**: There are 175 potential wired connections (100 desktops and 75 laptops) and 225 potential wireless connections (75 laptops and 150 tablets).
+</details>
 
-9. In the Portland office, how many /24 subnets are required for wired connections? How many for wireless?
+9.  In the Portland office, how many /24 subnets are required for wired connections? How many for wireless?
 
+<details>
+<summary>**Answer**</summary>
    > **Answer**: One /24 subnet would be required for the potential wired connections, and one /24 subnet would be required for the potential wireless connections.
+</details>
 
-10. Given the assigned IP range of 172.16.20.0/24 to 172.16.52.0/24 for wired clients, which subnets will you use for the Houston, Mexico City, and Portland offices?
+10.  Given the assigned IP range of 172.16.20.0/24 to 172.16.52.0/24 for wired clients, which subnets will you use for the Houston, Mexico City, and Portland offices?
 
+<details>
+<summary>**Answer**</summary>
     > **Answer**: Answers will vary. One possible option is:
     >
     > Houston:    172.16.30.0/24; 172.16.31.0/24
@@ -92,10 +121,12 @@ The main task for this exercise is:
     > Mexico City: 172.16.35.0/24
     >
     > Portland:   172.16.40.0/24
-    >
+</details>
 
-11. Given the assigned IP range of 172.16.53.0/24 to 172.16.60.0/24 for wireless clients, which subnets will you use for the Houston, Mexico City, and Portland offices?
+11.  Given the assigned IP range of 172.16.53.0/24 to 172.16.60.0/24 for wireless clients, which subnets will you use for the Houston, Mexico City, and Portland offices?
 
+<details>
+<summary>**Answer**</summary>
     > **Answer**: Answers will vary. One possible option is:
     >
     > Houston:    172.16.55.0/24
@@ -103,8 +134,7 @@ The main task for this exercise is:
     > Mexico City: 172.16.56.0/24
     >
     > Portland:   172.16.57.0/24
-    >
-
+</details>
 **Results:** After completing this exercise, you should have planned an IPv4 network.
 
 ## Exercise 2: Verify IPv4 communication
@@ -123,60 +153,58 @@ The main tasks for this exercise are:
 
 ### Task 1: Verify IPv4 traffic
 
-1. Sign in to LON-DC1 as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+1.  Sign in to LON-DC1 as **Contoso\\Administrator** with the password of **`Pa55w.rd`**.
 
-2. On **LON-DC1**, select **Start**, and then select **Windows PowerShell**.
+2.  On **LON-DC1**, select **Start**, and then select **Windows PowerShell ISE**.
 
-3. At the Windows PowerShell command prompt, enter the following command, and then select Enter:
-
-   ```
-   Test-NetConnection 172.16.0.1
-   ```
-
-4. Review the results. The response is from EU-RTR, which is the default gateway for the London_Network.
-
-5. On **LON-DC1**, in the **Windows PowerShell** window, enter the following command, and then select Enter:
+3.  At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
    ```
-   Test-NetConnection -TraceRoute TOR-SVR1.contoso.com
+Test-NetConnection 172.16.0.1
    ```
 
-6. Review the results. The response is from TOR-SVR1, which is the Toronto-based server.
+4.  Review the results. The response is from EU-RTR, which is the default gateway for the London_Network.
+
+5.  On **LON-DC1**, in the **Windows PowerShell ISE** window, enter the following command, and then select Enter:
+
+   ```
+Test-NetConnection -TraceRoute TOR-SVR1.contoso.com
+   ```
+
+6.  Review the results. The response is from TOR-SVR1, which is the Toronto-based server.
 
 
 ### Task 2: Prepare LON-CL1 for troubleshooting
 
-1. Sign in to LON-CL1 as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+1.  Switch to and then sign in to LON-CL1 as **Contoso\\Administrator** with the password of **`Pa55w.rd`**.
 
-2. On **LON‑CL1**, open a **File Explorer** window, and then browse to **\\\\LON-DC1\\Labfiles\\Mod01**.
+2.  On **LON‑CL1**, open **File Explorer**, and then browse to **`\\LON-DC1\Labfiles\Mod01`**.
 
-3. Copy **LON-CL1.ps1** from **\\\\LON-DC1\\Labfiles\\Mod01** to the **LON-CL1** desktop.
+3.  Copy **LON-CL1.ps1** from **\\\\LON-DC1\\Labfiles\\Mod01** to the **LON-CL1** desktop.
 
-   > **Note:** Do not open the file. This script creates the problem that you'll troubleshoot and repair in the next exercise. Opening the file can cause issues with the lab tasks.
+>Do not open the file. This script creates the problem that you'll troubleshoot and repair in the next exercise. Opening the file can cause issues with the lab tasks.
 
-4. Close **File Explorer**.
+4.  Close **File Explorer**.
 
-5. On the desktop, right-click or access the context menu for the **LON-CL1.ps1** file, and then select **Run with PowerShell**.
+5.  On the desktop, right-click or access the context menu for the **LON-CL1.ps1** file, and then select **Run with PowerShell**.
 
-6. If prompted to confirm, enter **y**, and then select Enter.
-
+6.  If prompted to confirm, enter **y**, and then select Enter.
 
 ### Task 3: Prepare LON-CL2 for troubleshooting
 
-1. Sign in to LON-CL2 as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+1.  Switch to and then sign in to LON-CL2 as **Contoso\\Administrator** with the password of **`Pa55w.rd`**.
 
-2. On **LON‑CL2**, open a **File Explorer** window, and then browse to **\\\\LON‑DC1\\Labfiles\\Mod01**.
+2.  On **LON‑CL2**, open **File Explorer**, and then browse to **`\\LON‑DC1\Labfiles\Mod01`**.
 
-3. Copy **LON-CL2.ps1** from **\\\\LON-DC1\\Labfiles\\Mod01** to the **LON-CL2** desktop.
+3.  Copy **LON-CL2.ps1** from **\\\\LON-DC1\\Labfiles\\Mod01** to the **LON-CL2** desktop.
 
-   > **Note:** Do not open the file. This script creates the problem that you'll troubleshoot and repair in the next exercise. Opening the file can cause issues with the lab tasks.
+>Do not open the file. This script creates the problem that you'll troubleshoot and repair in the next exercise. Opening the file can cause issues with the lab tasks.
 
-4. Close **File Explorer**.
+4.  Close **File Explorer**.
 
-5. On the desktop, right-click or access the context menu for the **LON-CL2.ps1** file, and then select **Run with PowerShell**.
+5.  On the desktop, right-click or access the context menu for the **LON-CL2.ps1** file, and then select **Run with PowerShell**.
 
-6. If prompted to confirm, enter **y**, and then select Enter.
-
+6.  If prompted to confirm, enter **y**, and then select Enter.
 
 **Results**: After completing this exercise, you'll have verified that the London computers can communicate with the Toronto server.
 
@@ -199,65 +227,62 @@ The main tasks for this exercise are:
 
 Use your knowledge of IPv4 to troubleshoot and repair the connectivity problem between the London and Toronto networks. Consider using any of the Windows PowerShell tools discussed in this module. To solve the issue: 
 
-1. On **LON‑CL1**, select **Start**, enter **PowerShell**, and then select **Windows PowerShell**. 
+1.  On **LON‑CL1**, select **Start**, enter **PowerShell**, and then select **Windows PowerShell ISE**. 
 
-2. At the Windows PowerShell command prompt, enter the following command, and then select Enter:
+2.  At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
    ```
-   Test-NetConnection LON-DC1
+Test-NetConnection LON-DC1
    ```
 
-3. Verify that the results contain **PingSucceded:False** from **LON-DC1**.
+3.  Verify that the results contain **PingSucceded:False** from **LON-DC1**.
 
-4. To verify the **LON-CL1** IP address, at the Windows PowerShell command prompt, enter the following command, and then select Enter:
+4.  To verify the **LON-CL1** IP address, at the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
    ```
    Get-NetIPAddress
    ```
 
-   > Notice that the IPv4 address for London_Network is 169.254.x.x. This indicates that the client is configured for Dynamic Host Configuration Protocol (DHCP) and hasn't received an address.
-   >
+>Notice that the IPv4 address for London_Network is 169.254.x.x. This indicates that the client is configured for Dynamic Host Configuration Protocol (DHCP) and hasn't received an address.
 
-5. To configure the **LON-CL1** IP address, at the Windows PowerShell command prompt, enter the following command, and then select Enter:
-
-   ```
-   New-NetIPAddress -InterfaceAlias "London_Network" -IPAddress 172.16.0.50 -PrefixLength 24
-   ```
-
-6. To verify that communications have been fixed, at the Windows PowerShell command prompt, enter the following command, and then select Enter:
+5.  To configure the **LON-CL1** IP address, at the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
    ```
-   Test-NetConnection TOR-SVR1
+New-NetIPAddress -InterfaceAlias "London_Network" -IPAddress 172.16.0.50 -PrefixLength 24
    ```
 
-7. Confirm that you receive a reply from **172.16.18.20** that contains **PingSucceded:True**.
+6.  To verify that communications have been fixed, at the Windows PowerShell command prompt, enter the following command, and then select Enter:
+
+   ```
+Test-NetConnection TOR-SVR1
+   ```
+
+7.  Confirm that you receive a reply from **172.16.18.20** that contains **PingSucceded:True**.
 
 
 ### Task 2: Troubleshoot IPv4 connectivity between LON-CL2 and the Toronto server
 
 Use your knowledge of IPv4 to troubleshoot and repair the connectivity problem between the London and Toronto networks. Consider using any of the Windows PowerShell tools discussed in this module. To solve this issue: 
 
-1. On **LON‑CL2**, open a **Windows PowerShell** window.
+1.  On **LON‑CL2**, open a **Windows PowerShell ISE** window.
 
-2. At the Windows PowerShell command prompt, enter the following command, and then select Enter:
+2.  At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
    ```
    Test-NetConnection LON-DC1
    ```
 
-   > Confirm that the **LON-DC1** server is reachable by verifying that you receive a reply from **172.16.0.10** that contains **PingSucceded:True**.
-   >
+>Confirm that the **LON-DC1** server is reachable by verifying that you receive a reply from **172.16.0.10** that contains **PingSucceded:True**.
 
-3. At the Windows PowerShell command prompt, enter the following command, and then select Enter:
+3.  At the Windows PowerShell command prompt, enter the following command, and then select Enter:
 
    ```
    Test-NetConnection TOR-SVR1
    ```
 
-   > Verify that the results contain **PingSucceded:False** from **TOR-SVR1**. Also, note the yellow message: **WARNING: Ping to 172.16.18.20  failed with status: DestinationHostUnreachable**.
-   >
+>Verify that the results contain **PingSucceded:False** from **TOR-SVR1**. Also, note the yellow message: **WARNING: Ping to 172.16.18.20  failed with status: DestinationHostUnreachable**.
 
-4. Complete the following to verify the router's default gateway is accessible.
+4.  Complete the following to verify the router's default gateway is accessible.
 
    At the Windows PowerShell command prompt, enter the following command, and then select Enter:
 
@@ -265,9 +290,9 @@ Use your knowledge of IPv4 to troubleshoot and repair the connectivity problem b
    Test-NetConnection 172.16.0.1
    ```
 
-   > Confirm that the router is reachable by verifying that you receive a reply from **172.16.0.1** that contains **PingSucceded:True**.
+>Confirm that the router is reachable by verifying that you receive a reply from **172.16.0.1** that contains **PingSucceded:True**.
 
-5. Complete the following to verify that the traffic is being routed correctly.
+5.  Complete the following to verify that the traffic is being routed correctly.
 
    At the Windows PowerShell prompt, enter the following command, and then select Enter:
 
@@ -275,9 +300,9 @@ Use your knowledge of IPv4 to troubleshoot and repair the connectivity problem b
    Test-NetConnection -TraceRoute 172.16.18.20
    ```
 
-   > Notice that none of the TraceRoute packets left the 172.16.0.51 interface.
+>Notice that none of the TraceRoute packets left the 172.16.0.51 interface.
 
-6. Complete the following to verify the IP Configuration.
+6.  Complete the following to verify the IP Configuration.
 
    At the Windows PowerShell command prompt, enter the following command, and then select Enter:
 
@@ -285,25 +310,25 @@ Use your knowledge of IPv4 to troubleshoot and repair the connectivity problem b
    Get-NetIpConfiguration
    ```
 
-   > Notice that the IPv4DefaultGateway is set incorrectly to 172.16.0.2.
+>Notice that the IPv4DefaultGateway is set incorrectly to 172.16.0.2.
 
-7. Fix the IPv4DefaultGateway by running the following commands, selecting Enter at the end of each line:
+7.  Fix the IPv4DefaultGateway by running the following commands, selecting Enter at the end of each line:
 
    ```
-   Remove-NetIPAddress -InterfaceAlias "London_Network" -IPAddress 172.16.0.51 -PrefixLength 24 -DefaultGateway 172.16.0.2 -Confirm:$false
-   
-   New-NetIPAddress -InterfaceAlias "London_Network" -IPAddress 172.16.0.51 -PrefixLength 24 -DefaultGateway 172.16.0.1 -Confirm:$false
+Remove-NetIPAddress -InterfaceAlias "London_Network" -IPAddress 172.16.0.51 -PrefixLength 24 -DefaultGateway 172.16.0.2 -Confirm:$false
+   ```
+   ```   
+New-NetIPAddress -InterfaceAlias "London_Network" -IPAddress 172.16.0.51 -PrefixLength 24 -DefaultGateway 172.16.0.1 -Confirm:$false
    ```
 
-8. Complete the following to verify the communications have been fixed.
+8.  Complete the following to verify the communications have been fixed.
 
    At the Windows PowerShell prompt, enter the following command, and then select Enter: 
 
    ```
-   Test-NetConnection TOR-SVR1
+Test-NetConnection TOR-SVR1
    ```
 
-9. Confirm that the **TOR-SVR1** server is reachable by verifying that you receive a reply from **172.16.18.20** that contains **PingSucceded:True**.
-
+9.  Confirm that the **TOR-SVR1** server is reachable by verifying that you receive a reply from **172.16.18.20** that contains **PingSucceded:True**.
 
 **Results**: After completing this lab, you should have resolved all IPv4 connectivity issues.
