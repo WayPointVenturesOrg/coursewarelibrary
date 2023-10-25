@@ -4,7 +4,7 @@ lab:
     module: 'Module 4: File servers and storage management in Windows Server'
 ---
 
-# Lab: Configure iSCSI storage
+# Lab B: Configure iSCSI storage
 
 ## Scenario
 
@@ -27,58 +27,62 @@ You plan to install the **iSCSI Target server** role service on **LON-SVR3** by 
 
 The main task for this exercise is:
 
-1. Install the **iSCSI Target Server** role.
+- Install the **iSCSI Target Server** role.
 
 ### Task 1: Install the iSCSI Target Server role
 
-1. Sign in to **LON-ADM1** as **Contoso\\Administrator** with the password **Pa55w.rd**.
+1. Sign in to **LON-ADM1** as **`Contoso\Administrator`** with the password **`Pa55w.rd`**.
 
 2. Select **Start**, and then select **Windows PowerShell (ISE)**.
 
 3. In the **Administrator: Windows PowerShell ISE** window, enter the following command, and then select Enter:
 
-     ```
-     Invoke-Command -ComputerName LON-SVR3 -ScriptBlock {Install-WindowsFeature –Name FS-iSCSITarget-Server –IncludeManagementTools}
-     ```
+   ```
+Invoke-Command -ComputerName LON-SVR3 -ScriptBlock {Install-WindowsFeature –Name FS-iSCSITarget-Server –IncludeManagementTools}
+   ```
 
 4. Enter the following command, and then select Enter:
 
-     ```
-     Enter-PSSession -ComputerName LON-SVR3 -Credential "Contoso\Administrator"
-     ```
+   ```
+Enter-PSSession -ComputerName LON-SVR3 -Credential "Contoso\Administrator"
+   ```
 
-5. In the **Windows PowerShell credential request** pop-up window, in the **Password** text box, enter **Pa55w.rd**, and then select **OK**.
+5. In the **Windows PowerShell credential request** pop-up window, in the **Password** text box, enter **`Pa55w.rd`**, and then select **OK**.
 
 6. In the **Administrator: Windows PowerShell ISE** window, enter the following commands, selecting Enter at the end of each line:
 
-   > **Note:** In the following command, drive letter  `_Y_` is placeholder text only. The drive letter to use will be returned to you in the second command's results.
-
    ```
    Get-Disk
+   ```
+   ```
    Initialize-Disk -Number 2
+   ```
+   ```
    New-Partition -DiskNumber 2 -UseMaximumSize -AssignDriveLetter
-   Format-Volume -DriveLetter _Y_ -FileSystem ReFS
+   ```
+>Note: In the following command, drive letter **Y** is placeholder text only. The drive letter to use will be returned to you in the previous command's results.
+
+   ```
+Format-Volume -DriveLetter Y -FileSystem ReFS
    ```
 
 7. Repeat step 6 for disk 3, replacing 2 with the number 3.
 
 8. In the **Administrator: Windows PowerShell ISE** window, enter the following commands, selecting Enter at the end of each line:
 
-     ```
-     New-NetFirewallRule -DisplayName "iSCSITargetIn" -Profile "Any" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 3260
-     ```
+   ```
+New-NetFirewallRule -DisplayName "iSCSITargetIn" -Profile "Any" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 3260
+   ```
 
-     ```
-     New-NetFirewallRule -DisplayName "iSCSITargetOut" -Profile "Any" -Direction Outbound -Action Allow -Protocol TCP -LocalPort 3260
-     ```
-
-     > **Note:** Word wrap is used to display the previous command. However, don't use word wrap when entering the command in Windows PowerShell.
+   ```
+New-NetFirewallRule -DisplayName "iSCSITargetOut" -Profile "Any" -Direction Outbound -Action Allow -Protocol TCP -LocalPort 3260
+   ```
 
 9. In the **Administrator: Windows PowerShell** window, enter the following command, and then select Enter:
 
-     ```
-     Exit-PSSEssion
-     ```
+   ```
+   Exit-PSSEssion
+   ```
 
 **Results:** After this exercise, you'll have successfully installed the **iSCSI Target Server** role, and configured disks and firewall rules to support iSCSI.
 
@@ -99,7 +103,7 @@ The main tasks for this exercise are:
 
 2. In Server Manager, in the console tree, select **File and Storage Services**, select **Disks**, and then scroll down to the **LON-SVR3** server. 
 
-   > Note that disks **2** and **3** are **Online**. These are the disks you initialized earlier in the lab.
+>Note: Note that disks **2** and **3** are **Online**. These are the disks you initialized earlier in the lab.
 
 3. Select Disk number **2**, and then verify the volume-drive letter. It should indicate **Drive E**.
 
@@ -111,19 +115,19 @@ The main tasks for this exercise are:
 
 7. In the **New iSCSI Virtual Disk Wizard**, on the **Select iSCSI virtual disk location** page, under the **LON-SVR3** server, select the **E:** volume, and then select **Next**.
 
-8. In the **Specify iSCSI virtual disk name** page, in the **Name** text box, enter **iSCSIDisk1**, and then select **Next**.
+8. In the **Specify iSCSI virtual disk name** page, in the **Name** text box, enter **`iSCSIDisk1`**, and then select **Next**.
 
-9. On the **Specify iSCSI virtual disk size** page, in the **Size** text box, enter **5**. Leave all other settings as they are, and then select **Next**.
+9. On the **Specify iSCSI virtual disk size** page, in the **Size** text box, enter **`5`**. Leave all other settings as they are, and then select **Next**.
 
 10. On the **Assign iSCSI target** page, ensure the **New iSCSI target** radio button is selected, and then select **Next**.
 
-11. In the **Specify target name** page, in the **Name** field, enter **iSCSIFarm**, and then select **Next**.
+11. In the **Specify target name** page, in the **Name** field, enter **`iSCSIFarm`**, and then select **Next**.
 
 12. In the **Specify access servers** page, select the **Add** button.
 
 13. In the **Select a method to identify the initiator** window, next to **Query initiator computer for ID**, select the **Browse** button.
 
-14. In the **Select Computer** window, in the **Enter the object name to select** text box, enter **LON-DC1**, select **Check Names**, and then select **OK**.
+14. In the **Select Computer** window, in the **Enter the object name to select** text box, enter **`LON-DC1`**, select **Check Names**, and then select **OK**.
 
 15. In the **Select a method to identify the initiator** window, select **OK**.
 
@@ -138,27 +142,24 @@ The main tasks for this exercise are:
 20. Create the second iSCSI virtual disk (F:), by repeating steps 6 through 10 and then steps 18 and 19, using the following settings:
 
      - Storage Location: **F:**
-     - Name: **iSCSIDisk2**
+     - Name: **`iSCSIDisk2`**
      - Disk size: **5 GB**, **Dynamically Expanding**
      - iSCSI target: **iSCSIFarm**
 
-21. Switch to **LON-DC1**, and then sign in as **Contoso\\Administrator** with the password **Pa55w.rd**.
+21. Switch to **LON-DC1**, and then sign in as **`Contoso\Administrator`** with the password **`Pa55w.rd`**.
 
 22. Select **Start**, and then select **Windows PowerShell ISE**.
 
 23. In the **Windows PowerShell ISE** window, enter the following commands, selecting **Enter** after each command:
 
-     ```
-     Start-Service msiscsi
-     ```
+```
+Start-Service msiscsi
+iscsicpl
+```
 
-     ```
-     iscsicpl
-     ```
+>Note: The **iscsicpl** command opens the **iSCSI Initiator Properties** dialog box.
 
-    > **Note:** The **iscsicpl** command opens the **iSCSI Initiator Properties** dialog box.
-
-24. In the **iSCSI Initiator Properties** dialog box, on the **Targets** tab, in the **Target** text box, enter **LON-SVR3**, and then select **Quick Connect**.
+24. In the **iSCSI Initiator Properties** dialog box, on the **Targets** tab, in the **Target** text box, enter **`LON-SVR3`**, and then select **Quick Connect**.
 
 25. In the **Quick Connect** dialog box, note that the discovered target name is **iqn.1991-05.com.microsoft:lon-svr3-iscscifarm-target**, and then select **Done**.
 
@@ -170,7 +171,7 @@ The main tasks for this exercise are:
 
 2. In **Server Manager**, select **File and Storage Services**, and then select **Disks**. In the **Tasks** drop-down list box, select **Refresh**.
 
-     > Notice the two new **5 GB** disks on the **LON-DC1** server that are offline and that the **Bus Type** is **iSCSI**.
+>Note: Notice the two new **5 GB** disks on the **LON-DC1** server that are offline and that the **Bus Type** is **iSCSI**.
 
 3. Switch back to **LON-DC1**.
 
@@ -180,21 +181,21 @@ The main tasks for this exercise are:
    Get-Disk
    ```
 
-   > **Note:** Both disks are present and healthy, but offline. To use them, you need to initialize and format them on **LON-DC1**.
+>Note: Both disks are present and healthy, but offline. To use them, you need to initialize and format them on **LON-DC1**.
 
 5. In the **Windows PowerShell ISE** window, enter the following commands, selecting Enter after each command:
 
-     ```
-     Initialize-Disk -Number 1
-     ```
+   ```
+Initialize-Disk -Number 1
+   ```
 
-     ```
-     New-Partition -DiskNumber 1 -UseMaximumSize -DriveLetter E
-     ```
+   ```
+New-Partition -DiskNumber 1 -UseMaximumSize -DriveLetter E
+   ```
 
-     ```
-     Format-Volume -DriveLetter E -FileSystem ReFS
-     ```
+   ```
+Format-Volume -DriveLetter E -FileSystem ReFS
+   ```
 
 6. Repeat step 5, using disk number **2** and disk letter **F**.
 
