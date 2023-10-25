@@ -31,156 +31,162 @@ As a part of business restructuring, Contoso wants to deploy new DCs in remote s
 The main tasks for this exercise are as follows:
 
 1. Deploy AD DS on a new Windows Server Core server.
-1. Manage objects in AD DS.
+2. Manage objects in AD DS.
 
 ### Task 1: Deploy AD DS on a new Windows Server Core server
 
-1. Sign in to **LON-ADM1** as **Contoso\\Administrator** with the password of **Pa55w.rd**.
+1. Sign in to **LON-ADM1** as **`Contoso\Administrator`** with the password of **`Pa55w.rd`**.
 
-1. Select **Start**, and then select **Windows PowerShell ISE**.
+2. Select **Start**, and then select **Windows PowerShell ISE**.
 
-1. At the command prompt in the Windows PowerShell command-line interface, enter the following command, and then select Enter:
+3. At the command prompt in the Windows PowerShell command-line interface, enter the following command, and then select Enter:
 
-    ```powershell
-    Install-WindowsFeature –Name AD-Domain-Services –ComputerName LON-SVR1
-    ```
-
-    > The Active Directory Domain Services role installs on **LON-SVR1**. Wait until the installation completes.
-
-1. Enter the following command to verify that the AD DS role is installed on **LON-SVR1**, and then select Enter:
-
-   ```PowerShell
-   Get-WindowsFeature –ComputerName LON-SVR1
+   ```powershell-notab
+   Install-WindowsFeature –Name AD-Domain-Services –ComputerName LON-SVR1
    ```
 
-1. In the output of the previous command, search for **Active Directory Domain Services**. Verify that this checkbox is selected. Search for **Remote Server Administration Tools**. Notice the **Role Administration Tools** node after it, and then notice the **AD DS and AD LDS Tools** node.
+>Note: The Active Directory Domain Services role installs on **LON-SVR1**. Wait until the installation completes.
 
-   > **Note**: Under the **AD DS and AD LDS Tools** node, only **Active Directory module for Windows PowerShell** has been installed and not the graphical tools, such as the Active Directory Administrative Center. If you centrally manage your servers, you won't usually need these on each server. If you want to install them, you must specify the AD DS tools by running the **Add-WindowsFeature** cmdlet with the **RSAT-ADDS** command name.
+4. Enter the following command to verify that the AD DS role is installed on **LON-SVR1**, and then select Enter:
 
-   > **Note**: You might need to wait a brief time after the installation process completes before verifying that the AD DS role has installed. If you don't observe the expected results from the **Get-WindowsFeature** command, you can try again after a few minutes.
+   ```PowerShell-notab
+Get-WindowsFeature –ComputerName LON-SVR1
+   ```
 
-1. Select **Start**, and then select **Server Manager**.
+5. In the output of the previous command, search for **Active Directory Domain Services**. Verify that this checkbox is selected. Search for **Remote Server Administration Tools**. Notice the **Role Administration Tools** node after it, and then notice the **AD DS and AD LDS Tools** node.
 
-1. On **LON-ADM1**, in **Server Manager**, select the **All Servers** view.
+>Note: Under the **AD DS and AD LDS Tools** node, only **Active Directory module for Windows PowerShell** has been installed and not the graphical tools, such as the Active Directory Administrative Center. If you centrally manage your servers, you won't usually need these on each server. If you want to install them, you must specify the AD DS tools by running the **Add-WindowsFeature** cmdlet with the **RSAT-ADDS** command name.
 
-     > Notice that **LON-SVR1** has been added as a managed server to **LON-ADM1**. This server was added as part of the lab setup for this course. 
+>Note: You might need to wait a brief time after the installation process completes before verifying that the AD DS role has installed. If you don't observe the expected results from the **Get-WindowsFeature** command, you can try again after a few minutes.
 
-1. Select the **Notifications** flag symbol.
+6. Select **Start**, and then select **Server Manager**.
 
-1. Note the post-deployment configuration of **LON-SVR1**, and then select the **Promote this server to a domain controller** link.
+7. On **LON-ADM1**, in **Server Manager**, select the **All Servers** view.
 
-1. In the **Active Directory Domain Services Configuration Wizard**, on the **Deployment Configuration** page, under **Select the deployment operation**, verify that **Add a domain controller to an existing domain** is selected.
+>Note: Notice that **LON-SVR1** has been added as a managed server to **LON-ADM1**. This server was added as part of the lab setup for this course. 
 
-1. Ensure that the ```Contoso.com``` domain is specified, and then in the **Supply the credentials to perform this operation** section, select **Change**.
+8. Select the **Notifications** flag symbol.
 
-1. In the **Credentials for deployment operation** dialog box, in the **User name** box, enter **Contoso\\Administrator**, and then in the **Password** box, enter **Pa55w.rd**.
+9. Note the post-deployment configuration of **LON-SVR1**, and then select the **Promote this server to a domain controller** link.
 
-1. Select **OK**, and then select **Next**.
+10. In the **Active Directory Domain Services Configuration Wizard**, on the **Deployment Configuration** page, under **Select the deployment operation**, verify that **Add a domain controller to an existing domain** is selected.
 
-1. On the **Domain Controller Options** page, verify that the **Domain Name System (DNS) server** and **Global Catalog (GC)** checkboxes are selected. Ensure that the **Read-only domain controller (RODC)** checkbox is cleared.
+11. Ensure that the **Contoso.com** domain is specified, and then in the **Supply the credentials to perform this operation** section, select **Change**.
 
-1. In the **Type the Directory Services Restore Mode (DSRM) password** section, enter and confirm the password of **Pa55w.rd**, and then select **Next**.
+12. In the **Credentials for deployment operation** dialog box, in the **User name** box, enter **`Contoso\Administrator`**, and then in the **Password** box, enter **`Pa55w.rd`**.
 
-1. On the **DNS Options** page, select **Next**.
+13. Select **OK**, and then select **Next**.
 
-1. On the **Additional Options** page, select **Next**.
+14. On the **Domain Controller Options** page, verify that the **Domain Name System (DNS) server** and **Global Catalog (GC)** checkboxes are selected. Ensure that the **Read-only domain controller (RODC)** checkbox is cleared.
 
-1. On the **Paths** page, keep the default path settings for the **Database** folder, **Log files** folder, and **SYSVOL** folder, and then select **Next**.
+15. In the **Type the Directory Services Restore Mode (DSRM) password** section, enter and confirm the password of **`Pa55w.rd`**, and then select **Next**.
 
-1. On the **Review Options** page, select **View script** to open the generated Windows PowerShell script.
+16. On the **DNS Options** page, select **Next**.
 
-1. In Notepad, edit the generated Windows PowerShell script:
+17. On the **Additional Options** page, select **Next**.
 
-      - Delete the comment lines that begin with the number sign (**#**).
-      - Remove the **Import-Module** line.
-      - Remove the grave accents (**`**) at the end of each line.
-      - Remove the line breaks.
+18. On the **Paths** page, keep the default path settings for the **Database** folder, **Log files** folder, and **SYSVOL** folder, and then select **Next**.
 
-1. Now the **Install-ADDSDomainController** command and all the parameters are on one line. Place the cursor in front of the line, and then, on the menu, select **Select All** to select the whole line. On the menu, select **Edit**, and then select **Copy**.
+19. On the **Review Options** page, select **View script** to open the generated Windows PowerShell script.
 
-1. Switch to the **Active Directory Domain Services Configuration Wizard**, and then select **Cancel**.
+20. In Notepad, edit the generated Windows PowerShell script:
 
-1. When prompted for confirmation, select **Yes** to cancel the wizard.
+   - Delete the comment lines that begin with the number sign (**#**).
+   - Remove the **Import-Module** line.
+   - Remove the grave accents (**`**) at the end of each line.
+   - Remove the line breaks.
 
-1. Switch to the **Windows PowerShell ISE** window.
+21. Now the **Install-ADDSDomainController** command and all the parameters are on one line. Place the cursor in front of the line, and then, on the menu, select **Select All** to select the whole line. On the menu, select **Edit**, and then select **Copy**.
 
-1. At the Windows PowerShell command prompt, enter the following command:
+22. Switch to the **Active Directory Domain Services Configuration Wizard**, and then select **Cancel**.
 
-     ```PowerShell
-     Invoke-Command –ComputerName LON-SVR1 { }
-     ```
+23. When prompted for confirmation, select **Yes** to cancel the wizard.
 
-1. Place the cursor between the braces (**{ }**), and then paste the content of the copied script line from the clipboard. The whole line should now be as follows:
+24. Switch to the **Windows PowerShell ISE** window.
 
-     ```PowerShell
-     Invoke-Command –ComputerName LON-SVR1 {Install-ADDSDomainController -NoGlobalCatalog:\$false -CreateDnsDelegation:\$false -Credential (Get-Credential) -CriticalReplicationOnly:\$false -DatabasePath "C:\Windows\NTDS" -DomainName "Contoso.com" -InstallDns:\$true -LogPath "C:\Windows\NTDS" -NoRebootOnCompletion:\$false -SiteName "Default-First-Site-Name" -SysvolPath "C:\Windows\SYSVOL" -Force:\$true}
-     ```
+25. At the Windows PowerShell command prompt, enter the following command:
 
-1. Select Enter to start the command.
+   ```PowerShell-notab
+Invoke-Command –ComputerName LON-SVR1 { }
+   ```
 
-1. In the **Windows PowerShell Credential Request** dialog box, enter **Contoso\\Administrator** in the **User name** box, enter **Pa55w.rd** in the **Password** box, and then select **OK**.
+26. Place the cursor between the braces (**{ }**), and then paste the content of the copied script line from the clipboard. The whole line should now be as follows:
 
-1. When prompted for the password, in the **SafeModeAdministratorPassword** text box, enter **Pa55w.rd**, and then select Enter.
+   ```PowerShell-notab
+Invoke-Command –ComputerName LON-SVR1 {Install-ADDSDomainController -NoGlobalCatalog:\$false -CreateDnsDelegation:\$false -Credential (Get-Credential) -CriticalReplicationOnly:\$false -DatabasePath "C:\Windows\NTDS" -DomainName "Contoso.com" -InstallDns:\$true -LogPath "C:\Windows\NTDS" -NoRebootOnCompletion:\$false -SiteName "Default-First-Site-Name" -SysvolPath "C:\Windows\SYSVOL" -Force:\$true}
+   ```
 
-1. When prompted for confirmation, in the **Confirm SafeModeAdministratorPassword** text box, enter **Pa55w.rd**, and then select Enter.
+27. Select Enter to start the command.
 
-      > Wait until the command runs and the **Status Success** message is returned. The **LON-SVR1** virtual machine restarts.
+28. In the **Windows PowerShell Credential Request** dialog box, enter **`Contoso\Administrator`** in the **User name** box, enter **`Pa55w.rd`** in the **Password** box, and then select **OK**.
 
-1. Close Notepad without saving the file.
+29. When prompted for the password, in the **SafeModeAdministratorPassword** text box, enter **`Pa55w.rd`**, and then select Enter.
 
-1. After **LON-SVR1** restarts, on **LON-ADM1**, switch to **Server Manager**, and on the left side, select the **AD DS** node, and then select the **Refresh** button.
+30. When prompted for confirmation, in the **Confirm SafeModeAdministratorPassword** text box, enter **`Pa55w.rd`**, and then select Enter.
 
-      > Note that **LON-SVR1** has been added as a server and that the warning notification has disappeared.
+>Note: Wait until the command runs and the **Status Success** message is returned. The **LON-SVR1** virtual machine restarts.
+
+31. Close Notepad without saving the file.
+
+32. After **LON-SVR1** restarts, on **LON-ADM1**, switch to **Server Manager**, and on the left side, select the **AD DS** node, and then select the **Refresh** button.
+
+>Note: Note that **LON-SVR1** has been added as a server and that the warning notification has disappeared.
 
 ## Task 2: Manage objects in AD DS
 
 1. On **LON-ADM1**, switch to **Windows PowerShell ISE**.
-1. Create an organizational unit (OU) named **Seattle** in the domain by running the following command:
 
-   ```powershell
-   New-ADOrganizationalUnit -Name:"Seattle" -Path:"DC=Contoso,DC=com" -ProtectedFromAccidentalDeletion:$true -Server:"LON-DC1.Contoso.com"
+2. Create an organizational unit (OU) named **Seattle** in the domain by running the following command:
+
+   ```powershell-notab
+New-ADOrganizationalUnit -Name:"Seattle" -Path:"DC=Contoso,DC=com" -ProtectedFromAccidentalDeletion:$true -Server:"LON-DC1.Contoso.com"
    ```
 
-1. Create a user account for **Ty Carlson** in the **Seattle** OU by running the following command:
+3. Create a user account for **Ty Carlson** in the **Seattle** OU by running the following command:
 
-   ```powershell
-   New-ADUser -Name Ty -DisplayName "Ty Carlson" -GivenName Ty -Surname Carlson -Path "ou=Seattle,dc=contoso,dc=com"
+   ```powershell-notab
+New-ADUser -Name Ty -DisplayName "Ty Carlson" -GivenName Ty -Surname Carlson -Path "ou=Seattle,dc=contoso,dc=com"
    ```
 
-1. Set the password for the account by running the following command:
+4. Set the password for the account by running the following command:
 
-   ```powershell
-   Set-ADAccountPassword Ty
+   ```powershell-notab
+Set-ADAccountPassword Ty
    ```
 
-1. When you receive a prompt for the current password, select Enter.
-1. When you receive a prompt for the desired password, enter **Pa55w.rd**, and then select Enter.
-1. When you receive a prompt to repeat the password, enter **Pa55w.rd**, and then select Enter.
-1. To enable the account, run the following command:
+5. When you receive a prompt for the current password, select Enter.
 
-   ```powershell
-   Enable-ADAccount Ty
+6. When you receive a prompt for the desired password, enter **`Pa55w.rd`**, and then select Enter.
+
+7. When you receive a prompt to repeat the password, enter **`Pa55w.rd`**, and then select Enter.
+
+8. To enable the account, run the following command:
+
+   ```powershell-notab
+Enable-ADAccount Ty
    ```
 
-1. Test the account by switching to **LON-CL1**, and then sign in as **Ty** with the password of **Pa55w.rd**.
-1. After a successful sign-in, sign out of **LON-CL1**.
-1. On **LON-ADM1**, in the **Administrator: Windows PowerShell ISE** window, run the following command:
+9. Test the account by switching to **LON-CL1**, and then sign in as **`Ty`** with the password of **`Pa55w.rd`**.
 
-    ```powershell
-    New-ADGroup SeattleBranchUsers -Path "ou=Seattle,dc=contoso,dc=com" -GroupScope Global -GroupCategory Security
-    ```
+10. After a successful sign-in, sign out of **LON-CL1**.
 
-1. In the **Administrator: Windows PowerShell ISE** window, run the following command:
+11. Switch to **LON-ADM1**, and then in the **Administrator: Windows PowerShell ISE** window, run the following command:
 
-    ```powershell
-    Add-ADGroupMember SeattleBranchUsers -Members Ty
-    ```
+   ```powershell-notab
+New-ADGroup SeattleBranchUsers -Path "ou=Seattle,dc=contoso,dc=com" -GroupScope Global -GroupCategory Security
+   ```
 
-1. Confirm that the user is in the group by running the following command:
+12. In the **Administrator: Windows PowerShell ISE** window, run the following command:
 
-    ```powershell
-    Get-ADGroupMember SeattleBranchUsers
-    ```
+   ```powershell-notab
+Add-ADGroupMember SeattleBranchUsers -Members Ty
+   ```
+
+13. Confirm that the user is in the group by running the following command:
+
+   ```powershell-notab
+Get-ADGroupMember SeattleBranchUsers
+   ```
 
 **Results**: After this exercise, you should have successfully created a new domain controller and managed objects in AD DS.
 
@@ -193,20 +199,20 @@ You need to create a GPO named **CONTOSO Standards**. This GPO will provide a do
 The main tasks for this exercise are as follows:
 
 1. Create and edit a GPO.
-1. Link the GPO.
-1. Review the effects of the GPO’s settings.
-1. Create and link the required GPOs.
-1. Verify the order of precedence.
-1. Configure the scope of a GPO with security filtering.
-1. Verify the application of settings.
+2. Link the GPO.
+3. Review the effects of the GPO’s settings.
+4. Create and link the required GPOs.
+5. Verify the order of precedence.
+6. Configure the scope of a GPO with security filtering.
+7. Verify the application of settings.
 
 ### Task 1: Create and edit a GPO
 
-1. On **LON-ADM1**, from Server Manager, select **Tools**, and then select **Group Policy Management**.
+1. On **LON-ADM1**, from Server Manager, select **Tools**, and then select **Group Policy Management**. 
 2. If necessary, switch to the **Group Policy Management** window.
 3. In the **Group Policy Management** console, on the **navigation** pane, expand **Forest: Contoso.com**, expand **Domains**, expand **Contoso.com**, and then select the **Group Policy Objects** container.
 4. On the **navigation** pane, right-click or access the context menu for the **Group Policy Objects** container, and then select **New**.
-5. In the **Name** text box, enter **CONTOSO Standards**, and then select **OK**.
+5. In the **Name** text box, enter **`CONTOSO Standards`**, and then select **OK**.
 6. On the **details** pane, right-click or access the context menu for the **CONTOSO Standards** GPO, and then select **Edit**.
 7. In the **Group Policy Management Editor** window, on the **navigation** pane, expand **User Configuration**, expand **Policies**, expand **Administrative Templates**, and then select **System**.
 8. Open the **Prevent access to registry editing tools** policy setting.
@@ -230,13 +236,13 @@ The main tasks for this exercise are as follows:
 ### Task 2: Link the GPO
 
 1. In the **Group Policy Management** window, on the **navigation** pane, right-click or access the context menu for the **Contoso.com** domain, and then select **Link an Existing GPO**.
-1. In the **Select GPO** dialog box, select **CONTOSO Standards**, and then select **OK**.
+2. In the **Select GPO** dialog box, select **CONTOSO Standards**, and then select **OK**.
 
 ### Task 3: Review the effects of the GPO’s settings
 
 1. Switch to **LON-CL1**, and then restart the virtual machine.
 
-2. Sign in as **Contoso\\Ty** with the password of **Pa55w.rd**.
+2. Sign in as **`Contoso\Ty`** with the password of **`Pa55w.rd`**.
 
 3. Select the **Start** button, and then enter **Firewall**.
 
@@ -244,8 +250,8 @@ The main tasks for this exercise are as follows:
 
 5. In the **Allowed apps and features** list, verify that the following checkboxes are selected, and then close the window:
 
-    - **Remote Event Log Management**
-    - **Windows Management Instrumentation (WMI)**
+   - **Remote Event Log Management**
+   - **Windows Management Instrumentation (WMI)**
 
 6. Select the **Start** button and then enter **screen saver**.
 
@@ -253,7 +259,7 @@ The main tasks for this exercise are as follows:
 
 8. In the **Screen Saver Settings** dialog box, notice that the **Wait** option is dimmed. You can't change the time-out. Notice that the **On resume, display logon screen** option is selected and dimmed and that you can't change the settings.
 
-   > **Note**: If the **On resume, display logon screen** option isn't selected and dimmed, open a command prompt, run **gpupdate /force**, and repeat the preceding steps.
+>Note: If the **On resume, display logon screen** option isn't selected and dimmed, open a command prompt, run **gpupdate /force**, and repeat the preceding steps.
 
 9. Select **OK** to close the **Screen Saver Settings** dialog box.
 
@@ -261,7 +267,7 @@ The main tasks for this exercise are as follows:
 
 11. In the **Run** dialog box, in the **Open** text box, enter **regedit**, and then select **OK**.
 
-     > Notice that the registry editor has been disabled by the GPO.
+>Note: Notice that the registry editor has been disabled by the GPO.
 
 12. In the **Registry Editor** dialog box, select **OK**.
 
@@ -270,20 +276,21 @@ The main tasks for this exercise are as follows:
 ### Task 4: Create and link the required GPOs
 
 1. On **LON-ADM1**, in the **Group Policy Management** console, expand **Forest: Contoso.com**, expand **Domains**, expand **Contoso.com**, and then select **Seattle**.
-1. Right-click or access the context menu for the **Seattle** OU, and then select **Create a GPO in this domain, and Link it here**.
-2. In the **New GPO** dialog box, in the **Name** text box, enter **Seattle Application Override**, and then select **OK**.
-3. On the **details** pane, right-click or access the context menu for the **Seattle Application Override** GPO, and then select **Edit**.
-4. In the console tree, expand **User Configuration**, expand **Policies**, expand **Administrative Templates**, expand **Control Panel**, and then select **Personalization**.
-5. Open the **Screen saver timeout** policy setting.
-6. Select **Disabled**, and then select **OK**.
-7. Close the **Group Policy Management Editor** window.
+2. Right-click or access the context menu for the **Seattle** OU, and then select **Create a GPO in this domain, and Link it here**.
+3. In the **New GPO** dialog box, in the **Name** text box, enter **`Seattle Application Override`**, and then select **OK**.
+4. On the **details** pane, right-click or access the context menu for the **Seattle Application Override** GPO, and then select **Edit**.
+5. In the console tree, expand **User Configuration**, expand **Policies**, expand **Administrative Templates**, expand **Control Panel**, and then select **Personalization**.
+6. Open the **Screen saver timeout** policy setting.
+7. Select **Disabled**, and then select **OK**.
+8. Close the **Group Policy Management Editor** window.
 
 ### Task 5: Verify the order of precedence
 
 1. In the **Group Policy Management Console** tree, select the **Seattle** OU.
-1. Select the **Group Policy Inheritance** tab.
 
-   > Notice that the **Seattle Application Override** GPO has higher precedence than the **CONTOSO Standards** GPO. The screen saver time-out policy setting that you just configured in the **Seattle Application Override** GPO is applied after the setting in the **CONTOSO Standards** GPO. Therefore, the new setting will overwrite the standards setting and will prevail. Screen saver time-out will be disabled for users within the scope of the **Seattle Application Override** GPO.
+2. Select the **Group Policy Inheritance** tab.
+
+>Note: Notice that the **Seattle Application Override** GPO has higher precedence than the **CONTOSO Standards** GPO. The screen saver time-out policy setting that you just configured in the **Seattle Application Override** GPO is applied after the setting in the **CONTOSO Standards** GPO. Therefore, the new setting will overwrite the standards setting and will prevail. Screen saver time-out will be disabled for users within the scope of the **Seattle Application Override** GPO.
 
 ### Task 6: Configure the scope of a GPO with security filtering
 
@@ -294,26 +301,29 @@ The main tasks for this exercise are as follows:
 5. In the **Security Filtering** section, select **Authenticated Users**, and then select **Remove**.
 6. In the **Group Policy Management** dialog box, select **OK**, and then select **OK** again at the message.
 7. On the **details** pane, select **Add**.
-8. In the **Select User, Computer, or Group** dialog box, in the **Enter the object name to select (examples):** text box, enter **SeattleBranchUsers**, and then select **OK**.
+8. In the **Select User, Computer, or Group** dialog box, in the **Enter the object name to select (examples):** text box, enter **`SeattleBranchUsers`**, and then select **OK**.
 9. On the **details** pane, under **Security Filtering**, select **Add**.
 10. In the **Select User, Computer, or Group** dialog box, select **Object Types**.
 11. In the **Object Types** dialog box, select the **Computers** checkbox and then select **OK**.
-12. In the **Select User, Computer, or Group** dialog box, in the **Enter Object Names to select (Examples)** text box, enter **LON-CL1**, and then select **OK**.
-13. Switch to **LON-CL1**, and then sign in as **Contoso\\Ty** with the password of **Pa55w.rd**.
+12. In the **Select User, Computer, or Group** dialog box, in the **Enter Object Names to select (Examples)** text box, enter **`LON-CL1`**, and then select **OK**.
+13. Switch to **LON-CL1**, and then sign in as **`Contoso\Ty`** with the password of **`Pa55w.rd`**.
 
 ### Task 7: Verify the application of settings
 
 1. Switch to **LON-ADM1**.
-1. In **Group Policy Management**, select **Group Policy Results** on the **navigation** pane.
-1. Right-click or access the context menu for **Group Policy Results**, and then select **Group Policy Results Wizard**.
-1. In the **Group Policy Results Wizard**, select **Next**.
-1. On the **Computer Selection** page, select **Another Computer**, and then enter **LON-CL1** in the text box. Select **Next**.
-1. On the **User Selection** page, in the list of users, select **CONTOSO\Ty**, and then select **Next**.
-1. On the **Summary of Selections** page, select **Next**.
-1. Select **Finish** when prompted.
-1. On the **details** pane, select the **Details** tab, and then select **show all**.
-1. In the report, scroll down until you locate the **User Details** section, and then locate the **Control Panel/Personalization** section. You should observe that the **Screen save timeout** settings are disabled and obtained from the **Seattle Application Override** GPO.
-1. Close the **Group Policy Management** console.
+2. In **Group Policy Management**, select **Group Policy Results** on the **navigation** pane.
+3. Right-click or access the context menu for **Group Policy Results**, and then select **Group Policy Results Wizard**.
+4. In the **Group Policy Results Wizard**, select **Next**.
+5. On the **Computer Selection** page, select **Another Computer**, and then enter **`LON-CL1`** in the text box. Select **Next**.
+6. On the **User Selection** page, in the list of users, select **CONTOSO\Ty**, and then select **Next**.
+7. On the **Summary of Selections** page, select **Next**.
+8. Select **Finish** when prompted.
+9. On the **details** pane, select the **Details** tab, and then select **show all**.
+10. In the report, scroll down until you locate the **User Details** section, and then locate the **Control Panel/Personalization** section. 
+
+>Note: You should observe that the **Screen save timeout** settings are disabled and obtained from the **Seattle Application Override** GPO.
+
+11. Close the **Group Policy Management** console.
 
 **Results**: After this exercise, you should have successfully created and configured GPOs.
 
@@ -326,71 +336,72 @@ Contoso, Ltd. has expanded; therefore, its security requirements also have incre
 The main tasks for this exercise are as follows:
 
 1. Create a new template based on the Web Server template.
-1. Configure templates so that they can be issued.
-1. Enroll the Web Server certificate on **LON-ADM1**.
+2. Configure templates so that they can be issued.
+3. Enroll the Web Server certificate on **LON-ADM1**.
 
 ### Task 1: Create a new template based on the Web Server template
 
 1. On **LON-ADM1**, in **Server Manager**, select **All Servers**.
 
-1. Right-click or access the context menu for **LON-DC1**, and then select **Certification Authority**.
+2. Right-click or access the context menu for **LON-DC1**, and then select **Certification Authority**.
 
    > Note: **LON-DC1** hosts the Certification Authority server role.
 
-1. In the **Certification Authority** console, expand **ContosoCA**, right-click or access the context menu for **Certificate Templates**, and then select **Manage**.
+3. In the **Certification Authority** console, expand **ContosoCA**, right-click or access the context menu for **Certificate Templates**, and then select **Manage**.
 
-1. In the **Certificate Templates** console, right-click or access the context menu for **Web Server** template in the list, and then select **Duplicate Template**.
+4. In the **Certificate Templates** console, right-click or access the context menu for **Web Server** template in the list, and then select **Duplicate Template**.
 
-1. Select the **General** tab, in the **Template display name** text box, enter **Production Web Server**, and then enter **3** in the **Validity period** text box.
+5. Select the **General** tab, in the **Template display name** text box, enter **`Production Web Server`**, and then enter **`3`** in the **Validity period** text box.
 
-1. Select the **Request Handling** tab, select **Allow private key to be exported**, and then select **OK**. Minimize the **Certificate Templates** console.
+6. Select the **Request Handling** tab, select **Allow private key to be exported**, and then select **OK**. Minimize the **Certificate Templates** console.
 
-1. In the **Certification Authority** console on **LON-ADM1**, right-click or select **Revoked Certificates**, select **All Tasks**, select **Publish**, and then select **OK**.
+7. In the **Certification Authority** console on **LON-ADM1**, right-click or select **Revoked Certificates**, select **All Tasks**, select **Publish**, and then select **OK**.
 
 ### Task 2: Configure templates so that they can be issued
 
 1. On **LON-ADM1**, in the **Certification Authority** console, right-click or access the context menu for  **Certificate Templates**, point to **New**, and then select **Certificate Template to Issue**.
-1. In the **Enable Certificate Templates** window, select **Production Web Server**, and then select **OK**.
+2. In the **Enable Certificate Templates** window, select **Production Web Server**, and then select **OK**.
 
 ### Task 3: Enroll the Web Server certificate on LON-ADM1
 
 1. Switch to **Windows PowerShell ISE** and run the following command:
 
-   ```powershell
+   ```powershell-notab
    Install-WindowsFeature Web-Server -IncludeManagementTools
    ```
+>Note: The Web Server feature is installed on LON-ADM1.
 
-1. From **Server Manager**, select **Tools**, and then select **Internet Information Services (IIS) Manager**.
+2. From **Server Manager**, select **Tools**, and then select **Internet Information Services (IIS) Manager**.
 
-1. Select **LON-ADM1**, and then on the **central** pane, double-click **Server Certificates** or select it and then select Enter.
+3. Select **LON-ADM1**, and then on the central pane, double-click **Server Certificates** or select it and then select Enter.
 
-1. On the **Actions** pane, select **Create Domain Certificate**.
+4. On the **Actions** pane, select **Create Domain Certificate**.
 
-1. On the **Distinguished Name Properties** page, complete the following fields, and then select **Next**:
+5. On the **Distinguished Name Properties** page, complete the following fields, and then select **Next**:
 
-    - Common name: **LON-ADM1.Contoso.com**
-    - Organization: **Contoso**
-    - Organizational unit: **IT**
-    - City/locality: **Seattle**
-    - State/province: **WA**
-    - Country/region: **US**
+   - Common name: **`LON-ADM1.Contoso.com`**
+   - Organization: **`Contoso`**
+   - Organizational unit: **`IT`**
+   - City/locality: **`Seattle`**
+   - State/province: **`WA`**
+   - Country/region: **US**
 
-1. On the **Online Certification Authority** page, select **Select**, select **ContosoCA**, and then select **OK**.
+6. On the **Online Certification Authority** page, select **Select**, select **ContosoCA**, and then select **OK**.
 
-1. In the **Friendly name** text box, enter **LON-ADM1**, and then select **Finish**.
+7. In the **Friendly name** text box, enter **`LON-ADM1`**, and then select **Finish**.
 
-1. Ensure that the certificate displays in the **Server Certificates** console.
+8. Ensure that the certificate displays in the **Server Certificates** console.
 
-    > **Note**: You might need to restart Certificate Services on **LON-DC1** if you receive an error message.
+>Note: You might need to restart Certificate Services on **LON-DC1** if you receive an error message.
 
-1. In the **IIS** console, expand **LON-ADM1**, expand **Sites**, and then select **Default Web Site**.
+9. In the **IIS** console, expand **LON-ADM1**, expand **Sites**, and then select **Default Web Site**.
 
-1. On the **Actions** pane, select **Bindings**.
+10. On the **Actions** pane, select **Bindings**.
 
-1. In the **Site Bindings** window, select **Add**.
+11. In the **Site Bindings** window, select **Add**.
 
-1. In the **Add Site Binding** window, select **https** from the **Type** drop-down list. In the **SSL certificate** drop-down list, select **LON-ADM1**, select **OK**, select **Yes**, and then select **Close**.
+12. In the **Add Site Binding** window, select **https** from the **Type** drop-down list. In the **SSL certificate** drop-down list, select **LON-ADM1**, select **OK**, select **Yes**, and then select **Close**.
 
-1. Close **Internet Information Services (IIS) Manager**.
+13. Close **Internet Information Services (IIS) Manager**.
 
 **Results**: After completing this exercise, you should have configured certificate templates and managed certificates.
