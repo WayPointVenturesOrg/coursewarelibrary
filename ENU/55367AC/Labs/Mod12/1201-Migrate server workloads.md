@@ -21,13 +21,13 @@ After completing this lab, you'll be able to:
 
 ## Lab setup
 
-This lab doesn't require virtual machines (VMs).
+***This lab doesn't require any virtual machines (VMs).***
 
 ## Exercise 1: Select a process to migrate server workloads
 
 ### Scenario
 
-Contoso has an Active Directory Domain Services (AD DS) forest with a single Active Directory domain named `contoso.com`. The domain controllers (DCs) for the domain are running a mix of Windows Server 2012 R2 and Windows Server 2016. Many applications are installed in the domain, which means that standardizing on Windows Server 2022 for all DCs is the best option for you.
+Contoso has an Active Directory Domain Services (AD DS) forest with a single Active Directory domain named **contoso.com**. The domain controllers (DCs) for the domain are running a mix of Windows Server 2012 R2 and Windows Server 2016. Many applications are installed in the domain, which means that standardizing on Windows Server 2022 for all DCs is the best option for you.
 
 Contoso has purchased Trey Research, a specialized engineering company that has its own AD DS forest connected by a forest trust. Much of Trey's infrastructure is based upon legacy technology, so you must standardize tools and management systems across the two companies.
 
@@ -36,57 +36,84 @@ There are other server workloads on servers running earlier Windows Server versi
 The main tasks for this exercise are to:
 
 1. Study the scenario.
-1. Plan how to update domains controllers to Windows Server 2022.
-1. Plan migration of other server workloads.
+2. Plan how to update domains controllers to Windows Server 2022.
+3. Plan migration of other server workloads.
 
 ### Task 1: Study the scenario
 
 1. Study the lab scenario.
-1. Study the exercise scenario.
+2. Study the exercise scenario.
 
 ### Task 2: Plan how to update DCs to Windows Server 2019
 
 Answer the following questions based on the scenario:
 
-1. To implement DCs running Windows Server 2022, should you upgrade the existing AD DS forest or migrate to a new AD DS forest?
+1.  To implement DCs running Windows Server 2022, should you upgrade the existing AD DS forest or migrate to a new AD DS forest?
 
-    > **Answer:** It's rare to migrate to a new AD DS forest. If your main goal is to update DCs to a new Windows Server version, you should update AD DS in the existing server by adding DCs that are running Windows Server 2022. You should only consider migrating to a new AD DS forest when restructuring of domains or forests is required. For example, when two companies merge, you might merge one company's AD DS forest into the other's forest.
+<details>
+<summary>**Answer**</summary>
+   > **Answer:** It's rare to migrate to a new AD DS forest. If your main goal is to update DCs to a new Windows Server version, you should update AD DS in the existing server by adding DCs that are running Windows Server 2022. You should only consider migrating to a new AD DS forest when restructuring of domains or forests is required. For example, when two companies merge, you might merge one company's AD DS forest into the other's forest.
+</details>
 
-1. What are the highest domain and forest functional levels that you can implement?
+2.  What are the highest domain and forest functional levels that you can implement?
 
-    > **Answer:** The highest domain and forest functional levels that you can implement are Windows Server 2016. There's no Windows Server 2019 or Windows Server 2022 functional level.
+<details>
+<summary>**Answer**</summary>
+   > **Answer:** The highest domain and forest functional levels that you can implement are Windows Server 2016. There's no Windows Server 2019 or Windows Server 2022 functional level.
+</details>
 
-1. Which DC operating systems can you use to implement the highest possible domain and forest functional levels?
+3.  Which DC operating systems can you use to implement the highest possible domain and forest functional levels?
 
-    > **Answer:** You can use DCs running Windows Server 2016, Windows Server 2019, or Windows Server 2022 in a domain or forest at the Windows Server 2016 functional level.
+<details>
+<summary>**Answer**</summary>
+   > **Answer:** You can use DCs running Windows Server 2016, Windows Server 2019, or Windows Server 2022 in a domain or forest at the Windows Server 2016 functional level.
+</details>
 
-1. What steps do you need to take before adding DCs running Windows Server 2022 to an existing AD DS forest?
+4.  What steps do you need to take before adding DCs running Windows Server 2022 to an existing AD DS forest?
 
-    > **Answer:** If you have the correct permissions, you don't need to perform any steps before you install the first DC that's running Windows Server 2022. The DC promotion process automatically prepares the forest and domain. However, you do have the option to prepare the domain and forest manually. Prepare the AD DS forest by running `Adprep /forestprep`, and then prepare the domain by running `Adprep /domainprep`. In a multidomain environment, you must prepare each domain.
+<details>
+<summary>**Answer**</summary>
+   > **Answer:** If you have the correct permissions, you don't need to perform any steps before you install the first DC that's running Windows Server 2022. The DC promotion process automatically prepares the forest and domain. However, you do have the option to prepare the domain and forest manually. Prepare the AD DS forest by running **Adprep /forestprep**, and then prepare the domain by running **Adprep /domainprep**. In a multidomain environment, you must prepare each domain.
+</details>
 
-1. What do you need to consider when removing DCs running previous Windows Server versions?
+5.  What do you need to consider when removing DCs running previous Windows Server versions?
 
+<details>
+<summary>**Answer**</summary>
    > **Answer:** For normal domain authentication, DCs are located by using Domain Name System (DNS) records that automatically update when DCs are added or removed. Therefore, basic authentication doesn't require any special steps when removing a DC, but because they're often used for DNS, you must ensure that clients and servers are updated to use the IP addresses of the new DCs. Additionally, some apps are configured to use specific DCs as Lightweight Directory Access Protocol (LDAP) servers for authentication. You must reconfigure those apps with the IP address or name of new DCs.
+</details>
 
 ### Task 3: Plan migration of other server workloads
 
 Answer the following questions based on the scenario:
 
-1. What steps do you need to perform before running the Windows PowerShell cmdlets in the Windows Server Migration Tools on Windows Server 2022.
+1.  What steps do you need to perform before running the Windows PowerShell cmdlets in the Windows Server Migration Tools on Windows Server 2022.
 
-   > **Answer:** To use the Windows Server Migration Tools on Windows Server 2022, you must install the Windows Server Migration Tools feature. Then, before you can use the cmdlets, you must load the Windows PowerShell snap-in that contains the cmdlets by running `Add-PSSnapin Microsoft. Windows.Windows.ServerManager.Migration` at a Windows PowerShell prompt.
+<details>
+<summary>**Answer**</summary>
+   > **Answer:** To use the Windows Server Migration Tools on Windows Server 2022, you must install the Windows Server Migration Tools feature. Then, before you can use the cmdlets, you must load the Windows PowerShell snap-in that contains the cmdlets by running **Add-PSSnapin Microsoft. Windows.Windows.ServerManager.Migration** at a Windows PowerShell prompt.
+</details>
 
-1. What steps do you need to perform on a source server that's running Windows Server 2012 R2 before you can use the Windows PowerShell cmdlets in the Windows Server Migration Tools?
+2.  What steps do you need to perform on a source server that's running Windows Server 2012 R2 before you can use the Windows PowerShell cmdlets in the Windows Server Migration Tools?
 
-   > **Answer:** To install the Windows Server Migration Tools on a down-level server, you need to run `SmigDeploy.exe` to create a deployment folder for that specific operating system. The deployment folder copies to the source server and installs by running `SmigDeploy.exe` from the deployment folder, and you then can load the snap-in for the Windows Server Migration Tools at a Windows PowerShell prompt on the source server.
+<details>
+<summary>**Answer**</summary>
+   > **Answer:** To install the Windows Server Migration Tools on a down-level server, you need to run **SmigDeploy.exe** to create a deployment folder for that specific operating system. The deployment folder copies to the source server and installs by running **SmigDeploy.exe** from the deployment folder, and you then can load the snap-in for the Windows Server Migration Tools at a Windows PowerShell prompt on the source server.
+</details>
 
-1. Which cmdlet can you use to verify which features you can migrate from a source server?
+3.  Which cmdlet can you use to verify which features you can migrate from a source server?
 
-   > **Answer:** The `Get-SmigServerFeature` cmdlet lists the Windows features that you can migrate from either a local computer or a migration store.
+<details>
+<summary>**Answer**</summary>
+   > **Answer:** The **Get-SmigServerFeature** cmdlet lists the Windows features that you can migrate from either a local computer or a migration store.
+</details>
 
-1. List the high-level steps for using the Windows Server Migration Tools to migrate settings from a source server to a destination server.
+4.  List the high-level steps for using the Windows Server Migration Tools to migrate settings from a source server to a destination server.
 
-   > **Answer:** To migrate feature configuration from a source server to a destination server, you first install the feature on the target server, and you then run `Export-SmigServerSetting` on the source server and `Import-SmigServerSetting` on the destination server.
+<details>
+<summary>**Answer**</summary>
+   > **Answer:** To migrate feature configuration from a source server to a destination server, you first install the feature on the target server, and you then run **Export-SmigServerSetting** on the source server and **Import-SmigServerSetting** on the destination server.
+</details>
 
 ## Exercise 2: Plan how to migrate files by using Storage Migration Service
 
@@ -97,62 +124,95 @@ Contoso has file servers running multiple Windows Server versions, with the olde
 The main tasks for this exercise are to:
 
 1. Study the scenario.
-1. Plan the migration of file servers.
-1. Plan how to use Storage Migration Service.
+2. Plan the migration of file servers.
+3. Plan how to use Storage Migration Service.
 
 ### Task 1: Study the scenario
 
 1. Study the lab scenario.
-1. Study the exercise scenario.
+2. Study the exercise scenario.
 
 ### Task 2: Plan the migration of file servers
 
 Answer the following questions based on the scenario:
 
-1. Can you use Storage Migration Service to migrate files shares from Windows Server 2008 R2 to Windows Server 2022?
+1.  Can you use Storage Migration Service to migrate files shares from Windows Server 2008 R2 to Windows Server 2022?
 
+<details>
+<summary>**Answer**</summary>
    > **Answer:** Yes, Storage Migration Service supports migrating file shares from Windows Server 2003 or newer Windows Server versions.
+</details>
 
-1. Can you use Storage Migration Service to migrate files on Linux servers?
+2.  Can you use Storage Migration Service to migrate files on Linux servers?
 
+<details>
+<summary>**Answer**</summary>
    > **Answer:** Yes, if the source Linux servers are providing file shares accessible to Windows clients by using Samba. Storage Migration Service can't migrate files on Linux servers using only NFS.
+</details>
 
-1. Can you use Storage Migration Service to combine multiple file servers to a single new server?
+3.  Can you use Storage Migration Service to combine multiple file servers to a single new server?
 
+<details>
+<summary>**Answer**</summary>
    > **Answer:** No. Storage Migration Service doesn't have the ability to merge the identities of multiple servers onto a single server.
+</details>
 
-1. Can you use Storage Migration Service to migrate file shares to a VM in Azure?
+4.  Can you use Storage Migration Service to migrate file shares to a VM in Azure?
 
-    > **Answer:** Yes. Storage Migration Service can migrate file shares to a VM in Azure. If Azure is properly configured, Storage Migration Service can create the VM automatically, based on specifications that you provide.
+<details>
+<summary>**Answer**</summary>
+   > **Answer:** Yes. Storage Migration Service can migrate file shares to a VM in Azure. If Azure is properly configured, Storage Migration Service can create the VM automatically, based on specifications that you provide.
+</details>
 
 ### Task 3: Plan how to use Storage Migration Service
 
 Answer the following questions based on the scenario:
 
-1. What software do you need to install to use Storage Migration Service?
+1.  What software do you need to install to use Storage Migration Service?
 
-     > **Answer:** To use Storage Migration Service, you need to install the Storage Migration Service feature on the orchestrator server. On the destination server running Windows Server 2022, you also must install the Storage Migration Service Proxy feature. However, you don't need to install any software on the source server.
+<details>
+<summary>**Answer**</summary>
+   > **Answer:** To use Storage Migration Service, you need to install the Storage Migration Service feature on the orchestrator server. On the destination server running Windows Server 2022, you also must install the Storage Migration Service Proxy feature. However, you don't need to install any software on the source server.
+</details>
 
-1. What firewall configuration do you need to implement to use Storage Migration Service?
+2.  What firewall configuration do you need to implement to use Storage Migration Service?
 
-     > **Answer:** The Storage Migration Service needs to copy data and configure the source and destination servers. When you install the Storage Migration Service Proxy on a destination server, the firewall is configured automatically, although you should verify its configuration. On the source and destination servers, you must enable the following firewall rules: File and Printer Sharing (SMB-In), Netlogon Service (NP-In), Windows Management Instrumentation (DCOM-In), and Windows Management Instrumentation (WMI-In). On the orchestrator server, you must enable the File and Printer Sharing (SMB-In) rule.
+<details>
+<summary>**Answer**</summary>
+   > **Answer:** The Storage Migration Service needs to copy data and configure the source and destination servers. When you install the Storage Migration Service Proxy on a destination server, the firewall is configured automatically, although you should verify its configuration. On the source and destination servers, you must enable the following firewall rules: File and Printer Sharing (SMB-In), Netlogon Service (NP-In), Windows Management Instrumentation (DCOM-In), and Windows Management Instrumentation (WMI-In). On the orchestrator server, you must enable the File and Printer Sharing (SMB-In) rule.
+</details>
 
-1. What accounts and permissions do you need to configure to use Storage Migration Service?
+3.  What accounts and permissions do you need to configure to use Storage Migration Service?
 
-     > **Answer:** To perform the migrations, you can use a single account that has administrator permissions on the source server, the orchestrator server, and the destination server. Alternatively, you can split the accounts into a source migration account and a destination migration account. A source migration account needs to have administrator permissions on the source server and the orchestrator server, while a destination migration account needs to have administrator permissions in the destination server and the orchestrator server.
+<details>
+<summary>**Answer**</summary>
+   > **Answer:** To perform the migrations, you can use a single account that has administrator permissions on the source server, the orchestrator server, and the destination server. Alternatively, you can split the accounts into a source migration account and a destination migration account. A source migration account needs to have administrator permissions on the source server and the orchestrator server, while a destination migration account needs to have administrator permissions in the destination server and the orchestrator server.
+</details>
 
-1. Which tool do you use to create and manage jobs?
+4.  Which tool do you use to create and manage jobs?
 
-     > **Answer:** You can create and manage Storage Migration Service jobs from Windows Admin Center in the Storage Migration Service node.
+<details>
+<summary>**Answer**</summary>
+   > **Answer:** You can create and manage Storage Migration Service jobs from Windows Admin Center in the Storage Migration Service node.
+</details>
 
-1. What is the relationship between volumes in the source server and the destination server?
+5.  What is the relationship between volumes in the source server and the destination server?
 
-     > **Answer:** A volume on the source server maps to a volume on the target server. If there are three source volumes, there must be three destination volumes. There's no logic for renaming folders with conflicting names.
+<details>
+<summary>**Answer**</summary>
+   > **Answer:** A volume on the source server maps to a volume on the target server. If there are three source volumes, there must be three destination volumes. There's no logic for renaming folders with conflicting names.
+</details>
 
-1. After cutover, which identity information moves from the source server to the destination server?
+6.  After cutover, which identity information moves from the source server to the destination server?
 
-     > **Answer:** The source server's name and IP addresses are moved to the destination server, and the source server is renamed and give a new IP address.
+<details>
+<summary>**Answer**</summary>
+   > **Answer:** The source server's name and IP addresses are moved to the destination server, and the source server is renamed and give a new IP address.
+</details>
 
-1. Which data won't be migrated from the source server to the destination server?
+7.  Which data won't be migrated from the source server to the destination server?
 
-     > **Answer:** Storage Migration Service can't copy locked files, so if users have a file open during a copy attempt, the file won't migrate. Previous versions of files also aren't migrated.
+<details>
+<summary>**Answer**</summary>
+   > **Answer:** Storage Migration Service can't copy locked files, so if users have a file open during a copy attempt, the file won't migrate. Previous versions of files also aren't migrated.
+</details>
