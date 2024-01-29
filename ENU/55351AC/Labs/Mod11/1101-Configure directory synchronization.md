@@ -42,7 +42,7 @@ The main tasks for this exercise are as follows:
    - Company size: 10-24 people
    - Country or Region: Select your country of residence
 
-7.  On the **Tell us about yourself** page, select **Text me**, in the **Phone number** text box, enter your cell phone number, and then select **Send verification code**.
+7.  On the **Security check** page, select **Text me**, in the **Phone number** text box, enter your cell phone number, and then select **Send verification code**.
 
 8.  Retrieve the verification code from your phone, and in the **Enter your verification code** text box, enter the provided code, and then select **Verify**.
 
