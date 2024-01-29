@@ -51,7 +51,7 @@ The main task for this exercise is as follows:
     - Domain name: **mmddyyyourinitialsContoso.onmicrosoft.com** and click **Save**.
     - Password and Confirm password: **`Pa55w.rd1234`**
 
-10.  On the **Quantity and payment** page, set the license quantity to **1** and then select **Update**. 
+10.  On the **Quantity and payment** page, verify that the license quantity is set to **1**. 
 
    >**Note:** Be sure that you note the trial expiration date at the end of the page. You'll not be charged during the trial period. 
 
@@ -85,7 +85,7 @@ The main task for this exercise is as follows:
 
 ### Scenario
 
-Now that you've provisioned a Microsoft 365 tenant, your next step is adding additional licenses and products for additional features and cloud services. For this exercise, you'll add the **Enterprise Mobility + Security E5** subscription to enable additional management and security services to the tenant.
+Now that you've provisioned a Microsoft 365 tenant, your next step is adding additional licenses and products for additional features and cloud services. For this exercise, you'll add the **Microsoft Entra ID P2** subscription to enable additional management and security services to the tenant.
 
 The main tasks for this exercise are as follows:
 
@@ -105,9 +105,9 @@ The main tasks for this exercise are as follows:
 
 4. On the **Purchase services** page, under **view by category**, select **Security and identity**.
 
-5. Under **Enterprise Mobility + Security E5**, select **Details**.
+5. Under **Microsoft Entra ID P2** , select **Details**.
 
-6. On the **Enterprise Mobility + Security E5** page, select **Start free trial**.
+6. On the **Microsoft Entra ID P2**  page, select **Start free trial**.
 
 7. On the **Check out** page, select **Try now**.
 
@@ -121,7 +121,7 @@ The main tasks for this exercise are as follows:
 
 1. In the Microsoft 365 admin center, use the navigation pane to expand **Billing**, and then select **Your products**.
 
-   > **Note:** Both the **Office 365 E5 Trial** and the **Enterprise Mobility + Security E5 Trial** subscriptions are displayed.
+   > **Note:** Both the **Office 365 E5 Trial** and the **Microsoft Entra ID P2**  subscriptions are displayed.
 
 2. Select the **Office 365 E5 Trial** item.
 
@@ -143,7 +143,7 @@ The main tasks for this exercise are as follows:
 
 9. Close Microsoft Edge.
 
-**Results**: After completing this exercise, you should have added additional services to the tenant by adding the Enterprise Mobility + Security E5 Trial subscription.
+**Results**: After completing this exercise, you should have added additional services to the tenant by adding the Microsoft Entra ID P2  Trial subscription.
 
 ## Exercise 3: Configuring Org Settings for the Microsoft 365 tenant
 
