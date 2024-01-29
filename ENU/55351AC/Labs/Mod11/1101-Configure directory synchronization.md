@@ -25,7 +25,7 @@ The main tasks for this exercise are as follows:
 
 3.  In the address bar, enter the following URL and the press Enter: **`https://products.office.com/en-us/business/office-365-enterprise-e5-business-software`**
 
-4.  Select the **Free trial** link.
+4.  Select the **Try for Free** link.
 
 4.  On the **Let's get you started** page, in the **Email** text box, enter an email address in the form of **`mmddyyyourinitials@outlook.com`**, and then select **Next**. (Where mmddyy represents the month, day, and year in two digits.)
 
@@ -52,7 +52,7 @@ The main tasks for this exercise are as follows:
    - Domain name: **mmddyyyourinitialsContoso.onmicrosoft.com** and click **Save**.
    - Password and Confirm password: **`Pa55w.rd1234`**
 
-10.  On the **Quantity and payment** page, set the license quantity to **10** and then select **Update**. 
+10.  On the **Quantity and payment** page, verify that the license quantity is set to **1**. 
 
 >Note: Be sure that you note the trial expiration date in the lower right corner of the window. You will not be charged during the trial period. Ensure that you follow all steps in this task to disable recurring billing on your subscription and remove credit card details before the trial expires. Although you will not be charged until trial expires, it is recommended that you remove your payment details when instructed by lab steps.
 
