@@ -11,7 +11,6 @@ You need to ensure that Contoso is protected from phishing attempts, spoofing, a
 >- **Microsoft 365 Tenant name (ddmmyyyourinitialsContoso.onmicrosoft.com):** 
 >- **Microsoft 365 Username (username@ddmmyyyourinitialsContoso.onmicrosoft.com):** 
 >- **Password:** Pa55w.rd1234
-
 ## Exercise 1: Running an Email Attack Simulation
 
 ### Scenario
@@ -68,20 +67,18 @@ The main tasks for this exercise are as follows:
 
 16.  On the **Select technique** page, select **Credential Harvest**, and then select **Next**.
 
-17. On the **Name simulation** page, enter the following details, and then select **Next**.
+17.  On the **Name simulation** page, enter the following details, and then select **Next**.
 
-       - **Name:** `Contoso Credential Harvest Simulation`
-
-       - **Description:** `Simulating URL to malicious website.`
-
+   - **Name:** `Contoso Credential Harvest Simulation`
+   - **Description:** `Simulating URL to malicious website.`
 
 18.  On the **Select payload and login page** step, on the **Global payloads** tab, select **Reset Password**, and then select **Next**.
 
 19.  On the **Target users** page, select **Include only specific users and groups**, and then select **Add users**.
 
-20.  On the **Add users** page, scroll to the **Department** section, select the **HR**, **Research**, and **Sales** checkboxs, and then select **Apply**.
+20.  On the **Add users** page, scroll to the **Department** section, select the **Research** and **Sales** checkboxes, and then select **Apply**.
 
-21.  On the **Add users** page, under **User List**, select the checkboxes next to all of the users, and then select **Add 7 User(s)**.
+21.  On the **Add users** page, under **User List**, select the checkboxes next to all of the users, and then select **Add 6 User(s)**.
 
 22.  On the **Target users** page, select **Next**.
 

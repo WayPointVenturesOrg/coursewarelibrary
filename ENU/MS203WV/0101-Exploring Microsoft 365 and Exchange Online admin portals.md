@@ -4,117 +4,95 @@
 
 You are the Microsoft 365 Messaging Administrator for a company named Contoso Inc. You need to deploy a new Microsoft 365 tenant to be used for email communication with Microsoft Exchange Online. Your goal for this lab is to provision the new tenant and explore the Microsoft 365 admin center and the Exchange admin center.
 
->**Important:** This course requires students to provision a Microsoft 365 E3 trial tenant. You will need a mobile phone and a credit card. Microsoft requires credit card verification during the trial tenant provisioning. No charges will be applied if recurred billing is disabled as instructed in the lab steps. Students who don't have a credit card can use the Microsoft 365 Developer program to apply for a trial. More details are available at [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program).
-## Exercise 1: Provisioning a Microsoft 365 tenant 
+>**Note:** This course requires students to provision an Office 365 trial tenant. You will need a mobile phone and a valid credit card. Microsoft requires credit card verification during the trial tenant provisioning. No charges will be applied if recurred billing is disabled as instructed in the lab steps. Students who don't have a credit card can use the Microsoft 365 Developer program to apply for a trial. More details are available at [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program).
+## Exercise 1: Provisioning a Microsoft 365 trial tenant 
 
 ### Scenario
 
-Before you configure and manage the Exchange Online messaging environment, you need to first provision and prepare your Microsoft 365 tenant. In this exercise, you'll create a new Microsoft account and use it to provision a Microsoft 365 E3 trial subscription.
+Before you configure and manage the Exchange Online messaging environment, you need to first provision and prepare your Microsoft 365 tenant. In this exercise, you'll subscribe to and provision an Office 365 E5 trial subscription.
 
 The main task for this exercise is as follows:
 
-- Create a Microsoft 365 E3 trial subscription.
+- Create an Office 365 E5 trial subscription.
 
-### Task 1: Create a Microsoft 365 E3 trial subscription
+>**Note:** Do not use the online lab environment to initially create your Microsoft 365 tenant. Perform Exercise 1, Exercise 2, and Exercise 3 from your personal host computer.
 
-1.  Sign in to **LON-CL1** as **`Admin`** with the password **`Pa55w.rd`**.
+### Task 1: Create a trial Office 365 E5 subscription
 
-2.  From the taskbar, select **Microsoft Edge**.
+1.  From your host computer, open a new InPrivate window in **Microsoft Edge**..
 
-3.  In the address bar, enter the following address and then press Enter:
+2.  In the address bar, enter the following URL and the select Enter:
 
-**`https://www.microsoft.com/en-us/microsoft-365/enterprise/e3`**
+**https://products.office.com/business/office-365-enterprise-e5-business-software**
 
-4.  Select the **Try free for one month** link.
+3.  Select the **Try for free** link.
 
-5.  On the **Let's get you started** page, in the **Email** text box, enter an email address in the form of **mmddyyyourinitials@outlook.com** (where mmddyy represents the month, day, and year in two digits), and then select **Next**. 
+4.  On the **Let's get you started** page, in the **Email** text box, enter an email address in the form of **mmddyyyourinitials@outlook.com** (where mmddyy represents the month, day, and year in two digits), and then select **Next**. 
 
 >**Note:** You'll be directed to create a new account.
 
-6.  On the **Let's get you started** page, select **Set up account**.
+5.  On the **Let's get you started** page, select **Set up account**.
 
-7.  On the **Tell us about yourself** page, fill in the form as follows, and then select **Next**:
+6.  On the **Tell us about yourself** page, fill in the form as follows, and then select **Next**:
 
-   - **First name:** Your choice
-   - **Last name:** Your choice
-   - **Job title:** `Messaging Administrator`
-   - **Business phone number:** Your cell phone number
-   - **Company name:** `Contoso`
-   - **Company size:** 10-24 people
-   - **Country or Region:** Select your country or region of residence
+   - First name: Your choice
+   - Surname: Your choice
+   - Job title: `Administrator`
+   - Business phone number: Your cell phone number
+   - Company name: `Contoso`
+   - Company size: 10-24 people
+   - Does your company have a website?: No
+   - Country or Region: Select your country of residence
 
-8.  On the **Security check** page, select **Text me**. In the **Phone number** text box, enter your phone number, and then select **Send verification code**.
+7.  On the **Security check** page, select **Text me**, in the **Phone number** text box, enter your cell phone number, and then select **Send verification code**.
 
-9.  Enter the verification code from your phone in the **Enter your verification code** text box, and then select **Verify**.
+8.  Retrieve the verification code from your phone, and in the **Enter your verification code** text box, enter the provided code, and then select **Verify**.
 
-10.  On the **How you'll sign in** page, enter the following details, and then select **Next**:
+9.  On the **How you'll sign in** page, enter the following details, and then select **Next**:
 
-    - Username: *Your choice*
-    - Domain name: **mmddyyyourinitialsContoso.onmicrosoft.com**, and then select **Save**.
+    - Username: Your choice
+    - Domain name: **mmddyyyourinitialsContoso.onmicrosoft.com** and click **Save**.
     - Password and Confirm password: **`Pa55w.rd1234`**
 
-11.  On the **Quantity and payment** page, ensure that the license quantity is set to **1**, and then select **Add payment method**.
+10.  On the **Quantity and payment** page, verify that the license quantity is set to **1**. 
 
 >**Note:** Be sure that you note the trial expiration date at the end of the page. You'll not be charged during the trial period. 
 
-12.  On the **Add payment method** page, fill in your personal details and your credit card number&#151;your credit card will not be charged at this moment. It is used for verification purposes only. Select **Save** when you're done.
+11.   Select **Add payment method**.
 
-13.  On the **Review and confirm** page, review your details. Be sure to note the date when your trial expires, and then select **Start trial**. 
+12.   On the **Add payment method** page, fill in your personal details and your credit card number. 
 
->**Important:** If a message displays that states **Something happened: We need more information to verify your order**, skip to **Task 2 Workaround: Create a Microsoft 365 trial subscription.** 
+>**Note:**Your credit card will not be charged at this moment. It is used for verification purposes. Select **Save** when you're done.
 
-14.  On the **Thanks for choosing Microsoft 365 E3 Trial** page, ensure that you note your username, and then select **Start using Microsoft 365 E3 Trial**.
+13.   On the **Review and confirm** page, review your details, ensure that you note the date when your trial expires, and then select **Start trial**. 
 
-15.  On the **Install Microsoft 365** page, select **Exit setup**. Provide a reason for exiting setup, and then select **Send and exit**.
+14.   On the **Add extra security to your account** page, select **Next**.
 
-16.  When the Microsoft 365 admin center opens, in the navigation menu, select **Show all**.
+15.   On the **Action Required** page, select **Next**.
 
->**Note:** All options now display on the navigation menu.
+16.   On the **Keep your account secure** page, select **I want to set up a different method**, and then select **Phone**.
 
-17.  In the navigation menu, select **Setup**.
+17.   On the **Phone** page, enter your mobile phone number and then select **Next**.
 
->**Note:** Review the **Setup** page. Notice that it provides a list of recommended tasks to assist with securing sign-in, apps, and email. 
+18.   On the **Phone** page, enter the code, select **Next**, on the verification complete page, select **Next**, and then select **Done**.
 
-18.  In the navigation menu, select **Home** to access the **Home** page.
-
-### Task 2 Workaround: Create a Microsoft 365 E3 trial subscription
->**Important:** Only complete this task if you receive an error message stating **Something happened: We need some more information to verify your order.**
-
-1.  On the Microsoft 365 E3 - Trial page, under **Something happenend**, select **Click here to open a support ticket**.
+19.   On the **Start using your new product** page, ensure that you note your username and then select **Start using Office 365 E5 (no Teams) - Trial**.
 
 >**Note:** The Microsoft 365 admin center opens.
 
-2.  Close the **How can we help?** panel.
+20.   In the Microsoft 365 admin center, use the left navigation pane to expand **Billing** and then select **Your products**.
 
-3.  On the navigation menu, under **Billing**, select **Purchase services**.
+21.   Select the **Office 365 E5 (no Teams)** item.
 
->**Note:** The **Purchase services** page is where you'll review the products and services that you can add on to your subscription.
+22.   On the **Office 365 E5 (no Teams)** page, select **Edit recurring billing**. 
 
-4.  On the **Purchase services** page, select **All products**.
+23.   On the **Edit recurring billing** page, select **Off** and then click **Save** and then select **Yes**.
 
-5.  In the **Search all products** field, enter **E3** and then press Enter.
+>**Note:** With disabling recurring billing you ensure that your subscription will not automatically renew once the trial expires.
 
-6.  In the **Microsoft 365 E3** section, select **Details**.
+24.  In the navigation menu, select **Home** to view the **Home** page.
 
-7.  On the **Microsoft 365 E3** page, in the **Select a plan** section, select **Microsoft 365 E5 (Trial)**.
-
-8.  On the **Check out** page, select **Place order**.
-
-9.  Close the **Thanks for your order** page.
-
-10.  On the navigation menu, expand **Users**, and then select **Active users**.
-
-11.  On the **Active users** page, select the check box next to your user name.
-
-12.  Select the elipses (...), and then select **Manage product licenses**.
-
-13.  On the **Licenses and apps** page, select your location, select the check box next to **Microsoft 365 E3**, and then select **Save changes**.
-
-14.  Close the user panel for your user account.
-
-**Results:** After completing this exercise, you'll have provisioned a Microsoft 365 tenant by using the Microsoft 365 E3 trial subscription.
-
-> **Important:** Be sure to complete **Exercise 2: Disabling recurring billing for the Microsoft 365 trial subscription**. Ensure that you follow all steps to disable recurring billing on your subscription before the trial expires. 
+**Results:** After completing this exercise, you'll have provisioned a Microsoft 365 tenant by using the Office 365 trial subscription.
 
 >
 >To assist with your sign-in process for the remainder of the lab, enter your Microsoft 365 Tenant name, sign-in username, and password as follows:
@@ -122,33 +100,78 @@ The main task for this exercise is as follows:
 >- **Microsoft 365 Tenant name (ddmmyyyourinitialsContoso.onmicrosoft.com):** 
 >- **Microsoft 365 Username (username@ddmmyyyourinitialsContoso.onmicrosoft.com):** 
 >- **Password:** Pa55w.rd1234
-
-## Exercise 2: Disabling recurring billing for the Microsoft 365 trial subscription
+## Exercise 2: Adding products and licenses to a Microsoft 365 tenant
 
 ### Scenario
 
-Now that you've provisioned a Microsoft 365 tenant, your next step is disable recurring billing so that you will not be charged additional charges after the trial. You will also disable Security Defaults for the lab environment.
+Now that you've provisioned a Microsoft 365 tenant, your next step is adding additional licenses and products for additional features and cloud services. For this exercise, you'll add the **Microsoft 365 E5** subscription to enable additional management and security services to the tenant.
 
-The main tasks for this exercise are as follows:
+The main task for this exercise is as follows:
 
-1. Disable recurring billing for the Microsoft 365 trial subscription.
-2. Customize Security Defaults.
+1. Add additional cloud services to the tenant.
+2. Assign licenses.
 
-### Task 1: Disable recurring billing for the Microsoft 365 trial subscription
+### Task 1: Add additional cloud services to the tenant
 
->**Important:** Ensure that you follow all the steps listed in this task to disable recurring billing on your subscription before the trial expires.
+1.  In the Microsoft 365 admin center, on the navigation menu, expand **Billing**, and then select **Licenses**.
 
-1.  In the Microsoft 365 admin center, use the navigation pane to expand **Billing**, and then select **Your products**.
+>**Note:** The **Licenses** page displays the current subscriptions and available licenses for the tenant.
 
-2.  Select the **Microsoft 365 E3** item.
+2.  On the navigation menu, select **Marketplace**.
 
-3.  On the **Microsoft 365 E3** page, select **Edit recurring billing**. 
+>**Note:** The **Marketplace** page is where you'll review the products and services that you can add on to your subscription.
 
-4.  On the **Edit recurring billing** page, select **Off**, and then select **Save**. Select **Yes** at the confirmation prompt.
+3.  On the **Marketplace** page, select **All products**, and then in the **Seach all products** field, enter **E5**.
 
->**Note:** By disabling recurring billing, you ensure that your subscription will not automatically renew when the trial expires.
+4.  Under **Microsoft 365 E5**, select **Details**.
 
-### Task 2: Customize Security Defaults
+5.  On the **Microsoft 365 E5** page, under **Select a plan**, select **Microsoft 365 E5 (no Teams)(Trial)**.
+
+6.  On the **Check out** page, select **Place order**.
+
+7.  Close the **Thanks for your order** page.
+
+>**Note:** Ensure that you follow all the steps listed in this task to disable recurring billing on your subscription before the trial expires.
+
+8.  In the Microsoft 365 admin center, use the navigation pane to expand **Billing**, and then select **Your products**.
+
+>**Note:** Both the **Office 365 E5 (no Teams)** and the **Microsoft 365 E5 (no Teams)** subscriptions are displayed.
+
+9.  Select the **Microsoft 365 E5 (no Teams)** item.
+
+10.  On the **Microsoft 365 E5 (no Teams)** page, select **Edit recurring billing**. 
+
+11.  On the **Edit recurring billing** page, select **Off**, and then select **Save**.
+
+>**Note:** By disabling recurring billing, you ensure that your subscription will not automatically renew once the trial expires.
+
+>**Note:** Verify that recurring billing is disabled for both the **Office 365 E5 (no Teams)** and the **Microsoft 365 E5 (no Teams)** subscriptions.
+
+### Task 2: Assign licenses
+
+1.  In the Microsoft 365 admin center, on the navigation menu, expand **Users**, and then select **Active Users**.
+
+2.  Select your user account.
+
+3.  On the user account page, select the **Licenses and apps** tab.
+
+4.  Under **Licenses**, select the check box next to **Microsoft 365 E5 (no Teams)** and then select **Save changes**.
+
+>**Note:** Your administrator account will be assigned both the **Office 365 E5 (no Teams)** and the **Microsoft 365 E5 (no Teams)** subscriptions.
+
+**Results**: After completing this exercise, you should have added additional services to the tenant.
+
+## Exercise 3: Customize Security Defaults
+
+### Scenario
+
+Now that you've provisioned a Microsoft 365 tenant, your next step is to disable Security Defaults for the lab environment.
+
+The main task for this exercise is as follows:
+
+ - Customize Security Defaults.
+
+### Task 1: Customize Security Defaults
 
 1.  In the Microsoft 365 admin center, on the navigation menu, select **Show all**.
 
@@ -164,17 +187,17 @@ The main tasks for this exercise are as follows:
 
 6.  On the **Security defaults** page, select the drop-down menu, and then select **Disabled**.
 
-7.  On the **Reason for disabling** list, select **My organization is using Conditional Access**, and then select **Save**.
+7.  On the **Reason for disabling** list, select **My organization is planning to use Conditional Access**, and then select **Save**.
 
 8.  Select **Disable** to close the **Security defaults** window.
 
-9.  Close Microsoft Edge.
+9.  Close the Microsoft Edge inPrivate window on your computer.
 
 >**Note:** Security Defaults are enabled by default to provide extra security such as multifactor authentication for the tenant. In a production environment, you would only disable this setting if you plan to use Conditional Access policies. 
 
-**Results**: After completing this exercise, you should have disabled recurring billing and disabled Security defaults for the tenant.
+**Results**: After completing this exercise, you should have disabled Security defaults for the tenant.
 
-## Exercise 3: Reviewing Microsoft 365 and Exchange admin centers
+## Exercise 4: Reviewing Microsoft 365 and Exchange admin centers
 
 ### Scenario
 
@@ -185,64 +208,67 @@ The main tasks for this exercise are as follows:
 1. Review the Microsoft 365 admin center.
 2. Review the Exchange admin center.
 
+>**Note:** Perform all remaining tasks from within the online lab environment.
 
 ### Task 1: Review the Microsoft 365 admin center
 
-1.  On **LON-CL1**, from the taskbar, select **Microsoft Edge**.
+1.  In the lab environment, sign in to **LON-CL1** as **Contoso\\Administrator**, with the password of **Pa55w.rd**.
 
-2.  In the address bar, enter **`https://admin.microsoft.com`**, and then select Enter.
+2.  On **LON-CL1**, from the taskbar, select **Microsoft Edge**.
 
-3.  Sign in as **`username@ddmmyyyourinitialsContoso.onmicrosoft.com`** with the password **`Pa55w.rd1234`**.  
+3.  In the address bar, enter **`https://admin.microsoft.com`**, and then select Enter.
+
+4.  Sign in as **`username@ddmmyyyourinitialsContoso.onmicrosoft.com`** with the password **`Pa55w.rd1234`**.  
 
 >**Note:** Use the credentials that you created in Exercise 1.
 
-4.  At the **Stay signed in** prompt, select **No**.
+5.  At the **Stay signed in** prompt, select **No**.
 
 >**Note:** The Microsoft 365 admin center opens.
 
-5.  Complete and close any notification prompts that might display
+6.  Complete and close any notification prompts that might display
 
-6.  In the navigation menu, select **Show all**.
+7.  In the navigation menu, select **Show all**.
 
 >**Note:** All options now display on the navigation menu.
 
-7.  In the navigation pane, expand **Users**.
+8.  In the navigation pane, expand **Users**.
 
 >**Note:** The **Users** node is where you will create and manage user accounts for users, contacts, and guest users. 
 
-8.  Select the **Active users** node and take note of the options to add and manage new users.
+9.  Select the **Active users** node and take note of the options to add and manage new users.
 
-9.  Select the **Contacts** node and take note of the options to add and manage contacts.
+10.  Select the **Contacts** node and take note of the options to add and manage contacts.
 
-10.  Select the **Guest users** node and take note of the options to add and manage guest users to the tenant.
+11.  Select the **Guest users** node and take note of the options to add and manage guest users to the tenant.
 
-11.  In the navigation pane, expand **Teams & groups**. 
+12.  In the navigation pane, expand **Groups**. 
 
->**Note:** The **Teams & groups** node is where you create and manage group recipients and Shared mailboxes. 
+>**Note:** The **Groups** node is where you create and manage group recipients and Shared mailboxes. 
 
-12.  Select the **Active teams & groups** node and take note of the options to add and manage Teams & Microsoft 365 groups, distribution lists, and security groups.
+13.  Select the **Active groups** node and take note of the options to add and manage Microsoft 365 groups, distribution lists, and security groups.
 
-13.  Select the **Shared mailboxes** node and take note of the options to add and manage shared mailboxes for team collaboration.
+14.  Select the **Shared mailboxes** node and take note of the options to add and manage shared mailboxes for team collaboration.
 
-14.  In the navigation pane, expand **Resources**, and then select **Rooms & equipment**.
+15.  In the navigation pane, expand **Resources**, and then select **Rooms & equipment**.
 
 >**Note:** The **Rooms & equipment** node is where you create and manage resources such as conference rooms or equipment that can be scheduled along with users for meetings.
 
-15.  In the navigation pane, expand **Settings**, and then select **Org settings**.
+16.  In the navigation pane, expand **Settings**, and then select **Org settings**.
 
-16.  On the **Org settings** page, select **Services**.
+17.  On the **Org settings** page, select **Services**.
 
-17.  On the **Services** page, select **Calendar**.
+18.  On the **Services** page, select **Calendar**.
 
-18.  When the **Calendar** page opens, under **External sharing**, verify that the **Show all calendar appointment information** option is selected.
+19.  When the **Calendar** page opens, under **External sharing**, verify that the **Show all calendar appointment information** option is selected.
 
-19.  Close the **Calendar** page.
+20.  Close the **Calendar** page.
 
-20.  On the **Services** page, select **Mail**.
+21.  On the **Services** page, select **Mail**.
 
-21.  When the **Mail** page opens, notice the links to configure Auditing, Mail flow, and spam and malware protection.
+22.  When the **Mail** page opens, notice the links to configure Auditing, Mail flow, and spam and malware protection.
 
-22.  Close the **Mail** page.
+23.  Close the **Mail** page.
 
 ### Task 2: Review the Exchange admin center
 
@@ -286,7 +312,7 @@ The main tasks for this exercise are as follows:
 
 **Results**: After completing this exercise, you'll have reviewed both the Microsoft 365 admin center and the Microsoft Exchange admin center.
 
-## Exercise 4: Managing Exchange Online with PowerShell
+## Exercise 5: Managing Exchange Online with PowerShell
 
 ### Scenario
 
@@ -319,6 +345,8 @@ The main tasks for this exercise are as follows:
 
    `Install-Module -Name ExchangeOnlineManagement`
 
+>**Note:** You can disregard any warning that is displayed.
+
 8.  To import the module for Exchange Online PowerShell, at the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
    `Import-Module -Name ExchangeOnlineManagement`
@@ -339,11 +367,11 @@ The main tasks for this exercise are as follows:
 
 >**Note:** The command returns a list of all the mailboxes in your organization.
 
-12.  At the Windows PowerShell ISE command prompt, enter the following commands, and then select Enter after each command:
+12.  At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
     `Enable-OrganizationCustomization`
 
->**Note:** The command enables the ability to modify certain settings for the Exchange organization. These settings take time to process and will be required during the remainder of the course.
+>**Note:** The command enables the ability to modify certain settings for the Exchange organization. This may take some time to process and will be required during the remainder of the course.
 
 13.  At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 

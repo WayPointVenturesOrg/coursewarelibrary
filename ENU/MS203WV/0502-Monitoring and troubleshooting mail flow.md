@@ -5,6 +5,7 @@
 A vital part of a Messaging Administrator's role is to monitor the Microsoft 365 and Microsoft Exchange Online environments to proactively address service issues. You need to be able to monitor Exchange Online health and identify usage statistics to ensure a healthy and functional email system. Reports and alerts will also help you identify mail flow issues, and provide statistics necessary for managers to make decisions related to additional features and forecasting costs. You also need to understand the tools available to you such as the **Microsoft Remote Connectivity Analyzer** and **Message Trace** for troubleshooting user configuration and mail flow issues.
 
 >**Note:** This lab requires students to have first completed the following labs:
+>
 >- **Module 1 Lab: Exploring Microsoft 365 and Exchange Online administration portals** 
 >
 >- **Module 2 Lab A: Creating and managing Exchange Online recipients**.
@@ -12,14 +13,13 @@ A vital part of a Messaging Administrator's role is to monitor the Microsoft 365
 >- **Module 5 Lab A: Managing mail flow for Exchange Online**
 >
 
->**Important:** In order to review report results, it is recommended to perform this lab at least **1 hour** after you complete **Module 5 Lab A: Managing mail flow for Exchange Online**.
+>**Note:** In order to review report results, it is recommended to perform this lab at least **1 hour** after you complete **Module 5 Lab A: Managing mail flow for Exchange Online**.
 
 >To assist with your sign-in process, enter your Microsoft 365 Tenant name, sign-in username, and password as follows:
 >
 >- **Microsoft 365 Tenant name (ddmmyyyourinitialsContoso.onmicrosoft.com):** 
 >- **Microsoft 365 Username (username@ddmmyyyourinitialsContoso.onmicrosoft.com):** 
 >- **Password:** Pa55w.rd1234
-
 ## Exercise 1: Monitoring Exchange Health and Mail Flow
 
 ### Scenario
@@ -52,11 +52,9 @@ The main tasks for this exercise are as follows:
 
 8.  Review the current service health and usage statistics.
 
->**Note:** All services that are healthy display a green circle with a check mark. Any services with health issues will have indicators and additional information as needed.
-
 9.  In the navigation pane, expand **Health**, and then select **Service health**.
 
->**Note:** Similar to the **Dashboard** view, the **Service health** page details current related issues for all Microsoft 365 services. If there are any advisories for Exchange Online, select their status and review the details. You can also select **Issue history** to review a history of incidents that have been resolved.
+>**Note:** The **Service health** page details current related issues for all Microsoft 365 services. If there are any advisories for Exchange Online, select their status and review the details. You can also select **Issue history** to review a history of incidents that have been resolved.
 
 10.  In the navigation pane, under **Health**, select **Message center**.
 
@@ -124,7 +122,7 @@ The main tasks for this exercise are as follows:
 5.  On the **Recipients** page, configure the following details, and then select **Next**:
 
    - **Send email notification:** Selected
-   - **Email recipients:** `Alex Wilber`, `Lee Gu`
+   - **Email recipients:** `Alex Wilber`
    - **Daily notification limit:** 10
 
 6.  On the **Review and finish** page, select **Create**, and then select **Done**.
@@ -175,7 +173,7 @@ The main tasks for this exercise are as follows:
 
 >**Note:** When the **Microsoft Remote Connectivity Analyzer** page opens, take note of the various connectivity tests available in the navigation area.
 
-3.  Under **Connectivity Test**, ensure that **Office 365** is selected, and then select **Mailbox Provisioning Test**.
+3.  Under **Connectivity Tests**, ensure that **Exchange Online** is selected, and then select **Mailbox Provisioning Test**.
 
 4.  On the **Mailbox Provisioning Test** page, enter the following information:
 
@@ -191,7 +189,7 @@ The main tasks for this exercise are as follows:
 
 7.  Expand **Test Steps**, and then review each test step. Expand additional details as needed.
 
-8.  Under **Connectivity Test**, select **Office 365**, and then select **Outlook Connectivity**.
+8.  Under **Connectivity Tests**, select **Exchange Online**, and then select **Outlook Connectivity**.
 
 9.  On the **Outlook Connectivity** page, enter the following information:
 
@@ -199,7 +197,7 @@ The main tasks for this exercise are as follows:
    - **Authentication type:** Modern authentication (OAuth)
    - **Modern Authentication (OAuth) Credentials:** Sign in as **`Alex@ddmmyyyourinitialsContoso.onmicrosoft.com`** with the password **`Pa55w.rd1234`**. 
    - **Autodiscover selection:** Use Autodiscover to detect server settings
-   - **Service Selection:** Office 365 (Default)
+   - **Service Selection:** Microsoft 365 (Default)
 
 10.  On the **Outlook Connectivity** page, select the **Notice message** checkbox, and then select **Perform Test**.
 

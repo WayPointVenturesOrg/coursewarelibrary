@@ -29,7 +29,7 @@ The main tasks for this exercise are as follows:
 
 2.  From the taskbar, select **Microsoft Edge**.
 
-3.  In the address bar, enter **`https://compliance.microsoft.com`**, and then select Enter.
+3.  In the address bar, enter **`https://purview.microsoft.com`**, and then select Enter.
 
 4.  Sign in as **`username@ddmmyyyourinitialsContoso.onmicrosoft.com`** with the password **`Pa55w.rd1234`**. 
 
@@ -37,23 +37,25 @@ The main tasks for this exercise are as follows:
 
 5.  At the **Stay signed in** prompt, select **No**.
 
->**Note:** The Microsoft Purview compliance portal opens.
+>**Note:** The Microsoft Purview portal opens.
 
 6.  Complete and close any notification prompts that might display.
 
-7.  In the navigation pane, expand **Data lifecycle management**, and then select **Exchange (legacy)**.
+7.  In the navigation pane, select **Solutions**, select **Data lifecycle Management**.
 
-8.  On the **Exchange (legacy)** page, select the **MRM Retention tags** tab.
+8.  Expand **Exchange (legacy)**, and then select **MRM Retention tags**.
 
 >**Note:** Take note of the default MRM Retention tags. Notice the **Default 2 year move to archive** tag. This is a Default tag that's assigned to every user's mailbox. If the user has an in-place archive mailbox, this tag takes effect. By default, users are not enabled for in-place archive, and will not have items automatically archived until the setting is enabled.
 
-9.  On the **Exchange (legacy)** page, select the **MRM Retention policies** tab.
+9.  Expand **Exchange (legacy)**, and then select **MRM Retention policies**.
 
 >**Note:** The **Default MRM Policy** contains all of the MRM Retention tags, and is by default, published to all users in the tenant.
 
 ### Task 2: Enable In-Place archive
 
 1.  In the Microsoft Edge address bar, open a new tab, and then in the address bar, enter **`https://admin.exchange.microsoft.com`**.
+
+>**Note:** The **Exchange admin center** opens.
 
 2.  Complete and close any notification prompts that might display.
 
@@ -95,7 +97,7 @@ The main tasks for this exercise are as follows:
 
 >**Note:** You might notice the **Archive** folder in the **Folders** section, and the **In-Place Archive** that was just created. The **Archive** folder is just a standard folder that resides in the user's primary mailbox. Moving email messages to the **Archive** folder doesn't reduce the size of the primary mailbox. However, moving email messages to the **In-Place Archive** will reduce the size of the primary mailbox because the **In-Place Archive** is a secondary mailbox for the user.
 
-6.  Expand the **In-Place Archive - Adele Vance** archive mailbox, select **Create new folder**, and then enter **`Archive Inbox`** and then select **Save**.
+6.  Right-click the **In-Place Archive - Adele Vance** archive mailbox, select **Create new folder**, enter **`Archive Inbox`** and then select **Save**.
 
 7.  In Outlook, select **Settings**.
 
@@ -140,7 +142,7 @@ The main tasks for this exercise are as follows:
 
 1.  From the taskbar, select **Microsoft Edge**.
 
-2.  In the address bar, enter **`https://compliance.microsoft.com`**, and then select Enter.
+2.  In the address bar, enter **`https://purview.microsoft.com`**, and then select Enter.
 
 3.  Sign in as **`username@ddmmyyyourinitialsContoso.onmicrosoft.com`** with the password **`Pa55w.rd1234`**. 
 
@@ -148,96 +150,94 @@ The main tasks for this exercise are as follows:
 
 4.  At the **Stay signed in** prompt, select **No**.
 
->**Note:** The Microsoft Purview compliance portal opens.
+>**Note:** The Microsoft Purview portal opens.
 
 5.  Complete and close any notification prompts that might display.
 
-6.  In the Microsoft Purview compliance portal, in the navigation pane, expand **Data lifecycle management**, and then select **Microsoft 365**.
+6.  In the Microsoft Purview portal, in the navigation pane, select **Solutions**, select **Data lifecycle management**, and then select **Retention labels**.
 
-7.  When the **Data lifecycle management** page opens, select the **Labels** tab.
+7.  On the **Labels** page, select **Create a label**.
 
-8.  On the **Labels** tab, select **Create a label**.
+8.  In the **Create retention label** wizard, on the **Name** page, enter the following details, and then select **Next**:
 
-9.  In the **Create retention label** wizard, on the **Name** page, enter the following details, and then select **Next**:
+    - **Name:** `1 year then delete`
+    - **Description for users:** `Retains an item for 1 year from creation and then automatically deletes.`
+    - **Description for admins:** `Retains an item for 1 year from creation and then automatically deletes.`
 
-   - **Name:** `1 year then delete`
-   - **Description for users:** `Retains an item for 1 year from creation and then automatically deletes.`
-   - **Description for admins:** `Retains an item for 1 year from creation and then automatically deletes.`
+9.  On the **Label settings** page, select **Enforce actions after a specific period**, and then select **Next**.
 
-10.  On the **Label settings** page, select **Enforce actions after a specific period**, and then select **Next**.
+10.  On the **Period** page, enter the following details, and then select **Next**:
 
-11.  On the **Period** page, enter the following details, and then select **Next**:
+     - **How long is the period:** Custom 
+       - Configure for 1 year
+     - **When should the period begin:** When items were created
 
-    - **How long is the period:** Custom 
-      - Configure for 1 year
-    - **When should the period begin:** When items were created
+11.  On the **Setting after period** page, select **Delete items automatically**, and then select **Next**.
 
-12.  On the **Setting after period** page, select **Delete items automatically**, and then select **Next**.
+12.  On the **Finish** page, select **Create label**.
 
-13.  On the **Finish** page, select **Create label**.
-
-14.  On the **Your retention label is created** page, select **Do Nothing**, and then select **Done**.
+13.  On the **Your retention label is created** page, select **Do Nothing**, and then select **Done**.
 
 >**Note:** You will create a policy in a later step to publish the label to users.
 
-15.  On the **Labels** tab, select **Create a label**.
+14.  On the **Labels** tab, select **Create a label**.
 
-16.  In the **Create retention label** wizard, on the **Name** page, enter the following details, and then select **Next**:
+15.  In the **Create retention label** wizard, on the **Name** page, enter the following details, and then select **Next**:
 
-    - **Name:** `5 years then delete`
-    - **Description for users:** `Retains an item for 5 years from creation and then automatically deletes.`
-    - **Description for admins:** `Retains an item for 5 years from creation and then automatically deletes.`
+     - **Name:** `5 years then delete`
+     - **Description for users:** `Retains an item for 5 years from creation and then automatically deletes.`
+     - **Description for admins:** `Retains an item for 5 years from creation and then automatically deletes.`
 
-17.  On the **Label settings** page, select **Enforce actions after a specific period**, and then select **Next**.
+16.  On the **Label settings** page, select **Enforce actions after a specific period**, and then select **Next**.
 
-18.  On the **Period** page, enter the following details, and then select **Next**:
+17.  On the **Period** page, enter the following details, and then select **Next**:
 
-    - **How long is the period:** 5 years
-    - **When should the period begin:** When items were created
+     - **How long is the period:** 5 years
+     - **When should the period begin:** When items were created
 
-19.  On the **Setting after period** page, select **Delete items automatically** and then select **Next**.
+18.  On the **Setting after period** page, select **Delete items automatically** and then select **Next**.
 
-20.  On the **Finish** page, select **Create label**.
+19.  On the **Finish** page, select **Create label**.
 
-21.  On the **Your retention label is created** page, select **Do Nothing**, and then select **Done**.
+20.  On the **Your retention label is created** page, select **Do Nothing**, and then select **Done**.
 
 >**Note:** You will create a policy in a later step to apply publish the label to users.
 
-22.  On the **Labels** tab, select **Create a label**.
+21.  On the **Labels** tab, select **Create a label**.
 
-23.  In the **Create retention label** wizard, on the **Name** page, enter the following details, and then select **Next**:
+22.  In the **Create retention label** wizard, on the **Name** page, enter the following details, and then select **Next**:
 
-    - **Name:** `Never delete`
-    - **Description for users:** `Tag an item to never automatically delete`
-    - **Description for admins:** `Tag an item to never automatically delete`
+     - **Name:** `Never delete`
+     - **Description for users:** `Tag an item to never automatically delete`
+     - **Description for admins:** `Tag an item to never automatically delete`
 
-24.  On the **Label settings** page, select **Retain items forever or for a specific period**, and then select **Next**.
+23.  On the **Label settings** page, select **Retain items forever or for a specific period**, and then select **Next**.
 
-25.  On the **Period** page, enter the following setting, and then select **Next**:
+24.  On the **Period** page, enter the following setting, and then select **Next**:
 
-    - **Retain item for:** Forever
+     - **Retain item for:** Forever
 
-26.  On the **Finish** page, select **Create label**.
+25.  On the **Finish** page, select **Create label**.
 
-27.  On the **Your retention label is created** page, select **Do Nothing**, and then select **Done**.
+26.  On the **Your retention label is created** page, select **Do Nothing**, and then select **Done**.
 
 >**Note:** You will create a policy in a later step to apply publish the label to users.
 
 ### Task 2: Publish Microsoft 365 retention labels
 
-1.  On the **Data lifecycle management** page, select the **Label policies** tab.
+1.  On the **Data lifecycle management** page, expand **Policies**, and then select **Label policies**.
 
-2.  On the **Label policies** tab, select **Publish labels**.
+2.  On the **Label policies** page, select **Publish labels**.
 
 3.  On the **Choose labels to publish** page, select **Choose labels to publish**.
 
 4.  On the **Choose labels to publish** panel, select the checkboxes for the following retention labels, and then select **Add**:
 
-   - 1 year then delete
+    - 1 year then delete
 
-   - 5 years then delete
+    - 5 years then delete
 
-   - Never delete
+    - Never delete
 
 5.  On the **Choose labels to publish** page, select **Next**.
 

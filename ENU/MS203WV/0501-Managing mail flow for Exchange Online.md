@@ -11,96 +11,7 @@ Your organization collaborates with a partner organization named Adatum Corporat
 >- **Microsoft 365 Tenant name (ddmmyyyourinitialsContoso.onmicrosoft.com):** 
 >- **Microsoft 365 Username (username@ddmmyyyourinitialsContoso.onmicrosoft.com):** 
 >- **Password:** Pa55w.rd1234
-
-## Exercise 1: License preparation for the Microsoft 365 tenant
-
-### Scenario
-
-To enable specific features for your tenant, you need to enable and assign additional licenses to your users. This is needed in preparation for upcoming lab tasks.
-
-The main tasks for this exercise are as follows:
-
-1. Add additional cloud services to the tenant.
-2. Disable recurring billing for the Microsoft 365 E5 trial subscription.
-3. Assign licenses to users.
-
-### Task 1: Add additional cloud services to the tenant
-
-1.  Sign in to **LON-CL1** as **`Admin`** with the password **`Pa55w.rd`**.
-
-2.  From the taskbar, select **Microsoft Edge**.
-
-3.  In the address bar, enter **`https://admin.microsoft.com`**, and then select Enter.
-
-4.  Sign in as **`username@ddmmyyyourinitialsContoso.onmicrosoft.com`** with the password **`Pa55w.rd1234`**. 
-
->**Note:** Use the credentials that you provided at the start of this lab.
-
-5.  At the **Stay signed in** prompt, select **No**.
-
-6.  In the Microsoft 365 admin center, on the navigation menu, expand **Billing**, and then select **Licenses**.
-
->**Note:** The **Licenses** page displays the current subscriptions and available licenses for the tenant.
-
-7.  On the navigation menu, under **Billing**, select **Purchase services**.
-
->**Note:** The **Purchase services** page is where you'll review the products and services that you can add on to your subscription.
-
-8.  On the **Purchase services** page, select **All products**.
-
-9.  In the **Search all products** field, enter **E5** and then press Enter.
-
-10.  In the **Microsoft 365 E5** section, select **Details**.
-
-11.  On the **Microsoft 365 E5** page, in the **Select a plan** section, select **Microsoft 365 E5 (Trial)**.
-
-12.  On the **Check out** page, select **Place order**.
-
-13.  Close the **Thanks for your order** page.
-
-### Task 2: Disable recurring billing for the Microsoft 365 E5 trial subscription
-
->**Important:** Ensure that you follow all the steps listed in this task to disable recurring billing on your subscription before the trial expires.
-
-1.  In the Microsoft 365 admin center, use the navigation pane to expand **Billing**, and then select **Your products**.
-
->**Note:** Both the **Microsoft 365 E3** and the **Microsoft 365 E5** subscriptions are listed.
-
-3.  Refresh the page until the **Subscription status** for **Microsoft 365 E5** shows **Active**.
-
-2.  Select the **Microsoft 365 E5** item.
-
-3.  On the **Microsoft 365 E5** page, select **Edit recurring billing**. 
-
-4.  On the **Edit recurring billing** page, select **Off**, and then select **Save**, and then at the prompt, select **Yes**.
-
->**Note:** By disabling recurring billing, you ensure that your subscription will not automatically renew and charge your payment method when the trial expires.
-
-### Task 3: Assign licenses to users
-
-1.  In the Microsoft 365 admin center, use the navigation pane to expand **Users**, and then select **Active users**.
-
-2.  On the menu bar, select the ellipse (...), select **Filter**, and then select **Licensed users**.
-
-2.  Select the checkboxes next to all of the licensed users, except **Patti Fernandez**.
-
->**Note:** Patti receives her license from a group membership, and cannot be assigned a new license. You would have to modify the group license setting to modify Patti's license.
-
-3.  On the menu bar, select the ellipse (...), and then select **Manage product licenses**.
-
-4.  On the **Manage product licenses** page, verify that the eight users are selected, and then select **Replace**.
-
-5.  Select the checkbox for **Microsoft 365 E5**.
-
-6.  Select **Save changes**, and then select **Done**.
-
->**Note:** Notice that all selected users are now assigned the Microsoft 365 E5 license.
-
-7.  Close Microsoft Edge.
-
-**Results**: After completing this exercise, you'll have acquired and replaced licenses for users in the tenant.
-
-## Exercise 2: Configuring Connectors to manage mail flow
+## Exercise 1: Configuring Connectors to manage mail flow
 
 ### Scenario
 
@@ -162,21 +73,16 @@ The main tasks for this exercise are as follows:
 
 1.  In the Exchange admin center, on the **Connectors** page, select **Add a connector**.
 
-2. In the **Add a connector wizard**, on the **New connector** page, configure the following details, and then select **Next**:
+2.  In the **Add a connector wizard**, on the **New connector** page, configure the following details, and then select **Next**:
 
-     - **Connection from:** Partner organization
+  - **Connection from:** Partner organization
+  - **Connection to:** Office 365 (Automatically selected)
 
-     - **Connection to:** Office 365 (Automatically selected)
+3.  On the **Connector name** page, enter the following details, and then select **Next**:
 
-
-3. On the **Connector name** page, enter the following details, and then select **Next**:
-
-     - **Name:** `Receive from Adatum.com`
-
-     - **Description:** `Secure connection from Adatum.com`
-
-     - **What do you want to do after the connector is saved?:** Turn it on
-
+  - **Name:** `Receive from Adatum.com`
+  - **Description:** `Secure connection from Adatum.com`
+  - **What do you want to do after the connector is saved?:** Turn it on
 
 4.  On the **Authenticating sent email** page, select **by verifying that the sender domain matches one of the following domains**.
 
@@ -192,7 +98,7 @@ The main tasks for this exercise are as follows:
 
 **Results:** After completing this exercise, you'll have created two connectors for secure email connectivity with Fabrikam.com.
 
-## Exercise 3: Configuring Mail flow rules
+## Exercise 2: Configuring Mail flow rules
 
 ### Scenario
 
@@ -311,7 +217,7 @@ The main tasks for this exercise are as follows:
 
 **Results**: After completing this exercise, you should have configured mail flow rules.
 
-## Exercise 4: Validating mail flow rules
+## Exercise 3: Validating mail flow rules
 
 ### Scenario
 

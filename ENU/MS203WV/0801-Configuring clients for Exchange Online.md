@@ -11,7 +11,6 @@ You need to create and assign a custom Microsoft Outlook Web App policy that res
 >- **Microsoft 365 Tenant name (ddmmyyyourinitialsContoso.onmicrosoft.com):** 
 >- **Microsoft 365 Username (username@ddmmyyyourinitialsContoso.onmicrosoft.com):** 
 >- **Password:** Pa55w.rd1234
-
 ## Exercise 1: Configuring Outlook Web App Policies
 
 ### Scenario
@@ -124,7 +123,7 @@ The main tasks for this exercise are as follows:
 
 15.  Notice that contacts, tasks, and Notes are not visible for Adele either.
 
->**Note:** If Adele does not show the Basic experience, sign-out and re-sign in to Outlook on the web. It may take several minutes for the policy to apply. The **Contoso Research OWA Policy** is assigned to Adele and restricts Adele to the Basic experience with settings disabled as per the policy. 
+>**Note:** If Adele does not show the Basic experience, sign-out and re-sign in to Outlook on the web. It may take a while for the policy to apply. The **Contoso Research OWA Policy** is assigned to Adele and restricts Adele to the Basic experience with settings disabled as per the policy. 
 
 16.  Close Microsoft Edge.
 
@@ -195,9 +194,9 @@ The main tasks for this exercise are as follows:
 
 5.  In the Microsoft 365 portal, select **Install and more**, and then select **Install Microsoft 365 apps**.
 
->**Note:** The **My account** site opens on a new browser tab to the **Apps & devices** page.
+>**Note:** The **My account** site opens on a new browser tab to the **My account** page.
 
-6.  On the **Apps & devices** page, select **Install Office**.
+6.  In the navigation menu, select **Apps & devices**, and then select **Install Office**.
 
 >**Note:** **OfficeSetup.exe** downloads.
 
@@ -211,9 +210,9 @@ The main tasks for this exercise are as follows:
 
 10.  On **LON-CL1**, from the taskbar, select the **Search** field, and then enter **`Outlook`**.
 
-11.  In the **Search** results, select the **Outlook** app.
+11.  In the **Search** results, select the **Outlook (classic)** app.
 
-12.  On the **Sign in to get started with Office** page, select **Sign in or create account**.
+12.  On the **Welcome to Outlook** page, select **Continue**.
 
 13.  Sign in as **`Lee@ddmmyyyourinitialsContoso.onmicrosoft.com`** with the password **`Pa55w.rd1234`**. 
 

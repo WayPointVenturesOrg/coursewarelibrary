@@ -25,17 +25,17 @@ The main tasks for this exercise are as follows:
 
 ### Task 1: Assign role permissions for modifying Address Lists
 
-1.  On **LON-CL1**, select **Start**, and then enter **`PowerShell ISE`**.
+1. On **LON-CL1**, select **Start**, and then enter **`PowerShell ISE`**.
 
-2.  In the search results, under **Windows PowerShell ISE**, select **run as administrator**.
+2. In the search results, under **Windows PowerShell ISE**, select **run as administrator**.
 
-3.  At the **User Account Control**, select **Yes**.
+3. At the **User Account Control**, select **Yes**.
 
-4.  At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
+4. At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
    `Connect-ExchangeOnline`
 
-5.  Sign in as **`username@ddmmyyyourinitialsContoso.onmicrosoft.com`** with the password **`Pa55w.rd1234`**. 
+5. Sign in as **`username@ddmmyyyourinitialsContoso.onmicrosoft.com`** with the password **`Pa55w.rd1234`**. 
 
 >**Note:** Use the credentials that you provided at the start of this lab.
 
@@ -49,23 +49,23 @@ New-ManagementRoleAssignment -SecurityGroup "Organization Management" -Role "Add
 
 7.  Close Windows PowerShell ISE.
 
->**Important:** You need to restart Windows PowerShell ISE with the new role assignment.
+>**Note:** You need to restart Windows PowerShell ISE with the new role assignment.
 
 ### Task 2: Use Exchange Online PowerShell to create address lists
 
-1.  On **LON-CL1**, select **Start**, and then enter **`PowerShell ISE`**.
+1. On **LON-CL1**, select **Start**, and then enter **`PowerShell ISE`**.
 
-2.  In the search results, under **Windows PowerShell ISE**, select **run as administrator**.
+2. In the search results, under **Windows PowerShell ISE**, select **run as administrator**.
 
-3.  At the **User Account Control**, select **Yes**.
+3. At the **User Account Control**, select **Yes**.
 
-4.  At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
+4. At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
    `Connect-ExchangeOnline`
 
-5.  Sign in as **`username@ddmmyyyourinitialsContoso.onmicrosoft.com`** with the password **`Pa55w.rd1234`**. 
+5. Sign in as **`username@ddmmyyyourinitialsContoso.onmicrosoft.com`** with the password **`Pa55w.rd1234`**. 
 
-6.  At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
+6. At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
 ```
 New-AddressList -Name "Research" -IncludedRecipients MailboxUsers -ConditionalDepartment "Research"
@@ -83,7 +83,7 @@ New-AddressList -Name "Sales" -IncludedRecipients MailboxUsers -ConditionalDepar
 
 ### Task 3: View the new address lists
 
->**Important:** Wait 3-5 minutes before continuing with the next task. It may take a few minutes for the new address lists to register.
+>**Note:** Wait 3-5 minutes before continuing with the next task. It may take a few minutes for the new address lists to register.
 
 1.  On LON-CL1, from the taskbar, select **Microsoft Edge**.
 
@@ -130,11 +130,11 @@ The main tasks for this exercise are as follows:
 
 ### Task 1: Enable Address Book Policy Routing
 
-1.  At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
+1. At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
    `Set-TransportConfig -AddressBookPolicyRoutingEnabled $true`
 
-2.  At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
+2. At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
    `Get-TransportConfig | Format-List AddressBookPolicyRoutingEnabled`
 
@@ -142,21 +142,21 @@ The main tasks for this exercise are as follows:
 
 ### Task 2: Create a new Global Address List
 
-1.  At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
+1. At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
    `New-GlobalAddressList -Name "Adatum GAL" -IncludedRecipients AllRecipients -ConditionalCompany Adatum`
 
-2.  At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
+2. At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
    `Get-GlobalAddressList -Identity "Adatum GAL" | Format-List Name,RecipientFilterType,RecipientFilter,IncludedRecipients,Conditional*`
 
->**Important:** If you receive an error message, the role assignment process has not completed for the tenant. It may take a couple of hours to complete the role assignment process. You may need to return at a later time to complete Exercise 2.
+>**Note:** If you receive an error message, the role assignment process has not completed for the tenant. It may take a couple of hours to complete the role assignment process. You may need to return at a later time to complete Exercise 2.
 
 >**Note:** The **Adatum GAL** is configured to only display recipients with the **Company** attribute set to **Adatum**. 
 
 ### Task 3: Create an Offline Address Book
 
-1.  At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
+1. At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
    `New-OfflineAddressBook -Name "OAB_Adatum" -AddressLists "\Adatum GAL"`
 
@@ -164,7 +164,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 4: Create a Room List
 
-1.  At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
+1. At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
    `New-AddressList -Name "Conference Rooms" -RecipientFilter {(RecipientDisplayType -eq 'ConferenceRoomMailbox')}`
 
@@ -172,11 +172,11 @@ The main tasks for this exercise are as follows:
 
 ### Task 5: Create an Address Book Policy
 
-1.  At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
+1. At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
    `New-AddressBookPolicy -Name "Adatum" -AddressLists "\Sales" -OfflineAddressBook "\OAB_Adatum" -GlobalAddressList "\Adatum GAL" -RoomList "\Conference Rooms"`
 
-2.  At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
+2. At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
    `Get-AddressBookPolicy`
 
@@ -184,7 +184,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 6: Assign the Address Book Policy to Users
 
-1.  At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
+1. At the Windows PowerShell ISE command prompt, enter the following command, and then select Enter:
 
    `Get-Recipient -Filter '(Company -eq "Adatum") -and (recipienttypedetails -eq "usermailbox")' | Set-Mailbox -AddressBookPolicy Adatum`
 
@@ -192,7 +192,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 7: Verify the Address Book Policy
 
->**Important:** Wait five minutes before continuing with Task 7. The address book settings may take some time to process.
+>**Note:** Wait five minutes before continuing with Task 7. The address book settings may take some time to process.
 
 1.  On LON-CL1, from the taskbar, select **Microsoft Edge**.
 

@@ -13,7 +13,6 @@ You need to implement authentication and security features for the tenant. You'l
 >- **Microsoft 365 Tenant name (ddmmyyyourinitialsContoso.onmicrosoft.com):** 
 >- **Microsoft 365 Username (username@ddmmyyyourinitialsContoso.onmicrosoft.com):** 
 >- **Password:** Pa55w.rd1234
-
 ## Exercise 1: Managing objects and reviewing authentication methods in Microsoft Entra ID
 
 ### Scenario
@@ -24,8 +23,9 @@ The main tasks for this exercise are as follows:
 
 1. Create a new user by using the Microsoft Entra admin center.
 2. Create a new group by using the Microsoft Entra admin center.
-3. Review and configure authentication methods and password protection.
-4. Review Security Defaults.
+3. Assign a license to a group.
+4. Review and configure authentication methods and password protection.
+5. Review Security Defaults.
 
 ### Task 1: Create a new user by using the Microsoft Entra admin center
 
@@ -88,19 +88,27 @@ The main tasks for this exercise are as follows:
 
 >**Note:** The **Human Resources** group should now display. However, you might need to refresh the page.
 
-7.  On the **All groups** page, select **Human Resources**.
+### Task 3: Assign a license to a group
 
-8.  In the **Manage** section, select **Licenses**.
+1.  In **Microsoft Edge** open a new tab.
 
-9.  On the **Licenses** page for Human Resources, select **Assignments**.
+2.  In the address bar, enter **`https://admin.microsoft.com`**, and then select Enter..
 
-10.  On the **Update license assignments** page, select the **Microsoft 365 E3** checkbox, and then select **Save**.
+3.  On the navigation menu, expand **Billing** and then select **Licenses**.
 
->**Note:** You have configured the **Human Resources** security group with a license assignment. Any member of the Human Resources security group will automatically be assigned a Microsoft 365 E3 license.
+4.  On the **Licenses** page, select **Microsoft 365 E5 (no Teams)**.
 
-### Task 3: Review and configure authentication methods and password protection
+5.  On the **Microsoft 365 E5 (no Teams)** page, select the **Groups** tab, and then select **Assign licenses**.
 
-1.  In the **Microsoft Entra** admin center navigation pane, expand **Protection**, and then select **Authentication methods**.
+6.  On the **Assign licenses to groups** page, select **Human Resources**, and then select **Assign**.
+
+7.  Close the **You assigned licenses to Human Resources** page. Refresh the page to confirm the results.
+
+>**Note:** You have configured the **Human Resources** security group with a license assignment. Any member of the Human Resources security group will automatically be assigned a Microsoft 365 E5 license.
+
+### Task 4: Review and configure authentication methods and password protection
+
+1.  Switch to the **Microsoft Entra admin center** navigation pane, expand **Protection**, and then select **Authentication methods**.
 
 >**Note:** The **Policies** page is selected by default.
 
@@ -116,7 +124,7 @@ The main tasks for this exercise are as follows:
    - **Enforce custom list:** Yes
    - **Custom banned password list**: Enter `Contoso`, and then select Enter. Then enter `Seattle` on a separate line
 
-### Task 4: Review Security Defaults
+### Task 5: Review Security Defaults
 
 1.  In the **Microsoft Entra admin center** navigation pane, expand **Identity**, and then select **Overview**.
 
@@ -212,23 +220,21 @@ The main tasks for this exercise are as follows:
 
 5.  On the **More information required** page, select **Next**.
 
->**Important:** If you do not get the **More information required** prompt. Close the browser and restart this task by re-signing in as Patti.
+>**Note:** If you do not get the **More information required** prompt. Close the browser and restart this task by re-signing in as Patti.
 
-6.  On the **Phone** page, enter your phone number, and then select **Next**.
+6.  On the **Keep your account secure** page, select **I want to set up a different method**.
 
-7.  On the **Phone** code page, enter your verification code, and then select **Next**.
+7.  For the **Choose a different method** prompt, select **Security questions**.
 
-8.  When the **Verification complete** message displays, select **Next**.
+8.  On the **Security questions** page, select and provide an answer for three security questions, and then select **Done**.
 
-9.  On the **Email** page, select **I want to set up a different method**.
+9.  On the **Keep your account secure** page, in the **Enter email** box, enter your email address and then select **Next**. Ensure that you have access to this email address from your mobile phone. 
 
-10.  For the **Choose a different method** prompt, select **Security questions**, and then select **Confirm**.
+10.  Enter the code that has been sent to your email address, and then select **Next**.
 
-11.  On the **Security questions** page, select and provide an answer for three security questions, and then select **Done**.
+11.  On the Success page, select **Done**.
 
-12.  On the Success page, select **Done**.
-
-13.  At the **Stay signed in** prompt, select **No**.
+12.  At the **Stay signed in** prompt, select **No**.
 
 >**Note:** The **My Account** page opens for Patti Fernandez.
 
@@ -237,8 +243,8 @@ The main tasks for this exercise are as follows:
 1.  On the **My Account** page, in the navigation pane, select **Password**.
 
 2.  On the **Change password** page, enter the following information, and then select **Submit**:
-   - Old password: **`Pa55w.rd123456`**
-   - Create new password: **`Pa55w.rd1234`**
+   - Current password: **`Pa55w.rd123456`**
+   - New password: **`Pa55w.rd1234`**
    - Confirm new password: **`Pa55w.rd1234`**
 
 3.  Close Microsoft Edge.
@@ -257,23 +263,21 @@ The main tasks for this exercise are as follows:
 
 6.  Enter the characters in the picture, and then select **Next**.
 
-7.  On the **verification step 1** page, select **Text my mobile phone**. 
+7.  On the **verification step 1** page, select **Email my alternate email**, and then select **Email**. 
 
-8.  In the **Enter your phone number** field, enter your mobile phone number, and then select **Text**.
+8.  Enter the code sent to your email address, and then select **Next**.
 
-9.  Enter the code sent to your mobile phone, and then select **Next**.
+9.  On the **Answer my security questions** page, answer each security question, and then select **Next**.
 
-10.  On the **Answer my security questions** page, answer each security question, and then select **Next**.
+10.  On the **Choose a new password page**, enter **`Pa55w.rd1234`** for both the **Enter new password** and **Confirm new password** textboxes, and then select **Finish**.
 
-11.  On the **Choose a new password page**, enter **`Pa55w.rd1234`** for both the **Enter new password** and **Confirm new password** textboxes, and then select **Finish**.
+11.  At the **To sign in with your new password** message, select **click here**.
 
-12.  At the **To sign in with your new password** message, select **click here**.
+12.  On the **Sign in** page, enter **`Patti@ddmmyyyourinitialsContoso.onmicrosoft.com`**.
 
-13.  On the **Sign in** page, enter **`Patti@ddmmyyyourinitialsContoso.onmicrosoft.com`**.
+13.  On the **Enter password** page, enter **`Pa55w.rd1234`**, and then select **Sign in**.
 
-14.  On the **Enter password** page, enter **`Pa55w.rd1234`**, and then select **Sign in**.
-
-15.  On the **Stay signed in** page, select **No**. 
+14.  On the **Stay signed in** page, select **No**. 
 
 >**Note:** The **My Account** page opens. 
 
@@ -316,9 +320,9 @@ The main tasks for this exercise are as follows:
 
 10.  Under **Target resources**, select **No target resources selected**.
 
-11.  Select the **Include** tab, and then choose **Select apps**.
+11.  Select the **Include** tab, and then choose **Select resources**.
 
-12.  In the **Select** section, under **Select**, choose **None**.
+12.  In the **Select** section, select **None**.
 
 13.  In the list of cloud apps, select the **Office 365** checkbox, and then choose **Select**.
 
@@ -344,16 +348,12 @@ The main tasks for this exercise are as follows:
 
 4.  On the **Enter password** page, enter **`Pa55w.rd1234`**, and then select **Sign in**.
 
-5.  On the **Verify your identity** page, select the **Text** prompt.
+5.  On the **More information required** page, select **Next**.
 
-6.  Enter the code sent to your mobile phone, and then select **Verify**.
+6.  Continue configuring Microsoft Authenticator on your phone. 
 
-7.  If you receive a message about using Microsoft Authenticator, select **Skip for now**.
+>**Note:** If you do not want to install Microsoft Authenticator, you may end the lab at this point. MFA is now configured for Patti.
 
->**Note:** Outlook opens to Patti's inbox.
-
->**Note:** Patti had already registered authentication methods in Exercise 2. If the user had not yet registered, they would have to first register authentication methods to support MFA.
-
-8.  Close Microsoft Edge.
+7.  Close Microsoft Edge.
 
 **Results**: After completing this exercise, you'll have successfully configured MFA to be enforced for the Human Resources department by using conditional access. 

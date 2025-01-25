@@ -14,8 +14,7 @@ To improve message compliance in your organization, you plan to implement messag
 >
 >- **Microsoft 365 Tenant name (ddmmyyyourinitialsContoso.onmicrosoft.com):** 
 >- **Microsoft 365 Username (username@ddmmyyyourinitialsContoso.onmicrosoft.com):** 
->- **Password:** Pa55w.rd1234
-
+- **Password:** Pa55w.rd1234
 ## Exercise 1: Protecting and Classifying Exchange Messages by using Sensitivity Labels
 
 ### Scenario
@@ -51,26 +50,22 @@ The main tasks for this exercise are as follows:
 
 8.  In the navigation menu, under **Admin centers**, select **Compliance**.
 
->**Note:** The Microsoft Purview compliance portal opens in a new browser tab.
+>**Note:** The Microsoft Purview portal opens in a new browser tab. If prompted, switch to the new portal or wait to be automatically directed to the new portal.
 
-9.  Complete and close any notification prompts that might display.
+9.  At the **Welcome to the new Microsoft Purview portal**, select the check box next to **I agree to the terms of data flow  disclosure, and Privacy Statements**, and then select **Get Started**.
 
-10.  In the navigation pane, under **Solutions**, expand **Information protection**, and then select **Labels**.
+10.  In the navigation pane, select **Solutions**, select **Information protection**, and then select **Sensitivity labels**.
 
-11.  On the **Labels** page, select  **Create a label**.
+11.  On the **Sensitivity labels** page, select  **Create a label**.
 
-12. In the **New sensitivity label** wizard, on the **Label details** page, enter the following details, and then select **Next**:
+12.  In the **New sensitivity label** wizard, on the **Label details** page, enter the following details, and then select **Next**:
 
-       - **Name:** `Contoso Project X Label`
+   - **Name:** `Contoso Project X Label`
+   - **Display name:** `Contoso Project X` 
+   - **Description for users:** `Apply this label to assign a watermark with Project X Draft, and a footer with Project X Confidential.`
+   - **Label color:** Select a color of your choice.
 
-       - **Display name:** `Contoso Project X` 
-
-       - **Description for users:** `Apply this label to assign a watermark with Project X Draft, and a footer with Project X Confidential.`
-
-       - **Label color:** Select a color of your choice.
-
-
-13.  On the **Scope** page, verify that **Items** is selected to include **Files** and **Emails** and then select **Next**.
+13.  On the **Scope** page, verify that **Files and other data assets** and **Emails** are both selected. Remove the check mark next to **Meetings**, and then select **Next**.
 
 14.  On the **Items** page, select **Apply content marking**, and then select **Next**.
 
@@ -92,15 +87,15 @@ The main tasks for this exercise are as follows:
 
 23.  On the **Finish** page, review the details, and then select **Create label**.
 
-24.  On the confirmation page, select **Don't create a policy yet,** and then select **Done**.
+24.  On the **Your sensitivity label was created** page, select **Don't create a policy yet,** and then select **Done**.
 
 >**Note:** When you are returned to the **Labels** page, notice that the **Contoso Project X** label is displayed. In the next task, you will create a label policy to deploy the label.
 
 ### Task 2: Publish sensitivity labels with a label policy
 
-1.  In the Microsoft Purview compliance portal, in the navigation pane, expand **Information protection**, and then select **Label policies**.
+1.  In the Microsoft Purview portal, in the **Information Protection** navigation pane, expand **Policies**, and then select **Publishing policies**.
 
-2.  On the **Label policies** page, select the **Publish label**.
+2.  On the **Label policies** page, select **Publish label**.
 
 3.  In the **Create policy** wizard, on the **Labels to publish** page, select **Choose sensitivity labels to publish**.
 
@@ -126,7 +121,7 @@ The main tasks for this exercise are as follows:
 
 13.  On the **Finish** page, review the details, and then select **Submit**.
 
-14.  On the confirmation page, select **Done**.
+14.  On the **New policy created** page, select **Done**.
 
 >**Note:** It can take up to 24 hours to publish the label to user's apps.
 
@@ -151,7 +146,7 @@ The main tasks for this exercise are as follows:
 
 1.  From the taskbar, select **Microsoft Edge**.
 
-2.  In the address bar, enter **`https://compliance.microsoft.com`**, and then select Enter.
+2.  In the address bar, enter **`https://purview.microsoft.com`**, and then select Enter.
 
 3.  Sign in as **`username@ddmmyyyourinitialsContoso.onmicrosoft.com`** with the password **`Pa55w.rd1234`**. 
 
@@ -159,19 +154,17 @@ The main tasks for this exercise are as follows:
 
 4.  At the **Stay signed in** prompt, select **No**.
 
->**Note:** The Microsoft Purview compliance portal opens.
+>**Note:** The Microsoft Purview portal opens.
 
 5.  Complete and close any notification prompts that might display.
 
-6.  In the Microsoft Purview compliance portal, in the navigation pane, expand **Data classification**, and then select **Classifiers**.
+6.  In the Microsoft Purview portal, in the navigation pane, select **Solutions**, select **Communication Compliance**.
 
->**Note:** Close any notification prompts that might display.
+7.  Expand **Classifiers**, and then select **Sensitive info types**.
 
-7.  On the **Classifiers** page, select the **Sensitive info types** tab.
+8.  On the **Sensitive info types** page, select **Create sensitive info type**.
 
-8.  On the **Sensitive info types** tab, select **Create sensitive info type**.
-
-9.  In the **Create sensitive info type wizard**, on the **Name** page, enter the following details, and then select **Next**:
+9.  In the **Create sensitive info type** wizard, on the **Name** page, enter the following details, and then select **Next**:
 
    - **Name:** `Contoso Product Code`
    - **Description:** `Sensitive info type used to detect Contoso product codes.`
@@ -202,7 +195,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 2: Create a Microsoft Purview Data Loss Prevention (DLP) Policy
 
-1.  In the Microsoft Purview compliance portal, in the navigation pane, expand **Data loss prevention**, and then select **Policies**.
+1.  In the Microsoft Purview portal, in the navigation pane, select **Solutions**, select **Data Loss Prevention**, and then select **Policies**.
 
 2.  On the **Policies** page, select **Create policy**.
 
@@ -275,35 +268,33 @@ The main tasks for this exercise are as follows:
 
 ### Task 1: Assign eDiscovery permissions
 
-1.  In the Microsoft Purview compliance portal, in the navigation pane, expand **Roles & scopes**, and then select **Permissions**.
+1.  In the Microsoft Purview portal, in the navigation pane, select **Settings**, expand **Roles and scopes**, and then select **Role groups**.
 
-2.  On the **Permissions** page, expand **Microsoft Purview solutions**, and then select **Roles**.
+2.  On the **Role groups for Microsoft Purview solutions** page, select **eDiscovery Manager**.
 
-3.  On the **Role groups for Microsoft Purview solutions** page, select **eDiscovery Manager**.
+3.  In the **eDiscovery Manager** panel, select **Edit**.
 
-4.  In the **eDiscovery Manager** panel, select **Edit**.
+4.  On the **Manage eDiscovery Manager** page, select **Choose users**.
 
-5.  On the **Manage eDiscovery Manager** page, select **Choose users**.
+5.  On the **Choose users** page, select the **Joni Sherman** checkbox, select **Select**, and then select **Next**.
 
-6.  On the **Choose users** page, select the **Joni Sherman** checkbox, select **Select**, and then select **Next**.
+6.  On the **Manage eDiscovery Administrator** page, select **Choose users**.
 
-7.  On the **Manage eDiscovery Administrator** page, select **Choose users**.
-
-8.  On the **Choose users** page, select the check box next to your username, choose **Select**, and then select **Next**.
+7.  On the **Choose users** page, select the check box next to your username, choose **Select**, and then select **Next**.
 
 >**Note:** Joni can only access and manage the cases she creates. She can't access or manage cases created by other eDiscovery Managers. You have permission for all eDiscovery cases created by any eDiscovery Manager.
 
-9.  On the **Review and finish** page, select **Save**, and then select **Done**.
+8.  On the **Review and finish** page, select **Save**, and then select **Done**.
 
-10.  Close Microsoft Edge.
+9.  Close Microsoft Edge.
 
->**Note:** You will re-sign in to the Microsoft Purview compliance portal to ensure you have updated eDiscovery permissions.
+>**Note:** You will re-sign in to the Microsoft Purview portal to ensure you have updated eDiscovery permissions.
 
 ### Task 2: Perform an eDiscovery Hold
 
 1.  From the taskbar, select **Microsoft Edge**.
 
-2.  In the address bar, enter **`https://compliance.microsoft.com`**, and then select Enter.
+2.  In the address bar, enter **`https://purview.microsoft.com`**, and then select Enter.
 
 3.  Sign in as **`username@ddmmyyyourinitialsContoso.onmicrosoft.com`** with the password **`Pa55w.rd1234`**. 
 
@@ -311,11 +302,11 @@ The main tasks for this exercise are as follows:
 
 4.  At the **Stay signed in** prompt, select **No**.
 
->**Note:** The Microsoft Purview compliance portal opens.
+>**Note:** The Microsoft Purview portal opens.
 
 5.  Complete and close any notification prompts that might display.
 
-6.  In the Microsoft Purview compliance portal, in the navigation pane, expand **eDiscovery**, and then select **Standard**.
+6.  In the Microsoft Purview portal, in the navigation pane, select **Solutions**, select **eDiscovery**, and then select **Standard Cases**.
 
 7.  On the **eDiscovery (Standard)** page, select **Create a case**.
 
@@ -349,7 +340,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 3: Perform an eDiscovery Search
 
-1.  In the Microsoft Purview compliance portal, on the **Alex Wilber eDiscovery** page, select the **Searches** tab.
+1.  In the Microsoft Purview portal, on the **Alex Wilber eDiscovery** page, select the **Searches** tab.
 
 2.  On the **Searches** tab, select **New search**.
 

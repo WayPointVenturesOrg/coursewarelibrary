@@ -4,14 +4,13 @@
 
 To efficiently manage an Exchange Online environment, you need to understand the foundational tasks of creating and managing recipient objects. This includes accounts related to users, resources, and contacts. It's also important to understand how various group types are created and managed in the Exchange organization. 
 
->**Important:** This lab requires students to first complete the **Module 1 lab: Exploring Microsoft 365 and Exchange Online administration portals**.
+>**Note:** This lab requires students to first complete the **Module 1 lab: Exploring Microsoft 365 and Exchange Online administration portals**.
 >
 >To assist with your sign-in process, enter your Microsoft 365 Tenant name, sign-in username, and password as follows:
 >
 >- **Microsoft 365 Tenant name (ddmmyyyourinitialsContoso.onmicrosoft.com):** 
 >- **Microsoft 365 Username (username@ddmmyyyourinitialsContoso.onmicrosoft.com):** 
 >- **Password:** Pa55w.rd1234
-
 ## Exercise 1: Assigning licenses and creating a new user mailbox
 
 ### Scenario
@@ -35,7 +34,7 @@ The main tasks for this exercise are as follows:
 
 4.  Sign in as **`username@ddmmyyyourinitialsContoso.onmicrosoft.com`** with the password **`Pa55w.rd1234`**. 
 
->**Note:** Use the credentials that you created in Exercise 1.
+>**Note:** Use the credentials that you created in Module 1.
 
 5.  At the **Stay signed in** prompt, select **No**.
 
@@ -49,7 +48,7 @@ The main tasks for this exercise are as follows:
 
 8.  In the Microsoft 365 admin center, use the navigation pane to expand **Users**, and then select **Active users**.
 
->**Important:** Notice the four new user accounts in addition to your Admin account. Also notice the Licenses column, which lists **Unlicensed** for the new users. Your Admin account should have Microsoft 365 E3 assigned.
+>**Note:** Notice the four new user accounts in addition to your Admin account. Also notice the Licenses column, which lists **Unlicensed** for the new users.
 
 9.  Select the checkboxes next to all of the users.
 
@@ -57,11 +56,11 @@ The main tasks for this exercise are as follows:
 
 11.  On the **Manage product licenses** page, verify that the five users are selected, and then select **Assign more**.
 
-12.  Select the checkbox for **Microsoft 365 E3**.
+12.  Select the checkbox for **Microsoft 365 E5 (no Teams)**.
 
 13.  Select **Save changes**, and then select **Done**.
 
->**Important:** Notice that all users are now assigned the Microsoft 365 E3 license.
+>**Note:** Notice that all users are now assigned the Microsoft 365 E5 (No teams) license. You may have to refresh the page to review the results.
 
 ### Task 2: Create a new user by using the Microsoft 365 admin center
 
@@ -85,7 +84,7 @@ The main tasks for this exercise are as follows:
 4.  On the **Assign product licenses** page, enter the following details, and then select **Next**:
 
     - **Select location:** Select the same location that you used when you signed up for the Microsoft 365 tenant.
-    - **Assign user a product license:** Select the **Microsoft 365 E3** checkbox.
+    - **Assign user a product license:** Select the **Microsoft 365 E5 (no Teams)** checkbox.
 
 5.  On the **Optional settings** page, expand the **Profile info** section.
 
@@ -93,7 +92,7 @@ The main tasks for this exercise are as follows:
 
 7.  On the **Review and finish** page, review your settings, select **Finish adding**, and then select **Close** on the confirmation page.
 
->**Note:** **Joni Sherman** should now display in the **Active users** list. Take note of Joni's username and the assigned licenses.
+>**Note:** **Joni Sherman** should now display in the **Active users** list. Take note of Joni's username and the assigned licenses. You may need to refresh the page to view the results.
 
 ### Task 3: Create a new user by using MS Graph for Windows PowerShell
 
@@ -139,7 +138,7 @@ The main tasks for this exercise are as follows:
 
 12.  In the Windows PowerShell ISE script pane, enter the following script, and then select **Run Script**: 
 
->[!alert] Be sure to enter the following in the script pane of the Windows PowerShell ISE. 
+>**Note:** Be sure to enter the following in the script pane of the Windows PowerShell ISE. 
 
 ```
 $PasswordProfile = @{Password = 'Pa55w.rd1234'}
@@ -160,12 +159,12 @@ New-MgUser -DisplayName "Raul Razo" -GivenName "Raul" -SurName "Razo" -UserPrinc
 14.  Open a new the Windows PowerShell ISE script pane, enter the following script, and then select **Run Script**: 
 
     ```
-    $e3Sku = Get-MgSubscribedSku -All | Where SkuPartNumber -eq 'SPE_E3'
+    $e5Sku = Get-MgSubscribedSku -All | Where SkuPartNumber -eq 'Microsoft_365_E5_(no_Teams)'
     $addLicenses = @(
-        @{SkuId = $e3Sku.SkuId})
+        @{SkuId = $e5Sku.SkuId})
     Set-MgUserLicense -UserId "Raul@ddmmyyyourinitialsContoso.onmicrosoft.com" -AddLicenses $addLicenses -RemoveLicenses @()
     ```
->**Note:** The command assigns the Microsoft 365 E3 license to Raul Razo.
+>**Note:** The command assigns the Microsoft 365 E5 license to Raul Razo.
 
 15.  Close Windows PowerShell ISE.
 
@@ -193,7 +192,7 @@ New-MgUser -DisplayName "Raul Razo" -GivenName "Raul" -SurName "Razo" -UserPrinc
 
     `Set-AdminAuditLogConfig -UnifiedAuditLogIngestionEnabled $true`
 
->**Important:** The command enables auditing. This setting take time to process and will be required during the remainder of the course.
+>**Note:** The command enables auditing. This setting take time to process and will be required during the remainder of the course.
 
 **Results:** After completing this exercise, you'll have created new users by using the Microsoft 365 admin center and Microsoft Graph for Windows PowerShell.
 
@@ -332,8 +331,7 @@ The main tasks for this exercise are as follows:
 
     - **Group email address:** `CloudMigration`@ddmmyyyourinitialsContoso.onmicrosoft.com
     - **Privacy:** Private
-    - **Create a team for this group:** Not selected
-
+    
 11.  On the **Review and finish adding group** page, review your settings, select **Create group**, and then select **Close** on the confirmation page.
 
 >**Note:** Verify that the **Cloud Migration Project** group is listed on the **Microsoft 365** tab. You might need to refresh the page.

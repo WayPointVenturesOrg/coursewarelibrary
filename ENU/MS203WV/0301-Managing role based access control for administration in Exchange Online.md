@@ -11,7 +11,6 @@ You need to review and validate role-based access control (RBAC) for the Exchang
 >- **Microsoft 365 Tenant name (ddmmyyyourinitialsContoso.onmicrosoft.com):** 
 >- **Microsoft 365 Username (username@ddmmyyyourinitialsContoso.onmicrosoft.com):** 
 >- **Password:** Pa55w.rd1234
-
 ## Exercise 1: Reviewing and assigning Admin Roles in Microsoft 365
 
 ### Scenario
@@ -66,9 +65,9 @@ The main tasks for this exercise are as follows:
 
 ### Task 2: Configure Security Groups for RBAC
 
-1.  In the Microsoft 365 admin center, on the navigation menu, expand **Teams & groups**, and then select **Active teams & groups**.
+1.  In the Microsoft 365 admin center, on the navigation menu, expand **Groups**, and then select **Active Groups**.
 
-2.  On the **Active teams & groups** page, select **Security groups**.
+2.  On the **Active groups** page, select **Security groups**.
 
 3.  On the **Security groups** tab, select **Add a security group**.
 
@@ -78,7 +77,7 @@ The main tasks for this exercise are as follows:
 
 6.  On the **Edit settings** page, select the checkbox for **Azure AD roles can be assigned to the group**, and then select **Next**.
 
->**Important:** This feature requires the Microsoft Entra ID P2 license. Once this setting is configured, role assignment is enabled for the group and cannot be disabled.
+>**Note:** This feature requires the Microsoft Entra ID P2 license. Once this setting is configured, role assignment is enabled for the group and cannot be disabled.
 
 7.  On the **Review and finish adding group** page, select **Create group**, and then select **Close**.
 
@@ -134,7 +133,7 @@ The main tasks for this exercise are as follows:
 
 6.  In the navigation menu, select **Show all**.
 
->**Note:** Notice that in the **Admin centers** section, only the **Exchange admin center** displays.
+>**Note:** Notice that in the **Admin centers** section, only the **Identity** and **Exchange admin center** Admin centers display.
 
 7.  In **Admin centers**, select **Exchange**.
 
@@ -239,7 +238,7 @@ The main tasks for this exercise are as follows:
 
 2.  On the **Admin roles** page, select **Add role group**.
 
->**Important:** If **Add role group** is not visible, be sure to deselect any Role groups that might be selected.
+>**Note:** If **Add role group** is not visible, be sure to deselect any Role groups that might be selected.
 
 3.  On the **Set up the basics** page, under **Name**, change the text to **`Research Help Desk`**.
 
@@ -402,11 +401,11 @@ The main tasks for this exercise are as follows:
 
 >**Note:** The My account control panel opens. However, it might take a minute or two to display.
 
-5.  On the **account** page, select **Edit information**.
+5.  On the **account** page, select **Manage information**.
 
-6.  On the account information for Joni Sherman, select **contact numbers**.
+6.  On the account information for Joni Sherman, select **Contact numbers** and then select **Manage contact numbers**.
 
-7.  In the **Home phone** field, enter **555-555-5555**, and then select **Save**.
+7.  In the **Home phone** field, enter **`555-555-5555`**, and then select **Save**.
 
 >**Note:** Joni is able to modify contact information because the **Default Role Assignment Policy** is assigned to the account.
 
@@ -422,14 +421,12 @@ The main tasks for this exercise are as follows:
 
 >**Note:** The My account control panel opens. However, it might take a minute or two to display.
 
-13.  On the **account** page, select **Edit information**.
+13.  On the **account** page, select **Manage information**.
 
-14.  On the account information for Megan Bowen, select **contact numbers**.
-
-15.  In the **Home phone** field, attempt to enter a phone number.
+14.  On the account information for Megan Bowen, select **Contact numbers** and then select **Manage contact numbers**.
 
 >**Note:** Megan is NOT able to modify contact information because the **Contoso Role Assignment Policy** is assigned to the account, which restricts the ability to modify personal information.
 
-16.  Close Microsoft Edge.
+15.  Close Microsoft Edge.
 
 **Results**: After completing this exercise, you'll have created and assigned a custom Role Assignment Policy.
