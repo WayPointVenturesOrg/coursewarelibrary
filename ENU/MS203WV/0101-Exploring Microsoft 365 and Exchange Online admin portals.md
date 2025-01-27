@@ -4,7 +4,16 @@
 
 You are the Microsoft 365 Messaging Administrator for a company named Contoso Inc. You need to deploy a new Microsoft 365 tenant to be used for email communication with Microsoft Exchange Online. Your goal for this lab is to provision the new tenant and explore the Microsoft 365 admin center and the Exchange admin center.
 
->**Note:** This course requires students to provision an Office 365 trial tenant. You will need a mobile phone and a valid credit card. Microsoft requires credit card verification during the trial tenant provisioning. No charges will be applied if recurred billing is disabled as instructed in the lab steps. Students who don't have a credit card can use the Microsoft 365 Developer program to apply for a trial. More details are available at [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program).
+>**Important Notice:**
+>
+>To participate in this course, you must set up an Office 365 trial tenant. Please be aware of the following requirements:
+>
+>- **Mobile Phone and Credit Card:** You will need both a mobile phone and a valid credit card. Microsoft requires credit card verification during the setup process. However, if you disable recurring billing as instructed in the lab steps, no charges will be applied.
+>- **No Credit Card?** If you don't have a credit card, you can apply for a trial through the Microsoft 365 Developer Program. More details are available [here](https://developer.microsoft.com/en-us/microsoft-365/dev-program).
+>
+>**Security Requirements:**
+>
+>Due to security measures, you may be required to install and configure the Microsoft Authenticator app on your mobile device. Instructions are provided during the configuration process if this is necessary.
 ## Exercise 1: Provisioning a Microsoft 365 trial tenant 
 
 ### Scenario
